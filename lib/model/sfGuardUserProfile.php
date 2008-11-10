@@ -80,7 +80,7 @@ class sfGuardUserProfile extends BasesfGuardUserProfile {
     }
 
     public function getFullDirection($public = true) {
-        $dir = "";
+        $dir = ", ";
         $dir .= (($this->getPublicStreet() || !$public) && $this->getStreet()) ? " , " . $this->getStreet() : '';
         $dir .= (($this->getPublicCode() || !$public) && $this->getCode()) ? "<br/>" . $this->getCode() : '<br/>';
         $dir .= (($this->getPublicCity() || !$public) && $this->getCity()) ? " - " . $this->getCity() : '';

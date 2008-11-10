@@ -31,7 +31,7 @@ sfGuardUserProfile:
     preferred_language: es_ES
 sfGuardGroup: 
   sfGuardGroup_1: 
-    name: admin
+    name: Admins
     description: Administrator group
   sfGuardGroup_2: 
     name: Members
