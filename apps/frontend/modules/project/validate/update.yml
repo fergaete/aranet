@@ -1,0 +1,17 @@
+fields:
+  project_name:
+    required:
+      msg:       The field cannot be left blank
+    sfStringValidator:
+      min:       2
+      min_error: This name is too short (2 characters minimum)
+      max:       100
+      max_error: This name is too long. (100 characters maximum)
+
+  client_name:
+    required:
+      msg:       Select a client
+
+  project_number:
+    required:
+      msg:       Enter a number for this project

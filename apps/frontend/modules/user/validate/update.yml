@@ -1,0 +1,21 @@
+fields:
+  username:
+    required:
+      msg:       Username is mandatory
+    sfPropelUniqueValidator:
+      class:        sfGuardUser
+      column:       username
+      unique_error: This username already exists. Please choose another one.
+  email:
+    required:
+      msg:       Please enter a valid email
+    sfEmailValidator:
+      strict:       true
+      email_error:  This email address is invalid
+  url:
+    sfUrlValidator:
+      url_error:    This URL is invalid
+  passwd2:
+    sfCompareValidator:
+      check:    passwd
+      compare_error: The two passwords do not match

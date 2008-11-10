@@ -1,0 +1,24 @@
+fillin:
+  enable: on
+fields:
+  expense_item_name:
+    required:
+      msg:       Enter a name for this expense
+    sfStringValidator:
+      min:       2
+      min_error: This name is too short (2 characters minimum)
+      max:       100
+      max_error: This name is too long. (100 characters maximum)
+
+  vendor_name:
+    required:
+      msg:       Select a vendor
+      
+  expense_item_base:
+    required:
+      msg:       Enter a cost amount
+
+  expense_purchase_date:
+    required:
+      msg:       Enter a valid date
+
