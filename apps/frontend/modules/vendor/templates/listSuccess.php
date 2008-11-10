@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List vendors')) ?>
+<?php aranet_title(__('List vendors')) ?>
 <h3>
 <?php if (isset($tag)) : 
  echo __('View all vendors tagged with "%1%"', array('%1%' => $tag));

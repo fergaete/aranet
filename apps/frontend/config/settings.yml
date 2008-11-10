@@ -86,7 +86,7 @@ all:
 #    web_debug_web_dir:      /sf/sf_web_debug
 #
 #    # Helpers included in all templates by default
-    standard_helpers:       [Partial, Form, Date, I18N, Text, Global, Validation]
+    standard_helpers:       [Partial, Form, Date, I18N, Text, Global, Validation, ARANet]
 #
 #    # Activated modules from plugins or from the symfony core
     enabled_modules:        [default, sfGuardAuth, sfPropelFileStorage, sfJpGraph]

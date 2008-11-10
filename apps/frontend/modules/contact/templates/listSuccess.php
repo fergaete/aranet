@@ -1,5 +1,5 @@
 <?php use_helper('Javascript', 'NumberExtended') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List contacts')) ?>
+<?php aranet_title(__('List contacts')) ?>
 <h3>
 <?php if (isset($tag)) : 
  echo __('View all contacts tagged with "%1%"', array('%1%' => $tag));

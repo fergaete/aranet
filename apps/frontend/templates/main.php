@@ -6,8 +6,8 @@
 <?php echo include_metas() ?>
 <?php echo include_title() ?>
 
-<link rel="shortcut icon" href="/images/<?php echo APP_ICON ?>" type="image/x-icon" />
-<link rel="icon" href="/images/<?php echo APP_ICON ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="/images/<?php echo ICON ?>" type="image/x-icon" />
+<link rel="icon" href="/images/<?php echo ICON ?>" type="image/x-icon" />
 <link rel="start" href="/" title="<?php echo __('Homepage') ?>"/>
 
 </head>

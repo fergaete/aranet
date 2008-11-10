@@ -14,7 +14,7 @@ CREATE TABLE `tag`
 (
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(100),
-	`is_triple` INTEGER(1 ),
+	`is_triple` INTEGER(1),
 	`triple_namespace` VARCHAR(100),
 	`triple_key` VARCHAR(100),
 	`triple_value` VARCHAR(100),

@@ -265,6 +265,9 @@ class dashboardActions extends sfActions
         sfConfig::set('sf_web_debug', false);
 
         //    In order to use fonts, you must define the location to your fonts:
+		if (defined('TTF_DIR')) {
+		    define('TTF_DIR', null);
+		}
         define('TTF_DIR', sfConfig::get('sf_data_dir') . '/fonts/');
 
         //------------------------------------------------------------------

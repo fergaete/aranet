@@ -3,10 +3,10 @@ default:
     content-type: "text/html; charset=utf-8"
 
   metas:
-    title:        "<?php echo TITLE ?>"
-    generator:    "<?php echo TITLE . ' (' . VERSION . ')' ?>"
+    title:        "<?php echo sfConfig::get('sf_title') ?>"
+    generator:    "<?php echo sfConfig::get('sf_title') . ' (' . VERSION . ')' ?>"
     robots:       no-index, no-follow
-    description:  "<?php echo DESCRIPTION ?>"
+    description:  "<?php echo sfConfig::get('sf_description') ?>"
     keywords:     ARANOVA, aranet
     language:     es
 

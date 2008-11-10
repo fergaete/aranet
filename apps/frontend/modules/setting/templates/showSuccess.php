@@ -1,4 +1,4 @@
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Setting %1%', array('%1%' => $sf_setting->getName()))) ?>
+<?php aranet_title(__('Setting %1%', array('%1%' => $sf_setting->getName()))) ?>
 <h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View setting details') ?> <span class="subText">(<?php echo $sf_setting->getName() ?>)</span></h3>
 
 <div id="settingDisplay" class="windowFrame">

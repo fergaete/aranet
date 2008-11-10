@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List clients')) ?>
+<?php aranet_title(__('List clients')) ?>
 <h3>
 <?php if (isset($tag)) : 
  echo __('View all clients tagged with "%1%"', array('%1%' => $tag));
