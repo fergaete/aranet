@@ -1,0 +1,105 @@
+= sfCompressWebFiles Plugin =
+
+sfCompressWebFiles is a symfony plugin that provides task's for compress (no bundle) CSS and JavaScript files that are within folders '''/web/css''' and '''/web/js''' with external libraries, as: YUI Compressor.
+
+Please, before use make sure you have a backup of all your files CSS and JavaScript.
+
+
+== Requirements ==
+  * The YUI Compressor requires Java version >= 1.4.
+
+
+== Installation ==
+
+  * Pear Installation
+  {{{
+  $ php symfony plugin-install http://plugins.symfony-project.com/sfCompressWebFilesPlugin
+  }}}
+
+  * SVN Installation [http://trac2.assembla.com/phpleo_labs/browser]
+  {{{
+  svn co http://svn2.assembla.com/svn/phpleo_labs/sfCompressWebFilesPlugin
+  }}}
+
+
+== Available Pake Task Commands ==
+  
+  * Compress both, CSS & JavaScript files:
+  {{{
+  symfony compress-web-files
+  }}}
+  or
+  {{{
+  symfony cwf
+  }}}
+
+  * Compress only CSS files:
+  {{{
+  symfony compress-web-files css
+  }}}
+  or
+  {{{
+  symfony cwf css
+  }}}
+
+  * Compress only JavaScript files:
+  {{{
+  symfony compress-web-files js
+  }}}
+  or
+  {{{
+  symfony cwf js
+  }}}
+
+
+== Files generated ==
+Once a task is executed generate a new file for each file CSS or JavaScript with extension '''.min.css''' or '''.min.js''', for example:
+  
+  {{{
+  web
+  |
+  |- css
+  |  |- main.css
+  |  |- main.min.css
+  |
+  |- js
+     |- jquery.js
+     |- jquery.min.js
+  }}}
+
+These files with the extension '''.min.css''' or '''.min.js''' contain the compressed code.
+
+If there are more folders within folders '''/web/css''' y '''/web/js''' with these files its kind also compress.
+
+
+== Configuration ==
+Inside the folder '''<my_project>/plugins/sfCompressWebFilesPlugin/config''' is the file '''compressWebFiles.yml''' which have comments for editing.
+
+If your what requieres can move the file '''compressWebFiles.yml''' to folder '''<my_project>/config'''
+
+
+== Acknowledgments ==
+  * Julien Lecomte - ([http://www.julienlecomte.net/yuicompressor/ YUI Compressor]) ([http://www.julienlecomte.net/blog/ Blog])
+
+
+== Contacts ==
+ * Pedro Hernández (phpleo [at] gmail [dot] com ), [http://blog.phpleo.com/ http://blog.phpleo.com/]
+
+
+== Inspiration ==
+
+  * [http://www.maxkiesler.com/index.php/weblog/comments/how_to_minimize_your_javascript_and_css_files_for_faster_page_loads/ How to minimize your javascript and css files for faster page loads]
+
+
+== TODO ==
+  * Add more compressors
+
+
+== Tickets ==
+  * No tickets for the moment
+
+
+== Changelog ==
+
+=== 2007-12-18 | 0.0.1 Alpha ===
+ * First public release.

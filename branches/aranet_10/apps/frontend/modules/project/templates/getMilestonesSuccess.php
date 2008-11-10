@@ -1,0 +1,1 @@
+<?php include_partial('project/milestone_select_list', array('project' => $project)) ?>

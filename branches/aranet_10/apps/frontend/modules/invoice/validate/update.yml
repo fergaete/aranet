@@ -1,0 +1,4 @@
+fields:
+  invoice_client_id:
+    required:
+      msg:       Select a client

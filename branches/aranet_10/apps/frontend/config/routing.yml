@@ -1,0 +1,72 @@
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+sf_guard_profile:
+  url:  /profile
+  param: { module: sfGuardUser, action: show }
+
+sf_guard_restringed:
+  url:  /restringed
+  param: { module: sfGuardAuth, action: restringed }
+
+# Mac OSX
+show_graphic:
+  url:  /dasboard/showGraphic/:graphic_id
+  param:  { module: dashboard, action: showGraphic }
+  
+# Performance
+show_client_by_id:
+  url:  /client/show/:id
+  param:  { module: client, action: show }
+show_vendor_by_id:
+  url:  /vendor/show/:id
+  param:  { module: vendor, action: show }
+show_project_by_id:
+  url:  /project/show/:id
+  param:  { module: project, action: show }
+show_budget_by_id:
+  url:  /budget/show/:id
+  param:  { module: budget, action: show }
+show_contact_by_id:
+  url:  /contact/show/:id
+  param:  { module: contact, action: show }
+edit_client_by_id:
+  url:  /client/edit/:id
+  param:  { module: client, action: edit }
+edit_vendor_by_id:
+  url:  /vendor/edit/:id
+  param:  { module: vendor, action: edit }
+edit_project_by_id:
+  url:  /project/edit/:id
+  param:  { module: project, action: edit }
+edit_budget_by_id:
+  url:  /budget/edit/:id
+  param:  { module: budget, action: edit }
+edit_contact_by_id:
+  url:  /contact/edit/:id
+  param:  { module: contact, action: edit }
+  
+# default rules
+homepage:
+  url:   /
+  param: { module: dashboard, action: index }
+
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
