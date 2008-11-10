@@ -1,27 +1,27 @@
 #summary instalación paso a paso
 #labels Phase-Deploy
 
-= Introducción =
+== Introducción ==
 
 El siguiente tutorial permitirá instalar y configurar la aplicación ARANet.
 
-= Requerimientos previos =
+== Requerimientos previos ==
 
 Se requiere un sistema (Windows/Linux o Mac) con:
   * Un servidor web (preferiblemente apache 2.x) con intérprete de PHP 5.1.x
   * Un servidor de bases de datos (preferiblemente MySQL 5.x)
 
-= Descarga del software =
+== Descarga del software ==
 
-== Para desarrolladores ==
+=== Para desarrolladores ===
 
 Descargar la aplicación del repositorio (ver pestaña "Source" para instrucciones). La rama estable, basada en las librerías symfony 1.0.x, se encuentran en branches/aranet_10 mientras que la rama en desarrollo, con las librerías 1.1.x, se pueden descargar del trunk.
 
-== Para usuarios ==
+=== Para usuarios ===
 
 Descargar el paquete ARANet_10-latest.zip de la pestaña "Downloads" y descomprimirlo en una carpeta que pueda tener acceso el servidor web, por ejemplo en c:\ARANet
 
-= Comprobaciones previas = 
+== Comprobaciones previas ==
 
 Desde una interfaz de comandos, en la carpeta dónde se haya descomprimido la aplicación, ejecutar:
 {{{php symfony --version}}}
@@ -31,7 +31,7 @@ php symfony fix-perms   # Para reparar los permisos de lectura/escritura de los 
 }}}
 Si todo ha ido bien, podrá pasarse al siguiente punto.
 
-= Configuración del servidor web =
+== Configuración del servidor web ==
 
 Se debe crear y configurar en apache un host virtual para que ARANet pueda funcionar correctamente, para esto:
   # Editar el fichero hosts (en Windows en C:\WINDOWS\system32\drivers\etc\) y añadir el nombre del host a usar. Por ejemplo, si se quiere acceder mediante http://aranet.local, se añadirá aranet.local a la derecha de la ip 127.0.0.1
@@ -65,11 +65,11 @@ LoadModule rewrite_module modules/mod_rewrite.so
 }}}
   # Reiniciar el servidor web
 
-= Creación y configuración de la base de datos =
+== Creación y configuración de la base de datos ==
 
 ARANet puede utilizar numerosos motores de bases de datos (todos los soportados por Creole), pero por tratarse de una aplicación profesional, se recomienda usar MySQL, PostgreSQL o Microsoft SQL Server.
 
-== En MySQL ==
+=== En MySQL ===
   # Crear la base de datos con:
 {{{
 mysqladmin -u youruser -pyourpassword create aranet
@@ -84,7 +84,7 @@ all:
 }}}
 Es muy importante respetar los tabuladores y usar espacios y no tabulaciones al editar los ficheros yml.
 
-= Crear el modelo, las tablas e insertar los datos básicos =
+== Crear el modelo, las tablas e insertar los datos básicos ==
 
 Se deberán ejecutar los siguientes comandos:
   # `php symfony propel-build-model # genera las clases base a partir del modelo (schema.yml`
