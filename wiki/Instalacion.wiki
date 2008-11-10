@@ -84,15 +84,10 @@ all:
 }}}
 Es muy importante respetar los tabuladores y usar espacios y no tabulaciones al editar los ficheros yml.
 
-== Crear el modelo, las tablas e insertar los datos básicos ==
+== Instalar ARANet ==
 
-Se deberán ejecutar los siguientes comandos:
-  # `php symfony propel-build-model # genera las clases base a partir del modelo (schema.yml`
-  # `php symfony propel-build-sql # genera archivos de sentencias SQL en data/sql`
-  # `php symfony propel-insert-sql # inserta las sentencias SQL generadas`
-  # `php symfony cc # borra la cache`
+Para instalar la aplicación se deberá ejecutar el comando `php symfony install-aranet`
 
-También puede ejecutarse todo 
 Si todo ha ido bien, al finalizar se podrá acceder a la url http://aranet.local, que mostrará un panel de login.
 
 Nota: Para asegurarse que todo está bien, puede accederse a la dirección http://aranet.local/frontend_dev.php que mostrará todo tipo de errores e información de debug.
