@@ -4,7 +4,7 @@
 * you can use include_once 'symfony/addon/propel/builder/SfObjectBuilder.php'
 * @author     Boris Duin
  */
-include_once 'symfony/addon/propel/builder/SfObjectBuilder.php';
+include_once dirname(__FILE__).'/vendor/symfony/lib/addon/propel/builder/SfObjectBuilder.php';
 class SfObjectAdvBuilder extends SfObjectBuilder
 {
 

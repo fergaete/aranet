@@ -1,7 +1,7 @@
 sfSetting:
   version:
     name:    VERSION
-    value:   0.9.10
+    value:   0.9.25
     env:     all
     description: Project version
   temp_path:
@@ -24,11 +24,6 @@ sfSetting:
     value:   http://www.aranova.es
     env:     all
     description: Company url
-  app_title: 
-    name:    TITLE
-    value:   ARANet Backoffice Web Management
-    env:     all
-    description: Full title application
   app_icon:
     name:    ICON
     value:   aranova.ico
@@ -36,7 +31,7 @@ sfSetting:
     description: Application icon
   app_home_url:
     name:    HOME_URL
-    value:   http://anet.aranova-it.com
+    value:   http://aranet.aranova-it.com
     env:     all
     description: Application site url
   charset:
@@ -44,11 +39,6 @@ sfSetting:
     value:   utf-8
     env:     all
     description: Charset
-  app_description:
-    name:    DESCRIPTION
-    value:   Aplicación web de gestión, control y organización de ARANOVA
-    env:     all
-    description: Application description
   margin_model:
     name:    MARGIN_MODEL
     value:   sales
@@ -66,7 +56,7 @@ sfSetting:
     description: Mail user
   smtp_mail_password:
     name:    SMTP_MAIL_PASSWORD
-    value:   pabdan
+    value:   xxxxx
     env:     all
     description: Mail password
   mail_from:
@@ -99,4 +89,3 @@ sfSetting:
     value:   0
     env:     all
     description:  Show login demo information
-
