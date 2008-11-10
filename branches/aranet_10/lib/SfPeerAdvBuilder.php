@@ -108,5 +108,27 @@ class SfPeerAdvBuilder extends SfPeerBuilder
 
         $script .= $temp;
     }
+    
+    protected function addDoSelectRS(&$script)
+      {
+        $tmp = '';
+        parent::addDoSelectRS($tmp);
+
+        if (DataModelBuilder::getBuildProperty('builderAddBehaviors'))
+        {
+          $mixer_script = "
+
+        foreach (sfMixer::getCallables('{$this->getClassname()}:doSelectRS:doSelectRS') as \$callable)
+        {
+          call_user_func(\$callable, '{$this->getClassname()}', \$criteria, \$con);
+        }
+
+    ";
+          $tmp = preg_replace('/{/', '{'.$mixer_script, $tmp, 1);
+        }
+
+        $script .= $tmp;
+    }
+    
 }
 ?>
