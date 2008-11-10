@@ -1,5 +1,5 @@
 <?php use_helper('Object', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List projects')) ?>
+<?php aranet_title(__('List projects')) ?>
 <h3>
 <?php if (isset($tag)) : 
  echo __('View all projects tagged with "%1%"', array('%1%' => $tag));

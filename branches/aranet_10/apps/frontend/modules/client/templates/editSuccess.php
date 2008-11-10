@@ -4,7 +4,7 @@
 } else {
     $title = __('Edit client %1%', array('%1%' => $client->__toString()));
 } ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . $title) ?>
+<?php aranet_title($title) ?>
 <div class="windowHead"><span class="windowHeadTitle"><?php echo $title ?></span>
 <div class="windowControls"></div>
 </div>

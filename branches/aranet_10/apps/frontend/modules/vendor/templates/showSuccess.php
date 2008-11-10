@@ -1,5 +1,5 @@
 <?php use_helper('Javascript', 'Number') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Vendor %1%', array('%1%' => $vendor))) ?>
+<?php aranet_title(__('Vendor %1%', array('%1%' => $vendor))) ?>
 <h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View vendor details') ?> <span class="subText">(<?php echo $vendor->__toString() ?>)</span></h3>
 
 <div id="vendorDisplay" class="windowFrame">

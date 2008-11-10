@@ -1,5 +1,5 @@
 <?php use_helper('Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List settings')) ?>
+<?php aranet_title(__('List settings')) ?>
 <h3><?php echo __('View all settings') ?></h3>
 <?php echo form_tag('setting/deleteall', 'name="chklist"') ?>
 <div id="settingDisplay" class="windowFrame">

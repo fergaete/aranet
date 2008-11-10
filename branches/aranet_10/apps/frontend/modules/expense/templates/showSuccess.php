@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Show expense')) ?>
+<?php aranet_title(__('Show expense')) ?>
 <?php
     $tax_rate = ext_format_number($expense_item->getExpenseItemTaxRate(), 2);
     $subtotal = $expense_item->getExpenseItemAmount();

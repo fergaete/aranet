@@ -1,5 +1,5 @@
 <?php use_helper('Object', 'DateForm', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List expenses')) ?>
+<?php aranet_title(__('List expenses')) ?>
 <div id="expListActions" class="listTopActions">
     <ul>
     <li>

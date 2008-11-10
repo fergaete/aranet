@@ -1,5 +1,5 @@
 <?php use_helper('Object', 'DateForm', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List timesheet records')) ?>
+<?php aranet_title(__('List timesheet records')) ?>
 <h3>
 <?php if (isset($tag)) : 
  echo __('View all timesheet records tagged with "%1%"', array('%1%' => $tag));

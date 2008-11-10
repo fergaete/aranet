@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Budget %1%', array('%1%' => $budget))) ?>
+<?php aranet_title(__('Budget %1%', array('%1%' => $budget))) ?>
 
 <h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View budget details') ?> <span class="subText">(<?php echo $budget->__toString() . ' - ' . $budget->getBudgetTitle() ?>)</span></h3>
 
