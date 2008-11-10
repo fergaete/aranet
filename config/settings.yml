@@ -1,2 +1,3 @@
-#
-#all: 
+all: 
+  title:  ARANet Backoffice Web Management
+  description: Aplicación web de gestión, control y organización de ARANOVA
