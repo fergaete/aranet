@@ -76,8 +76,14 @@ CREATE TABLE `sf_guard_user`
 	`last_login` DATETIME,
 	`is_active` INTEGER default 1 NOT NULL,
 	`is_super_admin` INTEGER default 0 NOT NULL,
+	`deleted_at` DATETIME,
+	`deleted_by` INTEGER default null,
 	PRIMARY KEY (`id`),
-	UNIQUE KEY `sf_guard_user_username_unique` (`username`)
+	UNIQUE KEY `sf_guard_user_username_unique` (`username`),
+	INDEX `sf_guard_user_FI_1` (`deleted_by`),
+	CONSTRAINT `sf_guard_user_FK_1`
+		FOREIGN KEY (`deleted_by`)
+		REFERENCES `sf_guard_user` (`id`)
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------

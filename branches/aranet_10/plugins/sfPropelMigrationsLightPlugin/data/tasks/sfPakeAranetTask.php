@@ -1,7 +1,7 @@
 <?php
 
 pake_desc('build and install ARANet');
-pake_task('install-aranet', 'project_exists', 'propel-build-model', 'propel-build-sql', 'propel-insert-sql');
+pake_task('install-aranet', 'project_exists', 'clear-cache', 'propel-build-model', 'propel-build-sql', 'propel-insert-sql');
 
 function run_install_aranet($task, $args)
 {
@@ -14,6 +14,7 @@ function run_install_aranet($task, $args)
   $currentVersion = $migrator->getCurrentVersion();
   _executeQuery("UPDATE `schema_info` SET `version` = '".(int)$migrator->getMaxVersion()."'");
   $currentVersion = $migrator->getCurrentVersion();
+  sfSettingsTools::clearCache();
   pake_echo_action("install_aranet", "installed schema version " . $currentVersion);
 }
 

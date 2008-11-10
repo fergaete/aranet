@@ -25,7 +25,7 @@
 </tr>
 <tr>
   <td class="actionsCol"></td>
-  <td class="leftCol"><label><?php echo __('Password') ?></label></td>
+  <td class="leftCol"><label class="required"><?php echo __('Password') ?></label></td>
   <td class="rightCol">
       <?php echo form_error('passwd') ?>
       <?php echo input_password_tag('passwd', "", array("size" => "30", "class" => "form-text")) ?>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
   <td class="actionsCol"></td>
-  <td class="leftCol"><label><?php echo __('Repeat password') ?></label></td>
+  <td class="leftCol"><label class="required"><?php echo __('Repeat password') ?></label></td>
   <td class="rightCol">
       <?php echo form_error('passwd2') ?>
       <?php echo input_password_tag('passwd2', "", array("size" => "30", "class" => "form-text")) ?>
@@ -44,7 +44,7 @@
   <td class="leftCol"><label class="required"><?php echo __('Email') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('email') ?>
-    <?php echo object_input_tag($sf_guard_user_profile, 'getEmail', array (
+    <?php echo input_tag('email', ($sf_guard_user_profile->getEmail(false)) ? $sf_guard_user_profile->getEmail(false) : $sf_params->get('email'), array (
   'size' => 80, 'class' => 'form-text'
 )) ?>
   </td>

@@ -131,12 +131,12 @@ class userActions extends myActions
         }
         // Check group
         $c = new Criteria();
-        $c->add(sfGuardGroupPeer::NAME, 'member');
+        $c->add(sfGuardGroupPeer::NAME, 'Members');
         $group = sfGuardGroupPeer::doSelectOne($c);
         if (!$group) {
             // Create group
             $group = new sfGuardGroup();
-            $group->setName('member');
+            $group->setName('Members');
             $group->save();
             $groupperm = new sfGuardGroupPermission();
             $groupperm->setGroupId($group->getId());
@@ -144,12 +144,13 @@ class userActions extends myActions
             $groupperm->save();
         }
         // Join user to users group
-        $groupuser = new sfGuardUserGroup();
-        $groupuser->setUserId($user->getId());
+        $c = new Criteria();
         $gu = sfGuardUserGroupPeer::retrieveByPK($group->getId(), $user->getId());
         if (!$gu) {
-            $groupuser->setGroupId($group->getId());
-            $groupuser->save();
+          $groupuser = new sfGuardUserGroup();
+          $groupuser->setUserId($user->getId());
+          $groupuser->setGroupId($group->getId());
+          $groupuser->save();
         }
 
         return $this->redirect('user/show?id='.$sf_guard_user_profile->getId());
@@ -158,13 +159,15 @@ class userActions extends myActions
     public function executeDelete()
     {
         $sf_guard_user_profile = sfGuardUserProfilePeer::retrieveByPk($this->getRequestParameter('id'));
-
+        
         $this->forward404Unless($sf_guard_user_profile);
 
         $user = sfGuardUserPeer::retrieveByPk($sf_guard_user_profile->getUserId());
-
         $user->delete();
         $sf_guard_user_profile->delete();
+        $users = sfGuardUserPeer::doCount(new Criteria());
+        echo $users;die();
+        
         if (!$this->getRequest()->isXmlHttpRequest())
             return $this->redirect('user/list');
         else
