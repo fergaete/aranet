@@ -32,7 +32,7 @@
   <td class="actionsCol"></td>
   <td class="leftCol"><label class="required"><?php echo __('Expense vendor') ?></label></td>
   <td class="rightCol">
-    <?php echo form_error('expense_item_vendor_id') ?>
+    <?php echo form_error('vendor_name') ?>
     <?php
     if ($sf_params->get('vendor_id')) {
         $vendor_id = $sf_params->get('vendor_id');
@@ -57,11 +57,11 @@
         $vendor = __('Vendor') . '...';
         $vendor_id = -1;
     } ?>
-    <?php echo javascript_tag("function getVendor(text, li){ $('expense_item_vendor_id').value = li.id; }") ?>
+    <?php echo javascript_tag("function getVendor(text, li){ $('expense_item_vendor_id').value = li.id }") ?>
       <?php echo input_hidden_tag('expense_item_vendor_id', $vendor_id) ?>
     <?php echo input_auto_complete_tag('vendor_name', $vendor,
                     'vendor/autocomplete',
-                    array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""'),
+                    array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'if (this.value == "'.__('Vendor').'...") { this.value=""}'),
                     array('use_style'    => true,
                         'after_update_element' => 'getVendor')
                     ) ?><br/>
@@ -86,7 +86,7 @@
   <td class="rightCol">
       <label><?php echo __('Date') ?></label>
         <?php echo form_error('expense_purchase_date') ?>
-        <?php echo input_date_tag('expense_purchase_date', $sf_params->get('expense_purchase_date') ? $sf_params->get('expense_purchase_date') : $expense_item->getExpensePurchaseDate(), array (
+        <?php echo input_date_tag('expense_purchase_date', $sf_params->get('expense_purchase_date') ? date('Y-d-m', strtotime($sf_params->get('expense_purchase_date'))) : $expense_item->getExpensePurchaseDate(), array (
             'rich' => true,
             'class' => $sf_request->getError('expense_purchase_date') ? 'form-date err' : 'form-date')) ?>
       <label><?php echo __('By') ?></label>

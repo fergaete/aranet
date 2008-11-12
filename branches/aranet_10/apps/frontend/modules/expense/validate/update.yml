@@ -17,6 +17,10 @@ fields:
   expense_item_base:
     required:
       msg:       Enter a cost amount
+    sfNumberValidator:
+      nan_error: Enter a number
+      min:       0
+      min_error: Enter a valid amount
 
   expense_purchase_date:
     required:

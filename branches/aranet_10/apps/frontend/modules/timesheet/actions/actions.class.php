@@ -34,6 +34,17 @@ class timesheetActions extends myActions
         return sfView::SUCCESS;
     }
 
+    public function handleErrorUpdate()
+    {
+        $this->forward('timesheet', 'edit');
+    }
+
+    public function handleErrorEdit()
+    {
+        $this->executeEdit();
+        return sfView::SUCCESS;
+    }
+    
     public function executeEdit()
     {
         $c = new Criteria();
@@ -125,8 +136,15 @@ class timesheetActions extends myActions
             if ($save_timesheet) {
                 $timesheet->setTimesheetHours($number);
                 $timesheet->setTimesheetUserId($this->getRequestParameter('timesheet_user_id') ? $this->getRequestParameter('timesheet_user_id') : $this->getUser()->getGuardUser()->getId());
-                $timesheet->setTimesheetProjectId($this->getRequestParameter('timesheet_project_id') ? $this->getRequestParameter('timesheet_project_id') : null);
                 $timesheet->setTimesheetBudgetId($this->getRequestParameter('timesheet_budget_id') ? $this->getRequestParameter('timesheet_budget_id') : null);
+                if ($this->getRequestParameter('timesheet_project_id')) {
+                  $timesheet->setTimesheetProjectId($this->getRequestParameter('timesheet_project_id'));
+                } elseif ($this->getRequestParameter('timesheet_budget_id')) {
+                  $budget = BudgetPeer::retrieveByPk($this->getRequestParameter('timesheet_budget_id'));
+                  $timesheet->setTimesheetProjectId($budget->getBudgetProjectId());
+                } else {
+                  $timesheet->setTimesheetProjectId(null);
+                }
                 $timesheet->setTimesheetIsBillable($this->getRequestParameter('timesheet_is_billable', 0));
                 $timesheet->setTimesheetTypeId($this->getRequestParameter('timesheet_type_id') ? $this->getRequestParameter('timesheet_type_id') : null);
                 if ($this->getRequestParameter('timesheet_date'))

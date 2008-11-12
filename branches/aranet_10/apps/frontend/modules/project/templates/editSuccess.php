@@ -23,7 +23,7 @@
   <?php $cli = ($project->getProjectClientId()) ? $project->getClient()->getFullName(false) : '';
   $cli = (!$cli && $sf_params->get('client_id')) ? ClientPeer::retrieveByPk($sf_params->get('client_id')) : __('Client') . '...' ?>
   <?php echo javascript_tag("function getClient(text, li){ $('project_client_id').value = li.id; }") ?>
-  <?php echo input_hidden_tag('project_client_id', ($project->getProjectClientId()) ? $project->getProjectClientId() : '') ?>
+  <?php echo input_hidden_tag('project_client_id', ($cli) ? $cli->getId() : '') ?>
   <?php echo input_auto_complete_tag('client_name', ($sf_params->get('client_name')) ? $sf_params->get('client_name') : $cli,
                     'client/autocomplete',
                     array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""'),

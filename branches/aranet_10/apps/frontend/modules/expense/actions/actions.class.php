@@ -144,6 +144,15 @@ class expenseActions extends myActions
             $vendor_id = $vendor->getId();
         } else {
             $vendor_id = $this->getRequestParameter('expense_item_vendor_id');
+            $name = $this->getRequestParameter('vendor_name');
+            $vendor = VendorPeer::retrieveByPK($vendor_id);
+            if (!$vendor || $vendor->getVendorUniqueName() != $name) {
+              $vendor = new Vendor();
+              $vendor->setVendorCompanyName($this->getRequestParameter('vendor_name'));
+              $vendor->setVendorUniqueName($this->getRequestParameter('vendor_name'));
+              $vendor->save();
+              $vendor_id = $vendor->getId();
+            }
         }
         $expense_item->setExpenseItemVendorId($vendor_id);
         $expense_item->setId($this->getRequestParameter('id'));
