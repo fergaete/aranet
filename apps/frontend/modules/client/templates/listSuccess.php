@@ -59,7 +59,7 @@ endif ?>
                         </ul>
                     </div>
                 </td>
-                <td><?php echo link_to($client->getClientCompanyName(), '@show_client_by_id?id='.$client->getId()) ?></td>
+                <td><?php echo link_to($client->getFullName(), '@show_client_by_id?id='.$client->getId()) ?></td>
                 <?php $dcontact = $client->getDefaultContact() ?>
                 <td style="vertical-align: top;"><?php if ($dcontact) : ?>
 <?php echo link_to($dcontact, '@show_contact_by_id?id=' . $dcontact->getId()) ?>

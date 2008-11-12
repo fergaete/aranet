@@ -2340,7 +2340,7 @@
 
 <trans-unit id="485">
 <source>Enter a number for this invoice</source>
-<target>Número para esta factura</target>
+<target>Introduzca un número para esta factura</target>
 </trans-unit>
 
 <trans-unit id="486">
@@ -2757,6 +2757,33 @@
 <source>The two passwords do not match</source>
 <target>Las dos contraseñas no coinciden</target>
 </trans-unit>
+
+<trans-unit id="570">
+<source>Enter a valid number</source>
+<target>Introduzca un número válido</target>
+</trans-unit>
+
+<trans-unit id="571">
+<source>Enter a description</source>
+<target>Introduzca una descripción</target>
+</trans-unit>
+
+<trans-unit id="572">
+<source>Enter a title</source>
+<target>Introduzca un título</target>
+</trans-unit>
+
+<trans-unit id="573">
+<source>Enter a valid vendor</source>
+<target>Introduzca un proveedor</target>
+</trans-unit>
+
+<trans-unit id="574">
+<source>Enter a number</source>
+<target>Introduzca un número</target>
+</trans-unit>
+
+
 </body>
   </file>
 </xliff>

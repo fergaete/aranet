@@ -301,7 +301,7 @@ class myTools
         return $keep_key_assoc ? $array : array_values($array);
     }
 
-    function count_array($strPattern, $arrInput){
+    public static function count_array($strPattern, $arrInput){
         $arrReturn = preg_grep($strPattern, $arrInput);
         return (count($arrReturn));
     }

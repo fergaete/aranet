@@ -30,8 +30,7 @@ var myMenu =
         ],
         [null,'<?php echo __('Timesheets') ?>',null,null,null,
             ['<?php echo image_tag('icons/list.png');?>','<?php echo __('View all timesheets') ?>','<?php echo url_for('/timesheet/list');?>','_self',null],
-            ['<?php echo image_tag('icons/create.png');?>','<?php echo __('Add new timesheet') ?>','<?php echo url_for('/timesheet/create');?>','_self',null],
-            ['<?php echo image_tag('icons/report.png');?>','<?php echo __('Timesheet reports') ?>','<?php echo url_for('/timesheet/report');?>','_self',null]
+            ['<?php echo image_tag('icons/create.png');?>','<?php echo __('Add new timesheet') ?>','<?php echo url_for('/timesheet/create');?>','_self',null]
         ],
     ],
     _cmSplit,
@@ -51,8 +50,7 @@ var myMenu =
         [null,'<?php echo __('Cash') ?>',null,null,null,
             ['<?php echo image_tag('icons/money_list.png');?>','<?php echo __('View all cash movements') ?>','<?php echo url_for('/cash/list');?>','_self',null],
             ['<?php echo image_tag('icons/money_create.png');?>','<?php echo __('Add new cash movement') ?>','<?php echo url_for('/cash/create');?>','_self',null]
-        ],
-        ['<?php echo image_tag('icons/report.png');?>','<?php echo __('Finance reports') ?>','<?php echo url_for('/finance/report');?>','_self',null],
+        ]
     ],
     _cmSplit,
     [null,'<?php echo __('Members') ?>',null,null,null,
@@ -66,7 +64,7 @@ var myMenu =
 <?php if ($sf_user->hasCredential('admin')) { ?>
     _cmSplit,
     [null,'<?php echo __('Administration') ?>',null,null,null,
-        ['<?php echo image_tag('icons/list.png');?>','<?php echo __('Configuration') ?>','<?php echo url_for('/setting/list');?>','_self',null],
+        [null, '<?php echo __('Configuration') ?>','<?php echo url_for('/setting/list');?>','_self',null],
     ],
 <?php } ?>
     _cmSplit,

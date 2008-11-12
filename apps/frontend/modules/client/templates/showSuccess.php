@@ -47,13 +47,13 @@
     </table>
 </div>
 
-<div class="clientHeader"><div class="headerProjects"><?php echo __('Projects (#%1%)', array('%1%' => count($client->getProjectsJoinProjectStatus()))) ?></div>
+<div class="clientHeader"><div class="headerProjects"><?php echo __('Projects (#%1%)', array('%1%' => count($client->getProjects()))) ?></div>
 <div class="windowControlsDashboard">
     <span><?php echo link_to(image_tag('button_add.gif', __('Create new project')), "/project/create?client_id=" . $client->getId()) ?></span>
     <span id="clientViewProjectsRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'clientViewProjects') . visual_effect('appear', 'clientViewProjectsRollDown') . visual_effect('fade', 'clientViewProjectsRollUp')) ?></span>
     <span id="clientViewProjectsRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'clientViewProjects') . visual_effect('appear', 'clientViewProjectsRollUp') . visual_effect('fade', 'clientViewProjectsRollDown')) ?></span>
 </div></div>
-<?php include_partial('project/project_list', array('projects' => $client->getProjectsJoinProjectStatus(), 'id' => 'clientViewProjects')) ?>
+<?php include_partial('project/project_list', array('projects' => $client->getProjects(), 'id' => 'clientViewProjects')) ?>
 
 <div class="clientHeader"><div class="headerBudgets"><?php echo __('Budgets (#%1%)', array('%1%' => count($client->getLastBudgetsOrderedByDate()))) ?></div>
 <div class="windowControlsDashboard">

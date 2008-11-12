@@ -42,7 +42,7 @@ class Invoice extends BaseInvoice
             if ($invoice) {
                 $this->setInvoiceNumber(sprintf(INVOICE_NUMBER_FORMAT, $invoice->getInvoiceNumber()+1));
             } else {
-                $this->setInvoiceNumber(sprintf(INVOICE_NUMBER_FORMAT, INVOICE_FIST_NUMBER));
+                $this->setInvoiceNumber(sprintf(INVOICE_NUMBER_FORMAT, INVOICE_FIRST_NUMBER));
             }
             $this->setInvoiceDate(date('Y-m-d'));
             $this->setInvoiceClientId($object->getBudgetClientId());

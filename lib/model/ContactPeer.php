@@ -98,6 +98,7 @@ class ContactPeer extends BaseContactPeer
             foreach($params['contact'] as $contact) {
                 // Process contact information
                 $save_contact = false;
+                $con = null;
                 if (isset($contact['id']) && $contact['id'] ) {
                     $con = ContactPeer::retrieveByPK($contact['id']);
                 }
@@ -144,9 +145,11 @@ class ContactPeer extends BaseContactPeer
                     }
                     if (isset($params['address']) && !$con->getAddresses()) {
                         $addresses = AddressPeer::processAddress($params);
-                        foreach ($addresses as $address) {
+                        if ($addresses) {
+                          foreach ($addresses as $address) {
                             $con->addAddress($address);
                             $save_contact = true;
+                          }
                         }
                     }
                     if ($save_contact) {
