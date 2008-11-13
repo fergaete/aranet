@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.6" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+  <name>sfCompressWebFilesPlugin</name>
+  <channel>pear.symfony-project.com</channel>
+  <summary>Provides tasks for compress CSS and JavaScript files (not bundle) with YUI Compressor.</summary>
+  <description>sfCompressWebFiles is a symfony plugin that provides task's for compress (no bundle) CSS and JavaScript files that are within folders /web/css and /web/js with external libraries, as: YUI Compressor.</description>
+  <lead>
+    <name>Pedro Hernandez Poemape</name>
+    <user>phpleo</user>
+    <email>phpleo [at] gmail [dot] com</email>
+    <active>yes</active>
+  </lead>
+  <date>2007-12-19</date>
+  <time>01:02:15</time>
+  <version>
+    <release>0.0.1</release>
+    <api>0.0.1</api>
+  </version>
+  <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+  </stability>
+  <license uri="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+  <notes>-</notes>
+  <contents>
+    <dir name="/">
+      <dir name="config">
+        <file name="compressWebFiles.yml" role="data" />
+      </dir>
+      <dir name="data">
+        <dir name="tasks">
+          <file name="sfPakeCompressWebFiles.php" role="data" />
+        </dir>
+      </dir>
+      <dir name="lib">
+        <dir name="phpleo">
+          <dir name="files">
+            <file name="CompressWebFiles.class.php" role="data" />
+            <file name="FindFilesBy.class.php" role="data" />
+            <file name="RunCompressWebFiles.class.php" role="data" />
+          </dir>
+        </dir>
+        <dir name="YUICompressor">
+          <file name="LICENSE" role="data" />
+          <file name="yuicompressor-2.2.5.jar" role="data" />
+        </dir>
+      </dir>
+      <dir name="modules">
+        <dir name="sfCompressWebFiles">
+          <dir name="actions">
+            <file name="actions.class.php" role="data" />
+          </dir>
+          <dir name="templates">
+            <file name="indexSuccess.php" role="data" />
+          </dir>
+        </dir>
+      </dir>
+      <file name="LICENSE" role="data" />
+      <file name="README" role="data" />
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.1.0</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.1</min>
+      </pearinstaller>
+      <package>
+        <name>symfony</name>
+        <channel>pear.symfony-project.com</channel>
+        <min>1.0.6</min>
+        <max>1.1.0</max>
+        <exclude>1.1.0</exclude>
+      </package>
+    </required>
+  </dependencies>
+  <phprelease />
+  <changelog />
+</package>
