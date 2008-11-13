@@ -1,0 +1,4 @@
+fields:
+  cash_item_amount:
+    sfNumberValidator:
+      nan_error:    Please enter a number

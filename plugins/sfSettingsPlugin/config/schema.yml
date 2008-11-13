@@ -1,0 +1,13 @@
+propel: 
+
+  _attributes:    { package: plugins.sfSettingsPlugin.lib.model }
+
+  sf_setting:
+    _attributes:     { phpName: sfSetting }
+    id:
+    env:             { type: varchar(10) }
+    name:            { type: varchar(40) }
+    value:           { type: longvarchar }
+    description:     { type: varchar(255) }
+    created_at: 
+    updated_at: 
