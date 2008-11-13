@@ -13,11 +13,24 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfGuardSecurityUser.class.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id: sfGuardSecurityUser.class.php 10134 2008-07-05 12:20:24Z fabien $
  */
 class sfGuardSecurityUser extends sfBasicSecurityUser
 {
-  private $user = null;
+  protected
+    $user = null;
+
+  public function initialize($context, $parameters = array())
+  {
+    parent::initialize($context, $parameters);
+
+    if (!$this->isAuthenticated())
+    {
+      // remove user if timeout
+      $this->getAttributeHolder()->removeNamespace('sfGuardSecurityUser');
+      $this->user = null;
+    }
+  }
 
   public function hasCredential($credential, $useAnd = true)
   {

@@ -347,5 +347,3 @@ function format_indicator($indicator) {
     eval("\$str = " . $script . ";");
     return $str;
 }
-
-?>

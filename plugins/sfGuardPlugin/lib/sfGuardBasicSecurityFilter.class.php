@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfGuardBasicSecurityFilter.class.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id$
  */
 class sfGuardBasicSecurityFilter extends sfBasicSecurityFilter
 {

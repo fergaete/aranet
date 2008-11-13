@@ -80,11 +80,32 @@ class sfGuardUserProfile extends BasesfGuardUserProfile {
     }
 
     public function getFullDirection($public = true) {
-        $dir = ", ";
-        $dir .= (($this->getPublicStreet() || !$public) && $this->getStreet()) ? " , " . $this->getStreet() : '';
-        $dir .= (($this->getPublicCode() || !$public) && $this->getCode()) ? "<br/>" . $this->getCode() : '<br/>';
-        $dir .= (($this->getPublicCity() || !$public) && $this->getCity()) ? " - " . $this->getCity() : '';
-        if ($dir) {
+        $dir = '';
+        $dir .= (($this->getPublicStreet() || !$public) && $this->getStreet()) ? $this->getStreet() : '';
+        $aux = ($dir) ? '<br/>' : '';
+        $code = (($this->getPublicCode() || !$public) && $this->getCode()) ? $this->getCode() : '';
+        if (($this->getPublicCity() || !$public) && $this->getCity()) {
+          if ($code) 
+            $dir .= $aux . $code . " - " . $this->getCity();
+          else
+            $dir .= $aux . $this->getCity();
+          $format = ' (%s)';
+        } else {
+          if (($this->getPublicState() || !$public) && $this->getState()) {
+            if ($code)
+              $dir .= $aux . $code . " " . $this->getState();
+            else
+              $dir .= $aux . $this->getState();
+            $format = ' (%s)';
+          } else {
+            $format = '%s';
+          }
+        }
+        $dir .= (($this->getPublicCountry() || !$public) && $this->getCountry()) ? sprintf($format, $this->getFullCountry()) : '';
+        return $dir;
+        echo $dir;
+        //if substr($dir, 2) == ', '
+        if (strlen($dir) > 5 && substr($dir, -5) != "<br/>") {
             $dir .= (($this->getPublicCountry() || !$public) && $this->getCountry()) ? " (" . $this->getFullCountry() . ")" : '';
             return substr($dir,5);
         }

@@ -1,40 +1,22 @@
-methods:
-  post:
-    - "username"
-    - "passwd"
-    - "passwd2"
-
-names:
+fields:
   username:
     required:     yes
-    required_msg: Username is mandatory
-    validators:   usernameUniqueValidator
+      msg: Username is mandatory
+    sfPropelUniqueValidator:
+      class:        sfGuardUser
+      column:       username
+      unique_error: This username already exists
 
   passwd:
-    required:     no
-    group:        password
-    validators:   passwordValidator
+    sfStringValidator:
+      min:          4
+      min_error:    The minimum length for the password is 4
 
   passwd2:
-    required:     no
-    group:        password
-    validators:   comparePasswordValidator
+    sfCompareValidator:
+      check:    passwd
+      compare_error: Passwords do not match
 
-usernameUniqueValidator:
-  class:          sfPropelUniqueValidator
-  param:
-    class:        sfGuardUser
-    column:       username
-    unique_error: This username already exists
-
-passwordValidator:
-  class:          sfStringValidator
-  param:
-    min:          4
-    min_error:    The minimum length for the password is 4
-
-comparePasswordValidator:
-  class:           sfCompareValidator
-  param:
-    check:         "passwd"
-    compare_error: Passwords do not match
+  email:
+    required:   true
+      msg:      E-mail is mandatory

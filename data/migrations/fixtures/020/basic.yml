@@ -4,13 +4,5 @@ DefaultIndicator:
     indicator_description:    Sumarize all amounts solt for one client
     indicator_key:            total-amount-solt
     indicator_objects_class:  Client
-    indicator_beautifier:     format_currency(%1%)
+    indicator_beautifier:     ext_format_currency(%1%, 2, %2%)
     indicator_unit:           €
-Indicator:
-  indicator-1:
-    indicator_id:             default_indicator-1
-    indicator_value:          10,25
-    indicator_beautifier: 
-    indicator_unit: 
-    indicator_object_class:   Client
-    indicator_object_id:      1
