@@ -20,11 +20,33 @@
   <td class="leftCol"><label class="required"><?php echo __('Select client') ?></label></td>
   <td class="rightCol">
   <?php echo form_error('project_client_id') ?>
-  <?php $cli = ($project->getProjectClientId()) ? $project->getClient()->getFullName(false) : '';
-  $cli = (!$cli && $sf_params->get('client_id')) ? ClientPeer::retrieveByPk($sf_params->get('client_id')) : __('Client') . '...' ?>
+  <?php
+  if ($sf_params->get('client_id')) {
+      $client_id = $sf_params->get('client_id');
+      $cli = ClientPeer::retrieveByPk($client_id);
+      if ($cli)
+          $client = $cli->getFullName(false);
+  }
+  if ($sf_params->get('project_client_id') || $sf_params->get('client_name')) {
+      $client_id = $sf_params->get('project_client_id');
+      if ($client_id)
+          $cli = ClientPeer::retrieveByPk($client_id);
+      if (isset($cli) && $cli)
+          $client = $cli->getFullName(false);
+      else
+          $client = $sf_params->get('client_name');
+  }
+  if ($project->getProjectClientId()) {
+      $client_id = $project->getProjectClientId();
+      $client = $project->getClient()->getFullName(false);
+  }
+  if (!isset($client) || !$client) {
+      $client = __('Client') . '...';
+      $client_id = -1;
+  } ?>
   <?php echo javascript_tag("function getClient(text, li){ $('project_client_id').value = li.id; }") ?>
-  <?php echo input_hidden_tag('project_client_id', ($cli) ? $cli->getId() : '') ?>
-  <?php echo input_auto_complete_tag('client_name', ($sf_params->get('client_name')) ? $sf_params->get('client_name') : $cli,
+  <?php echo input_hidden_tag('project_client_id', $client_id) ?>
+  <?php echo input_auto_complete_tag('client_name', $client,
                     'client/autocomplete',
                     array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""'),
                     array('use_style'    => true,
