@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: PluginsfGuardGroupPeer.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id: sfGuardGroupPeer.php 3109 2006-12-23 07:52:31Z fabien $
  */
 class PluginsfGuardGroupPeer extends BasesfGuardGroupPeer
 {
@@ -24,4 +24,15 @@ class PluginsfGuardGroupPeer extends BasesfGuardGroupPeer
 
     return self::doSelectOne($c);
   }
+
+  // TBB (tom@punkave.com): we implement our own criteria for the
+  // groups filter. But the admin generator still has nonfunctional code 
+  // for it in the base class, code that wants to see a GROUPS constant here. 
+  // We prevent that code from actually executing by temporarily unsetting 
+  // $filter['groups'], and in PHP 5.2.x, that is sufficient. However, 
+  // a future version of PHP might refuse to compile code that refers to a 
+  // nonexistent constant at all, even if it never runs. So let's be thorough 
+  // and define the GROUPS constant that the base class code is looking for.
+
+  const GROUPS = 'dummy';
 }

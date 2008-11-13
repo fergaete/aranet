@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: PluginsfGuardGroupPermission.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id: sfGuardGroupPermission.php 1949 2006-09-05 14:40:20Z fabien $
  */
 class PluginsfGuardGroupPermission extends BasesfGuardGroupPermission
 {

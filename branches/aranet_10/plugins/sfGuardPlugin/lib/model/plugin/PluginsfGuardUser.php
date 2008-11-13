@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: PluginsfGuardUser.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id: sfGuardUser.php 5193 2007-09-19 18:26:45Z fabien $
  */
 class PluginsfGuardUser extends BasesfGuardUser
 {
@@ -270,14 +270,14 @@ class PluginsfGuardUser extends BasesfGuardUser
     {
       if ($profile = $this->getProfile())
       {
-        $profile->delete();
+        $profile->delete($con);
       }
     }
     catch (sfException $e)
     {
     }
 
-    return parent::delete();
+    return parent::delete($con);
   }
 
   public function setPasswordHash($v)

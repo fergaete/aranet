@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: BasesfGuardAuthActions.class.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id: BasesfGuardAuthActions.class.php 8371 2008-04-09 10:18:22Z gordon $
  */
 class BasesfGuardAuthActions extends sfActions
 {

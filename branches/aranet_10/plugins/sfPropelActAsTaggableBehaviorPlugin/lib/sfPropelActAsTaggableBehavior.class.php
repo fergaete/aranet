@@ -1,46 +1,46 @@
 <?php
 /*
  * This file is part of the sfPropelActAsTaggableBehavior package.
- * 
+ *
  * (c) 2007 Xavier Lacot <xavier@lacot.org>
- * 
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 /*
- * This behavior permits to attach tags to Propel objects. Some more bits about 
+ * This behavior permits to attach tags to Propel objects. Some more bits about
  * the philosophy of the stuff:
- * 
+ *
  * - taggable objects must have a primary key
- * 
+ *
  * - tags are saved when the object is saved, not before
- * 
+ *
  * - one object cannot be tagged twice with the same tag. When trying to use
  *   twice the same tag on one object, the second tagging will be ignored
- * 
- * - the tags associated to one taggable object are only loaded when necessary. 
+ *
+ * - the tags associated to one taggable object are only loaded when necessary.
  *   Then they are cached.
- * 
- * - once created, tags never change in the Tag table. When using replaceTag(), 
- *   a new tag is created id necessary, but the old one is not deleted.
- * 
- * 
+ *
+ * - once created, tags never change in the Tag table. When using replaceTag(),
+ *   a new tag is created if necessary, but the old one is not deleted.
+ *
+ *
  * The plugin associates a parameterHolder to Propel objects, with 3 namespaces:
- * 
+ *
  * - tags:
  *     Tags that have been attached to the object, but not yet saved.
  *     Contract: tags are disjoin of (saved_tags union removed_tags)
- * 
+ *
  * - saved_tags:
  *     Tags that are presently saved in the database
- * 
+ *
  * - removed_tags:
- *     Tags that are presently saved in the database, but which will be removed 
+ *     Tags that are presently saved in the database, but which will be removed
  *     at the next save()
  *     Contract: removed_tags are disjoin of (tags union saved_tags)
- * 
- * 
+ *
+ *
  * @author   Xavier Lacot <xavier@lacot.org>
  * @see      http://www.symfony-project.com/trac/wiki/sfPropelActAsTaggableBehaviorPlugin
  */
@@ -54,7 +54,18 @@ class sfPropelActAsTaggableBehavior
   {
     if ((!isset($object->_tags)) || ($object->_tags == null))
     {
-      $object->_tags = new sfParameterHolder();
+      if (class_exists('sfNamespacedParameterHolder'))
+      {
+        // Symfony 1.1
+        $parameter_holder = 'sfNamespacedParameterHolder';
+      }
+      else
+      {
+        // Symfony 1.0
+        $parameter_holder = 'sfParameterHolder';
+      }
+
+      $object->_tags = new $parameter_holder();
     }
 
     return $object->_tags;
@@ -69,7 +80,7 @@ class sfPropelActAsTaggableBehavior
       self::getTagsHolder($object)->set($tag, $tag, 'tags');
     }
   }
-  
+
   private static function clear_tags(BaseObject $object)
   {
     return self::getTagsHolder($object)->removeNamespace('tags');
@@ -85,12 +96,12 @@ class sfPropelActAsTaggableBehavior
     self::clear_tags($object);
     self::getTagsHolder($object)->add($tags, 'tags');
   }
-  
+
   private static function add_saved_tag(BaseObject $object, $tag)
   {
     self::getTagsHolder($object)->set($tag, $tag, 'saved_tags');
   }
-  
+
   private static function clear_saved_tags(BaseObject $object)
   {
     return self::getTagsHolder($object)->removeNamespace('saved_tags');
@@ -101,7 +112,7 @@ class sfPropelActAsTaggableBehavior
     return self::getTagsHolder($object)->getAll('saved_tags');
   }
 
-  private static function set_saved_tags(BaseObject $object, $tags)
+  private static function set_saved_tags(BaseObject $object, $tags = array())
   {
     self::clear_saved_tags($object);
     self::getTagsHolder($object)->add($tags, 'saved_tags');
@@ -111,7 +122,7 @@ class sfPropelActAsTaggableBehavior
   {
     self::getTagsHolder($object)->set($tag, $tag, 'removed_tags');
   }
-  
+
   private static function clear_removed_tags(BaseObject $object)
   {
     return self::getTagsHolder($object)->removeNamespace('removed_tags');
@@ -130,15 +141,15 @@ class sfPropelActAsTaggableBehavior
 
 
   /**
-   * Adds a tag to the object. The "tagname" param can be a string or an array 
+   * Adds a tag to the object. The "tagname" param can be a string or an array
    * of strings. These 3 code sequences produce an equivalent result :
-   * 
+   *
    * 1- $object->addTag('tag1,tag2,tag3');
    * 2- $object->addTag('tag1');
    *    $object->addTag('tag2');
    *    $object->addTag('tag3');
    * 3- $object->addTag(array('tag1','tag2','tag3'));
-   * 
+   *
    * @param      BaseObject  $object
    * @param      mixed       $tagname
    */
@@ -167,6 +178,29 @@ class sfPropelActAsTaggableBehavior
       {
         $saved_tags = $this->getSavedTags($object);
 
+        if (sfConfig::get('app_sfPropelActAsTaggableBehaviorPlugin_triple_distinct', false))
+        {
+          // the binome namespace:key must be unique
+          $triple = sfPropelActAsTaggableToolkit::extractTriple($tagname);
+
+          if (!is_null($triple[1]) && !is_null($triple[2]))
+          {
+            $pattern = '/^'.$triple[1].':'.$triple[2].'=(.*)$/';
+            $tags = $object->getTags(array('triple' => true, 'return' => 'tag'));
+            $removed = array();
+
+            foreach ($tags as $tag)
+            {
+              if (preg_match($pattern, $tag))
+              {
+                $removed[] = $tag;
+              }
+            }
+
+            $object->removeTag($removed);
+          }
+        }
+
         if (!isset($saved_tags[$tagname]))
         {
           self::add_tag($object, $tagname);
@@ -178,27 +212,35 @@ class sfPropelActAsTaggableBehavior
   /**
    * Retrieves from the database tags that have been atached to the object.
    * Once loaded, this saved tags list is cached and updated in memory.
-   * 
+   *
    * @param      BaseObject  $object
    */
   private function getSavedTags(BaseObject $object)
   {
     if (!isset($object->_tags) || !$object->_tags->hasNamespace('saved_tags'))
     {
-      $c = new Criteria();
-      $c->add(TaggingPeer::TAGGABLE_ID, $object->getPrimaryKey());
-      $c->add(TaggingPeer::TAGGABLE_MODEL, get_class($object));
-      $c->addJoin(TaggingPeer::TAG_ID, TagPeer::ID);
-      $saved_tags = TagPeer::doSelect($c);
-      $tags = array();
-
-      foreach ($saved_tags as $tag)
+      if (true === $object->isNew())
       {
-        $tags[$tag->getName()] = $tag->getName();
+        self::set_saved_tags($object, array());
+        return array();
       }
+      else
+      {
+        $c = new Criteria();
+        $c->add(TaggingPeer::TAGGABLE_ID, $object->getPrimaryKey());
+        $c->add(TaggingPeer::TAGGABLE_MODEL, get_class($object));
+        $c->addJoin(TaggingPeer::TAG_ID, TagPeer::ID);
+        $saved_tags = TagPeer::doSelect($c);
+        $tags = array();
 
-      self::set_saved_tags($object, $tags);
-      return $tags;
+        foreach ($saved_tags as $tag)
+        {
+          $tags[$tag->getName()] = $tag->getName();
+        }
+
+        self::set_saved_tags($object, $tags);
+        return $tags;
+      }
     }
     else
     {
@@ -207,35 +249,81 @@ class sfPropelActAsTaggableBehavior
   }
 
   /**
-   * Returns the list of the tags attached to the object, whatever they have 
+   * Returns the list of the tags attached to the object, whatever they have
    * already been saved or not.
-   * 
+   *
    * @param      BaseObject  $object
    */
   public function getTags(BaseObject $object, $options = array())
   {
     $tags = array_merge(self::get_tags($object), $this->getSavedTags($object));
-    ksort($tags);
 
-    if (isset($options['serialized']) && (true === $options['serialized']))
+    if (isset($options['is_triple']) && (true === $options['is_triple']))
     {
-      $tags = implode(', ', $tags);
+      $tags = array_map(array('sfPropelActAsTaggableToolkit', 'extractTriple'), $tags);
+      $pattern = array('tag', 'namespace', 'key', 'value');
+
+      foreach ($pattern as $key => $value)
+      {
+        if (isset($options[$value]))
+        {
+          $tags_array = array();
+
+          foreach ($tags as $tag)
+          {
+            if ($tag[$key] == $options[$value])
+            {
+              $tags_array[] = $tag;
+            }
+          }
+
+          $tags = $tags_array;
+        }
+      }
+
+      $return = (isset($options['return']) && in_array($options['return'], $pattern)) ? $options['return'] : 'all';
+
+      if ('all' != $return)
+      {
+        $keys = array_flip($pattern);
+        $tags_array = array();
+
+        foreach ($tags as $tag)
+        {
+          if (null != $tag[$keys[$return]])
+          {
+            $tags_array[] = $tag[$keys[$return]];
+          }
+        }
+
+        $tags = array_unique($tags_array);
+      }
+    }
+
+    if (!isset($return) || ('all' != $return))
+    {
+      ksort($tags);
+
+      if (isset($options['serialized']) && (true === $options['serialized']))
+      {
+        $tags = implode(', ', $tags);
+      }
     }
 
     return $tags;
   }
 
   /**
-   * Returns true if the object has a tag. If a tag ar an array of tags is 
+   * Returns true if the object has a tag. If a tag ar an array of tags is
    * passed in second parameter, checks if these tags are attached to the object
-   * 
+   *
    * These 3 calls are equivalent :
-   * 1- $object->hasTag('tag1') 
-   *    && $object->hasTag('tag2') 
+   * 1- $object->hasTag('tag1')
+   *    && $object->hasTag('tag2')
    *    && $object->hasTag('tag3');
    * 2- $object->hasTag('tag1,tag2,tag3');
    * 3- $object->hasTag(array('tag1', 'tag2', 'tag3'));
-   * 
+   *
    * @param      BaseObject  $object
    * @param      mixed       $tag
    */
@@ -260,7 +348,7 @@ class sfPropelActAsTaggableBehavior
 
       if ($tag === null)
       {
-        return (count($tags) > 0) || (count($this->getSavedTags($object)) > 0); 
+        return (count($tags) > 0) || (count($this->getSavedTags($object)) > 0);
       }
       elseif (is_string($tag))
       {
@@ -286,10 +374,79 @@ class sfPropelActAsTaggableBehavior
   }
 
   /**
-   * Preload tags for a set of objects. It might be usefull in case you want to 
-   * display a long list of taggable objects with their associated tags: it 
+   * Tags saving logic, runned after the object himself has been saved
+   *
+   * @param      BaseObject  $object
+   */
+  public function postSave(BaseObject $object)
+  {
+    $tags = self::get_tags($object);
+    $removed_tags = self::get_removed_tags($object);
+
+    // save new tags
+    foreach ($tags as $tagname)
+    {
+      $tag = TagPeer::retrieveOrCreateByTagName($tagname);
+      $tag->save();
+      $tagging = new Tagging();
+      $tagging->setTagId($tag->getId());
+      $tagging->setTaggableId($object->getPrimaryKey());
+      $tagging->setTaggableModel(get_class($object));
+      $tagging->save();
+    }
+
+    // remove removed tags
+    $removed_tag_ids = array();
+    $c = new Criteria();
+    $c->add(TagPeer::NAME, $removed_tags, Criteria::IN);
+
+    if (Propel::VERSION >= '1.3')
+    {
+      $rs = TagPeer::doSelectStmt($c);
+
+      while ($row = $rs->fetch(PDO::FETCH_ASSOC))
+      {
+        $removed_tag_ids[] = intval($row['ID']);
+      }
+    }
+    else
+    {
+      $rs = TagPeer::doSelectRS($c);
+
+      while ($rs->next())
+      {
+        $removed_tag_ids[] = $rs->getInt(1);
+      }
+    }
+
+    $c = new Criteria();
+    $c->add(TaggingPeer::TAG_ID, $removed_tag_ids, Criteria::IN);
+    $c->add(TaggingPeer::TAGGABLE_ID, $object->getPrimaryKey());
+    $c->add(TaggingPeer::TAGGABLE_MODEL, get_class($object));
+    TaggingPeer::doDelete($c);
+
+    $tags = array_merge(self::get_tags($object), $this->getSavedTags($object));
+    self::set_saved_tags($object, $tags);
+    self::clear_tags($object);
+    self::clear_removed_tags($object);
+  }
+
+  /**
+   * Taggings removing logic, runned before the object himself has been deleted
+   *
+   * @param      BaseObject  $object
+   */
+  public function preDelete(BaseObject $object)
+  {
+    $object->removeAllTags();
+    $object->save();
+  }
+
+  /**
+   * Preload tags for a set of objects. It might be usefull in case you want to
+   * display a long list of taggable objects with their associated tags: it
    * avoids to load tags per object, and gets all tags in a few requests.
-   * 
+   *
    * @param      array       $objects
    */
   public static function preloadTags(&$objects)
@@ -314,6 +471,9 @@ class sfPropelActAsTaggableBehavior
 
       foreach ($searched as $model => $instances)
       {
+        array_map(array('sfPropelActAsTaggableBehavior', 'set_saved_tags'),
+                  $instances,
+                  array_fill(0, count($instances), array()));
         $keys = array_keys($instances);
         $query = 'SELECT %s as id,
                          GROUP_CONCAT(%s) as tags
@@ -336,73 +496,50 @@ class sfPropelActAsTaggableBehavior
                          TaggingPeer::TAGGABLE_ID);
         $stmt = $con->prepareStatement($query);
         $stmt->setString(1, $model);
-        $rs = $stmt->executeQuery();
 
-        while ($rs->next())
+        if (Propel::VERSION >= '1.3')
         {
-          $object = $instances[$rs->getInt('id')];
-          $object_tags = explode(',', $rs->getString('tags'));
-          $tags = array();
+          $rs = $stmt->executeQuery();
 
-          foreach ($object_tags as $tag)
+          while ($rs->next())
           {
-            $tags[$tag] = $tag;
-          }
+            $object = $instances[$rs->getInt('id')];
+            $object_tags = explode(',', $rs->getString('tags'));
+            $tags = array();
 
-          self::set_saved_tags($object, $tags);
+            foreach ($object_tags as $tag)
+            {
+              $tags[$tag] = $tag;
+            }
+
+            self::set_saved_tags($object, $tags);
+          }
+        }
+        else
+        {
+          $rs = $con->query($sql);
+
+          while ($row = $rs->fetch(PDO::FETCH_ASSOC))
+          {
+            $object = $instances[$row['id']];
+            $object_tags = explode(',', $row['tags']);
+            $tags = array();
+
+            foreach ($object_tags as $tag)
+            {
+              $tags[$tag] = $tag;
+            }
+
+            self::set_saved_tags($object, $tags);
+          }
         }
       }
     }
   }
 
   /**
-   * Tags saving logic, runned after the object himself has been saved
-   * 
-   * @param      BaseObject  $object
-   */
-  public function postSave(BaseObject $object)
-  {
-    $tags = self::get_tags($object);
-    $removed_tags = self::get_removed_tags($object);
-
-    // save new tags
-    foreach ($tags as $tagname)
-    {
-      $tag = TagPeer::retrieveOrCreateByTagName($tagname);
-      $tag->save();
-      $tagging = new Tagging();
-      $tagging->setTagId($tag->getId());
-      $tagging->setTaggableId($object->getPrimaryKey());
-      $tagging->setTaggableModel(get_class($object));
-      $tagging->save();
-    }
-
-    // remove removed tags
-    $c = new Criteria();
-    $c->add(TagPeer::NAME, $removed_tags, Criteria::IN);
-    $rs = TagPeer::doSelectRS($c);
-    $removed_tag_ids = array();
-
-    while ($rs->next())
-    {
-      $removed_tag_ids[] = $rs->getInt(1);
-    }
-
-    $c = new Criteria();
-    $c->add(TaggingPeer::TAG_ID, $removed_tag_ids, Criteria::IN);
-    $c->add(TaggingPeer::TAGGABLE_ID, $object->getPrimaryKey());
-    $c->add(TaggingPeer::TAGGABLE_MODEL, get_class($object));
-    TaggingPeer::doDelete($c);
-
-    $tags = array_merge(self::get_tags($object), $this->getSavedTags($object));
-    self::set_saved_tags($object, $tags);
-    self::clear_tags($object);
-    self::clear_removed_tags($object);
-  }
-
-  /**
    * Removes all the tags associated to the object.
-   * 
+   *
    * @param      BaseObject  $object
    */
   public function removeAllTags(BaseObject $object)
@@ -411,13 +548,15 @@ class sfPropelActAsTaggableBehavior
 
     self::set_saved_tags($object, array());
     self::set_tags($object, array());
-    self::set_removed_tags($object, $saved_tags);
+    self::set_removed_tags($object,
+                           array_merge(self::get_removed_tags($object),
+                                       $saved_tags));
   }
 
   /**
-   * Removes a tag or a set of tags from the object. As usual, the second 
+   * Removes a tag or a set of tags from the object. As usual, the second
    * parameter might be an array of tags or a comma-separated string.
-   * 
+   *
    * @param      BaseObject  $object
    * @param      mixed       $tagname
    */
@@ -454,9 +593,9 @@ class sfPropelActAsTaggableBehavior
   }
 
   /**
-   * Replaces a tag with an other one. If the third optionnal parameter is not 
+   * Replaces a tag with an other one. If the third optionnal parameter is not
    * passed, the second tag will simply be removed
-   * 
+   *
    * @param      BaseObject  $object
    * @param      String      $tagname
    * @param      String      $replacement
@@ -472,5 +611,18 @@ class sfPropelActAsTaggableBehavior
         $this->addTag($object, $replacement);
       }
     }
+  }
+
+  /**
+   * Sets the tags of an object. As usual, the second parameter might be an
+   * array of tags or a comma-separated string.
+   *
+   * @param      BaseObject  $object
+   * @param      mixed       $tagname
+   */
+  public function setTags(BaseObject $object, $tagname)
+  {
+    $this->removeAllTags($object);
+    $this->addTag($object, $tagname);
   }
 }

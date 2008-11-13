@@ -27,7 +27,9 @@ class userActions extends myActions
     public function executeEdit()
     {
         $this->sf_guard_user_profile = sfGuardUserProfilePeer::retrieveByPk($this->getRequestParameter('id'));
-        $this->forward404Unless($this->sf_guard_user_profile);
+        if (!$this->sf_guard_user_profile) {
+          $this->forward('user', 'create');
+        }
         return sfView::SUCCESS;
     }
 
@@ -144,9 +146,7 @@ class userActions extends myActions
             $groupperm->save();
         }
         // Join user to users group
-        $c = new Criteria();
-        $gu = sfGuardUserGroupPeer::retrieveByPK($group->getId(), $user->getId());
-        if (!$gu) {
+        if (!$user->hasGroup('Members')) {
           $groupuser = new sfGuardUserGroup();
           $groupuser->setUserId($user->getId());
           $groupuser->setGroupId($group->getId());

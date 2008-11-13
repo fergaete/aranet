@@ -2783,6 +2783,10 @@
 <target>Introduzca un número</target>
 </trans-unit>
 
+<trans-unit id="575">
+  <source>E-mail is mandatory</source>
+  <target>El email es obligatorio</target>
+</trans-unit>
 
 </body>
   </file>

@@ -4,13 +4,13 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
 #-----------------------------------------------------------------------------
-#-- tag
+#-- sf_tag
 #-----------------------------------------------------------------------------
 
-DROP TABLE IF EXISTS `tag`;
+DROP TABLE IF EXISTS `sf_tag`;
 
 
-CREATE TABLE `tag`
+CREATE TABLE `sf_tag`
 (
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(100),
@@ -26,21 +26,25 @@ CREATE TABLE `tag`
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------
-#-- tagging
+#-- sf_tagging
 #-----------------------------------------------------------------------------
 
-DROP TABLE IF EXISTS `tagging`;
+DROP TABLE IF EXISTS `sf_tagging`;
 
 
-CREATE TABLE `tagging`
+CREATE TABLE `sf_tagging`
 (
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
-	`tag_id` VARCHAR(100),
+	`tag_id` INTEGER  NOT NULL,
 	`taggable_model` VARCHAR(30),
 	`taggable_id` INTEGER,
 	PRIMARY KEY (`id`),
 	KEY `tag`(`tag_id`),
-	KEY `taggable`(`taggable_model`, `taggable_id`)
+	KEY `taggable`(`taggable_model`, `taggable_id`),
+	CONSTRAINT `sf_tagging_FK_1`
+		FOREIGN KEY (`tag_id`)
+		REFERENCES `sf_tag` (`id`)
+		ON DELETE CASCADE
 )Type=InnoDB;
 
 # This restores the fkey checks, after having unset them earlier

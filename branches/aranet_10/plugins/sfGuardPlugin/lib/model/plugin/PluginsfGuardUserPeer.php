@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: PluginsfGuardUserPeer.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id: sfGuardUserPeer.php 3810 2007-04-17 19:37:51Z davedash $
  */
 class PluginsfGuardUserPeer extends BasesfGuardUserPeer
 {

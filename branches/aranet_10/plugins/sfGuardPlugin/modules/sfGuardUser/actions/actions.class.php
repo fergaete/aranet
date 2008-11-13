@@ -16,7 +16,7 @@ require_once(dirname(__FILE__).'/../lib/BasesfGuardUserActions.class.php');
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
+ * @version    SVN: $Id: actions.class.php 7633 2008-02-27 17:54:50Z fabien $
  */
 class sfGuardUserActions extends BasesfGuardUserActions
 {
