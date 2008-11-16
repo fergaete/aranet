@@ -1,0 +1,157 @@
+sfGuardUser: 
+  sfGuardUser_1: 
+    username: admin
+    password: admin
+    is_active: 1
+    is_super_admin: 1
+  sfGuardUser_2: 
+    username: pablo
+    password: in4vw9
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_6: 
+    username: ARANOVA
+    password: noneedtologin
+    created_at: 2007-05-29 19:14:22
+    is_active: 1
+    is_super_admin: 0
+
+sfGuardUserProfile: 
+  sfGuardUserProfile_1: 
+    user_id: sfGuardUser_1
+    public_title: 1
+    public_first_name: 0
+    public_last_name: 0
+    public_gender: 0
+    public_email: 0
+    public_url: 0
+    public_street: 0
+    public_city: 0
+    public_state: 0
+    public_code: 0
+    country: ES
+    public_country: 0
+    public_timezone: 0
+    public_birthday: 0
+    public_company: 0
+    public_cif: 0
+    public_phone1: 0
+    public_phone2: 0
+    public_fax: 0
+    gravatar: 0
+    user_newsletter: 0
+    preferred_language: es_ES
+  sfGuardUserProfile_2: 
+    user_id: sfGuardUser_2
+    title: Sr.
+    public_title: 0
+    first_name: Pablo
+    public_first_name: 0
+    last_name: Sánchez
+    public_last_name: 0
+    public_gender: 0
+    email: pablo.sanchez@aranova.es
+    public_email: 0
+    url: http
+    public_url: 0
+    street: Pano y Ruata 17, Pl 4
+    public_street: 0
+    city: Zaragoza
+    public_city: 0
+    state: Zaragoza
+    public_state: 0
+    code: 50015
+    public_code: 0
+    country: ES
+    public_country: 0
+    public_timezone: 0
+    birthday: 1977-08-09
+    public_birthday: 0
+    company: ARANOVA
+    public_company: 0
+    public_cif: 0
+    phone1: 976527599
+    public_phone1: 0
+    phone2: 676475597
+    public_phone2: 0
+    fax: 
+    public_fax: 0
+    gravatar: 0
+    user_newsletter: 0
+    preferred_language: es_ES
+  sfGuardUserProfile_6: 
+    user_id: sfGuardUser_6
+    title: 
+    public_title: 0
+    first_name: 
+    public_first_name: 0
+    last_name: 
+    public_last_name: 0
+    public_gender: 0
+    email: info@aranova.es
+    public_email: 0
+    url: http://www.aranova.es
+    public_url: 0
+    street: Valle de Broto 9-11, 1º, oficina 4
+    public_street: 0
+    city: Zaragoza
+    public_city: 0
+    state: Zaragoza
+    public_state: 0
+    code: 50015
+    public_code: 0
+    country: ES
+    public_country: 0
+    public_timezone: 0
+    public_birthday: 0
+    company: ARANOVA
+    public_company: 0
+    public_cif: 0
+    phone1: 976517611
+    public_phone1: 0
+    phone2: 
+    public_phone2: 0
+    fax: 976517611
+    public_fax: 0
+    gravatar: 0
+    user_newsletter: 0
+    preferred_language: es_ES
+
+sfGuardGroup: 
+  sfGuardGroup_1: 
+    name: admin
+    description: Administrator group
+  sfGuardGroup_2: 
+    name: Members
+    description: Application member group
+  sfGuardGroup_3: 
+    name: member
+sfGuardPermission: 
+  sfGuardPermission_1: 
+    name: admin
+    description: Administrator permission
+  sfGuardPermission_2: 
+    name: member
+    description: Application member permission
+
+sfGuardGroupPermission: 
+  sfGuardGroupPermission_1_1: 
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_1
+  sfGuardGroupPermission_2_2: 
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_2
+  sfGuardGroupPermission_3_2: 
+    group_id: sfGuardGroup_3
+    permission_id: sfGuardPermission_2
+sfGuardUserGroup: 
+  sfGuardUserGroup_1_1: 
+    group_id: sfGuardGroup_1
+    user_id: sfGuardUser_1
+  sfGuardUserGroup_2_2: 
+    group_id: sfGuardGroup_2
+    user_id: sfGuardUser_2
+  sfGuardUserGroup_3_6: 
+    group_id: sfGuardGroup_3
+    user_id: sfGuardUser_6
+

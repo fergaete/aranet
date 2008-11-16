@@ -1,0 +1,34 @@
+propel:
+  _attributes:        { package: plugins.arPropelAddressableBehaviorPlugin.lib.model }
+
+  aranet_address:
+    _attributes:
+      phpName: Address
+    id:
+    address_line1:              varchar(255)
+    address_line2:              varchar(255)
+    address_location:           varchar(128)
+    address_state:              varchar(64)
+    address_postal_code:        varchar(5)
+    address_country:            varchar(2)
+
+  aranet_objectaddress:
+    _attributes:
+      phpName: ObjectAddress
+    id:
+    objectaddress_name:         varchar(128)
+    objectaddress_address_id:   { type: integer, foreignTable: aranet_address, foreignReference: id, required: true, onDelete: cascade }
+    objectaddress_object_id:    { type: integer, required: true }
+    objectaddress_object_class: varchar(64)
+    objectaddress_type:         varchar(16)
+    objectaddress_is_default:   { type: boolean, size: 1, default: false }
+    _indexes:
+      objectaddress_address_id_idx2:
+        - objectaddress_address_id
+      objectaddress_object_id_idx2:
+        - objectaddress_object_id
+    _uniques:
+      objectaddress_unique_idx:
+        - objectaddress_address_id
+        - objectaddress_object_id
+        - objectaddress_object_class

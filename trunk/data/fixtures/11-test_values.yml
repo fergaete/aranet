@@ -1,0 +1,37 @@
+Contact:
+  yo:
+    contact_first_name:     Pablo
+    contact_last_name:     Sánchez
+  dani:
+    contact_first_name:     Daniel
+    contact_last_name:     Sánchez
+
+Address:
+  casa:
+    address_type:               home
+    address_line1:              Pano y Ruata 17, Pl 4ª
+    address_line2:              
+    address_location:           Zaragoza
+    address_state:              Zaragoza
+    address_postal_code:        50015
+    address_country:            ES
+
+  ofi:
+    address_type:               work
+    address_line1:              Valle de Broto 9-11, 1º, oficina 4
+    address_line2:              
+    address_location:           Zaragoza
+    address_state:              Zaragoza
+    address_postal_code:        50015
+    address_country:            ES
+    
+    
+Tag:
+  tag-1:
+    name: test
+  tag-2:
+    name: test2
+  tag-3:
+    name: test3
+
+    

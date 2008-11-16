@@ -1,0 +1,814 @@
+---
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+    noxsd: true
+
+  aranet_client:
+    _attributes:
+      phpName: Client
+    id:
+    client_unique_name:         { type: varchar, size: 128, required: true }
+    client_company_name:        { type: varchar, size: 255, required: true }
+    client_cif:                 varchar(12)
+    client_kind_of_company_id:  { type: integer, foreignTable: aranet_kind_of_company, foreignReference: id, default: null }
+    client_since:               date
+    client_website:             varchar(255)
+    client_comments:            longvarchar
+    client_has_tags:            { type: boolean, size: 1, default: 0 }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      client_company_name_idx:
+        - client_company_name
+    _uniques:
+      client_unique_name_idx:
+        - client_unique_name
+
+  aranet_kind_of_company:
+    _attributes:
+      phpName: KindOfCompany
+    id:
+    kind_of_company_title:          varchar(64)
+    kind_of_company_description:    varchar(255)
+    _indexes:
+      kind_of_company_title_idx:
+        - kind_of_company_title
+
+  aranet_project:
+    _attributes:
+      phpName: Project
+    id:
+    project_prefix:             varchar(8)
+    project_number:             varchar(11)
+    project_name:               { type: varchar, size: 128, required: true }
+    project_url:                varchar(255)
+    project_client_id:          { type: integer, foreignTable: aranet_client, foreignReference: id, default: null }
+    project_comments:           longvarchar
+    project_category_id:        { type: integer, foreignTable: aranet_project_category, foreignReference: id, default: null }
+    project_start_date:         date
+    project_finish_date:        date
+    project_status_id:          { type: integer, foreignTable: aranet_project_status, foreignReference: id, default: null }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _uniques:
+      project_fulltitle_idx:
+        - project_prefix
+        - project_number
+    _indexes:
+      project_name_idx:
+        - project_name
+      project_number_idx:
+        - project_number
+
+  aranet_project_status:
+    _attributes:
+      phpName: ProjectStatus
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
+    project_status_title:       varchar(64)
+    _indexes:
+      project_status_title_idx:
+        - project_status_title
+
+  aranet_project_category:
+    _attributes:
+      phpName: ProjectCategory
+    id:
+    category_title:             varchar(64)
+    _indexes:
+      category_title_idx:
+        - category_title
+
+  aranet_timesheet:
+    _attributes:
+      phpName: Timesheet
+    id:
+    timesheet_description:      longvarchar
+    timesheet_hours:            { type: float, default: 0.0 }
+    timesheet_user_id:          integer
+    timesheet_project_id:       integer
+    timesheet_budget_id:        { type: integer, default: null }
+    timesheet_milestone_id:     { type: integer, default: null }
+    timesheet_task_id:          { type: integer, default: null }
+    timesheet_is_billable:      { type: boolean, size: 1, default: 1 }
+    timesheet_type_id:          integer
+    timesheet_date:             date
+    _foreignKeys:
+      timesheet_project_id_idx:
+        foreignTable:   aranet_project
+        onDelete:       cascade
+        references:
+          - { local: timesheet_project_id, foreign: id }
+      timesheet_milestone_id_idx:
+        foreignTable:   aranet_project_milestone
+        references:
+          - { local: timesheet_milestone_id, foreign: id }
+      timesheet_budget_id_idx:
+        foreignTable:   aranet_budget
+        references:
+          - { local: timesheet_budget_id, foreign: id }
+      timesheet_task_id_idx:
+        foreignTable:   aranet_project_task
+        references:
+          - { local: timesheet_task_id, foreign: id }
+      timesheet_user_id_idx:
+        foreignTable:   sf_guard_user
+        references:
+          - { local: timesheet_user_id, foreign: id }
+      timesheet_type_id_idx:
+        foreignTable:   aranet_type_of_hour
+        references:
+          - { local: timesheet_type_id, foreign: id }
+    _indexes:
+      timesheet_user_idx2:
+        - timesheet_user_id
+
+  aranet_type_of_hour:
+    _attributes:
+      phpName: TypeOfHour
+    id:
+    type_of_hour_title:         varchar(64)
+    type_of_hour_description:   longvarchar
+    type_of_hour_cost:          { type: float, default: 0.0 }
+    _indexes:
+      type_of_hour_title_idx:
+        - type_of_hour_title
+
+  aranet_project_milestone:
+    _attributes:
+      phpName: Milestone
+    id:
+    milestone_title:            { type: varchar, size: 255, required: true }
+    milestone_description:      longvarchar
+    milestone_start_date:       { type: date, required: true }
+    milestone_finish_date:      { type: date, required: true }
+    milestone_project_id:       { type: integer, foreignTable: aranet_project, foreignReference: id, onDelete: cascade }
+    milestone_budget_id:        { type: integer, foreignTable: aranet_budget, foreignReference: id, default: null }
+    milestone_estimated_hours:  { type: double, default: 0.0 }
+    milestone_total_hours:      { type: double, default: 0.0 }
+    milestone_total_hour_costs: { type: double, default: 0.0 }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      milestone_title_idx:
+        - milestone_title
+      milestone_project_id_idx2:
+        - milestone_project_id
+
+  aranet_project_task:
+    _attributes:
+      phpName: Task
+    id:
+    task_title:            { type: varchar, size: 255, required: true }
+    task_description:      longvarchar
+    task_start_date:       date
+    task_finish_date:      date
+    task_total_duration:   { type: float, default: 0.0 }
+    task_priority_id:      integer
+    task_project_id:       integer
+    task_milestone_id:     { type: integer, default: null }
+    task_budget_id:        { type: integer, default: null }
+    task_estimated_hours:  { type: double, default: 0.0 }
+    task_total_hours:      { type: double, default: 0.0 }
+    task_total_hour_costs: { type: double, default: 0.0 }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _foreignKeys:
+      task_budget_id_idx:
+        foreignTable:   aranet_budget
+        references:
+          - { local:  task_budget_id, foreign: id }
+      task_priority_idx:
+        foreignTable:   aranet_task_priority
+        references:
+          - { local: task_priority_id, foreign: id }
+      task_milestone_id_idx:
+        foreignTable:   aranet_project_milestone
+        onDelete:       cascade
+        references:
+          - { local: task_milestone_id, foreign: id }
+      task_project_id_idx:
+        foreignTable:   aranet_project
+        onDelete:       cascade
+        references:
+          - { local: task_project_id, foreign: id }
+    _indexes:
+      task_title_idx:
+        - task_title
+      task_milestone_id_idx2:
+        - task_milestone_id
+      task_project_id_idx2:
+        - task_project_id
+
+  aranet_project_frequently_task:
+    _attributes:
+      phpName: FrequentlyTask
+    id:
+    task_title:            { type: varchar, size: 255, required: true }
+    task_description:      longvarchar
+    task_priority_id:      integer
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      task_title_idx:
+        - task_title
+
+  aranet_task_priority:
+    _attributes:
+      phpName: TaskPriority
+    id:
+    task_priority_title:        varchar(64)
+
+  aranet_invoice:
+    _attributes:
+      phpName: Invoice
+    id:
+    invoice_prefix:             varchar(8)
+    invoice_number:             { type: varchar(11), required: true }
+    invoice_date:               { type: date, required: true }
+    invoice_client_id:          { type: integer, foreignTable: aranet_client, foreignReference: id, default: null }
+    invoice_project_id:         { type: integer, foreignTable: aranet_project, foreignReference: id, default: null }
+    invoice_budget_id:          { type: integer, foreignTable: aranet_budget, foreignReference: id, default: null }
+    invoice_category_id:        { type: integer, foreignTable: aranet_invoice_category, foreignReference: id, default: null }
+    invoice_kind_of_invoice_id: { type: integer, foreignTable: aranet_kind_of_invoice, foreignReference: id, default: 1, required: true }
+    invoice_title:              varchar(255)
+    invoice_comments:           longvarchar
+    invoice_print_comments:     { type: boolean, size: 1, default: 0 }
+    invoice_tax_rate:           { type: float, default: 0.0 }
+    invoice_freight_charge:     { type: float, default: 0.0 }
+    invoice_payment_condition_id: { type: integer, foreignTable: aranet_payment_condition, foreignReference: id, default: null }
+    invoice_payment_method_id:  { type: integer, foreignTable: aranet_payment_method, foreignReference: id, default: null }
+    invoice_payment_check:      varchar(64)
+    invoice_payment_date:       date
+    invoice_payment_status_id:  { type: integer, foreignTable: aranet_payment_status, foreignReference: id, default: null }
+    invoice_late_fee_percent:   { type: float, default: 0.0 }
+    invoice_total_amount:       { type: double, default: 0.0 }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      invoice_number_idx:
+        - invoice_number
+      invoice_client_id_index:
+        - invoice_client_id
+      invoice_project_id_index:
+        - invoice_project_id
+
+  aranet_payment_status:
+    _attributes:
+      phpName: PaymentStatus
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
+    payment_status_title:    varchar(64)
+    _indexes:
+      payment_status_title_idx:
+        - payment_status_title
+
+  aranet_payment_condition:
+    _attributes:
+      phpName: PaymentCondition
+    id:
+    payment_condition_days:     integer
+    payment_condition_payment_day: integer
+    payment_condition_title:    varchar(64)
+    _indexes:
+      payment_condition_title_idx:
+        - payment_condition_title
+
+  aranet_payment_method:
+    _attributes:
+      phpName: PaymentMethod
+    id:
+    payment_method_title:       varchar(128)
+    _indexes:
+      payment_method_title_idx:
+        - payment_method_title
+
+  aranet_invoice_category:
+    _attributes:
+      phpName: InvoiceCategory
+    id:
+    category_title:             varchar(64)
+    _indexes:
+      category_title_idx:
+        - category_title
+
+  aranet_kind_of_invoice:
+    _attributes:
+      phpName: KindOfInvoice
+    id:
+    kind_of_invoice_title:             varchar(64)
+    _indexes:
+      kind_of_invoice_title_idx:
+        - kind_of_invoice_title
+
+  aranet_invoice_item:
+    _attributes:
+      phpName: InvoiceItem
+    id:
+    item_type_id:               integer
+    item_description:           longvarchar
+    item_quantity:              { type: float, default: 0.0 }
+    item_cost:                  { type: double, default: 0.0 }
+    item_tax_rate:              { type: float, default: 0.0 }
+    item_invoice_id:            integer
+    _foreignKeys:
+      item_type_id_idx:
+        foreignTable:   aranet_type_of_invoice_item
+        references:
+          - { local: item_type_id, foreign: id }
+      item_invoice_id_idx:
+        foreignTable:   aranet_invoice
+        onDelete:       cascade
+        references:
+          - { local: item_invoice_id, foreign: id }
+    _indexes:
+      item_type_id_idx2:
+        - item_type_id
+      item_invoice_id_idx2:
+        - item_invoice_id
+
+  aranet_type_of_invoice_item:
+    _attributes:
+      phpName: TypeOfInvoiceItem
+    id:
+    type_of_item_title:         varchar(64)
+    _indexes:
+      type_of_item_title_idx:
+        - type_of_item_title
+
+  aranet_budget:
+    _attributes:
+      phpName: Budget
+    id:
+    budget_prefix:              varchar(8)
+    budget_number:              { type: varchar(11), required: true }
+    budget_revision:            { type: integer, required: true, default: 0 }
+    budget_date:                { type: date, required: true }
+    budget_valid_date:          { type: date, required: true }
+    budget_approved_date:       { type: date }
+    budget_client_id:           integer
+    budget_project_id:          integer
+    budget_category_id:         integer
+    budget_title:               varchar(255)
+    budget_comments:            longvarchar
+    budget_print_comments:      { type: boolean, size: 1, default: 0 }
+    budget_tax_rate:            { type: float, default: 0.0 }
+    budget_freight_charge:      { type: float, default: 0.0 }
+    budget_total_cost:          { type: float, default: 0.0 }
+    budget_total_amount:        { type: float, default: 0.0 }
+    budget_payment_condition_id: integer
+    budget_status_id:           { type: integer, foreignTable: aranet_budget_status, foreignReference: id, default: 0 }
+    budget_is_last:             { type: boolean, size: 1, default: 1 }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _foreignKeys:
+      budget_payment_condition_id_idx:
+        foreignTable:   aranet_payment_condition
+        references:
+          - { local: budget_payment_condition_id, foreign: id }
+      budget_category_id_idx:
+        foreignTable:   aranet_invoice_category
+        references:
+          - { local: budget_category_id, foreign: id }
+      budget_project_id_idx:
+        foreignTable:   aranet_project
+        references:
+          - { local: budget_project_id, foreign: id }
+      budget_client_id_idx:
+        foreignTable:   aranet_client
+        references:
+          - { local: budget_client_id, foreign: id }
+    _indexes:
+      budget_number_idx:
+        - budget_number
+      budget_client_id_index:
+        - budget_client_id
+      budget_project_id_index:
+        - budget_project_id
+
+  aranet_budget_status:
+    _attributes:
+      phpName: BudgetStatus
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
+    budget_status_title:    varchar(64)
+
+  aranet_budget_item:
+    _attributes:
+      phpName: BudgetItem
+    id:
+    item_order:                 { type: integer, required: true, default: 0 }
+    item_type_id:               { type: integer, foreignTable: aranet_type_of_invoice_item, foreignReference: id, default: null }
+    item_is_optional:           { type: boolean, size: 1, default: false }
+    item_description:           longvarchar
+    item_quantity:              { type: float, default: 0.0 }
+    milestone_task_id:          { type: integer, default: null }
+    item_task_id:               { type: integer, default: null }
+    item_cost:                  { type: double, default: 0.0 }
+    item_margin:                 { type: double, default: 0.0 }
+    item_retail_price:          { type: double, default: 0.0 }
+    item_tax_rate:              { type: float, default: 0.0 }
+    item_budget_id:             { type: integer, foreignTable: aranet_budget, foreignReference: id, onDelete: cascade }
+    item_budget_type_id:        { type: integer, foreignTable: aranet_type_of_hour, foreignReference: id, default: null }
+    _indexes:
+      item_type_id_idx2:
+        - item_type_id
+      item_budget_id_idx2:
+        - item_budget_id
+
+  aranet_vendor:
+    _attributes:
+      phpName: Vendor
+    id:
+    vendor_unique_name:         { type: varchar, size: 128, required: true }
+    vendor_company_name:        { type: varchar, size: 255, required: true }
+    vendor_cif:                 varchar(12)
+    vendor_kind_of_company_id:  { type: integer, foreignTable: aranet_kind_of_company, foreignReference: id, default: null }
+    vendor_since:               date
+    vendor_website:             varchar(255)
+    vendor_comments:            longvarchar
+    vendor_has_tags:            { type: boolean, size: 1, default: 0 }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      vendor_company_name_idx:
+        - vendor_company_name
+    _uniques:
+      vendor_unique_name_idx:
+        - vendor_unique_name
+
+  aranet_expense_item:
+    _attributes:
+      phpName: ExpenseItem
+    id:
+    expense_item_name:          { type: varchar, size: 128, required: true }
+    expense_item_comments:      longvarchar
+    expense_purchase_date:      { type: date, required: true }
+    expense_purchase_by:        { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true }
+    expense_item_category_id:   integer
+    expense_item_payment_method_id: integer
+    expense_item_payment_check: varchar(64)
+    expense_item_reimbursement_id: integer
+    expense_item_project_id:    { type: integer, foreignTable: aranet_project, foreignReference: id, default: null, onDelete: cascade }
+    expense_item_budget_id:     { type: integer, default: null }
+    expense_item_amount:        { type: double, default: 0.0, required: true }
+    expense_item_base:          { type: double, default: 0.0 }
+    expense_item_tax_rate:      { type: float, default: 0.0 }
+    expense_item_irpf:          { type: double, default: 0.0 }
+    expense_item_invoice_number: varchar(128)
+    expense_item_vendor_id:     { type: integer, foreignTable: aranet_vendor, foreignReference: id, default: null }
+    expense_validate_date:      { type: date }
+    expense_validate_by:        { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _foreignKeys:
+      expense_item_category_id_idx:
+        foreignTable:   aranet_expense_category
+        references:
+          - { local: expense_item_category_id, foreign: id }
+      expense_item_payment_method_id_idx:
+        foreignTable:   aranet_payment_method
+        references:
+          - { local: expense_item_payment_method_id, foreign: id }
+      expense_item_reimbursement_id_idx:
+        foreignTable:   aranet_reimbursement
+        references:
+          - { local: expense_item_reimbursement_id, foreign: id }
+      expense_item_budget_id_idx:
+        foreignTable:   aranet_budget
+        references:
+          - { local: expense_item_budget_id, foreign: id }
+    _indexes:
+      expense_item_project_id_idx2:
+        - expense_item_project_id
+      expense_item_vendor_id_idx2:
+        - expense_item_vendor_id
+      expense_item_name_idx:
+        - expense_item_name
+
+  aranet_expense_category:
+    _attributes:
+      phpName: ExpenseCategory
+    id:
+    category_title:             varchar(64)
+    _indexes:
+      category_title_idx:
+        - category_title
+
+  aranet_reimbursement:
+    _attributes:
+      phpName: Reimbursement
+    id:
+    reimbursement_title:        varchar(64)
+    _indexes:
+      reimbursement_title_idx:
+        - reimbursement_title
+
+  aranet_income_item:
+    _attributes:
+      phpName: IncomeItem
+    id:
+    income_item_name:           { type: varchar, size: 128, required: true }
+    income_item_comments:       longvarchar
+    income_date:                { type: date, required: true }
+    income_item_category_id:    integer
+    income_item_payment_method_id: integer
+    income_item_payment_check:  varchar(64)
+    income_item_reimbursement_id: integer
+    income_item_project_id:     { type: integer, default: null }
+    income_item_budget_id:      { type: integer, default: null }
+    income_item_amount:         { type: double, default: 0.0, required: true }
+    income_item_base:           { type: double, default: 0.0 }
+    income_item_tax_rate:       { type: float, default: 0.0 }
+    income_item_irpf:           { type: double, default: 0.0 }
+    income_item_invoice_number: varchar(128)
+    income_item_vendor_id:      integer
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _foreignKeys:
+      income_item_category_id_idx:
+        foreignTable:   aranet_income_category
+        references:
+          - { local: income_item_category_id, foreign: id }
+      income_item_payment_method_id_idx:
+        foreignTable:   aranet_payment_method
+        references:
+          - { local: income_item_payment_method_id, foreign: id }
+      income_item_reimbursement_id_idx:
+        foreignTable:   aranet_reimbursement
+        references:
+          - { local: income_item_reimbursement_id, foreign: id }
+      income_item_project_id_idx:
+        foreignTable:   aranet_project
+        onDelete:       cascade
+        references:
+          - { local: income_item_project_id, foreign: id }
+      income_item_budget_id_idx:
+        foreignTable:   aranet_budget
+        references:
+          - { local: income_item_budget_id, foreign: id }
+      income_item_vendor_id_idx:
+        foreignTable:   aranet_vendor
+        references:
+          - { local: income_item_vendor_id, foreign: id }
+    _indexes:
+      income_item_project_id_idx2:
+        - income_item_project_id
+      income_item_vendor_id_idx2:
+        - income_item_vendor_id
+      income_item_name_idx:
+        - income_item_name
+
+  aranet_income_category:
+    _attributes:
+      phpName: IncomeCategory
+    id:
+    category_title:             varchar(64)
+    _indexes:
+      category_title_idx:
+        - category_title
+
+  aranet_cash_item:
+    _attributes:
+      phpName: CashItem
+    id:
+    cash_item_name:             { type: varchar, size: 128, required: true }
+    cash_item_comments:         longvarchar
+    cash_item_date:             { type: date, required: true }
+    cash_item_amount:           { type: double, default: 0.0, required: true }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      cash_item_name_idx:
+        - cash_item_name
+
+  aranet_notification:
+    _attributes:
+      phpName: Notification
+    id:
+    notification_type:          { type: integer, size: 1 }
+    notification_application:   varchar(255)
+    notification_module:        varchar(255)
+    notification_action:        varchar(255)
+    notification_from_address:  varchar(255)
+    notification_to_address:    varchar(255)
+    notification_subject:       longvarchar
+    notification_content:       longvarchar
+    notification_html_content:  longvarchar
+    notification_response_code: integer
+    notification_response:      longvarchar
+    notification_status:        { type: integer, size: 1, default: 0 }
+    notification_project_id:    integer
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _foreignKeys:
+      notification_project_id_idx:
+        foreignTable:   aranet_project
+        onDelete:       cascade
+        references:
+          - { local: notification_project_id, foreign: id }
+
+  aranet_report:
+    _attributes:
+      phpName: Report
+    id:
+    report_name:                varchar(128)
+    report_model:               varchar(128)
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      report_model_idx:
+        - report_model
+
+  aranet_report_column:
+    _attributes:
+      phpName: ReportColumn
+    id:
+    report_id:               { type: integer, foreignTable: aranet_report, foreignReference: id }
+    column_php_name:         { type: varchar, size: 255 }
+    column_name:             { type: varchar, size: 128 }
+    column_order:            integer
+    column_width:            { type: double, default: 0, required: true }
+    column_eval_script:      { type: longvarchar, required: true }
+    _indexes:
+      report_column_idx:
+        - column_php_name
+        - column_order
+
+  aranet_graphic:
+    _attributes:
+      phpName: Graphic
+    id:
+    graphic_name:               varchar(128)
+    data_points:                integer
+    start_date:                 timestamp
+    end_date:                   timestamp
+    is_default:                 { type: boolean, size: 1, default: false }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+
+  aranet_plot:
+    _attributes:
+      phpName: GPlot
+    id:
+    plot_name:                  varchar(128)
+    plot_color:                 varchar(64)
+    plot_type:                  varchar(64)
+    plot_criteria:              longvarchar
+    plot_date_variable:         varchar(128)
+    plot_class:                 varchar(128)
+    plot_function:              varchar(128)
+    plot_callback:              varchar(128)
+    plot_acc_function:          varchar(128)
+
+  aranet_graphic_plot:
+    _attributes:
+      phpName: GraphicPlot
+    id:
+    graphic_id:         { type: integer, foreignTable: aranet_graphic, foreignReference: id, default: null }
+    plot_id:            { type: integer, foreignTable: aranet_plot, foreignReference: id, default: null }
+    
+  sf_guard_user_profile:
+    _attributes:
+      phpName: sfGuardUserProfile
+    id:
+    user_id:                    { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
+    title:                      varchar(4)
+    public_title:               { type: boolean, size: 1, default: 1 }
+    first_name:                 varchar(50)
+    public_first_name:          { type: boolean, size: 1, default: 0 }
+    last_name:                  varchar(100)
+    public_last_name:           { type: boolean, size: 1, default: 0 }
+    gender:                     { type: integer, size: 1 }
+    public_gender:              { type: boolean, size: 1, default: 0 }
+    email:                      varchar(128)
+    public_email:               { type: boolean, size: 1, default: 0 }
+    url:                        varchar(255)
+    public_url:                 { type: boolean, size: 1, default: 0 }
+    openid_url:                 varchar(255)
+    street:                     varchar(255)
+    public_street:              { type: boolean, size: 1, default: 0 }
+    city:                       varchar(50)
+    public_city:                { type: boolean, size: 1, default: 0 }
+    state:                      varchar(50)
+    public_state:               { type: boolean, size: 1, default: 0 }
+    code:                       { type: integer, size: 5 }
+    public_code:                { type: boolean, size: 1, default: 0 }
+    country:                    { type: varchar, size: 2, default: ES }
+    public_country:             { type: boolean, size: 1, default: 0 }
+    timezone:                   integer
+    public_timezone:            { type: boolean, size: 1, default: 0 }
+    birthday:                   { type: date, default: 00/00/0000 }
+    public_birthday:            { type: boolean, size: 1, default: 0 }
+    company:                    varchar(128)
+    public_company:             { type: boolean, size: 1, default: 0 }
+    cif:                        varchar(12)
+    public_cif:                 { type: boolean, size: 1, default: 0 }
+    phone1:                     varchar(16)
+    public_phone1:              { type: boolean, size: 1, default: 0 }
+    phone2:                     varchar(16)
+    public_phone2:              { type: boolean, size: 1, default: 0 }
+    fax:                        varchar(16)
+    public_fax:                 { type: boolean, size: 1, default: 0 }
+    notes:                      longvarchar
+    gravatar:                   { type: boolean, default: false }
+    avatar:                     { type: blob }
+    avatar_filetype:            varchar(4)
+    owner_user_id:              { type: integer, foreignTable: sf_guard_user, foreignReference: id }
+    user_newsletter:            { type: boolean, size: 1, default: 0 }
+    preferred_language:         { type: varchar(6), default: en_US }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _uniques:
+      user_id_idx:
+        - user_id
+
+  aranet_default_indicator:
+    _attributes:
+      phpName: DefaultIndicator
+    id:
+    indicator_name:         { type: varchar, size: 255, required: true }
+    indicator_key:          { type: varchar, size: 255, required: true }
+    indicator_description:  { type: longvarchar }
+    indicator_beautifier:   { type: varchar, size: 255 }
+    indicator_unit:         { type: varchar, size: 10 }
+    indicator_objects_class: { type: varchar, size: 255 }
+    _indexes:
+      indicator_name_idx:
+        - indicator_name
+      indicator_key_idx:
+        - indicator_key
+        
+  aranet_indicator:
+    _attributes:
+      phpName: Indicator
+    id:
+    indicator_id:           { type: integer, foreignTable: aranet_default_indicator, foreignReference: id, required: true }
+    indicator_value:        { type: double }
+    indicator_beautifier:   { type: varchar, size: 255 }
+    indicator_unit:         { type: varchar, size: 10 }
+    indicator_object_id:    { type: integer, required: true }
+    indicator_object_class: varchar(64)
+    _indexes:
+      indicator_object_id_idx:
+        - indicator_object_id
+      indicator_id_idx:
+        - indicator_id
+    _uniques:
+      indicator_unique_idx:
+        - indicator_id
+        - indicator_object_id
+        - indicator_object_class
