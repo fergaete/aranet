@@ -1,4 +1,5 @@
 <?php aranet_title(__('Login')) ?>
+<?php ysfYUI::addComponents('reset', 'fonts', 'grids') ?>
 <?php sfContext::getInstance()->getResponse()->addStylesheet('forms') ?>
     
 <div class="loginContainer">
