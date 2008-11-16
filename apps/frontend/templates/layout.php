@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<script type="text/javascript" src="/static/ysf/yui//yuiloader/yuiloader-beta-min.js"></script>
+<script type="text/javascript" src="/static/ysf/yui//dom/dom-min.js"></script>
+<script type="text/javascript" src="/static/ysf/yui/event/event-min.js"></script>
+<script type="text/javascript" src="/static/ysf/yui/element/element-beta-min.js"></script>
+<script type="text/javascript" src="/static/ysf/yui/datasource/datasource-beta-min.js"></script>
+<script type="text/javascript" src="/static/ysf/yui/datatable/datatable-beta-min.js"></script>
+<script type="text/javascript" src="/static/ysf/yui/button/button-min.js"></script>
+
+<?php echo include_http_metas() ?>
+<?php echo include_metas() ?>
+<?php echo include_title() ?>
+
+<link rel="shortcut icon" href="/images/<?php echo sfConfig::get('app_sf_settings_plugin_icon') ?>" type="image/x-icon" />
+<link rel="icon" href="/images/<?php echo sfConfig::get('app_sf_settings_plugin_icon') ?>" type="image/x-icon" />
+<link rel="start" href="/" title="<?php echo __('Homepage') ?>"/>
+</head>
+<body class="layout-two-column-right yui-skin-<?php echo sfConfig::get('yui_default_skin') ?>" id="top">
+    <div id="container">
+        <div id="container-inner" class="block">
+
+            <div id="banner">
+                <div id="banner-inner" class="block">
+                    <div class="loginBox"><?php include_partial('widgets/user') ?></div>
+                    <h1 id="banner-header"><?php echo link_to(image_tag(sfConfig::get('app_sf_settings_plugin_company_logo'), 'alt="' . sfConfig::get('app_sf_settings_plugin_company') . '"'), sfConfig::get('app_sf_settings_plugin_company_site', 'http://www.aranova.es'), 'accesskey="1"');?></h1>
+                    <h2 id="banner-subject"><?php echo link_to(image_tag('aranet_logo.jpg', 'alt="ARANet" style="margin-top:10px"'), sfConfig::get('app_sf_settings_plugin_aranet_site', 'http://aranet.aranova-it.com'), 'accesskey="2"') ?></h2>
+                    <h3 id="banner-description"><?php echo __('Backoffice Web Management') ?></h3>
+                </div>
+            </div>
+
+            <div id="pagebody">
+                <div id="pagebody-inner" class="block">
+
+                    <div class='hnav'>
+                        <?php include('_yui_nav.php') ?>
+                    </div>
+                    
+                    <?php include_component('widgets', 'subnav') ?>
+
+                <div id="beta">
+                    <div id="beta-inner">
+                        <?php include_slot('filters') ?>
+                        <?php include_partial('widgets/yui_calendar') ?>
+                        <?php include_component('widgets', 'tags') ?>
+                        <?php include_slot('sidebar') ?>
+                    </div>
+                </div>
+
+                <div id="alpha">
+                    <div id="alpha-inner" class="content">
+<?php echo $sf_content ?>
+
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            <div id="footer" class="main_footer">
+              <?php include('_footer.php') ?>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
