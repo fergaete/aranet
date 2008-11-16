@@ -12,7 +12,6 @@
 
 </head>
 <body class="layout-one-column yui-skin-<?php echo sfConfig::get('yui_default_skin') ?>" id="top">
-
     <div id="container">
         <div id="container-inner" class="block">
 
@@ -30,7 +29,7 @@
                     <div class='hnav'>
                     </div>
 
-                    <?php include_component('widgets', 'subnav') ?>
+                    <?php //include_component('widgets', 'subnav') ?>
 
                 <div id="alpha">
                     <div id="alpha-inner" class="content">
