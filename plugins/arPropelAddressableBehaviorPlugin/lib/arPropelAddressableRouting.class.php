@@ -19,7 +19,7 @@ class arPropelAddressableRouting
     $r = $event->getSubject();
 
     // preprend our routes
-    $r->connect('address_minilist', new sfRoute('/address/minilist/:related/:id', array('module' => 'address', 'action' => 'minilist')));
+    $r->connect('address_minilist', new sfRoute('/address/minilist/related/:related/id/:id', array('module' => 'address', 'action' => 'minilist')));
     $r->connect('address_show_by_id', new sfRoute('/address/show/:id', array('module' => 'address', 'action' => 'show')));
     $r->connect('address_edit_by_id', new sfRoute('/address/edit/:id', array('module' => 'address', 'action' => 'edit')));
     $r->connect('address_delete_by_id', new sfRoute('/address/delete/:id', array('module' => 'address', 'action' => 'delete')));

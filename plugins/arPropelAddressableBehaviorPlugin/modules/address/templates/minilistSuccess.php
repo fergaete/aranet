@@ -1,8 +1,8 @@
 <?php use_helper('NumberExtended', 'Javascript') ?>
-<?php if ($addresss) : ?>
+<?php if (isset($addresses) && $addresses) : ?>
     <table class="dataTable">
         <tbody>
-        <?php $i = 1; foreach ($addresss as $address): $odd = fmod(++$i, 2) ?>
+        <?php $i = 1; foreach ($addresses as $address): $odd = fmod(++$i, 2) ?>
           <tr id="address_<?php echo $address->getId() ?>" class="row_<?php echo $odd ?>">
                 <td class="actions">
                     <div class="objectActions">

@@ -21,9 +21,9 @@ class budgetActions extends anActions
   {
     $this->related = $request->getParameter('related');
     $this->id = $request->getParameter('id');
-    $id = "BudgetPeer::".strtoupper($this->related . "_ID");
+    $id = "BudgetPeer::BUDGET_".strtoupper($this->related) . "_ID";
     $c = new Criteria();
-    //$c->add($$id, $this->id);
+    //$c->add($id, $this->id);
     $this->budgets = BudgetPeer::doSelect($c);
   }
   

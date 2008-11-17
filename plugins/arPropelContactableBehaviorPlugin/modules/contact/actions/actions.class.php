@@ -18,31 +18,14 @@ class contactActions extends anActions
    */
   public function executeMinilist($request)
   {
-    switch ($request->getParameter('related')) {
-      case "Vendor":
-      case "vendor":
-        $object = VendorPeer::retrieveByPK($this->getRequestParameter('id'));
-        break;
-      case "Client":
-      case "client":
-        $object = ClientPeer::retrieveByPK($this->getRequestParameter('id'));
-        break;
-      case "Project":
-      case "project":
-        $object = ProjectPeer::retrieveByPK($this->getRequestParameter('id'));
-        break;
-      case "Budget":
-      case "budget":
-        $object = BudgetPeer::retrieveByPK($this->getRequestParameter('id'));
-        break;
-      default:
-        $object = null;
-        $this->contacts = null;
+    $class_peer = $request->getParameter('related') . 'Peer';
+    if (class_exists($class_peer)) {
+      $object = call_user_func($class_peer.'::retrieveByPK', $request->getParameter('id'));
+      if ($object) {
+        $this->contacts = $object->getContacts();
+        $this->object = $object;
+      }
     }
-    if ($object) {
-      $this->contacts = $object->getContacts();
-    }
-    $this->object = $object;
     $this->setLayout(false);
     return sfView::SUCCESS;
   }

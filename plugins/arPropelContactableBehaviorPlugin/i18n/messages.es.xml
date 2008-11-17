@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.0">
-  <file orginal="global" source-language="en" datatype="plaintext" date="2008-01-10T19:47:34Z">
-    <body>
-    
-      <trans-unit id="1">
-        <source>Phone: %1%</source>
-        <target>Tel.: %1%</target>
-      </trans-unit>
-
-    </body>
+  <file orginal="global" source-language="en" datatype="plaintext" date="2008-11-17T08:02:44Z">
+    <body/>
   </file>
 </xliff>

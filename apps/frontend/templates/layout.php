@@ -2,14 +2,6 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
 <head>
-<script type="text/javascript" src="/static/ysf/yui//yuiloader/yuiloader-beta-min.js"></script>
-<script type="text/javascript" src="/static/ysf/yui//dom/dom-min.js"></script>
-<script type="text/javascript" src="/static/ysf/yui/event/event-min.js"></script>
-<script type="text/javascript" src="/static/ysf/yui/element/element-beta-min.js"></script>
-<script type="text/javascript" src="/static/ysf/yui/datasource/datasource-beta-min.js"></script>
-<script type="text/javascript" src="/static/ysf/yui/datatable/datatable-beta-min.js"></script>
-<script type="text/javascript" src="/static/ysf/yui/button/button-min.js"></script>
-
 <?php echo include_http_metas() ?>
 <?php echo include_metas() ?>
 <?php echo include_title() ?>
@@ -38,7 +30,7 @@
                         <?php include('_yui_nav.php') ?>
                     </div>
                     
-                    <?php include_component('widgets', 'subnav') ?>
+                    <?php //include_component('widgets', 'subnav') ?>
 
                 <div id="beta">
                     <div id="beta-inner">

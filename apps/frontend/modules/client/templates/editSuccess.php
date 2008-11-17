@@ -5,6 +5,8 @@
     $title = __('Edit client %1%', array('%1%' => $client->__toString()));
 } ?>
 <?php aranet_title($title) ?>
+<?php ysfYUI::addComponents('reset', 'fonts', 'grids', 'datasource') ?>
+
 <h3><?php echo $title ?></h3>
 
 
@@ -50,21 +52,41 @@
 <?php echo $form['client_comments']->renderRow() ?>
 <?php echo $form['contacts']->renderRow() ?>
 <?php foreach ($client->getAddresses() as $address): ?>
-<?php echo $form['address['.$address->getId().']']->renderRow() ?>
-<?php endforeach ?>
-<tr id="li_address_0">
-  <td class='actionsCol'>
+    <td class='actionsCol'>
     <ul>
-      <li id="addressActionAdd"><?php echo link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
-            'url' => 'address/create',
+      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
+            'url' => url_for('address/create'),
             'update' => 'newAddress',
             'position' => 'before',
             'script' => 'true',
             'loading'  => "Element.show('indicator-address')",
             'complete' => "Element.hide('indicator-address')"
             )) ?></li>
-         <li id="addressActionDel"><?php echo link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
-            'url' => 'address/delete',
+         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
+            'url' => url_for('address/delete'),
+            'update' => 'li_address_0',
+            'loading'  => "Element.show('indicator-address')",
+            'complete' => "Element.hide('indicator-address')"
+            )) ?></li>
+    </ul>
+  </td>
+  <td class='leftCol'><?php echo $form['address['.$address->getId().']']->renderLabel() ?></td>
+  <td class='rightCol'><?php echo $form['address['.$address->getId().']'] ?></td>
+  </tr>
+<?php endforeach ?>
+<tr id="li_address_0">
+  <td class='actionsCol'>
+    <ul>
+      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
+            'url' => url_for('address/create'),
+            'update' => 'newAddress',
+            'position' => 'before',
+            'script' => 'true',
+            'loading'  => "Element.show('indicator-address')",
+            'complete' => "Element.hide('indicator-address')"
+            )) ?></li>
+         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
+            'url' => url_for('address/delete'),
             'update' => 'li_address_0',
             'loading'  => "Element.show('indicator-address')",
             'complete' => "Element.hide('indicator-address')"

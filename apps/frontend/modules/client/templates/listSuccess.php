@@ -1,6 +1,7 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
 <?php $title = (isset($tag)) ? __('List clients tagged with "%1%"', array('%1%' => $tag)) : __('List clients') ?>
 <?php aranet_title($title) ?>
+<?php ysfYUI::addComponents('reset', 'fonts', 'grids') ?>
 <h3><?php echo $title ?></h3>
 
 <form action="<?php echo url_for('@client_delete_all') ?>" method="post" name="chklist">
