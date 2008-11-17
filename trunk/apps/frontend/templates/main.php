@@ -9,7 +9,6 @@
 <link rel="shortcut icon" href="/images/<?php echo sfConfig::get('app_sf_settings_plugin_icon') ?>" type="image/x-icon" />
 <link rel="icon" href="/images/<?php echo sfConfig::get('app_sf_settings_plugin_icon') ?>" type="image/x-icon" />
 <link rel="start" href="/" title="<?php echo __('Homepage') ?>"/>
-
 </head>
 <body class="layout-one-column yui-skin-<?php echo sfConfig::get('yui_default_skin') ?>" id="top">
     <div id="container">

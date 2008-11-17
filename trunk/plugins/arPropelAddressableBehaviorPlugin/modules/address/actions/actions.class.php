@@ -13,26 +13,13 @@ class addressActions extends anActions
 
     public function executeMinilist($request)
     {
-        switch ($this->getRequestParameter('related')) {
-            case "Vendor":
-            case "vendor":
-              $object = VendorPeer::retrieveByPK($this->getRequestParameter('id'));
-            break;
-            case "Client":
-            case "client":
-              $object = ClientPeer::retrieveByPK($this->getRequestParameter('id'));
-            break;
-            case "Project":
-            case "project":
-              $object = ProjectPeer::retrieveByPK($this->getRequestParameter('id'));
-            break;
-            default:
-              $object = null;
-              $this->addresss = null;
-        }
-        if ($object) {
-          $this->addresss = $object->getAddresses();
-          $this->object = $object;
+        $class_peer = $request->getParameter('related') . 'Peer';
+        if (class_exists($class_peer)) {
+          $object = call_user_func($class_peer.'::retrieveByPK', $request->getParameter('id'));
+          if ($object) {
+            $this->addresses = $object->getAddresses();
+            $this->object = $object;
+          }
         }
         $this->setLayout(false);
         return sfView::SUCCESS;
@@ -52,7 +39,7 @@ class addressActions extends anActions
     public function executeCreate($request)
     {
       $address = new Address();
-      $address->setId($request->getParameter('index'));
+      //$address->setId($request->getParameter('index'));
       $this->form = new anAddressEditForm($address);
       /*
         $this->address = new Address();

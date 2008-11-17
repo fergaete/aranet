@@ -1,7 +1,6 @@
 <?php aranet_title(__('Login')) ?>
 <?php ysfYUI::addComponents('reset', 'fonts', 'grids') ?>
-<?php sfContext::getInstance()->getResponse()->addStylesheet('forms') ?>
-    
+<?php sfContext::getInstance()->getResponse()->addStylesheet('forms') ?>    
 <div class="loginContainer">
 <div class='loginShell'>
   <h1 style='text-align: left;padding-left: 180px;'><?php echo __('Signin panel'); ?></h1>

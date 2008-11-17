@@ -25,6 +25,7 @@ class yuiWidgetFormDate extends sfWidgetForm
    */
   protected function configure($options = array(), $attributes = array())
   {
+    ysfYUI::addComponent('container', 'menu', 'button', 'calendar');
   }
 
   /**
@@ -50,8 +51,8 @@ class yuiWidgetFormDate extends sfWidgetForm
     $date_format = str_replace(array('1900', '10', '01', '/'), array('nYear', 'nMonth', 'nDay', '+"/"+'), $formated_date);
 
     //$date_format = 'nMonth + "/" + nDay + "/" + nYear';
-    ysfYUI::addComponent('calendar', true);
-
+    //$attributes = $this->fixFormId(array_merge(array('name' => $name), $attributes));
+    
     $js = '
     var oDateFields'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_datefields");
 			oMonthField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_month"),

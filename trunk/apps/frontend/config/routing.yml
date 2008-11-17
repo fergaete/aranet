@@ -116,7 +116,7 @@ project_delete_all:
 
 # budget
 budget_create_from_object:
-  url:  /budget/create/:related/:id
+  url:  /budget/create/related/:related/id/:id
   param:  { module: budget, action: create }
 budget_stats_by_id:
   url:  /budget/stats/:id
@@ -137,7 +137,7 @@ budget_list:
   url:  /budget/list
   param:  { module: budget, action: list }
 budget_minilist:
-  url:  /budget/minilist
+  url:  /budget/minilist/related/:related/id/:id
   param:  { module: budget, action: minilist }
 budget_list_remove_filters:
   url:  /budget/list?filter=

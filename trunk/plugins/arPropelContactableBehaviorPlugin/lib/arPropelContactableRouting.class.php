@@ -19,7 +19,7 @@ class arPropelContactableRouting
     $r = $event->getSubject();
 
     // preprend our routes
-    $r->connect('contact_minilist', new sfRoute('/contact/minilist/:related/:id', array('module' => 'contact', 'action' => 'minilist')));
+    $r->connect('contact_minilist', new sfRoute('/contact/minilist/related/:related/id/:id', array('module' => 'contact', 'action' => 'minilist')));
     $r->connect('contact_show_by_id', new sfRoute('/contact/show/:id', array('module' => 'contact', 'action' => 'show')));
     $r->connect('contact_edit_by_id', new sfRoute('/contact/edit/:id', array('module' => 'contact', 'action' => 'edit')));
     $r->connect('contact_delete_by_id', new sfRoute('/contact/delete/:id', array('module' => 'contact', 'action' => 'delete')));

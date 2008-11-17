@@ -30,10 +30,13 @@ class anClientEditForm extends ClientForm
     } else {
       $addresses = array($address);
     }
+    $i = 0;
     foreach ($addresses as $address) {
       $this->widgetSchema['address['.$address->getId().']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullHTMLAddress', 'resultSchema' => '["ResultSet.Result","FullAddress"]', 'action' => '/address/autocomplete', 'value' => $address->__toString(true)));
+      $this->widgetSchema->setLabels(array('address['.$address->getId().']' => 'Address'));
     
     }
     $this->validatorSchema['address'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
+
   }
 }

@@ -1,5 +1,5 @@
-<?php use_helper('NumberExtended', 'Javascript', 'YUI') ?>
-<?php if ($object) : ?>
+<?php use_helper('NumberExtended', 'Javascript') ?>
+<?php if (isset($contacts) && $contacts) : ?>
     <table class="dataTable">
         <tbody>
         <?php $i = 1; foreach ($contacts as $contact): $odd = fmod(++$i, 2) ?>

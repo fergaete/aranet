@@ -1,7 +1,6 @@
-<?php use_helper('Number', 'NumberExtended', 'YUI') ?>
+<?php use_helper('Number', 'NumberExtended') ?>
 <?php aranet_title(__('Client "%1%"', array('%1%' => $client))) ?>
-
-<?php ysfYUI::addComponent('tabview'); ysfYUI::addEvent('tabs', 'ready', "var tabs = new YAHOO.widget.TabView('tabs');"); ?>
+<?php ysfYUI::addComponents('reset', 'fonts', 'grids', 'tabview'); ysfYUI::addEvent('tabs', 'ready', "var tabs = new YAHOO.widget.TabView('tabs');"); ?>
 
 <h3 id="pageSubTitle"><?php echo __('View client details') ?>: <span class="subText"><?php echo $client ?></span></h3>
 
@@ -18,14 +17,14 @@
               <div id="tabs" class="yui-navset">
                 <ul class="yui-nav">
 	                <li class="selected"><a href="#stats"><em><?php echo __('Client stats') ?></em></a></li>
-	                <li><?php echo link_to_remote('<em>'.__('Contacts').'</em>', array(
-	                  'url' => '@contact_minilist?related=Client&id='.$client->getId() . '#contacts',
-	                  'update' => 'contacts',
+	                <li><?php echo yui_link_to_remote('<em>'.__('Contacts').'</em>', array(
+	                  'url' => url_for('@contact_minilist?related=Client&id='.$client->getId() . '#contacts'),
+	                  'update' => 'contacts-tab',
 	                  'loading'  => "Element.show('indicator-tabs')",
                     'complete' => "Element.hide('indicator-tabs')")) ?></li>
-                  <li><?php echo link_to_remote('<em>'.__('Addresses').'</em>', array(
-	                  'url' => '@address_minilist?related=Client&id='.$client->getId() . '#addresses',
-	                  'update' => 'addresses',
+	                <li><?php echo yui_link_to_remote('<em>'.__('Addresses').'</em>', array(
+	                  'url' => url_for('@address_minilist?related=Client&id='.$client->getId() . '#addresses'),
+	                  'update' => 'addresses-tab',
 	                  'loading'  => "Element.show('indicator-tabs')",
                     'complete' => "Element.hide('indicator-tabs')")) ?></li>
 	              </ul>
@@ -33,8 +32,8 @@
                   <div id="stats">
                     <?php include_partial('stats', array('client' => $client)) ?>
                   </div>
-                  <div id="contacts"></div>
-                  <div id="addresses"></div>
+                  <div id="contacts-tab"></div>
+                  <div id="addresses-tab"></div>
                 </div>
               </div>
               <div id="indicator-tabs" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
@@ -61,11 +60,11 @@
     <li class="selected"><a href="#projects"><em><?php echo __('Projects') ?></em></a></li>
     <li><a href="#budgets"><em><?php echo __('Budgets') ?></em></a></li>
     <li><a href="#invoices"><em><?php echo __('Invoices') ?></em></a></li>
-    <li><?php echo link_to_remote('<em>'.__('Budgets (AJAX)').'</em>', array(
-	                  'url' => '@budget_minilist?related=Client&id='.$client->getId() . '#budgets-ajax',
+    <!-- <li><?php echo yui_link_to_remote('<em>'.__('Budgets (AJAX)').'</em>', array(
+	                  'url' => url_for('@budget_minilist?related=Client&id='.$client->getId() . '#budgets-ajax'),
 	                  'update' => 'budgets-ajax',
 	                  'loading'  => "Element.show('indicator-related_tabs')",
-                    'complete' => "Element.hide('indicator-related_tabs')")) ?></li>
+                    'complete' => "Element.hide('indicator-related_tabs')")) ?></li> -->
   </ul>
   <div class="yui-content">
     <div id="projects">

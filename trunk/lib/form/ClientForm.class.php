@@ -50,6 +50,8 @@ class ClientForm extends BaseClientForm
       'client_comments' => 'Comments',
       ));
     
+    $this->validatorSchema['client_website'] = new sfValidatorUrl(array(), array('invalid' => 'The url address is invalid.'));
+
     // validators
     if ($this->object->isNew()) {
       $this->validatorSchema->setPostValidator(new sfValidatorPropelUnique(
@@ -59,9 +61,9 @@ class ClientForm extends BaseClientForm
     } else {
       $this->validatorSchema->setPostValidator(new sfValidatorPass()); 
     }
-      
+    ysfYUI::addComponents('logger', 'calendar');
     // client_since
-    $this->widgetSchema['client_since'] = new yuiWidgetFormDate();
+    //$this->widgetSchema['client_since'] = new ysfYUICalendarWidget();
 
     // contacts
     $this->widgetSchema['contacts'] = new yuiWidgetFormAutocomplete(array('delimChar' => array(','), 'formatResult' => '%1%.FullName + " (" + %1%.Rol + ")"', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/contact/autocomplete', 'value' => $this->object->getContacts(array('serialized' => true))));
@@ -75,5 +77,6 @@ class ClientForm extends BaseClientForm
     $decorator = new anWidgetFormSchemaFormatterAranet($this->widgetSchema);
     $this->widgetSchema->addFormFormatter('aranet', $decorator);
     $this->widgetSchema->setFormFormatterName('aranet');
+    $this->widgetSchema->getFormFormatter()->setTranslationCatalogue('client_form');
   }
 }
