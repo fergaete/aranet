@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php echo form_tag('cash/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('cash/delete', 'name="chklist"') ?>
 <div id="cashDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -9,11 +9,11 @@
                 <th style="width: 20%;"><?php echo __('Item name') ?></th>
                 <th style="width: 40%;"><?php echo __('Comments') ?></th>
                 <th style="width: 14%;" onmouseover="this.style.cursor = 'pointer'; this.style.background = '#FBE27E';" onmouseout="this.style.background='#FBE9A1';">
-                    <?php if ($sf_user->getAttribute('sort', null, 'cash/sort') == 'cash_date'): ?>
-                    <?php echo link_to(__('Date'), 'cash/list?sort=cash_date&type='.($sf_user->getAttribute('type', 'asc', 'cash/sort') == 'asc' ? 'desc' : 'asc')) ?>
+                    <?php if ($sf_user->getAttribute('sort', null, 'cash/sort') == 'cash_item_date'): ?>
+                    <?php echo link_to(__('Date'), 'cash/list?sort=cash_item_date&type='.($sf_user->getAttribute('type', 'asc', 'cash/sort') == 'asc' ? 'desc' : 'asc')) ?>
                     (<?php echo __($sf_user->getAttribute('type', 'asc', 'cash/sort')) ?>)
                     <?php else: ?>
-                    <?php echo link_to(__('Date'), 'cash/list?sort=cash_date&type=asc') ?>
+                    <?php echo link_to(__('Date'), 'cash/list?sort=cash_item_date&type=asc') ?>
                     <?php endif; ?>
                 </th>
                 <th  style="width: 10%;" onmouseover="this.style.cursor = 'pointer'; this.style.background = '#FBE27E';" onmouseout="this.style.background='#FBE9A1';">

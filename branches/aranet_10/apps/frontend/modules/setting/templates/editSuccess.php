@@ -1,8 +1,8 @@
 <?php use_helper('Object', 'Javascript') ?>
-<?php if ($sf_setting->isNew()) {
+<?php if ($setting->isNew()) {
     $title = __('Add new setting');
 } else {
-    $title = __('Edit setting %1%', array('%1%' => $sf_setting->getName()));
+    $title = __('Edit setting %1%', array('%1%' => $setting->getName()));
 } ?>
 <?php aranet_title($title) ?>
 <div class="windowHead"><span class="windowHeadTitle"><?php echo $title ?></span>
@@ -11,7 +11,7 @@
 
 <?php echo form_tag('setting/update') ?>
 
-<?php echo object_input_hidden_tag($sf_setting, 'getId') ?>
+<?php echo object_input_hidden_tag($setting, 'getId') ?>
 
 <table class="gridTable">
 <tbody>
@@ -20,7 +20,7 @@
   <td class="leftCol"><label class="required"><?php echo __('Name') ?></label></td>
   <td class="rightCol">
       <?php echo form_error('name') ?>
-      <?php echo input_tag('name', (!$sf_params->get('name')) ? $sf_setting->getName() : $sf_params->get('name'), array("size" => "128", "class" => "form-text")) ?>
+      <?php echo input_tag('name', (!$sf_params->get('name')) ? $setting->getName() : $sf_params->get('name'), array("size" => "128", "class" => "form-text")) ?>
   </td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
   <td class="leftCol"><label><?php echo __('Environment') ?></label></td>
   <td class="rightCol">
       <?php echo form_error('env') ?>
-      <?php echo input_tag('env', (!$sf_params->get('env')) ? $sf_setting->getEnv() : $sf_params->get('env'), array("size" => "30", "class" => "form-medium-text")) ?>
+      <?php echo input_tag('env', (!$sf_params->get('env')) ? $setting->getEnv() : $sf_params->get('env'), array("size" => "30", "class" => "form-medium-text")) ?>
   </td>
 </tr>
 <tr>
@@ -36,7 +36,7 @@
   <td class="leftCol"><label><?php echo __('Value') ?></label></td>
   <td class="rightCol">
       <?php echo form_error('value') ?>
-      <?php echo input_tag('value', (!$sf_params->get('value')) ? $sf_setting->getValue() : $sf_params->get('value'), array("size" => "200", "class" => "form-text")) ?>
+      <?php echo input_tag('value', (!$sf_params->get('value')) ? $setting->getValue() : $sf_params->get('value'), array("size" => "200", "class" => "form-text")) ?>
   </td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@
   <td class="leftCol"><label><?php echo __('Description') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('description') ?>
-    <?php echo object_input_tag($sf_setting, 'getDescription', array ('size' => 80, 'class' => 'form-text')) ?>
+    <?php echo object_input_tag($setting, 'getDescription', array ('size' => 80, 'class' => 'form-text')) ?>
   </td>
 </tr>
 </tbody>

@@ -8,7 +8,7 @@
                       visual_effect('highlight', "projectMilestones")), 'name=task') ?>
                       
 <?php echo (isset($task)) ? input_hidden_tag('id', $task->getId()) : '' ?>
-<?php echo input_hidden_tag('task_project_id', $project_id) ?>
+<?php echo input_hidden_tag('task_project_id', $project->getId()) ?>
 
 <table class="gridTable">
 <tbody>

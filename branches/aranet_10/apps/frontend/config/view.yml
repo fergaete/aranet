@@ -28,3 +28,18 @@ default:
 
 autocompleteSuccess:
   has_layout:   off
+
+minilistSuccess:
+  has_layout:   off
+
+statsSuccess:
+  has_layout:   off
+
+versionsSuccess:
+  has_layout:   off
+
+deleteitemSuccess:
+  has_layout: off
+  
+orderitemSuccess:
+  has_layout: off

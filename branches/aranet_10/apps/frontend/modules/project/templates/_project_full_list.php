@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript', 'gWidgets', 'Style') ?>
-<?php echo form_tag('project/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('project/delete', 'name="chklist"') ?>
     <div id="projectDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>

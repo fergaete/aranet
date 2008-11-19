@@ -1,168 +1,108 @@
 <?php
 
 /**
-    * cash actions.
-    *
-    * @package    aranet
-    * @subpackage cash
-    * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
-    * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
-    */
+ * cash actions.
+ *
+ * @package    aranet
+ * @subpackage cash
+ * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
+ */
 class cashActions extends myActions
 {
-    public function executeCreate()
-    {
-        $this->cash_item = new CashItem();
-        $this->setTemplate('edit');
-        return sfView::SUCCESS;
+
+  /**
+   * returns cash item from params
+   *
+   * @return CashItem
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getCashItem()
+  {
+    if ($this->getRequestParameter('id')) {
+      $cash_item = CashItemPeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($cash_item);
+    } else {
+      $cash_item = new CashItem();
     }
+    return $cash_item;
+  }
 
-    public function executeEdit()
+  /**
+   * executes show action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeShow()
+  {
+    return $this->forward('cash', 'edit');
+  }
+  
+  /**
+   * executes update action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeUpdate()
+  {
+    $cash_item = $this->getCashItem();
+    $cash_item->setId($this->getRequestParameter('id'));
+    $cash_item->setCashItemName($this->getRequestParameter('cash_item_name'));
+    $cash_item->setCashItemComments($this->getRequestParameter('cash_item_comments'));
+    if ($this->getRequestParameter('cash_item_date'))
     {
-        if ($this->getRequestParameter('id')) {
-            $this->cash_item = CashItemPeer::retrieveByPk($this->getRequestParameter('id'));
-            $this->forward404Unless($this->cash_item);
-        } else {
-            $this->cash_item = new CashItem();
-        }
-        return sfView::SUCCESS;
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('cash_item_date'), $this->getUser()->getCulture());
+      $cash_item->setCashItemDate("$y-$m-$d");
     }
+    $cash_item->setCashItemAmount($this->getRequestParameter('cash_item_amount'));
 
-    public function handleErrorUpdate()
+    $cash_item->save();
+
+    return $this->redirect('cash/list');
+  }
+
+  /**
+   * adds filters criteria
+   *
+   * @param  Criteria  $c  the base criteria
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function addFiltersCriteria ($c)
+  {
+    if (isset($this->filters['cash_from_is_empty']))
     {
-        $this->forward('cash', 'edit');
+      $criterion = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, '');
+      $criterion->addOr($c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, null, Criteria::ISNULL));
+      $c->add($criterion);
     }
-
-    public function executeUpdate()
+    else if (isset($this->filters['cash_from']) && $this->filters['cash_from'] !== '') {
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->filters['cash_from'], $this->getUser()->getCulture());
+      $criterion = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, $y.'-'.$m.'-'.$d, Criteria::GREATER_EQUAL);
+    }
+    if (isset($this->filters['cash_to_is_empty']))
     {
-        if (!$this->getRequestParameter('id'))
-        {
-            $cash_item = new CashItem();
-        }
-        else
-        {
-            $cash_item = CashItemPeer::retrieveByPk($this->getRequestParameter('id'));
-            $this->forward404Unless($cash_item);
-        }
-
-        $cash_item->setId($this->getRequestParameter('id'));
-        $cash_item->setCashItemName($this->getRequestParameter('cash_item_name'));
-        $cash_item->setCashItemComments($this->getRequestParameter('cash_item_comments'));
-        if ($this->getRequestParameter('cash_item_date'))
-        {
-            list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('cash_item_date'), $this->getUser()->getCulture());
-            $cash_item->setCashItemDate("$y-$m-$d");
-        }
-        $cash_item->setCashItemAmount($this->getRequestParameter('cash_item_amount'));
-
-        $cash_item->save();
-
-        return $this->redirect('cash/list');
+      $criterion2 = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, '');
+      $criterion2->addOr($c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, null, Criteria::ISNULL));
+      $c->add($criterion2);
     }
-
-    public function executeDelete()
+    else if (isset($this->filters['cash_to']) && $this->filters['cash_to'] !== '') {
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->filters['cash_to'], $this->getUser()->getCulture());
+      $criterion2 = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, $y.'-'.$m.'-'.$d, Criteria::LESS_EQUAL);
+      if (isset($criterion)) {
+        $criterion->addAnd($criterion2);
+      }
+      else
+      {
+        $criterion = $criterion2;
+      }
+    }
+    if (isset($criterion))
     {
-        $cash_item = CashItemPeer::retrieveByPk($this->getRequestParameter('id'));
-
-        $this->forward404Unless($cash_item);
-
-        $cash_item->delete();
-
-        return $this->redirect('cash/list');
+      $c->add($criterion);
     }
-
-    public function executeDeleteall()
+    if (isset($this->filters['cash_name']) && $this->filters['cash_name'] && $this->filters['cash_name'] != sfI18N::getInstance()->__('Name') . '...')
     {
-        // TODO: borrado múltiple en una pasada
-        $select = $this->getRequestParameter('select', null);
-        if ($select) {
-            foreach ($select as $item) {
-                if ($item != 0) {
-                    $cash_item = CashItemPeer::retrieveByPk($item);
-                    $cash_item->delete();
-                }
-            }
-        }
-        return $this->redirect($this->getRequest()->getReferer());
+      $c->add(CashItemPeer::CASH_ITEM_NAME, "%".$this->filters['cash_name']."%", Criteria::LIKE);
     }
-
-    protected function processFilters ()
-    {
-        if ($this->getRequest()->hasParameter('filter') || $this->getRequest()->hasParameter('filters'))
-        {
-            $filters = $this->getRequestParameter('filters');
-            $this->getUser()->getAttributeHolder()->removeNamespace('cash/filters');
-            $this->getUser()->getAttributeHolder()->add($filters, 'cash/filters');
-        }
-    }
-
-    protected function processSort ()
-    {
-        if ($this->getRequestParameter('sort'))
-        {
-            $this->getUser()->setAttribute('sort', $this->getRequestParameter('sort'), 'cash/sort');
-            $this->getUser()->setAttribute('type', $this->getRequestParameter('type', 'asc'), 'cash/sort');
-        }
-
-        if (!$this->getUser()->getAttribute('sort', null, 'cash/sort'))
-        {
-            $this->getUser()->setAttribute('sort', 'cash_item_date', 'cash/sort');
-            $this->getUser()->setAttribute('type', 'asc', 'cash/sort');
-        }
-    }
-
-    protected function addSortCriteria ($c)
-    {
-        if ($sort_column = $this->getUser()->getAttribute('sort', null, 'cash/sort'))
-        {
-            $sort_column = CashItemPeer::translateFieldName($sort_column, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_COLNAME);
-            if ($this->getUser()->getAttribute('type', null, 'cash/sort') == 'asc')
-            {
-                $c->addAscendingOrderByColumn($sort_column);
-            }
-            else
-            {
-                $c->addDescendingOrderByColumn($sort_column);
-            }
-        }
-    }
-
-    protected function addFiltersCriteria ($c)
-    {
-        if (isset($this->filters['cash_from_is_empty']))
-        {
-            $criterion = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, '');
-            $criterion->addOr($c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, null, Criteria::ISNULL));
-            $c->add($criterion);
-        }
-        else if (isset($this->filters['cash_from']) && $this->filters['cash_from'] !== '') {
-            list($d, $m, $y) = sfI18N::getDateForCulture($this->filters['cash_from'], $this->getUser()->getCulture());
-            $criterion = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, $y.'-'.$m.'-'.$d, Criteria::GREATER_EQUAL);
-        }
-        if (isset($this->filters['cash_to_is_empty']))
-        {
-            $criterion2 = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, '');
-            $criterion2->addOr($c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, null, Criteria::ISNULL));
-            $c->add($criterion2);
-        }
-        else if (isset($this->filters['cash_to']) && $this->filters['cash_to'] !== '') {
-            list($d, $m, $y) = sfI18N::getDateForCulture($this->filters['cash_to'], $this->getUser()->getCulture());
-            $criterion2 = $c->getNewCriterion(CashItemPeer::CASH_ITEM_DATE, $y.'-'.$m.'-'.$d, Criteria::LESS_EQUAL);
-            if (isset($criterion)) {
-                $criterion->addAnd($criterion2);
-            }
-            else
-            {
-                $criterion = $criterion2;
-            }
-        }
-        if (isset($criterion))
-        {
-            $c->add($criterion);
-        }
-        if (isset($this->filters['cash_name']) && $this->filters['cash_name'] && $this->filters['cash_name'] != sfI18N::getInstance()->__('Name') . '...')
-        {
-            $c->add(CashItemPeer::CASH_ITEM_NAME, "%".$this->filters['cash_name']."%", Criteria::LIKE);
-        }
-    }
+  }
 }

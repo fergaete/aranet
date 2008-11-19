@@ -1,7 +1,7 @@
 <?php use_helper('Javascript') ?>
 <?php aranet_title(__('List settings')) ?>
 <h3><?php echo __('View all settings') ?></h3>
-<?php echo form_tag('setting/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('setting/delete', 'name="chklist"') ?>
 <div id="settingDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -23,26 +23,26 @@
             </tr>
         </thead>
         <tbody>
-        <?php $i = 1; foreach ($pager->getResults() as $sf_setting): $odd = fmod(++$i, 2) ?>
-            <tr id="setting_<?php echo $sf_setting->getId() ?>" style="background:<?php echo ($odd) ? '#eef' : '#fff' ?>" onmouseover="this.style.background = '#ededed!important';" onmouseout="this.style.background='#<?php echo $odd ? 'eef' : 'fff' ?>!important';">
-                <td class="checkbox"><?php echo checkbox_tag('select[]', $sf_setting->getId(), false) ?></td>
-                <td class="actions" id="settingMenu_<?php echo $sf_setting->getId() ?>">
+        <?php $i = 1; foreach ($pager->getResults() as $setting): $odd = fmod(++$i, 2) ?>
+            <tr id="setting_<?php echo $setting->getId() ?>" style="background:<?php echo ($odd) ? '#eef' : '#fff' ?>" onmouseover="this.style.background = '#ededed!important';" onmouseout="this.style.background='#<?php echo $odd ? 'eef' : 'fff' ?>!important';">
+                <td class="checkbox"><?php echo checkbox_tag('select[]', $setting->getId(), false) ?></td>
+                <td class="actions" id="settingMenu_<?php echo $setting->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'setting/show?id='.$sf_setting->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'setting/edit?id='.$sf_setting->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'setting/show?id='.$setting->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'setting/edit?id='.$setting->getId()) ?></li>
                             <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
-                                'update'   => 'setting_'.$sf_setting->getId(),
-                                'url'      => 'setting/delete?id='.$sf_setting->getId(),
+                                'update'   => 'setting_'.$setting->getId(),
+                                'url'      => 'setting/delete?id='.$setting->getId(),
                                 'confirm'  => __('Are you sure?'),
                                 )) ?></li>
                         </ul>
                     </div>
                 </td>
-                <td><?php echo link_to($sf_setting->getName(), 'setting/show?id='.$sf_setting->getId()) ?></td>
-                <td><?php echo $sf_setting->getEnv() ?></td>
-                <td><?php echo $sf_setting->getValue() ?></td>
-                <td><?php echo $sf_setting->getDescription() ?></td>
+                <td><?php echo link_to($setting->getName(), 'setting/show?id='.$setting->getId()) ?></td>
+                <td><?php echo $setting->getEnv() ?></td>
+                <td><?php echo $setting->getValue() ?></td>
+                <td><?php echo $setting->getDescription() ?></td>
             </tr>
 <?php endforeach; ?>
         </tbody>

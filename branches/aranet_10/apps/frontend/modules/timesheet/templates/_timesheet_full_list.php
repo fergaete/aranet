@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php echo form_tag('timesheet/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('timesheet/delete', 'name="chklist"') ?>
 <div id="timesheetDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -57,7 +57,7 @@
                 <td><?php echo $timesheet->getsfGuardUser()->getProfile()->getFullName(false) ?></td>
                 <td><?php echo ($timesheet->getTimesheetProjectId()) ? link_to($timesheet->getProject(), '@show_project_by_id?id=' . $timesheet->getTimesheetProjectId()) : '' ?>
                     <?php echo ($timesheet->getTimesheetProjectId() && $timesheet->getTimesheetBudgetId()) ?  '<br/>&nbsp;&nbsp;&raquo;&nbsp;' : '' ?>
-                    <?php echo ($timesheet->getTimesheetBudgetId()) ? link_to($timesheet->getBudget()->getFullTitle(), '@show_budget_by_id?id=' . $timesheet->getTimesheetBudgetId()) : '' ?>
+                    <?php echo ($timesheet->getTimesheetBudgetId()) ? link_to($timesheet->getBudget()->getFullTitle(), '@budget_show_by_id?id=' . $timesheet->getTimesheetBudgetId()) : '' ?>
                 </td>
                 <td><?php echo $timesheet->getTimesheetDescription() ?></td>
                 <td class="status"><?php echo $timesheet->getTypeOfHour() ?></td>

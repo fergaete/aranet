@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php echo form_tag('income/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('income/delete', 'name="chklist"') ?>
 <div id="incomeDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -55,7 +55,7 @@
                 </td>
                 <td><?php echo link_to($income_item->getIncomeItemName(), 'income/show?id='.$income_item->getId()) ?></td>
                 <td><?php echo $income_item->getIncomeCategory() ?></td>
-                <td><?php echo ($income_item->getProject()->getId()) ? link_to($income_item->getProject(), 'project/show?id='.$income_item->getIncomeItemProjectId()) : '' ?></td>
+                <td><?php echo ($income_item->getIncomeItemProjectId()) ? link_to($income_item->getProject(), 'project/show?id='.$income_item->getIncomeItemProjectId()) : '' ?></td>
                 <td><?php echo ($income_item->getIncomeItemVendorId()) ? link_to($income_item->getVendor(), 'vendor/show?id='.$income_item->getIncomeItemVendorId()) : '' ?></td>
                 <td class="date"><?php echo format_date($income_item->getIncomeDate()) ?></td>
                 <td class="currency"><?php echo format_currency($subtotal, 'EUR') ?></td>
