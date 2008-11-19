@@ -5,7 +5,7 @@
     <table style="width: 100%">
     <tr>
         <td class="leftSide">
-            <span class="bigText"><?php echo link_to($client->getClientCompanyName(), '@show_client_by_id?id=' . $client->getId()) ?></span><br \>
+            <span class="bigText"><?php echo link_to($client->getClientCompanyName(), '@client_show_by_id?id=' . $client->getId()) ?></span><br \>
             <?php echo ($client->getClientWebsite()) ? link_to($client->getClientWebsite(), $client->getClientWebsite()) : '' ?>
             <?php include_partial('address/basic_data', array('address' => $client->getDefaultAddress())) ?><br/>
             <?php include_partial('contact/basic_data', array('contact' => $client->getDefaultContact())) ?>

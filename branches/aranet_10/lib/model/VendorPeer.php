@@ -11,6 +11,15 @@
 
 class VendorPeer extends BaseVendorPeer
 {
+
+  /**
+   * returns vendors like name
+   *
+   * @param string  $name
+   * @param integer  $max
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public static function getVendorsLike($name, $max = 10)
   {
     $c = new Criteria();
@@ -23,6 +32,13 @@ class VendorPeer extends BaseVendorPeer
     return $vendors;
   }
 
+  /**
+   * returns the vendor matching given name
+   *
+   * @param  string $name company name
+   * @return Vendor
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public static function getVendorByCompanyName($name)
   {
     $c = new Criteria();

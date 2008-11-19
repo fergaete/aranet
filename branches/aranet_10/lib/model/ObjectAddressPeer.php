@@ -11,11 +11,19 @@
 
 class ObjectAddressPeer extends BaseObjectAddressPeer
 {
+  
+  /**
+   * returns an ObjectAddress for a given primary key  or creates a new one
+   *
+   * @param  integer $pk  primary key
+   * @return ObjectAddress
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public static function retrieveOrCreateByPk($pk) {
-      $objectaddress = parent::retrieveByPK($pk);
-      if (!$objectaddress) {
-          $objectaddress = new ObjectAddress();
-      }
-      return $objectaddress;
+    $objectaddress = parent::retrieveByPK($pk);
+    if (!$objectaddress) {
+      $objectaddress = new ObjectAddress();
+    }
+    return $objectaddress;
   }
 }

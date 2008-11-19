@@ -11,7 +11,14 @@
 
 class CashItem extends BaseCashItem
 {
-    public function __toString() {
-        return $this->getCashItemName();
-    }
+
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getCashItemName();
+  }
 }

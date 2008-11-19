@@ -11,7 +11,14 @@
 
 class BudgetStatus extends BaseBudgetStatus
 {
-    public function __toString() {
-        return $this->getBudgetStatusTitle();
-    }
+
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getBudgetStatusTitle();
+  }
 }

@@ -11,6 +11,13 @@
 
 class TaskPriority extends BaseTaskPriority
 {
+  
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function __toString() {
     return $this->getTaskPriorityTitle();
   }

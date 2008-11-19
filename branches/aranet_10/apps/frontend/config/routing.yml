@@ -26,7 +26,37 @@ show_graphic:
 copyright:
   url:  /copyright
   param:  { module: static, action: index, content: copyright }
-  
+
+# contact
+contact_show_by_id:
+  url:  /contact/show/:id
+  param:  { module: contact, action: show }
+contact_edit_by_id:
+  url:  /contact/edit/:id
+  param:  { module: contact, action: edit }
+contact_delete_by_id:
+  url:  /contact/delete/:id
+  param:  { module: contact, action: delete }
+contact_list_by_tag:
+  url:  /contact/list/:tag
+  param:  { module: contact, action: listByTag }
+contact_list:
+  url:  /contact/list
+  param:  { module: contact, action: list }
+contact_list_remove_filters:
+  url:  /contact/list?filter=
+  param:  { module: contact, action: list }
+contact_index:
+  url:  /contact
+  param:  { module: contact, action: list }
+contact_create:
+  url:  /contact/create
+  param:  { module: contact, action: create }
+contact_delete_all:
+  url:  /contact/delete
+  param:  { module: contact, action: delete }
+
+
 # client
 client_stats_by_id:
   url:  /client/stats/:id
@@ -66,6 +96,12 @@ project_create_from_object:
 project_list:
   url:  /project/list
   param:  { module: project, action: list }
+project_show_by_id:
+  url:  /project/show/:id
+  param:  { module: project, action: show }  
+project_edit_by_id:
+  url:  /project/edit/:id
+  param:  { module: project, action: edit }  
 project_index:
   url:  /project
   param:  { module: project, action: list }

@@ -11,17 +11,31 @@
 
 class Milestone extends BaseMilestone
 {
-    public function __toString() {
-        return $this->getMilestoneTitle();
-    }
+  
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getMilestoneTitle();
+  }
 
-    public function getMilestoneCompletionFraction() {
-        if ($this->getMilestoneEstimatedHours()) {
-            return $this->getMilestoneTotalHours() / $this->getMilestoneEstimatedHours() * 100;
-        } else {
-            return '';
-        }
+  /**
+   * returns percent of completion
+   *
+   * @return double
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getMilestoneCompletionFraction() {
+    sfLoader::loadHelpers('NumberExtended');
+    if ($this->getMilestoneEstimatedHours()) {
+      return round_amount($this->getMilestoneTotalHours() / $this->getMilestoneEstimatedHours() * 100);
+    } else {
+      return 0;
     }
+  }
 
 
 }

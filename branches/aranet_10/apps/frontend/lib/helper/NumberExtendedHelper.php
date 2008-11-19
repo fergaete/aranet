@@ -352,3 +352,20 @@ function format_indicator($indicator) {
   eval("\$str = " . $script . ";");
   return $str;
 }
+
+/**
+ * Rounds an amount
+ *
+ * @param  double $amount
+ * @param  integer $decimals
+ * @param  double $div a division number
+ * @return double
+ * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+ **/
+function round_amount($amount, $decimals = 2, $div = 1) {
+  $tempd = $amount/$div*pow(10,$decimals);
+  $tempd1 = round($tempd);
+  $amount = $tempd1/pow(10,$decimals);
+  return $amount;
+}
+  

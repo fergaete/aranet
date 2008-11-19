@@ -89,7 +89,7 @@ if ($invoice->getInvoicePaymentConditionId()) {
       </tr>
 <?php $total = 0; foreach ($next_invoices as $invoice) : $total += $invoice->getInvoiceTotalAmount(); ?>
       <tr>
-          <td class="text title"><?php echo link_to($invoice->getClient(), '@show_client_by_id?id=' . $invoice->getInvoiceClientId()) ?></td>
+          <td class="text title"><?php echo link_to($invoice->getClient(), '@client_show_by_id?id=' . $invoice->getInvoiceClientId()) ?></td>
           <td class="text"><?php echo format_date($invoice->getInvoiceDate()) ?></td>
           <td class="currency"><?php echo format_currency($invoice->getInvoiceTotalAmount(), 'EUR') ?></td>
       </tr>
@@ -119,7 +119,7 @@ if ($invoice->getInvoicePaymentConditionId()) {
       </tr>
 <?php foreach ($clients as $client) : ?>
       <tr>
-          <td class="text title"><?php echo link_to($client, '@show_client_by_id?id=' . $client->getId()) ?></td>
+          <td class="text title"><?php echo link_to($client, '@client_show_by_id?id=' . $client->getId()) ?></td>
           <td class="currency"><?php echo format_indicator($client->getIndicator('total-amount-solt')) ?></td>
           <td class="currency"><?php //echo format_percent($client->getClientAverageMargin()) ?></td>
       </tr>
@@ -155,7 +155,7 @@ $style = 'style="'.$style.'"';
 ?>
       <tr>
           <td class="text title">
-<?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject()->getProjectName(), '@show_project_by_id?id=' . $budget->getBudgetProjectId()) . '<br/>&nbsp;&nbsp;&raquo;&nbsp;' : '' ?><?php echo link_to($budget, '@budget_show_by_id?id=' . $budget->getId()) ?></td>
+<?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject()->getProjectName(), '@project_show_by_id?id=' . $budget->getBudgetProjectId()) . '<br/>&nbsp;&nbsp;&raquo;&nbsp;' : '' ?><?php echo link_to($budget, '@budget_show_by_id?id=' . $budget->getId()) ?></td>
           <td class="text"><?php echo link_to($budget->getClient(), '/client/show?id=' . $budget->getBudgetClientId()) ?></td>
           <td class="number"<?php echo $style ?>><?php echo format_date($budget->getBudgetDate()) .$date ?></td>
           <td class="currency"><?php echo format_currency($budget->getBudgetTotalAmount(), 'EUR') ?></td>

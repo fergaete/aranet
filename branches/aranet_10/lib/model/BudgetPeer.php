@@ -11,16 +11,24 @@
 
 class BudgetPeer extends BaseBudgetPeer
 {
-    
-    public static function getBudgetsLike($name, $max = 10)
-    {
-        $c = new Criteria();
-        $criterion = $c->getNewCriterion(BudgetPeer::BUDGET_NUMBER, "%${name}%", Criteria::LIKE);
-        $criterion->addOr($c->getNewCriterion(BudgetPeer::BUDGET_TITLE, "%${name}%", Criteria::LIKE));
-        $c->add($criterion);
-        $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
-        $c->setLimit($max);
-        $budgets = BudgetPeer::doSelect($c);
-        return $budgets;
-    }
+
+  /**
+   * returns budgets like name
+   *
+   * @param string  $name
+   * @param integer  $max
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public static function getBudgetsLike($name, $max = 10)
+  {
+    $c = new Criteria();
+    $criterion = $c->getNewCriterion(BudgetPeer::BUDGET_NUMBER, "%${name}%", Criteria::LIKE);
+    $criterion->addOr($c->getNewCriterion(BudgetPeer::BUDGET_TITLE, "%${name}%", Criteria::LIKE));
+    $c->add($criterion);
+    $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
+    $c->setLimit($max);
+    $budgets = BudgetPeer::doSelect($c);
+    return $budgets;
+  }
 }

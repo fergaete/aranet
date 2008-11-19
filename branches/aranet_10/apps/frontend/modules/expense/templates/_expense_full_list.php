@@ -58,7 +58,7 @@
                 <!--<td><?php //echo ($expense_item->getExpenseItemCategoryId()) ? $expense_item->getExpenseCategory() : '' ?></td> -->
                 <td>
                     <?php if ($expense_item->getExpenseItemProjectId()) {
-                        echo link_to($expense_item->getProject(), '@show_project_by_id?id='.$expense_item->getExpenseItemProjectId());
+                        echo link_to($expense_item->getProject(), '@project_show_by_id?id='.$expense_item->getExpenseItemProjectId());
                         echo ($expense_item->getExpenseItemBudgetId()) ? '<br/>&nbsp;&nbsp&raquo;&nbsp;' . link_to($expense_item->getBudget()->getFullTitle(), '@budget_show_by_id?id='.$expense_item->getExpenseItemBudgetId()) : '';
                     } else
                         echo ($expense_item->getExpenseItemBudgetId()) ? link_to($expense_item->getBudget()->getFullTitle(), '@budget_show_by_id?id='.$expense_item->getExpenseItemBudgetId()) : '' ?>

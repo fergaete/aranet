@@ -11,86 +11,138 @@
 
 class IncomeItem extends BaseIncomeItem
 {
-    protected $collFiles;
 
-    protected $lastFilesCriteria = null;
+  /**
+   * array of files
+   *
+   * @var array
+   **/
+  protected $collFiles;
 
-    public function __toString() {
-        return $this->getIncomeItemName();
+  /**
+   * last criteria for files
+   *
+   * @var Criteria
+   **/
+  protected $lastFilesCriteria = null;
+
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getIncomeItemName();
+  }
+
+  /**
+   * returns income item base amount
+   *
+   * @param double
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getIncomeItemBase() {
+    return (parent::getIncomeItemBase()) ? parent::getIncomeItemBase() : $this->getIncomeItemAmount();
+  }
+
+  /**
+   * sets income item amount
+   *
+   * @return double $v
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function setIncomeItemBase($v) {
+    parent::setIncomeItemBase($v);
+    if (!$this->getIncomeItemAmount())
+      parent::setIncomeItemAmount($v);
+  }
+
+  /**
+   * initializes files
+   *
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function initFiles()
+  {
+    if ($this->collFiles === null) {
+      $this->collFiles = array();
     }
+  }
 
-    public function getIncomeItemBase() {
-        return (parent::getIncomeItemBase()) ? parent::getIncomeItemBase() : $this->getIncomeItemAmount();
+  /**
+   * returns files associated with budget
+   *
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getFiles($criteria = null, $con = null)
+  {
+    if ($criteria === null) {
+      $criteria = new Criteria();
     }
-
-    public function setIncomeItemBase($v) {
-        parent::setIncomeItemBase($v);
-        if (!$this->getIncomeItemAmount())
-            parent::setIncomeItemAmount($v);
-    }
-    
-    public function initFiles()
+    elseif ($criteria instanceof Criteria)
     {
-        if ($this->collFiles === null) {
-            $this->collFiles = array();
-        }
+      $criteria = clone $criteria;
     }
 
-    public function getFiles($criteria = null, $con = null)
-    {
-        if ($criteria === null) {
-            $criteria = new Criteria();
-        }
-        elseif ($criteria instanceof Criteria)
-        {
-            $criteria = clone $criteria;
-        }
-
-        if ($this->collFiles === null) {
-            if ($this->isNew()) {
-                $this->collFiles = array();
-            } else {
-                $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_CLASS, 'IncomeItem');
-                $criteria->addJoin(sfPropelFileStorageObjectPeer::FILE_INFO_ID, sfPropelFileStorageInfoPeer::FILE_ID);
-                sfPropelFileStorageInfoPeer::addSelectColumns($criteria);
-                $this->collFiles = sfPropelFileStorageInfoPeer::doSelect($criteria, $con);
-            }
-        } else {
-            if (!$this->isNew()) {
-                $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_CLASS, 'IncomeItem');
-                $criteria->addJoin(sfPropelFileStorageObjectPeer::FILE_INFO_ID, sfPropelFileStorageInfoPeer::FILE_ID);
-                sfPropelFileStorageInfoPeer::addSelectColumns($criteria);
-                if (!isset($this->lastFileCriteria) || !$this->lastFileCriteria->equals($criteria)) {
-                    $this->collFiles = sfPropelFileStorageInfoPeer::doSelect($criteria, $con);
-                }
-            }
-        }
-        $this->lastFileCriteria = $criteria;
-        return $this->collFiles;
-    }
-
-
-    public function countFiles($criteria = null, $distinct = false, $con = null)
-    {
-        if ($criteria === null) {
-            $criteria = new Criteria();
-        }
-        elseif ($criteria instanceof Criteria)
-        {
-            $criteria = clone $criteria;
-        }
+    if ($this->collFiles === null) {
+      if ($this->isNew()) {
+        $this->collFiles = array();
+      } else {
         $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_CLASS, 'IncomeItem');
         $criteria->addJoin(sfPropelFileStorageObjectPeer::FILE_INFO_ID, sfPropelFileStorageInfoPeer::FILE_ID);
-
-        return sfPropelFileStorageInfoPeer::doCount($criteria, $distinct, $con);
+        sfPropelFileStorageInfoPeer::addSelectColumns($criteria);
+        $this->collFiles = sfPropelFileStorageInfoPeer::doSelect($criteria, $con);
+      }
+    } else {
+      if (!$this->isNew()) {
+        $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_CLASS, 'IncomeItem');
+        $criteria->addJoin(sfPropelFileStorageObjectPeer::FILE_INFO_ID, sfPropelFileStorageInfoPeer::FILE_ID);
+        sfPropelFileStorageInfoPeer::addSelectColumns($criteria);
+        if (!isset($this->lastFileCriteria) || !$this->lastFileCriteria->equals($criteria)) {
+          $this->collFiles = sfPropelFileStorageInfoPeer::doSelect($criteria, $con);
+        }
+      }
     }
+    $this->lastFileCriteria = $criteria;
+    return $this->collFiles;
+  }
 
-
-    public function addFile(File $l)
+  /**
+   * return number of files associated
+   *
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function countFiles($criteria = null, $distinct = false, $con = null)
+  {
+    if ($criteria === null) {
+      $criteria = new Criteria();
+    }
+    elseif ($criteria instanceof Criteria)
     {
-        $this->collFiles[] = $l;
-
-        $l->setContact($this);
+      $criteria = clone $criteria;
     }
+    $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_CLASS, 'IncomeItem');
+    $criteria->addJoin(sfPropelFileStorageObjectPeer::FILE_INFO_ID, sfPropelFileStorageInfoPeer::FILE_ID);
+
+    return sfPropelFileStorageInfoPeer::doCount($criteria, $distinct, $con);
+  }
+
+  /**
+   * adds a file associated to the budget
+   *
+   * @param File  $l  the file
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function addFile(File $l)
+  {
+    $this->collFiles[] = $l;
+
+    $l->setContact($this);
+  }
 
 }

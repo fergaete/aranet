@@ -67,12 +67,12 @@
                         </ul>
                     </div>
                 </td>
-                <td class="text"><?php echo link_to($project, '@show_project_by_id?id='.$project->getId()) ?></td>
+                <td class="text"><?php echo link_to($project, '@project_show_by_id?id='.$project->getId()) ?></td>
                 <td class="text">
                 <table>
                 <tr>
                 <td style="border: none; width:20px"><?php echo ($project->getClient()->getClientWebsite()) ? link_to(image_tag('icon_website.gif', 'alt="' . $project->getClient() . '"'), $project->getClient()->getClientWebsite()) : '' ?></td>
-                <td style="border:none;"><?php echo link_to($project->getClient(), '@show_client_by_id?id='.$project->getProjectClientId()) ?></td>
+                <td style="border:none;"><?php echo link_to($project->getClient(), '@client_show_by_id?id='.$project->getProjectClientId()) ?></td>
                 </tr>
                 </table>
                 </td>
