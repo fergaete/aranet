@@ -1,13 +1,12 @@
 <?php
 
-
-
-class Indicator extends BaseIndicator {
-
-	
-	public function __construct()
-	{
-						parent::__construct();
-	}
-
-} 
+/**
+ * Subclass for representing a row from the 'aranet_indicator' table.
+ *
+ * 
+ *
+ * @package lib.model
+ */ 
+class Indicator extends BaseIndicator
+{
+}

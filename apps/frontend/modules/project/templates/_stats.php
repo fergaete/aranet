@@ -17,7 +17,7 @@
                                     'onchange' => remote_function(array(
                                         'update' => 'project-status',
                                         'url' => '/project/updatestatus',
-                                        'with' => "'project_id=" . $project->getId() . "&project_status_id=' + this.options[this.selectedIndex].value"
+                                        'with' => "'id=" . $project->getId() . "&project_status_id=' + this.options[this.selectedIndex].value"
                                     ))
                                     )
                                 ) ?>

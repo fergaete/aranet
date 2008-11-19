@@ -1,13 +1,14 @@
 <?php
 
+/**
+ * Subclass for representing a row from the 'aranet_notification' table.
+ *
+ * @package    aranet
+ * @subpackage lib.model
+ * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
+ * @version    SVN: $Id: Notification.php 3 2008-08-06 07:48:19Z pablo $
+ */
 
-
-class Notification extends BaseNotification {
-
-	
-	public function __construct()
-	{
-						parent::__construct();
-	}
-
-} 
+class Notification extends BaseNotification
+{
+}

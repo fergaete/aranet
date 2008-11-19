@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardPermissionPeer.php 2344 2006-10-06 17:06:58Z davedash $
  */
 class sfGuardRememberKey extends PluginsfGuardRememberKey
 {

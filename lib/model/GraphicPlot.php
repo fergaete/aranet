@@ -1,13 +1,12 @@
 <?php
 
-
-
-class GraphicPlot extends BaseGraphicPlot {
-
-	
-	public function __construct()
-	{
-						parent::__construct();
-	}
-
-} 
+/**
+ * Subclass for representing a row from the 'aranet_graphic_plot' table.
+ *
+ * 
+ *
+ * @package lib.model
+ */ 
+class GraphicPlot extends BaseGraphicPlot
+{
+}

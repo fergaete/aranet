@@ -1,12 +1,15 @@
-<?php aranet_title(__('Login')) ?>
-<?php ysfYUI::addComponents('reset', 'fonts', 'grids') ?>
-<?php sfContext::getInstance()->getResponse()->addStylesheet('forms') ?>    
+<?php use_helper('Validation') ?>
+
 <div class="loginContainer">
+<?php echo form_error('username') ?><br />
+<?php echo form_error('password') ?><br />
 <div class='loginShell'>
   <h1 style='text-align: left;padding-left: 180px;'><?php echo __('Signin panel'); ?></h1>
-  <form action="<?php echo url_for('@sf_guard_signin') ?>" method="post" class="signin">
+  <?php echo form_tag('@sf_guard_signin', 'id="sigin-form"') ?>
   <?php if (strpos($sf_params->get('referer'), 'logout') === false && $sf_params->get('referer')) : ?>
-  <?php $sf_user->serReferer($sf_params->get('referer')); ?>
+  <?php echo input_hidden_tag('referer', $sf_params->get('referer')); ?>
+  <?php else: ?>
+  <?php echo input_hidden_tag('referer', url_for('@homepage')); ?>
   <?php endif ?>
 
   <div class='left'>
@@ -19,19 +22,37 @@
 
   <div class='right'>
     <fieldset>
-        <table>
-            <?php echo $form ?>
-            <tr>
-                <td></td>
-                <td class="actions">
-                    <?php use_helper('YUIForm') ?>
-                    <?php echo yui_submit_tag(__('Login')." &raquo;") ?>
-                </td>
-            </tr>
-        </table>
+
+    <div class="form-row" id="sf_guard_auth_username">
+      <?php
+      echo label_for('username', __('Username') . ':'),
+      input_tag('username', $sf_data->get('sf_params')->get('username'),'class="form-text"');
+      ?>
+    </div>
+
+    <div class="form-row" id="sf_guard_auth_password">
+      <?php
+      echo label_for('password', __('Password') . ':'),
+        input_password_tag('password', null, 'class="form-text"');
+      ?>
+    </div>
+    <div class="form-row" id="sf_guard_auth_remember">
+      <?php
+      echo label_for('remember', __('Remember me?')),
+      checkbox_tag('remember');
+      ?>
+    </div>
   </fieldset>
+<?php
+    echo label_for('submit_btn', '&nbsp;');
+    echo submit_tag(__('Login') . ' &raquo;', 'id="submit_btn" class="btn big"') ?>
 
    </div>
  </form>
  </div>
 </div>
+<?php if (DEMO_MODE == 1) : ?>
+<div style="text-align:center">
+<p><?php echo __('Use demo/demo for username and password') ?></p>
+</div>
+<?php endif ?>

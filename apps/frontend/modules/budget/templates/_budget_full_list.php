@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript', 'gWidgets', 'Style') ?>
-<?php echo form_tag('budget/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('budget/delete', 'name="chklist"') ?>
 <div id="budgetDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -75,10 +75,10 @@
                         </ul>
                     </div>
                 </td>
-                <td><?php echo link_to($budget, '@show_budget_by_id?id='.$budget->getId()) ?></td>
+                <td><?php echo link_to($budget, '@budget_show_by_id?id='.$budget->getId()) ?></td>
                 <td><?php echo $budget->getBudgetTitle() ?></td>
                 <td><?php echo ($budget->getClient()) ? link_to($budget->getClient(), 'client/show?id=' . $budget->getBudgetClientId(), 'title="' . $budget->getClient()->getClientCompanyName() . '"') : '' ?></td>
-                <td><?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject(), '@show_project_by_id?id=' . $budget->getBudgetProjectId()) : '' ?></td>
+                <td><?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject(), '@project_show_by_id?id=' . $budget->getBudgetProjectId()) : '' ?></td>
                 <td class="date"><?php echo format_date($budget->getBudgetDate()) ?></td>
                 <td class="status" id="budStatus<?php echo $budget->getId() ?>">
                 <?php $remote = array(

@@ -1,21 +1,15 @@
 generator:
-  class: sfPropelGenerator
+  class:              sfPropelAdminGenerator
   param:
-    model_class:           sfGuardGroup
-    theme:                 admin
-    non_verbose_templates: true
-    with_show:             false
-    singular:              ~
-    plural:                ~
-    route_prefix:          sf_guard_group
-    with_propel_route:     1
+    model_class:      sfGuardGroup
+    theme:            default
 
-    config:
-      list:
-        title: Group list
+    list:
+      title: Group list
+      display:        [=name, description]
 
-      edit:
-        title: Editing Group "%%name%%"
-
-      new:
-        title: New Group
+    edit:
+      title:        Edit "%%name%%" group
+      fields:
+        permissions:  { type: admin_double_list, params: through_class=sfGuardGroupPermission }
+      display:        [ name, description, permissions ]

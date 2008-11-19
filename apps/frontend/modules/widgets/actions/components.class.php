@@ -3,10 +3,10 @@
 /**
  * widgets components.
  *
- * @package    ARANet
+ * @package    aranet
  * @subpackage widgets
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: components.class.php 3 2008-08-06 07:48:19Z pablo $
  */
 class widgetsComponents extends sfComponents
 {
@@ -19,42 +19,18 @@ class widgetsComponents extends sfComponents
      **/
     public function executeSubnav()
     {
-        $this->module = sfContext::getInstance()->getModuleName();
+        $this->module = $this->getModuleName();
         if ($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('member') && !in_array($this->module, array('dashboard'))) {
             if (!$this->getUser()->getAttribute('fullname')) {
                 $this->getUser()->setAttribute('fullname', $this->getUser()->getGuardUser()->getProfile()->getFullname(false));
             }
             $this->fullname = $this->getUser()->getAttribute('fullname');
             $this->filters = $this->getUser()->getAttributeHolder()->getAll($this->module.'/filters');
-            $filter = new Filter();
-            $filter->fromArray($this->filters);
-            $this->form = new BaseFilterForm($filter);
             return sfView::SUCCESS;
         }
         return sfView::NONE;
     }
 
-    /**
-     * executeUser function: executes User action
-     *
-     * @access public
-     * @return string
-     * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-     **/
-    public function executeUser()
-    {
-        $this->module = sfContext::getInstance()->getModuleName();
-        if ($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('member')) {
-            
-            $this->fullname = $this->getUser()->getAttribute('fullname');
-            $this->filters = $this->getUser()->getAttributeHolder()->getAll($this->module.'/filters');
-            $filter = new Filter();
-            $filter->fromArray($this->filters);
-            $this->form = new BaseFilterForm($filter);
-            return sfView::SUCCESS;
-        }
-        return sfView::NONE;
-    }
     /**
      * executeTags function: executes Tags action
      *
@@ -64,14 +40,16 @@ class widgetsComponents extends sfComponents
      **/
     public function executeTags()
     {
-        $this->module = sfContext::getInstance()->getModuleName();
+        $this->module = $this->getModuleName();
         if ($this->getUser()->isAuthenticated() && $this->getUser()->hasCredential('member') && in_array($this->module, array('client', 'vendor', 'project', 'contact', 'invoice', 'budget', 'income', 'expense'))) {
             $this->model = ucfirst($this->module);
             if (in_array($this->module, array('expense', 'income'))) {
                 $this->model .= 'Item';
             }
             $this->tags = TagPeer::getPopulars(null, array('model' => $this->model));
-            return sfView::SUCCESS;
+            if ($this->tags) {
+                return sfView::SUCCESS;
+            }
         }
         return sfView::NONE;
     }

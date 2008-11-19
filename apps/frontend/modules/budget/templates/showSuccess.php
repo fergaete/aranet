@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Budget "%1%"', array('%1%' => $budget))) ?>
+<?php aranet_title(__('Budget %1%', array('%1%' => $budget))) ?>
 
 <h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View budget details') ?> <span class="subText">(<?php echo $budget->__toString() . ' - ' . $budget->getBudgetTitle() ?>)</span></h3>
 
@@ -7,7 +7,7 @@
     <table style="width: 100%">
     <tr>
         <td class="leftSide">
-            <span class="bigText"><?php echo ($budget->getClient()) ? link_to($budget->getClient()->getFullName(false), '@show_client_by_id?id=' . $budget->getClient()->getId()) : '' ?></span><br \>
+            <span class="bigText"><?php echo ($budget->getClient()) ? link_to($budget->getClient()->getFullName(false), '@client_show_by_id?id=' . $budget->getClient()->getId()) : '' ?></span><br \>
             <?php ($budget->getClient()) ? include_partial('address/basic_data', array('address' => $budget->getClient()->getDefaultAddress())) : '' ?><br/>
             <?php include_partial('contact/basic_data', array('contact' => $budget->getDefaultContact())) ?>
         </td>
@@ -16,7 +16,7 @@
                 <ul id="menuItems">
                     <li id="menuItemStats" class="menuItemSelected"><?php echo link_to_remote('<span>'.__('Budget stats').'</span>', array(
                         'update' => 'infoWindow',
-                        'url'    => 'budget/stats?budget_id='.$budget->getId(),
+                        'url'    => 'budget/stats?id='.$budget->getId(),
                         'loading'  => "Element.show('indicator-tabs')",
                         'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemStats')",
                         )) ?></li>
@@ -28,7 +28,7 @@
                         )) ?></li>
                     <li id="menuItemVersions" class=""><?php echo link_to_remote('<span>'.__('Versions').'</span>', array(
                         'update' => 'infoWindow',
-                        'url'    => 'budget/versions?budget_id='.$budget->getId(),
+                        'url'    => 'budget/versions?id='.$budget->getId(),
                         'loading'  => "Element.show('indicator-tabs')",
                         'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemVersions')",
                         )) ?></li>

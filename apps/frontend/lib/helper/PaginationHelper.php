@@ -1,5 +1,13 @@
 <?php
- 
+
+/**
+ * Returns a navigation HTML fragment
+ *
+ * @param  object  $pager the pager
+ * @param  string  $uri   the base link
+ * @return string
+ * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+ **/ 
 function pager_navigation($pager, $uri)
 {
   $navigation = '';
@@ -39,7 +47,14 @@ function pager_navigation($pager, $uri)
   return $navigation;
 }
 
-
+/**
+ * Returns a repagination (20, 40, 60...) HTML fragment
+ *
+ * @param  object  $pager the pager
+ * @param  string  $uri   the base link
+ * @return string
+ * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+ **/
 function repagination_links($pager, $uri) {
   $links = '<span class="repagination">' . __('Pagination') . ': ' . "\n";
   $links .= "<ul>\n";
@@ -62,9 +77,16 @@ function repagination_links($pager, $uri) {
   return $links;
 }
 
+/**
+ * Formats the number of results for a pager
+ *
+ * @param  object  $pager the pager
+ * @return string
+ * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+ **/
 function pager_results($pager) {
- $text =  format_number_choice('[0] '.__('no result').'|[1] 1 '.__('Result').'|(1,+Inf] %1% '.__('Results'), array('%1%' => $pager->getNbResults()), $pager->getNbResults());
- if ($pager->getnbResults() > $pager->getMaxPerPage() ) {
+  $text =  format_number_choice('[0] '.__('no result').'|[1] 1 '.__('Result').'|(1,+Inf] %1% '.__('Results'), array('%1%' => $pager->getNbResults()), $pager->getNbResults());
+  if ($pager->getnbResults() > $pager->getMaxPerPage() ) {
     $from = ($pager->getPage()-1) * $pager->getMaxPerPage();
     $to = ($from + $pager->getMaxPerPage() < $pager->getnbResults()) ? $from + $pager->getMaxPerPage() : $pager->getNbResults();
     $text .=". ". __('Showing from %1% to %2%.', array('%1%' => $from+1, '%2%' => $to)) . "\n";

@@ -1,0 +1,1 @@
+<?php echo link_to($sf_propel_file_storage_info->getFileName(), 'sfPropelFileStorage/download?name='.$sf_propel_file_storage_info->getFileName());?>

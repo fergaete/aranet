@@ -4,7 +4,7 @@
 } else {
     $title = __('Edit budget %1%', array('%1%' => $budget->__toString()));
 } ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . $title) ?>
+<?php aranet_title($title) ?>
 <div class="windowHead"><span class="windowHeadTitle"><?php echo $title ?></span>
 <div class="windowControls"></div>
 </div>
@@ -40,7 +40,7 @@
   <td class="leftCol"><label><label><?php echo __('Budget dates') ?></label></label></td>
   <td class="rightCol">
       <?php echo form_error('budget_date') ? form_error('budget_date') : '' ?>
-      <?php echo form_error('budget_valid_date') && !form_error('budget_date') ? form_error('budget_valid_date') : '' ?>
+      <?php echo form_error('budget_valid_date') ? form_error('budget_valid_date') : '' ?>
     <label class="required"><?php echo __('Date') ?></label>
     <?php echo object_input_date_tag($budget, 'getBudgetDate', array ('rich' => true, 'class' => $sf_request->getError('budget_date') ? 'form-date err' : 'form-date')) ?>
     <label class="required"><?php echo __('Valid till') ?></label>

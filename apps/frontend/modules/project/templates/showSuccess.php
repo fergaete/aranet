@@ -1,6 +1,6 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript', 'Object') ?>
 
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Project %1%', array('%1%' => $project))) ?>
+<?php aranet_title(__('Project %1%', array('%1%' => $project))) ?>
 
 <h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View projects details') ?> <span class="subText">(<?php echo $project->__toString() ?>)</span></h3>
 
@@ -17,7 +17,7 @@
                 <ul id="menuItems">
                     <li id="menuItemStats" class="menuItemSelected"><?php echo link_to_remote('<span>'.__('Project stats').'</span>', array(
                         'update' => 'infoWindow',
-                        'url'    => 'project/stats?project_id='.$project->getId(),
+                        'url'    => 'project/stats?id='.$project->getId(),
                         'loading'  => "Element.show('indicator-tabs')",
                         'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemStats')",
                         )) ?></li>
