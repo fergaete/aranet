@@ -38,7 +38,7 @@ class Address extends BaseAddress
     }
 
     public function __toString($replace = false) {
-        sfLoader::loadHelpers(array('I18N', 'Number', 'NumberExtended'));
+        sfContext::getInstance()->getConfiguration()->loadHelpersarray('I18N', 'Number', 'NumberExtended'));
         $postal_code = $this->getAddressPostalCode() ? '<br/>' . format_code($this->getAddressPostalCode()) . ' - '  : '';
         $address_line2 = $this->getAddressLine2() ? '<br/>' . $this->getAddressLine2() . '<br/>'  : '';
         $address = $this->getAddressLine1() . $address_line2 . $postal_code .  $this->getAddressLocation();

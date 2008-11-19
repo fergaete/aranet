@@ -10,7 +10,7 @@
  *
  */
 
-sfLoader::loadHelpers(array('Tag', 'Javascript'));
+sfContext::getInstance()->getConfiguration()->loadHelpersarray('Tag', 'Javascript'));
 
   function yui_table($name, $container)
   {
