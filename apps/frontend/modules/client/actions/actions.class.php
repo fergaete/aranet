@@ -99,7 +99,7 @@ class clientActions extends myActions
 
     $client->save();
 
-    return $this->redirect('@show_client_by_id?id='.$client->getId());
+    return $this->redirect('@client_show_by_id?id='.$client->getId());
   }
 
   /**

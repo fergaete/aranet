@@ -11,39 +11,46 @@
 
 class Task extends BaseTask
 {
-    public function __toString() {
-        return $this->getTaskTitle();
-    }
+  
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getTaskTitle();
+  }
 
-    public function getTaskCompletionFraction() {
-        if ($this->getTaskEstimatedHours()) {
-            return $this->getTaskTotalHours() / $this->getTaskEstimatedHours() * 100;
-        } else {
-            return '';
-        }
+  /**
+   * returns percent of completion
+   *
+   * @return double
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getTaskCompletionFraction() {
+    if ($this->getTaskEstimatedHours()) {
+      return $this->getTaskTotalHours() / $this->getTaskEstimatedHours() * 100;
+    } else {
+      return '';
     }
+  }
 
-    public function save($con = null)
-    {
-        if ($con === null) {
-            $con = Propel::getConnection(ClientPeer::DATABASE_NAME);
-        }
-        try
-        {
-            //Update Timesheets names
-            if (!$this->isNew() && $this->isColumnModified(TaskPeer::TASK_TITLE)) {
-                foreach ($this->getTimesheets() as $ts) {
-                    $ts->setTimesheetDescription($this->getTaskTitle());
-                }
-            }
-            $ret = parent::save($con);
-            $con->commit();
-            return $ret;
-        }
-        catch (Exception $e)
-        {
-            $con->rollback();
-        throw $e;
-        }
+  /**
+   * preSave process
+   *
+   * @param Task $v
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function preSave($v) {
+    if (!$v->isNew() && $v->isColumnModified(TaskPeer::TASK_TITLE)) {
+      foreach ($v->getTimesheets() as $ts) {
+        $ts->setTimesheetDescription($v->getTaskTitle());
+      }
     }
+  }
+
 }
+
+sfMixer::register('BaseTask:save:pre', array('Task', 'preSave'));

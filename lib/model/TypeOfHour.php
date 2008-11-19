@@ -11,7 +11,14 @@
 
 class TypeOfHour extends BaseTypeOfHour
 {
-    public function __toString() {
-        return $this->getTypeOfHourTitle() . ' (' . $this->getTypeOfHourCost() . ')';
-    }
+
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getTypeOfHourTitle() . ' (' . $this->getTypeOfHourCost() . ')';
+  }
 }

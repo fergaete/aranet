@@ -11,16 +11,24 @@
 
 class TaskPeer extends BaseTaskPeer
 {
-  public static function getTaskByTitle($name)
+
+  /**
+   * returns the task matching given title
+   *
+   * @param  string $title the title
+   * @return Task
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public static function getTaskByTitle($title)
   {
     $c = new Criteria();
     $order   = array("\r\n", "\n", "\r");
-    $name = str_replace($order, '', $name);
-    $c->add(TaskPeer::TASK_TITLE, $name);
+    $title = str_replace($order, '', $title);
+    $c->add(TaskPeer::TASK_TITLE, $title);
     $task = TaskPeer::doSelectOne($c);
     if (!$task instanceof Task) {
-        $task = new Task();
-        $task->setTaskTitle($name);
+      $task = new Task();
+      $task->setTaskTitle($title);
     }
     return $task;
   }

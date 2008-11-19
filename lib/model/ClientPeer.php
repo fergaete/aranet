@@ -11,6 +11,15 @@
 
 class ClientPeer extends BaseClientPeer
 {
+  
+  /**
+   * returns clients like name
+   *
+   * @param string  $name
+   * @param integer  $max
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public static function getClientsLike($name, $max = 10)
   {
     $c = new Criteria();
@@ -23,6 +32,13 @@ class ClientPeer extends BaseClientPeer
     return $clients;
   }
 
+  /**
+   * returns the client matching given name
+   *
+   * @param  string $name company name
+   * @return Client
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public static function getClientByCompanyName($name)
   {
     $c = new Criteria();

@@ -11,33 +11,46 @@
 
 class Timesheet extends BaseTimesheet
 {
-    public function getProjectMilestones()
-    {
-        if ($this->getTimesheetProjectId()) {
-            $c = new Criteria();
-            $c->addJoin(ProjectPeer::ID, MilestonePeer::MILESTONE_PROJECT_ID);
-            $c->add(MilestonePeer::MILESTONE_PROJECT_ID, $this->getTimesheetProjectId());
-            $milestones = MilestonePeer::doSelect($c);
-        }
-        else
-        {
-            $milestones = array();
-        }
-        return $milestones;
-    }
 
-    public function getProjectTasks()
-    {
-        if ($this->getTimesheetMilestoneId()) {
-            $c = new Criteria();
-            $c->addJoin(MilestonePeer::ID, TaskPeer::TASK_MILESTONE_ID);
-            $c->add(TaskPeer::TASK_MILESTONE_ID, $this->getTimesheetMilestoneId());
-            $tasks = TaskPeer::doSelect($c);
-        }
-        else
-        {
-            $tasks = array();
-        }
-        return $tasks;
+  /**
+   * returns project milestones
+   *
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getProjectMilestones()
+  {
+    if ($this->getTimesheetProjectId()) {
+      $c = new Criteria();
+      $c->addJoin(ProjectPeer::ID, MilestonePeer::MILESTONE_PROJECT_ID);
+      $c->add(MilestonePeer::MILESTONE_PROJECT_ID, $this->getTimesheetProjectId());
+      $milestones = MilestonePeer::doSelect($c);
     }
+    else
+    {
+      $milestones = array();
+    }
+    return $milestones;
+  }
+
+  /**
+   * returns project tasks
+   *
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getProjectTasks()
+  {
+    if ($this->getTimesheetMilestoneId()) {
+      $c = new Criteria();
+      $c->addJoin(MilestonePeer::ID, TaskPeer::TASK_MILESTONE_ID);
+      $c->add(TaskPeer::TASK_MILESTONE_ID, $this->getTimesheetMilestoneId());
+      $tasks = TaskPeer::doSelect($c);
+    }
+    else
+    {
+      $tasks = array();
+    }
+    return $tasks;
+  }
 }

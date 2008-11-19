@@ -11,7 +11,14 @@
 
 class ExpenseCategory extends BaseExpenseCategory
 {
-    public function __toString() {
-        return $this->getCategoryTitle();
-    }
+  
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getCategoryTitle();
+  }
 }

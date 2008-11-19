@@ -7,7 +7,7 @@
     <table style="width: 100%">
     <tr>
         <td class="leftSide">
-            <span class="bigText"><?php echo ($budget->getClient()) ? link_to($budget->getClient()->getFullName(false), '@show_client_by_id?id=' . $budget->getClient()->getId()) : '' ?></span><br \>
+            <span class="bigText"><?php echo ($budget->getClient()) ? link_to($budget->getClient()->getFullName(false), '@client_show_by_id?id=' . $budget->getClient()->getId()) : '' ?></span><br \>
             <?php ($budget->getClient()) ? include_partial('address/basic_data', array('address' => $budget->getClient()->getDefaultAddress())) : '' ?><br/>
             <?php include_partial('contact/basic_data', array('contact' => $budget->getDefaultContact())) ?>
         </td>

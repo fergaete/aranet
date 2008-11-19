@@ -82,7 +82,7 @@ class contactActions extends myActions
    **/
   public function executeUpdate()
   {
-    $ontact = $this->getContact();
+    $contact = $this->getContact();
     // Process addresses
     $addresses = AddressPeer::processAddress($this->getRequest()->getParameterHolder()->getAll());
     if ($addresses) {
@@ -138,7 +138,7 @@ class contactActions extends myActions
       $contact->removeAllTags();
       $contact->addTag($this->getRequestParameter('tags') ? $this->getRequestParameter('tags') : null);
       $contact->save();
-      return $this->redirect('@show_contact_by_id?id='.$contact->getId());
+      return $this->redirect('@contact_show_by_id?id='.$contact->getId());
     }
 
   /**

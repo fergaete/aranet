@@ -49,7 +49,7 @@ endif ?>
                 <td class="actions" id="clientMenu_<?php echo $client->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), '@show_client_by_id?id='.$client->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), '@client_show_by_id?id='.$client->getId()) ?></li>
                             <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), '@edit_client_by_id?id='.$client->getId()) ?></li>
                             <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                                 'update'   => 'client_'.$client->getId(),
@@ -59,10 +59,10 @@ endif ?>
                         </ul>
                     </div>
                 </td>
-                <td><?php echo link_to($client->getFullName(), '@show_client_by_id?id='.$client->getId()) ?></td>
+                <td><?php echo link_to($client->getFullName(), '@client_show_by_id?id='.$client->getId()) ?></td>
                 <?php $dcontact = $client->getDefaultContact() ?>
                 <td style="vertical-align: top;"><?php if ($dcontact) : ?>
-<?php echo link_to($dcontact, '@show_contact_by_id?id=' . $dcontact->getId()) ?>
+<?php echo link_to($dcontact, '@contact_show_by_id?id=' . $dcontact->getId()) ?>
 <?php echo ($dcontact->getContactEmail()) ? '  ['.mail_to($dcontact->getContactEmail(),'email') . ']': '' ?>
 <?php echo ($dcontact->getContactRol()) ? '<br/>'.$dcontact->getContactRol() : '' ?>
 <?php endif ?></td>

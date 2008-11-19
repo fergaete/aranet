@@ -11,15 +11,30 @@
 
 class InvoiceItem extends BaseInvoiceItem
 {
-    public function postSave($v) {
-        // Update invoice
-        $v->getInvoice()->save();
-    }
+  
+  /**
+   * postSave function
+   *
+   * @param   InvoiceItem  $v  the invoice item to process
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function postSave($v) {
+    // Update invoice
+    $v->getInvoice()->save();
+  }
 
-    public function postDelete($v) {
-        // Update invoice
-        $v->getInvoice()->save();
-    }
+  /**
+   * postDelete function
+   *
+   * @param   InvoiceItem  $v  the invoice item to process
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function postDelete($v) {
+    // Update invoice
+    $v->getInvoice()->save();
+  }
 
 }
 sfMixer::register('BaseInvoiceItem:delete:post', array('InvoiceItem', 'postDelete'));

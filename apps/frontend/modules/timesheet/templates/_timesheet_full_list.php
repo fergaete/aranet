@@ -55,7 +55,7 @@
                 </td>
                 <td class="date"><?php echo format_date($timesheet->getTimesheetDate()) ?></td>
                 <td><?php echo $timesheet->getsfGuardUser()->getProfile()->getFullName(false) ?></td>
-                <td><?php echo ($timesheet->getTimesheetProjectId()) ? link_to($timesheet->getProject(), '@show_project_by_id?id=' . $timesheet->getTimesheetProjectId()) : '' ?>
+                <td><?php echo ($timesheet->getTimesheetProjectId()) ? link_to($timesheet->getProject(), '@project_show_by_id?id=' . $timesheet->getTimesheetProjectId()) : '' ?>
                     <?php echo ($timesheet->getTimesheetProjectId() && $timesheet->getTimesheetBudgetId()) ?  '<br/>&nbsp;&nbsp;&raquo;&nbsp;' : '' ?>
                     <?php echo ($timesheet->getTimesheetBudgetId()) ? link_to($timesheet->getBudget()->getFullTitle(), '@budget_show_by_id?id=' . $timesheet->getTimesheetBudgetId()) : '' ?>
                 </td>
