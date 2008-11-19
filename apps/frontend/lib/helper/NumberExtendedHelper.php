@@ -17,8 +17,6 @@
  * @version    SVN: $Id: NumberExtendedHelper.php 3 2008-08-06 07:48:19Z pablo $
  */
 
-//include_once('symfony/helper/NumberHelper.php');
-
 /**
  * Formats a number by injecting nonnumeric characters in a specified format
  * into the string in the positions they appear in the format.
@@ -38,27 +36,27 @@
  */
 function format_string($string, $format)
 {
-   if ($format == '' || $string == '') return $string;
+  if ($format == '' || $string == '') return $string;
  
-   $result = '';
-   $fpos = 0;
-   $spos = 0;
-   while ((strlen($format) - 1) >= $fpos)
-   {
-       if (is_alphanumeric(substr($format, $fpos, 1)))
-       {
-           $result .= substr($string, $spos, 1);
-           $spos++;
-       }
-       else
-       {
-           $result .= substr($format, $fpos, 1);
-       }
+  $result = '';
+  $fpos = 0;
+  $spos = 0;
+  while ((strlen($format) - 1) >= $fpos)
+  {
+    if (is_alphanumeric(substr($format, $fpos, 1)))
+    {
+      $result .= substr($string, $spos, 1);
+      $spos++;
+    }
+    else
+    {
+      $result .= substr($format, $fpos, 1);
+    }
  
-       $fpos++;
-   }
+    $fpos++;
+  }
  
-   return $result;
+  return $result;
 }
 
 /**
@@ -91,21 +89,21 @@ function format_string($string, $format)
  */
 function smart_format_phone($string)
 {
-    switch (strlen($string))
-    {
-        case 7:
-            return format_string($string, '000-0000');
-        case 9:
-            return format_string($string, '000 000 000');
-        case 10:
-            return format_string($string, '(000) 000-0000');
-        case 11:
-            return format_string($string, '0 (000) 000-0000');
-        case 12:
-            return format_string($string, '000 000 000 000');
-        default:
-            return $string;
-    }
+  switch (strlen($string))
+  {
+    case 7:
+      return format_string($string, '000-0000');
+    case 9:
+      return format_string($string, '000 000 000');
+    case 10:
+      return format_string($string, '(000) 000-0000');
+    case 11:
+      return format_string($string, '0 (000) 000-0000');
+    case 12:
+      return format_string($string, '000 000 000 000');
+    default:
+      return $string;
+  }
 }
 
 /**
@@ -124,7 +122,7 @@ function smart_format_phone($string)
  */
 function format_code($string, $format = '00.000')
 {
-    return format_string($string, $format);
+  return format_string($string, $format);
 }
 
 function ext_format_number($number, $decimals = 0, $div = 1, $culture = null)
@@ -144,37 +142,37 @@ function ext_format_number($number, $decimals = 0, $div = 1, $culture = null)
 }
 
 function format_filesize($value, $unit = 'KB') {
-   switch ($unit)
-    {
-        case 'B':
-            return ext_format_number($value) . ' B';
-        case 'b':
-            return ext_format_number($value, 0, 1/8) . ' bits';
-        case 'KB':
-            return ext_format_number($value, 1, 1024) . ' KB';
-        case 'Kb':
-            return ext_format_number($value, 0, 128) . ' Kbs';
-        case 'MB':
-            return ext_format_number($value, 2, 1048576) . ' MB';
-        default:
-            return $value;
-    }
+  switch ($unit)
+  {
+    case 'B':
+      return ext_format_number($value) . ' B';
+    case 'b':
+      return ext_format_number($value, 0, 1/8) . ' bits';
+    case 'KB':
+      return ext_format_number($value, 1, 1024) . ' KB';
+    case 'Kb':
+      return ext_format_number($value, 0, 128) . ' Kbs';
+    case 'MB':
+      return ext_format_number($value, 2, 1048576) . ' MB';
+    default:
+      return $value;
+  }
 }
 
 function smart_format_filesize($value) {
-   switch (true)
-    {
-        case ($value < 64):
-            return ext_format_number($value, 0, 1/8) . ' bits';
-        case ($value < 8192):
-            return ext_format_number($value) . ' B';
-        case ($value < 819200):
-            return ext_format_number($value, 1, 1024) . ' KB';
-        case ($value < 1048576):
-            return ext_format_number($value, 2, 1048576) . ' MB' . $value;
-        default:
-            return ext_format_number($value, 2, 1048576) . ' MB';
-    }
+  switch (true)
+  {
+    case ($value < 64):
+      return ext_format_number($value, 0, 1/8) . ' bits';
+    case ($value < 8192):
+      return ext_format_number($value) . ' B';
+    case ($value < 819200):
+      return ext_format_number($value, 1, 1024) . ' KB';
+    case ($value < 1048576):
+      return ext_format_number($value, 2, 1048576) . ' MB' . $value;
+    default:
+      return ext_format_number($value, 2, 1048576) . ' MB';
+  }
 }
 
 function ext_format_currency($amount, $decimals = 0, $currency = null, $culture = null)
@@ -199,7 +197,7 @@ function ext_format_currency($amount, $decimals = 0, $currency = null, $culture 
  */
 function format_eur($money, $eur = true, $format = '%0.2f')
 {
-    return ($eur ? '€' : '') . sprintf($format, $money);
+  return ($eur ? '€' : '') . sprintf($format, $money);
 }
 
 /**
@@ -212,7 +210,7 @@ function format_eur($money, $eur = true, $format = '%0.2f')
  */
 function format_hour($hours, $symbol = true, $format = '%0.2f')
 {
-    return sprintf($format, $hours). ($symbol ? ' hrs' : '');
+  return sprintf($format, $hours). ($symbol ? ' hrs' : '');
 }
 
 /**
@@ -225,19 +223,19 @@ function format_hour($hours, $symbol = true, $format = '%0.2f')
  */
 function format_percent($percent, $symbol = true, $format = '%0.2f')
 {
-    if ($percent) {
-        return sprintf($format, $percent) . ($symbol ? '%' : '');
-    } else {
-        return '---';
-    }
+  if ($percent) {
+    return sprintf($format, $percent) . ($symbol ? '%' : '');
+  } else {
+    return '---';
+  }
 }
 
 function to_currency($number, $round=2)
 {
-    $tempd = $number*pow(10,$round);
-    $tempd1 = round($tempd);
-    $number = $tempd1/pow(10,$round);
-    return $number;
+  $tempd = $number*pow(10,$round);
+  $tempd1 = round($tempd);
+  $number = $tempd1/pow(10,$round);
+  return $number;
 }
 
 /**
@@ -264,29 +262,29 @@ function to_currency($number, $round=2)
  */
 function mask_string($string, $format, $ignore = ' ')
 {
-    if ($format == '' || $string == '') return $string;
- 
-    $result = '';
-    $fpos = 0;
-    $spos = 0;
-    while ((strlen($format) - 1) >= $fpos)
+  if ($format == '' || $string == '') return $string;
+
+  $result = '';
+  $fpos = 0;
+  $spos = 0;
+  while ((strlen($format) - 1) >= $fpos)
+  {
+    if (is_alphanumeric(substr($format, $fpos, 1)))
     {
-        if (is_alphanumeric(substr($format, $fpos, 1)))
-        {
-            $result .= substr($string, $spos, 1);
-            $spos++;
-        }
-        else
-        {
-            $result .= substr($format, $fpos, 1);
- 
-            if (strpos($ignore, substr($format, $fpos, 1)) === false) $spos++;
-        }
- 
-        $fpos++;
+      $result .= substr($string, $spos, 1);
+      $spos++;
     }
- 
-    return $result;
+    else
+    {
+      $result .= substr($format, $fpos, 1);
+
+      if (strpos($ignore, substr($format, $fpos, 1)) === false) $spos++;
+    }
+
+    $fpos++;
+  }
+
+  return $result;
 }
  
 /**
@@ -299,7 +297,7 @@ function mask_string($string, $format, $ignore = ' ')
  */
 function format_exp($string, $format = '00-00')
 {
-    return format_string($string, $format);
+  return format_string($string, $format);
 }
  
 /**
@@ -312,7 +310,7 @@ function format_exp($string, $format = '00-00')
  */
 function mask_credit_card($string, $format = '**** **** **** 0000')
 {
-    return mask_string($string, $format);
+  return mask_string($string, $format);
 }
  
 /**
@@ -325,7 +323,7 @@ function mask_credit_card($string, $format = '**** **** **** 0000')
  */
 function format_usd($money, $dollar = true, $format = '%0.2f')
 {
-    return ($dollar ? '$' : '') . sprintf($format, $money);
+  return ($dollar ? '$' : '') . sprintf($format, $money);
 }
  
 /**
@@ -338,12 +336,19 @@ function format_usd($money, $dollar = true, $format = '%0.2f')
  */
 function is_alphanumeric($string)
 {
-    return preg_match('/[0-9a-zA-Z]/', $string);
+  return preg_match('/[0-9a-zA-Z]/', $string);
 }
 
+/**
+ * Formats a indicator object
+ *
+ * @param  object $indicator
+ * @return string
+ * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+ **/
 function format_indicator($indicator) {
-    $script = str_replace('%1%', $indicator->getIndicatorValue(), $indicator->getDefaultIndicator()->getIndicatorBeautifier());
-    $script = str_replace('%2%', "'" . $indicator->getDefaultIndicator()->getIndicatorUnit() . "'", $script);
-    eval("\$str = " . $script . ";");
-    return $str;
+  $script = str_replace('%1%', $indicator->getIndicatorValue(), $indicator->getDefaultIndicator()->getIndicatorBeautifier());
+  $script = str_replace('%2%', "'" . $indicator->getDefaultIndicator()->getIndicatorUnit() . "'", $script);
+  eval("\$str = " . $script . ";");
+  return $str;
 }

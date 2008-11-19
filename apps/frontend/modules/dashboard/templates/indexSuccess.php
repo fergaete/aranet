@@ -155,7 +155,7 @@ $style = 'style="'.$style.'"';
 ?>
       <tr>
           <td class="text title">
-<?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject()->getProjectName(), '@show_project_by_id?id=' . $budget->getBudgetProjectId()) . '<br/>&nbsp;&nbsp;&raquo;&nbsp;' : '' ?><?php echo link_to($budget, '@show_budget_by_id?id=' . $budget->getId()) ?></td>
+<?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject()->getProjectName(), '@show_project_by_id?id=' . $budget->getBudgetProjectId()) . '<br/>&nbsp;&nbsp;&raquo;&nbsp;' : '' ?><?php echo link_to($budget, '@budget_show_by_id?id=' . $budget->getId()) ?></td>
           <td class="text"><?php echo link_to($budget->getClient(), '/client/show?id=' . $budget->getBudgetClientId()) ?></td>
           <td class="number"<?php echo $style ?>><?php echo format_date($budget->getBudgetDate()) .$date ?></td>
           <td class="currency"><?php echo format_currency($budget->getBudgetTotalAmount(), 'EUR') ?></td>

@@ -7,7 +7,7 @@ else :
  echo __('View all contacts');
 endif ?>
 </h3>
-<?php echo form_tag('contact/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('contact/delete', 'name="chklist"') ?>
 <div id="contactDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>

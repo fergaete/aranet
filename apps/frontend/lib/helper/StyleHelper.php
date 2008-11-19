@@ -128,29 +128,43 @@ function show_sort_type($type){
     return " $t ";
 }
 
+/**
+ * return a link to remote for gtip dialog
+ *
+ * @param  string $title the title of the link
+ * @param  string $options aditional options for the link
+ * @return string
+ * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+ **/
 function remote_icon_gtip($title, $options = '') {
-    $object = icon_gtip($title, $options);
-    echo $object;
-    $options = _parse_attributes($options);
-    return link_to_remote($object, $options);
+  $object = icon_gtip($title, $options);
+  $options = _parse_attributes($options);
+  return link_to_remote($object, $options);
 }
 
+/**
+ * return a link for gtip dialog
+ *
+ * @param  string $title the title of the link
+ * @param  string $options aditional options for the link
+ * @return string
+ * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+ **/
 function icon_gtip($title, $options = '') {
-    
-    $options = _parse_attributes($options);
-    $return_string = $title;
-    if (isset($options['image']))
-    {
-        $extension = substr($options['image'], -4);
-        $image = basename($options['image'], $extension);
-        if (file_exists(sfConfig::get('sf_web_dir') . '/images/'.$image.'-'.$options['status'].$extension)) {
-            $return_string = "<div id='".$options['id']."' style='display:none'>".$options['content'] . "</div>\n";
-            $return_string .= image_tag($image.'-'.$options['status'].$extension, array('class' => 'gtip',
-                       'gtip'         => '#'.$options['id'],
-                       'title'        => isset($options['gtip_title']) ? $options['gtip_title'] : '',
-                       'query_string' => '?eventOff=click'
-                       ));
-        }
+  $options = _parse_attributes($options);
+  $return_string = $title;
+  if (isset($options['image']))
+  {
+    $extension = substr($options['image'], -4);
+    $image = basename($options['image'], $extension);
+    if (file_exists(sfConfig::get('sf_web_dir') . '/images/'.$image.'-'.$options['status'].$extension)) {
+      $return_string = "<div id='".$options['id']."' style='display:none'>".$options['content'] . "</div>\n";
+      $return_string .= image_tag($image.'-'.$options['status'].$extension, array('class' => 'gtip',
+                 'gtip'         => '#'.$options['id'],
+                 'title'        => isset($options['gtip_title']) ? $options['gtip_title'] : '',
+                 'query_string' => '?eventOff=click'
+                 ));
     }
-    return $return_string;
+  }
+  return $return_string;
 }

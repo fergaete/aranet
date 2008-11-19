@@ -7,7 +7,7 @@ else :
  echo __('View all clients');
 endif ?>
 </h3>
-<?php echo form_tag('client/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('client/delete', 'name="chklist"') ?>
 <div id="clientDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>

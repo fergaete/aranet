@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript', 'Style') ?>
-<?php echo form_tag('expense/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('expense/delete', 'name="chklist"') ?>
   <div id="expenseDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -59,9 +59,9 @@
                 <td>
                     <?php if ($expense_item->getExpenseItemProjectId()) {
                         echo link_to($expense_item->getProject(), '@show_project_by_id?id='.$expense_item->getExpenseItemProjectId());
-                        echo ($expense_item->getExpenseItemBudgetId()) ? '<br/>&nbsp;&nbsp&raquo;&nbsp;' . link_to($expense_item->getBudget()->getFullTitle(), '@show_budget_by_id?id='.$expense_item->getExpenseItemBudgetId()) : '';
+                        echo ($expense_item->getExpenseItemBudgetId()) ? '<br/>&nbsp;&nbsp&raquo;&nbsp;' . link_to($expense_item->getBudget()->getFullTitle(), '@budget_show_by_id?id='.$expense_item->getExpenseItemBudgetId()) : '';
                     } else
-                        echo ($expense_item->getExpenseItemBudgetId()) ? link_to($expense_item->getBudget()->getFullTitle(), '@show_budget_by_id?id='.$expense_item->getExpenseItemBudgetId()) : '' ?>
+                        echo ($expense_item->getExpenseItemBudgetId()) ? link_to($expense_item->getBudget()->getFullTitle(), '@budget_show_by_id?id='.$expense_item->getExpenseItemBudgetId()) : '' ?>
                 </td>
                 <td><?php echo link_to($expense_item->getVendor(), 'vendor/show?id='.$expense_item->getExpenseItemVendorId()) ?></td>
                 <td class="date"><?php echo format_date($expense_item->getExpensePurchaseDate()) ?></td>

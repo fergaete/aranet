@@ -11,4 +11,3 @@ fields:
   invoice_date:
     required:
       msg:       Enter a valid date
-    sfDateValidator:

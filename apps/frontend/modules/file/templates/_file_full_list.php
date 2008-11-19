@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php echo form_tag('file/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('file/delete', 'name="chklist"') ?>
 <div id="fileDisplay" style="width: 100%;" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -20,7 +20,7 @@
                 <div class="objectActions">
                 <ul>
                   <li><?php echo link_to(image_tag("button_view.gif", 'alt="View/Download"'), '@download_by_file_name?name='.urlencode($sf_propel_file_storage_info->getFileName())) ?></li>
-                  <li><?php echo link_to(image_tag("button_edit.gif", 'alt="Edit"'), 'file/edit?file_id='.$sf_propel_file_storage_info->getFileId()) ?></li>
+                  <li><?php echo link_to(image_tag("button_edit.gif", 'alt="Edit"'), 'file/edit?id='.$sf_propel_file_storage_info->getFileId()) ?></li>
                   <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'file_' . $sf_propel_file_storage_info->getFileId(),
                     'url'      => 'file/delete?file_id='.$sf_propel_file_storage_info->getFileId(),

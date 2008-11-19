@@ -15,7 +15,7 @@
                 <ul id="menuItems">
                     <li id="menuItemStats" class="menuItemSelected"><?php echo link_to_remote('<span>'.__('Client stats').'</span>', array(
                         'update' => 'infoWindow',
-                        'url'    => 'client/stats?client_id='.$client->getId(),
+                        'url'    => 'client/stats?id='.$client->getId(),
                         'loading'  => "Element.show('indicator-tabs')",
                         'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemStats')",
                         )) ?></li>

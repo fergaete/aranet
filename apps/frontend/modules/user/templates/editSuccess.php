@@ -1,8 +1,8 @@
 <?php use_helper('Object', 'Javascript') ?>
-<?php if ($sf_guard_user_profile->isNew()) {
+<?php if ($user->isNew()) {
     $title = __('Add new member');
 } else {
-    $title = __('Edit member %1%', array('%1%' => $sf_guard_user_profile));
+    $title = __('Edit member %1%', array('%1%' => $user));
 } ?>
 <?php aranet_title($title) ?>
 <div class="windowHead"><span class="windowHeadTitle"><?php echo $title ?></span>
@@ -11,7 +11,7 @@
 
 <?php echo form_tag('user/update') ?>
 
-<?php echo object_input_hidden_tag($sf_guard_user_profile, 'getId') ?>
+<?php echo object_input_hidden_tag($user, 'getId') ?>
 
 <table class="gridTable">
 <tbody>
@@ -20,7 +20,7 @@
   <td class="leftCol"><label class="required"><?php echo __('Username') ?></label></td>
   <td class="rightCol">
       <?php echo form_error('username') ?>
-      <?php echo input_tag('username', ($sf_guard_user_profile->getUserId()) ? $sf_guard_user_profile->getsfGuardUserRelatedByUserId()->getUsername() : $sf_params->get('username'), array("size" => "128", "class" => "form-text")) ?>
+      <?php echo input_tag('username', (!$user->isNew()) ? $user->getsfGuardUserRelatedByUserId()->getUsername() : $sf_params->get('username'), array("size" => "128", "class" => "form-text")) ?>
   </td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@
   <td class="leftCol"><label class="required"><?php echo __('Email') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('email') ?>
-    <?php echo input_tag('email', ($sf_guard_user_profile->getEmail(false)) ? $sf_guard_user_profile->getEmail(false) : $sf_params->get('email'), array (
+    <?php echo input_tag('email', ($user->getEmail(false)) ? $user->getEmail(false) : $sf_params->get('email'), array (
   'size' => 80, 'class' => 'form-text'
 )) ?>
   </td>
@@ -54,7 +54,7 @@
   <td class="leftCol"><label><?php echo __('Company') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('company') ?>
-    <?php echo object_input_tag($sf_guard_user_profile, 'getCompany', array ('size' => 80, 'class' => 'form-text')) ?>
+    <?php echo object_input_tag($user, 'getCompany', array ('size' => 80, 'class' => 'form-text')) ?>
   </td>
 </tr>
 <tr>
@@ -68,15 +68,15 @@
          <tr>
            <td>
                 <label><?php echo __('Salutation') ?></label><br/>
-                <?php echo object_input_tag($sf_guard_user_profile, 'getTitle', array ('size' => 4, 'class' => 'form-tiny-text')) ?>
+                <?php echo object_input_tag($user, 'getTitle', array ('size' => 4, 'class' => 'form-tiny-text')) ?>
            </td>
            <td>
                 <label><?php echo __('First name') ?></label><br/>
-                <?php echo object_input_tag($sf_guard_user_profile, 'getFirstName', array ('size' => 50, 'class' => 'form-medium-text')) ?>
+                <?php echo object_input_tag($user, 'getFirstName', array ('size' => 50, 'class' => 'form-medium-text')) ?>
            </td>
            <td>
                 <label><?php echo __('Last name') ?></label><br/>
-                <?php echo object_input_tag($sf_guard_user_profile, 'getLastName', array ('size' => 100, 'class' => 'form-medium-text')) ?>
+                <?php echo object_input_tag($user, 'getLastName', array ('size' => 100, 'class' => 'form-medium-text')) ?>
            </td>
          </tr>
        </table>
@@ -87,7 +87,7 @@
   <td class="leftCol"><label><?php echo __('Birthday') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('birthday') ?>
-    <?php echo object_input_date_tag($sf_guard_user_profile, 'getBirthday', array ('rich' => true, 'class' => 'form-date')) ?>
+    <?php echo object_input_date_tag($user, 'getBirthday', array ('rich' => true, 'class' => 'form-date')) ?>
   </td>
 </tr>
 <tr>
@@ -95,7 +95,7 @@
   <td class="leftCol"><label><?php echo __('Url') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('url') ?>  
-    <?php echo object_input_tag($sf_guard_user_profile, 'getUrl', array ('size' => 80, 'class' => 'form-text')) ?>
+    <?php echo object_input_tag($user, 'getUrl', array ('size' => 80, 'class' => 'form-text')) ?>
   </td>
 </tr>
 <tr>
@@ -103,7 +103,7 @@
   <td class="leftCol"><label><?php echo __('Street') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('street') ?>
-    <?php echo object_input_tag($sf_guard_user_profile, 'getStreet', array ('size' => 80, 'class' => 'form-text')) ?>
+    <?php echo object_input_tag($user, 'getStreet', array ('size' => 80, 'class' => 'form-text')) ?>
   </td>
 </tr>
 <tr>
@@ -111,7 +111,7 @@
   <td class="leftCol"><label><?php echo __('City') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('city') ?>
-    <?php echo object_input_tag($sf_guard_user_profile, 'getCity', array ('size' => 50, 'class' => 'form-text'
+    <?php echo object_input_tag($user, 'getCity', array ('size' => 50, 'class' => 'form-text'
 )) ?>
   </td>
 </tr>
@@ -121,9 +121,9 @@
   <td class="rightCol">
     <?php echo form_error('state') ?>
     <?php echo form_error('code') ?>
-    <?php echo object_input_tag($sf_guard_user_profile, 'getState', array ('size' => 50, 'class' => 'form-medium-text')) ?>
+    <?php echo object_input_tag($user, 'getState', array ('size' => 50, 'class' => 'form-medium-text')) ?>
     <label><?php echo __('Code') ?></label>
-    <?php echo object_input_tag($sf_guard_user_profile, 'getCode', array ('size' => 7, 'class' => 'form-tiny-text')) ?>
+    <?php echo object_input_tag($user, 'getCode', array ('size' => 7, 'class' => 'form-tiny-text')) ?>
   </td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@
   <td class="leftCol"><label><?php echo __('Country') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('country') ?>
-    <?php echo select_country_tag('country', $sf_guard_user_profile->getCountry(), array('class' => 'form-text')) ?>
+    <?php echo select_country_tag('country', $user->getCountry(), array('class' => 'form-text')) ?>
   </td>
 </tr>
 <tr>
@@ -145,15 +145,15 @@
         <tr>
            <td>
              <label><?php echo __('Phone') ?></label>
-             <?php echo object_input_tag($sf_guard_user_profile, 'getPhone1', array ('size' => 20, 'class' => 'form-number-text')) ?>
+             <?php echo object_input_tag($user, 'getPhone1', array ('size' => 20, 'class' => 'form-number-text')) ?>
            </td>
            <td>
              <label><?php echo __('Fax') ?></label>
-             <?php echo object_input_tag($sf_guard_user_profile, 'getFax', array ('size' => 20, 'class' => 'form-number-text')) ?>
+             <?php echo object_input_tag($user, 'getFax', array ('size' => 20, 'class' => 'form-number-text')) ?>
            </td>
            <td>
              <label><?php echo __('Mobile') ?></label>
-             <?php echo object_input_tag($sf_guard_user_profile, 'getPhone2', array ('size' => 20, 'class' => 'form-number-text')) ?>
+             <?php echo object_input_tag($user, 'getPhone2', array ('size' => 20, 'class' => 'form-number-text')) ?>
            </td>
          </tr>
      </table>
@@ -164,7 +164,7 @@
   <td class="leftCol"><label><?php echo __('Preferred language') ?></label></td>
   <td class="rightCol">
     <?php echo form_error('preferred_language') ?>
-    <?php echo select_language_tag('preferred_language', $sf_guard_user_profile->getLanguage(), array('class' => 'form-medium-combobox')) ?>
+    <?php echo select_language_tag('preferred_language', $user->getLanguage(), array('class' => 'form-medium-combobox')) ?>
   </td>
 </tr>
 </tbody>

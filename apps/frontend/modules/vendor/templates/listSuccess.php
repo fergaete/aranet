@@ -7,7 +7,7 @@ else :
  echo __('View all vendors');
 endif ?>
 </h3>
-<?php echo form_tag('vendor/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('vendor/delete', 'name="chklist"') ?>
 <div id="vendorDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
