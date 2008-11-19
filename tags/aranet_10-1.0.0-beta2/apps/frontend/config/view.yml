@@ -1,0 +1,45 @@
+default:
+  http_metas:
+    content-type: "text/html; charset=utf-8"
+
+  metas:
+    title:        "<?php echo sfConfig::get('sf_title') ?>"
+    generator:    "<?php echo sfConfig::get('sf_title') . ' (' . VERSION . ')' ?>"
+    robots:       no-index, no-follow
+    description:  "<?php echo sfConfig::get('sf_description') ?>"
+    keywords:     ARANOVA, aranet
+    language:     es
+
+  stylesheets:    [ base.min.css, ThemeBlue/theme.min.css, aranet.min.css ]
+
+  javascripts:    [ jscook/JSCookMenu.min.js, jscook/ThemeBlue/theme.min.js, functions.min.js ]
+
+  has_layout:     on
+  layout:         layout
+
+  slots:
+
+  use_default_slots: 0
+
+  components: 
+    widget_subnav: [widgets, subnav]
+    widget_calendar: [widgets, calendar]
+    widget_tags: [widgets, tags]
+
+autocompleteSuccess:
+  has_layout:   off
+
+minilistSuccess:
+  has_layout:   off
+
+statsSuccess:
+  has_layout:   off
+
+versionsSuccess:
+  has_layout:   off
+
+deleteitemSuccess:
+  has_layout: off
+  
+orderitemSuccess:
+  has_layout: off
