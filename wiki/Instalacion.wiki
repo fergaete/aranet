@@ -19,7 +19,8 @@ Descargar la aplicación del repositorio (ver pestaña "Source" para instruccion
 
 === Para usuarios ===
 
-Descargar el paquete ARANet_10-latest.zip de la pestaña "Downloads" y descomprimirlo en una carpeta que pueda tener acceso el servidor web, por ejemplo en c:\ARANet
+Descargar el paquete ARANet-1.0-latest.zip de la pestaña "Downloads" y descomprimirlo en una carpeta que pueda tener acceso el servidor web, por ejemplo en c:\ARANet
+También es preciso descargar las librerías symfony y descomprimirlas dentro del directorio lib/vendor.
 
 == Comprobaciones previas ==
 
