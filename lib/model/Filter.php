@@ -19,7 +19,7 @@ class Filter extends BaseObject
 
   public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
   {
-    sfLoader::loadHelpers('I18N');
+    sfContext::getInstance()->getConfiguration()->loadHelpers'I18N');
     $result = array('name' => isset($arr['name']) ? $arr['name'] : __('Name').'...');
     $this->name = $result['name'];
     return $result;
