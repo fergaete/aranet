@@ -76,7 +76,7 @@
                 <div id="expDetailActions" class="detailActions">
                     <ul>
                       <li><?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit expense details"'), '/expense/edit?id=' . $expense_item->getId()) ?></li>
-                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy expense"'), '/expense/create?copy_id=' . $expense_item->getId()) ?></li>
+                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy expense"'), '/expense/create?id=' . $expense_item->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonDeleteLarge.gif', 'alt="Delete expense"'), '/expense/delete?id=' . $expense_item->getId(), 'post=true&confirm=' . __('Are you sure?')) ?></li>
                     </ul>
                 </div>

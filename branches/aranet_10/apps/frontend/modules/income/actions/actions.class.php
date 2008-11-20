@@ -38,8 +38,8 @@ class incomeActions extends myActions
       $this->income_item = $this->getIncomeItem();
     } else {
       $this->income_item = $this->getFlash('income_item');
-    }
-    if ($this->getRequestParameter('copy_id')) {
+    }  
+    if ($this->hasRequestParameter('id')) {
       // Copy items
       $new_income_item = new IncomeItem();
       $this->income_item->copyInto($new_income_item);
