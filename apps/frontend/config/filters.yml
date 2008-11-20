@@ -12,13 +12,5 @@ security_filter:
 cache:     ~
 common:    ~
 
-sfCombineFilter:
-  class:   sfCombineFilter
-  param:
-    javascripts:    false
-    stylesheets:    false
-    root_js_only:   false
-    root_css_only:  false
-
 flash:     ~
 execution: ~
