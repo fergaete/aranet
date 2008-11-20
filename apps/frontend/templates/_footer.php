@@ -1,9 +1,9 @@
-<div id="footer-inner" class="block">
+<div id="footer-inner">
 <?php if (date('Y') != '2007') 
 $to = "-" . date('Y');
 else
 $to = '' ?>
-  <a href="/copyright.html" title="<?php echo __('See copy policies') ?>">Copyright &copy; <em class="aranova">ARANOVA</em> 2007<?php echo $to ?></a> |
-  <?php echo link_to(__('App version %1%', array('%1%' => sfConfig::get('app_sf_settings_plugin_version'))), 'http://www.aranova.es') ?> | 
-  <?php echo mail_to('webmaster@aranova.es', __('Support'), 'title="' . __('Contact with support') . '"') ?>
+  <?php echo link_to('Copyright &copy; <em class="aranova">ARANOVA</em> 2007' . $to, '/copyright.html', 'title="'  . __('See copy policies') . '"') ?> |
+  <?php echo link_to(__('App version %1%', array('%1%' => VERSION)), 'http://www.aranova.es') ?> | 
+  <?php echo mail_to('webmaster@aranova.es', 'webmaster', 'title="' . __('Contact with webmaster') . '"') ?>
 </div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="propel" defaultIdMethod="native" noxsd="true" package="plugins.sfPropelFileStoragePlugin.lib.model">
+  <table name="sf_file_info" phpName="sfPropelFileStorageInfo" package="plugins.sfPropelFileStoragePlugin.lib.model">
+    <column name="file_id" type="integer" autoIncrement="true" required="true" primaryKey="true" />
+    <column name="file_name" type="varchar" size="255" />
+    <column name="file_size" type="integer" />
+    <column name="file_mime_type" type="varchar" size="100" />
+    <column name="file_width" type="integer" />
+    <column name="file_height" type="integer" />
+    <column name="file_is_cached" type="boolean" size="1" />   
+    <column name="created_at" type="timestamp" />
+    <column name="updated_at" type="timestamp" />
+  </table>
+  
+  <table name="sf_file_data" phpName="sfPropelFileStorageData" package="plugins.sfPropelFileStoragePlugin.lib.model">
+    <column name="file_data_id" type="integer" autoIncrement="true" required="true" primaryKey="true" />
+    <column name="file_binary_data" type="blob" />
+    <column name="file_info_id" type="integer" />
+    <foreign-key foreignTable="sf_file_info">
+      <reference local="file_info_id" foreign="file_id" />
+    </foreign-key>
+  </table>  
+</database>

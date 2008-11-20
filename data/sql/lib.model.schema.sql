@@ -20,7 +20,7 @@ CREATE TABLE `aranet_client`
 	`client_since` DATE,
 	`client_website` VARCHAR(255),
 	`client_comments` TEXT,
-	`client_has_tags` TINYINT(1) default 0,
+	`client_has_tags` INTEGER(1) default 0,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,
@@ -46,6 +46,130 @@ CREATE TABLE `aranet_client`
 	CONSTRAINT `aranet_client_FK_4`
 		FOREIGN KEY (`deleted_by`)
 		REFERENCES `sf_guard_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- aranet_contact
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `aranet_contact`;
+
+
+CREATE TABLE `aranet_contact`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`contact_salutation` VARCHAR(6),
+	`contact_first_name` VARCHAR(128),
+	`contact_last_name` VARCHAR(128),
+	`contact_email` VARCHAR(128),
+	`contact_phone` VARCHAR(16),
+	`contact_fax` VARCHAR(16),
+	`contact_mobile` VARCHAR(16),
+	`contact_birthday` DATE,
+	`contact_org_unit` VARCHAR(128),
+	`created_at` DATETIME,
+	`created_by` INTEGER default null,
+	`updated_at` DATETIME,
+	`updated_by` INTEGER default null,
+	`deleted_at` DATETIME,
+	`deleted_by` INTEGER default null,
+	PRIMARY KEY (`id`),
+	KEY `contact_first_name_idx`(`contact_first_name`),
+	KEY `contact_last_name_idx`(`contact_last_name`),
+	INDEX `aranet_contact_FI_1` (`created_by`),
+	CONSTRAINT `aranet_contact_FK_1`
+		FOREIGN KEY (`created_by`)
+		REFERENCES `sf_guard_user` (`id`),
+	INDEX `aranet_contact_FI_2` (`updated_by`),
+	CONSTRAINT `aranet_contact_FK_2`
+		FOREIGN KEY (`updated_by`)
+		REFERENCES `sf_guard_user` (`id`),
+	INDEX `aranet_contact_FI_3` (`deleted_by`),
+	CONSTRAINT `aranet_contact_FK_3`
+		FOREIGN KEY (`deleted_by`)
+		REFERENCES `sf_guard_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- aranet_objectcontact
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `aranet_objectcontact`;
+
+
+CREATE TABLE `aranet_objectcontact`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`objectcontact_contact_id` INTEGER  NOT NULL,
+	`objectcontact_object_id` INTEGER  NOT NULL,
+	`objectcontact_object_class` VARCHAR(64),
+	`objectcontact_rol` VARCHAR(128),
+	`objectcontact_is_default` INTEGER(1) default 0,
+	`created_at` DATETIME,
+	`created_by` INTEGER default null,
+	`updated_at` DATETIME,
+	`updated_by` INTEGER default null,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `objectcontact_unique_idx` (`objectcontact_contact_id`, `objectcontact_object_id`, `objectcontact_object_class`),
+	KEY `objectcontact_contact_id_idx2`(`objectcontact_contact_id`),
+	KEY `objectcontact_object_id_idx2`(`objectcontact_object_id`),
+	CONSTRAINT `aranet_objectcontact_FK_1`
+		FOREIGN KEY (`objectcontact_contact_id`)
+		REFERENCES `aranet_contact` (`id`)
+		ON DELETE CASCADE,
+	INDEX `aranet_objectcontact_FI_2` (`created_by`),
+	CONSTRAINT `aranet_objectcontact_FK_2`
+		FOREIGN KEY (`created_by`)
+		REFERENCES `sf_guard_user` (`id`),
+	INDEX `aranet_objectcontact_FI_3` (`updated_by`),
+	CONSTRAINT `aranet_objectcontact_FK_3`
+		FOREIGN KEY (`updated_by`)
+		REFERENCES `sf_guard_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- aranet_address
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `aranet_address`;
+
+
+CREATE TABLE `aranet_address`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`address_line1` VARCHAR(255),
+	`address_line2` VARCHAR(255),
+	`address_location` VARCHAR(128),
+	`address_state` VARCHAR(64),
+	`address_postal_code` VARCHAR(5),
+	`address_country` VARCHAR(2),
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- aranet_objectaddress
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `aranet_objectaddress`;
+
+
+CREATE TABLE `aranet_objectaddress`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`objectaddress_name` VARCHAR(128),
+	`objectaddress_address_id` INTEGER  NOT NULL,
+	`objectaddress_object_id` INTEGER  NOT NULL,
+	`objectaddress_object_class` VARCHAR(64),
+	`objectaddress_type` VARCHAR(16),
+	`objectaddress_is_default` INTEGER(1) default 0,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `objectaddress_unique_idx` (`objectaddress_address_id`, `objectaddress_object_id`, `objectaddress_object_class`),
+	KEY `objectaddress_address_id_idx2`(`objectaddress_address_id`),
+	KEY `objectaddress_object_id_idx2`(`objectaddress_object_id`),
+	CONSTRAINT `aranet_objectaddress_FK_1`
+		FOREIGN KEY (`objectaddress_address_id`)
+		REFERENCES `aranet_address` (`id`)
+		ON DELETE CASCADE
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------
@@ -167,7 +291,7 @@ CREATE TABLE `aranet_timesheet`
 	`timesheet_budget_id` INTEGER default null,
 	`timesheet_milestone_id` INTEGER default null,
 	`timesheet_task_id` INTEGER default null,
-	`timesheet_is_billable` TINYINT(1) default 1,
+	`timesheet_is_billable` INTEGER(1) default 1,
 	`timesheet_type_id` INTEGER,
 	`timesheet_date` DATE,
 	PRIMARY KEY (`id`),
@@ -245,7 +369,7 @@ CREATE TABLE `aranet_project_milestone`
 	KEY `milestone_project_id_idx2`(`milestone_project_id`),
 	CONSTRAINT `aranet_project_milestone_FK_1`
 		FOREIGN KEY (`milestone_project_id`)
-		REFERENCES `aranet_project` (`id`)
+		REFERENCES `aranet_budget` (`id`)
 		ON DELETE CASCADE,
 	INDEX `aranet_project_milestone_FI_2` (`milestone_budget_id`),
 	CONSTRAINT `aranet_project_milestone_FK_2`
@@ -396,7 +520,7 @@ CREATE TABLE `aranet_invoice`
 	`invoice_kind_of_invoice_id` INTEGER default 1 NOT NULL,
 	`invoice_title` VARCHAR(255),
 	`invoice_comments` TEXT,
-	`invoice_print_comments` TINYINT(1) default 0,
+	`invoice_print_comments` INTEGER(1) default 0,
 	`invoice_tax_rate` FLOAT default 0,
 	`invoice_freight_charge` FLOAT default 0,
 	`invoice_payment_condition_id` INTEGER default null,
@@ -601,14 +725,14 @@ CREATE TABLE `aranet_budget`
 	`budget_category_id` INTEGER,
 	`budget_title` VARCHAR(255),
 	`budget_comments` TEXT,
-	`budget_print_comments` TINYINT(1) default 0,
+	`budget_print_comments` INTEGER(1) default 0,
 	`budget_tax_rate` FLOAT default 0,
 	`budget_freight_charge` FLOAT default 0,
 	`budget_total_cost` FLOAT default 0,
 	`budget_total_amount` FLOAT default 0,
 	`budget_payment_condition_id` INTEGER,
 	`budget_status_id` INTEGER default 0,
-	`budget_is_last` TINYINT(1) default 1,
+	`budget_is_last` INTEGER(1) default 1,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,
@@ -677,7 +801,7 @@ CREATE TABLE `aranet_budget_item`
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`item_order` INTEGER default 0 NOT NULL,
 	`item_type_id` INTEGER default null,
-	`item_is_optional` TINYINT(1) default 0,
+	`item_is_optional` INTEGER(1) default 0,
 	`item_description` TEXT,
 	`item_quantity` FLOAT default 0,
 	`milestone_task_id` INTEGER default null,
@@ -721,7 +845,7 @@ CREATE TABLE `aranet_vendor`
 	`vendor_since` DATE,
 	`vendor_website` VARCHAR(255),
 	`vendor_comments` TEXT,
-	`vendor_has_tags` TINYINT(1) default 0,
+	`vendor_has_tags` INTEGER(1) default 0,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,
@@ -1094,7 +1218,7 @@ CREATE TABLE `aranet_graphic`
 	`data_points` INTEGER,
 	`start_date` DATETIME,
 	`end_date` DATETIME,
-	`is_default` TINYINT(1) default 0,
+	`is_default` INTEGER(1) default 0,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,
@@ -1167,48 +1291,48 @@ CREATE TABLE `sf_guard_user_profile`
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`user_id` INTEGER  NOT NULL,
 	`title` VARCHAR(4),
-	`public_title` TINYINT(1) default 1,
+	`public_title` INTEGER(1) default 1,
 	`first_name` VARCHAR(50),
-	`public_first_name` TINYINT(1) default 0,
+	`public_first_name` INTEGER(1) default 0,
 	`last_name` VARCHAR(100),
-	`public_last_name` TINYINT(1) default 0,
+	`public_last_name` INTEGER(1) default 0,
 	`gender` INTEGER(1),
-	`public_gender` TINYINT(1) default 0,
+	`public_gender` INTEGER(1) default 0,
 	`email` VARCHAR(128),
-	`public_email` TINYINT(1) default 0,
+	`public_email` INTEGER(1) default 0,
 	`url` VARCHAR(255),
-	`public_url` TINYINT(1) default 0,
+	`public_url` INTEGER(1) default 0,
 	`openid_url` VARCHAR(255),
 	`street` VARCHAR(255),
-	`public_street` TINYINT(1) default 0,
+	`public_street` INTEGER(1) default 0,
 	`city` VARCHAR(50),
-	`public_city` TINYINT(1) default 0,
+	`public_city` INTEGER(1) default 0,
 	`state` VARCHAR(50),
-	`public_state` TINYINT(1) default 0,
+	`public_state` INTEGER(1) default 0,
 	`code` INTEGER(5),
-	`public_code` TINYINT(1) default 0,
+	`public_code` INTEGER(1) default 0,
 	`country` VARCHAR(2) default 'ES',
-	`public_country` TINYINT(1) default 0,
+	`public_country` INTEGER(1) default 0,
 	`timezone` INTEGER,
-	`public_timezone` TINYINT(1) default 0,
+	`public_timezone` INTEGER(1) default 0,
 	`birthday` DATE default '00/00/0000',
-	`public_birthday` TINYINT(1) default 0,
+	`public_birthday` INTEGER(1) default 0,
 	`company` VARCHAR(128),
-	`public_company` TINYINT(1) default 0,
+	`public_company` INTEGER(1) default 0,
 	`cif` VARCHAR(12),
-	`public_cif` TINYINT(1) default 0,
+	`public_cif` INTEGER(1) default 0,
 	`phone1` VARCHAR(16),
-	`public_phone1` TINYINT(1) default 0,
+	`public_phone1` INTEGER(1) default 0,
 	`phone2` VARCHAR(16),
-	`public_phone2` TINYINT(1) default 0,
+	`public_phone2` INTEGER(1) default 0,
 	`fax` VARCHAR(16),
-	`public_fax` TINYINT(1) default 0,
+	`public_fax` INTEGER(1) default 0,
 	`notes` TEXT,
-	`gravatar` TINYINT default 0,
+	`gravatar` INTEGER default 0,
 	`avatar` LONGBLOB,
 	`avatar_filetype` VARCHAR(4),
 	`owner_user_id` INTEGER,
-	`user_newsletter` TINYINT(1) default 0,
+	`user_newsletter` INTEGER(1) default 0,
 	`preferred_language` VARCHAR(6) default 'en_US',
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,

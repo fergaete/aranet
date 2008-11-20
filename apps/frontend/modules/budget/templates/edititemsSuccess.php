@@ -9,7 +9,7 @@
         'complete' => visual_effect('fade', "indicator-iitems").
                       visual_effect('highlight', "budgetViewItems")), 'name=items') ?>
 
-<?php echo input_hidden_tag('budget_id', $budget->getId()) ?>
+<?php echo input_hidden_tag('id', $budget->getId()) ?>
 
 <?php include_partial('budget_item', array('budget_items' => $budget->getBudgetItems(), 'budget' => $budget)) ?>
 <table class="gridTable" width="100%">

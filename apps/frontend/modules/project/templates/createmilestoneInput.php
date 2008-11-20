@@ -9,7 +9,7 @@
                       visual_effect('highlight', "projectMilestones")), 'name=milestone') ?>
                       
 <?php echo (isset($milestone)) ? input_hidden_tag('id', $milestone->getId()) : '' ?>
-<?php echo input_hidden_tag('milestone_project_id', $project_id) ?>
+<?php echo input_hidden_tag('milestone_project_id', $project->getId()) ?>
 
 <table class="gridTable">
 <tbody>

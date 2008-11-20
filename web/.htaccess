@@ -1,16 +1,18 @@
 Options +FollowSymLinks +ExecCGI
+AddCharset UTF-8 .html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
   # uncomment the following line, if you are having trouble
   # getting no_script_name to work
-  #RewriteBase /
+  RewriteBase /
+
+  #RewriteRule ^css/packed/(.*\.css) /sfCombineFilterPlugin/combine.php?type=css&files=$1 [QSA,L]
+  #RewriteRule ^js/packed/(.*\.js) /sfCombineFilterPlugin/combine.php?type=javascript&files=$1 [QSA,L]
 
   # we skip all files with .something
-  #RewriteCond %{REQUEST_URI} \..+$
-  #RewriteCond %{REQUEST_URI} !\.html$
-  #RewriteRule .* - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
 
   # we check if the .html version is here (caching)
   RewriteRule ^$ index.html [QSA]
@@ -20,3 +22,6 @@ Options +FollowSymLinks +ExecCGI
   # no, so we redirect to our front web controller
   RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
+
+# big crash from our front web controller
+ErrorDocument 500 "<h2>Application error</h2>symfony application failed to start properly"

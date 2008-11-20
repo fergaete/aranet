@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'Javascript', 'gWidgets') ?>
-<?php echo form_tag('invoice/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('invoice/delete', 'name="chklist"') ?>
 <div id="invoiceDisplay" style="width: 100%;" class="windowFrame">
     <table class="dataTable">
         <thead>

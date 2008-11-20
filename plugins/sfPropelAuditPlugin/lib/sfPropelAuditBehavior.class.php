@@ -6,7 +6,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Sacha Telgenhof Oude Koehorst <s.telgenhof@xs4all.nl>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfPropelAuditBehavior.class.php 3 2008-08-06 07:48:19Z pablo $
  */
 class sfPropelAuditBehavior
 {
@@ -41,8 +41,7 @@ class sfPropelAuditBehavior
         $class = get_class($values);
         $class_map_builder = $class.'MapBuilder';
 
-        $autoload = sfAutoload::getInstance();
-        if (!$classPath = $autoload->getClassPath($class_map_builder)) {
+        if (!$classPath = sfCore::getClassPath($class_map_builder)) {
             throw new sfException(sprintf('Unable to find path for class "%s".', $class_map_builder));
         }
         require_once ($classPath);
@@ -62,7 +61,7 @@ class sfPropelAuditBehavior
             } // End if
 
         } // End foreach
-        $this->save($class, $values->getPrimaryKey() , serialize($changes) , $this->getLastExecutedQuery($con) , self::TYPE_UPDATE);
+        $this->save($class, $values->getPrimaryKey() , serialize($changes) , $con->getLastExecutedQuery() , self::TYPE_UPDATE);
         return true;
     } // End function
 
@@ -77,21 +76,11 @@ class sfPropelAuditBehavior
      */
     public function postDoInsert($class, $values, $con, $pk)
     {
+
         if (!$values->isNew()) return false;
-        $this->save(get_class($values) , $values->getPrimaryKey() , null, $this->getLastExecutedQuery($con), self::TYPE_ADD);
+        $this->save(get_class($values) , $values->getPrimaryKey() , null, $con->getLastExecutedQuery() , self::TYPE_ADD);
     } // End function
 
-    private function getLastExecutedQuery($con){
-        $last_query = null;
-        
-        if (method_exists($con, 'getLastExecutedQuery')){
-          $last_query = $con->getLastExecutedQuery(); 
-        }elseif(isset($con->lastQuery)){
-          $last_query = $con->lastQuery;
-        }
-        
-        return $last_query;
-    }
     /**
      * Hook function to the Base Class function Save (post)
      *
@@ -101,8 +90,9 @@ class sfPropelAuditBehavior
      */
     public function postDelete($object, $con = null)
     {
+
         if (!$object->isDeleted()) return false;
-        $this->save(get_class($object) , $object->getPrimaryKey() , null, $this->getLastExecutedQuery($con) , self::TYPE_DELETE);
+        $this->save(get_class($object) , $object->getPrimaryKey() , null, $con->getLastExecutedQuery() , self::TYPE_DELETE);
     } // End function
 
     /**
@@ -119,11 +109,8 @@ class sfPropelAuditBehavior
      */
     private function save($object, $object_key, $changes, $query, $type)
     {
-      try{
        $user = sfContext::getInstance()->getUser();
-      }catch (Exception $e){}
-      
-	   if (!isset($user) || $user->isAnonymous()) $user = null;
+	   if ($user->isAnonymous()) $user = null;
 
         $audit = new sfAudit();
         $audit->setRemoteIpAddress($this->getRemoteIP());
@@ -135,7 +122,6 @@ class sfPropelAuditBehavior
         $audit->setType($type);
         $audit->setCreatedAt(date($this->date_format));
         $audit->save();
-      
     } // End function
 
     /**

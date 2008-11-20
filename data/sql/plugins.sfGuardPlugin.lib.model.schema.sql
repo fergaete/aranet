@@ -16,7 +16,7 @@ CREATE TABLE `sf_guard_group`
 	`name` VARCHAR(255)  NOT NULL,
 	`description` TEXT,
 	PRIMARY KEY (`id`),
-	UNIQUE KEY `sf_guard_group_U_1` (`name`)
+	UNIQUE KEY `sf_guard_group_name_unique` (`name`)
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `sf_guard_permission`
 	`name` VARCHAR(255)  NOT NULL,
 	`description` TEXT,
 	PRIMARY KEY (`id`),
-	UNIQUE KEY `sf_guard_permission_U_1` (`name`)
+	UNIQUE KEY `sf_guard_permission_name_unique` (`name`)
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------
@@ -74,10 +74,16 @@ CREATE TABLE `sf_guard_user`
 	`password` VARCHAR(128)  NOT NULL,
 	`created_at` DATETIME,
 	`last_login` DATETIME,
-	`is_active` TINYINT default 1 NOT NULL,
-	`is_super_admin` TINYINT default 0 NOT NULL,
+	`is_active` INTEGER default 1 NOT NULL,
+	`is_super_admin` INTEGER default 0 NOT NULL,
+	`deleted_at` DATETIME,
+	`deleted_by` INTEGER default null,
 	PRIMARY KEY (`id`),
-	UNIQUE KEY `sf_guard_user_U_1` (`username`)
+	UNIQUE KEY `sf_guard_user_username_unique` (`username`),
+	INDEX `sf_guard_user_FI_1` (`deleted_by`),
+	CONSTRAINT `sf_guard_user_FK_1`
+		FOREIGN KEY (`deleted_by`)
+		REFERENCES `sf_guard_user` (`id`)
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------

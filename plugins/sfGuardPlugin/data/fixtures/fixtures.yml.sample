@@ -23,4 +23,3 @@ sfGuardUserGroup:
   admin:
     group_id:       admin
     user_id:        admin
-

@@ -2,4 +2,6 @@
 /web/uploads/*
 /cache/*
 /log/*
-/web/*_dev.php
+/config/propel.ini
+/config/databases.yml
+/data/fixtures/

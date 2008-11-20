@@ -13,17 +13,17 @@ Installation
 
   * Install the plugin
 
-        $ symfony plugin:install sfGuardPlugin
+        $ symfony plugin-install http://plugins.symfony-project.com/sfGuardPlugin
 
   * Rebuild your model
 
-        $ symfony propel:build-model
-        $ symfony propel:build-sql
+        $ symfony propel-build-model
+        $ symfony propel-build-sql
 
   * Update you database tables by starting from scratch (it will delete all
-    the existing tables, then re-create them):
+  the existing tables, then re-create them):
 
-        $ symfony propel:insert-sql
+        $ symfony propel-insert-sql
 
     or you can just create the new tables by using the generated SQL
     statements in `data/sql/plugins.sfGuardAuth.lib.model.schema.sql`
@@ -33,13 +33,14 @@ Installation
         $ mkdir data/fixtures/
         $ cp plugins/sfGuardPlugin/data/fixtures/fixtures.yml.sample data/fixtures/sfGuard.yml
 
-        $ symfony propel:data-load frontend # replace frontend with the name of one of your application
+        $ symfony propel-load-data frontend # replace frontend with the name of one of your application
 
   * Enable one or more modules in your `settings.yml` (optional)
+
     * For your backend application:  sfGuardUser, sfGuardGroup, sfGuardPermission
     * For your frontend application: sfGuardAuth
 
-            [php]
+            [yml]
             all:
               .settings:
                 enabled_modules:      [default, sfGuardGroup, sfGuardUser, sfGuardPermission]
@@ -104,10 +105,10 @@ To secure a symfony application:
   is enabled unless you defined `sf_guard_plugin_routes_register` to false
   in the `app.yml` configuration file:
 
-      [yml]
-      all:
-        sf_guard_plugin:
-          routes_register: false
+        [yml]
+        all:
+          sf_guard_plugin:
+            routes_register: false
 
   * Secure some modules or your entire application in `security.yml`
 
@@ -150,7 +151,7 @@ If you want to customize one of these templates:
 
   * Create a `sfGuardAuth` module in your application (don't use the
     `init-module` task, just create a `sfGuardAuth` directory)
-
+ 
   * Create a template with the name of the template you want to customize in
     the `sfGuardAuth/templates` directory
 
@@ -162,7 +163,7 @@ Customize `sfGuardAuth` module actions
 If you want to customize or add methods to the sfGuardAuth:
 
   * Create a `sfGuardAuth` module in your application
-
+  
   * Create an `actions.class.php` file in your `actions` directory that inherit
     from `BasesfGuardAuthActions` (don't forget to include the `BasesfGuardAuthActions`
     as it can't be autoloaded by symfony)
@@ -345,18 +346,9 @@ You can change the redirect values in `app.yml`:
         success_signin_url:      @my_route?param=value # the plugin use the referer as default
         success_signout_url:     module/action         # the plugin use the referer as default
 
-Configure the signin form
--------------------------
-
-You can change the signin form used by the `sfGuardAuth` module in `app.yml`:
-
-    [yml]
-    all:
-      sf_guard_plugin:
-        signin_form:    sfGuardFormSigninCustom
-
 TODO
 ----
 
+  * finish the `promote_super_user` task
   * finish the `getPassword` method
   * add support for HTTP Basic authentication
