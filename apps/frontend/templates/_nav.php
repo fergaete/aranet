@@ -52,6 +52,7 @@ var myMenu =
             ['<?php echo image_tag('icons/money_create.png');?>','<?php echo __('Add new cash movement') ?>','<?php echo url_for('/cash/create');?>','_self',null]
         ]
     ],
+<?php if ($sf_user->hasCredential('admin')) { ?>
     _cmSplit,
     [null,'<?php echo __('Members') ?>',null,null,null,
         ['<?php echo image_tag('icons/list.png');?>','<?php echo __('View all members') ?>','<?php echo url_for('/user/list');?>','_self',null],
@@ -61,7 +62,6 @@ var myMenu =
     [null,'<?php echo __('Files') ?>',null,null,null,
         ['<?php echo image_tag('icons/list.png');?>','<?php echo __('View all files') ?>','<?php echo url_for('/file/list');?>','_self',null],
     ],
-<?php if ($sf_user->hasCredential('admin')) { ?>
     _cmSplit,
     [null,'<?php echo __('Administration') ?>',null,null,null,
         [null, '<?php echo __('Configuration') ?>','<?php echo url_for('/setting/list');?>','_self',null],

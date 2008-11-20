@@ -223,7 +223,7 @@ function format_hour($hours, $symbol = true, $format = '%0.2f')
  */
 function format_percent($percent, $symbol = true, $format = '%0.2f')
 {
-  if ($percent) {
+  if ($percent || (is_float($percent) || is_integer($percent))) {
     return sprintf($format, $percent) . ($symbol ? '%' : '');
   } else {
     return '---';

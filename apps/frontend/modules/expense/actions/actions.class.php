@@ -94,6 +94,9 @@ class expenseActions extends myActions
     if ($this->getRequestParameter('budget_id')) {
       $this->budget_id = $this->getRequestParameter('budget_id');
     }
+    if ($this->getRequestParameter('vendor_id')) {
+      $this->vendor = VendorPeer::retrieveByPk($this->getRequestParameter('vendor_id'));
+    }
     return sfView::SUCCESS;
   }
 

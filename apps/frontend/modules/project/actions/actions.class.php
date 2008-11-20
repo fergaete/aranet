@@ -150,7 +150,7 @@ class projectActions extends myActions
   public function executeCreatetask()
   {
     $this->project = $this->getProject();
-    $this->milestones = $project->getMilestones();
+    $this->milestones = $this->project->getMilestones();
     return sfView::INPUT;
   }
 
@@ -175,9 +175,10 @@ class projectActions extends myActions
   public function executeEdittask()
   {
     $this->task = $this->getTask();
-    $this->project = ProjectPeer::retrieveByPk($this->task->getTaskProjectId());
+    if ($this->task->getTaskProjectId()) {
+      $this->project = ProjectPeer::retrieveByPk($this->task->getTaskProjectId());
+    }
     $this->forward404Unless($this->project);
-    $this->milestones = $project->getMilestones();
     $this->setTemplate('createtask');
     return sfView::INPUT;
   }
@@ -203,9 +204,10 @@ class projectActions extends myActions
   public function executeEditmilestone()
   {
     $this->milestone = $this->getMilestone();
-    $project = ProjectPeer::retrieveByPk($this->milestone->getMilestoneProjectId());
-    $this->forward404Unless($project);
-    $this->project_id = $project->getId();
+    if ($this->milestone->getMilestoneProjectId()) {
+      $this->project = ProjectPeer::retrieveByPk($this->milestone->getMilestoneProjectId());
+    }
+    $this->forward404Unless($this->project);
     $this->setTemplate('createmilestone');
     return sfView::INPUT;
   }
@@ -281,9 +283,7 @@ class projectActions extends myActions
       $ftask->save();
     }
 
-    $c = new Criteria();
-    $c->add(ProjectPeer::ID, $this->getRequestParameter('task_project_id'));
-    $this->project = ProjectPeer::doSelectOne($c);
+    $this->project = ProjectPeer::retrieveByPk($this->getRequestParameter('task_project_id'));
     $this->forward404Unless($this->project);
 
     $this->setTemplate('updatemilestone');
@@ -471,7 +471,7 @@ class projectActions extends myActions
   public function executeGetMilestones() {
     $c = new Criteria();
     $c->add(ProjectPeer::ID, $this->getRequestParameter('project_id'));
-    $this->project = ProjectPeer::doSelect($c);
+    $this->project = ProjectPeer::doSelectOne($c);
     return sfView::SUCCESS;
   }
 

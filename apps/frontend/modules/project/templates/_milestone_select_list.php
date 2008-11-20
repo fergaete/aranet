@@ -10,7 +10,7 @@
   <th style="text-align:center;width:15%"><?php echo __('Completion') ?></th>
 </tr>
 </thead>
-<?php if ($project->getId()) : ?>
+<?php if ($project) : ?>
 <tbody>
 <?php $i = 1; $total = 0; $total_h = 0; $total_e = 0; foreach ($project->getMilestonesAndTasks() as $item): $odd = fmod(++$i, 2); ?>
 <tr id="item_<?php echo $item->getId() ?>" class="row_<?php echo $odd ?>">

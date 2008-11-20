@@ -53,4 +53,25 @@ class Timesheet extends BaseTimesheet
     }
     return $tasks;
   }
+  
+  /**
+   * postSave process
+   *
+   * @param Timesheet $v
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function postSave($v) {
+    // Update task & milestone hours
+    if ($v->getTimesheetTaskId()) {
+      $v->getTask()->updateTaskHours();
+    }
+    if ($v->getTimesheetMilestoneId()) {
+      $v->getMilestone()->updateMilestoneHours();
+    }
+  }
+
 }
+
+sfMixer::register('BaseTimesheet:save:post', array('Timesheet', 'postSave'));
+sfMixer::register('BaseTimesheet:delete:post', array('Timesheet', 'postSave'));

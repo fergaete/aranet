@@ -112,7 +112,7 @@ project_delete_all:
   url:  /project/delete
   param:  { module: project, action: delete }
 project_create_from_object:
-  url:  /project/:related/:id
+  url:  /project/create/related/:related/:id
   param:  { module: project, action: create }
 
 # budget
@@ -190,7 +190,7 @@ timesheet_reports:
 
 # invoice
 invoice_create_from_object:
-  url:  /invoice/create/:related/:id
+  url:  /invoice/create/related/:related/:id
   param:  { module: invoice, action: create }
 invoice_stats_by_id:
   url:  /invoice/stats/:id
@@ -325,9 +325,6 @@ expense_reports:
   param:  { module: expense, action: reports }
 
 # income
-income_create_from_object:
-  url:  /income/create/:related/:id
-  param:  { module: income, action: create }
 income_stats_by_id:
   url:  /income/stats/:id
   param:  { module: income, action: stats }
@@ -361,6 +358,9 @@ income_delete_all:
 income_reports:
   url:  /income/reports
   param:  { module: income, action: reports }
+income_create_from_object:
+  url:  /income/create/related/:related/:id
+  param:  { module: income, action: create }
 
 # vendor  
 vendor_stats_by_id:

@@ -51,6 +51,39 @@ class Task extends BaseTask
     }
   }
 
+  /**
+   * updates task hours and costs
+   *
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function updateTaskHours()
+  {
+    $save = false;
+    $c = new Criteria();
+    $c->clearSelectColumns();
+    $c->add(TimesheetPeer::TIMESHEET_TASK_ID, $this->getId());
+    $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.')');
+    $rs = TimesheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  $this->setTaskTotalHours($rs->getInt(1));
+		  $save = true;
+		}	
+		$c = new Criteria();
+    $c->clearSelectColumns();
+    $c->add(TimesheetPeer::TIMESHEET_TASK_ID, $this->getId());
+    $c->add(TimesheetPeer::TIMESHEET_IS_BILLABLE, true);
+    $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.'*'.TypeOfHourPeer::TYPE_OF_HOUR_COST.')');
+    $c->addJoin(TimeSheetPeer::TIMESHEET_TYPE_ID, TypeOfHourPeer::ID);
+    $rs = TimesheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  $this->setTaskTotalHourCosts($rs->getFloat(1));
+		  $save = true;
+		}
+		if ($save) {
+      $this->save();
+    }
+  }
 }
 
 sfMixer::register('BaseTask:save:pre', array('Task', 'preSave'));

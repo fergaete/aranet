@@ -42,15 +42,17 @@ class Budget extends BaseBudget
   /**
    * returns average margin of the budget
    *
+   * @param  double $total_hour_costs
+   * @param  double $total_costs
    * @return double
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  public function getBudgetAverageRealMargin() {
+  public function getBudgetAverageRealMargin($total_hour_costs, $total_costs) {
     // TODO implement getBudgetTotalHourCosts
     if (MARGIN_MODEL == 'costs') {
-      return 0;//($this->getBudgetTotalHourCosts()) ? $this->getBudgetTotalAmount()/($this->getBudgetTotalHourCosts() + $this->getBudgetTotalExpenses())*100-100 : 0;
+      return $total_hour_costs ? $this->getBudgetTotalAmount()/($total_hour_costs + $total_costs)*100-100 : 0;
     } else {
-      return 0;//($this->getBudgetTotalHourCosts()) ? ($this->getBudgetTotalAmount() - $this->getBudgetTotalHourCosts() - $this->getBudgetTotalExpenses())*100 / $this->getBudgetTotalAmount() : $this->getBudgetAverageMargin();
+      return $total_hour_costs ? ($this->getBudgetTotalAmount() - $total_hour_costs - $total_costs)*100 / $this->getBudgetTotalAmount() : $this->getBudgetAverageMargin();
     }
   }
 
@@ -66,17 +68,6 @@ class Budget extends BaseBudget
     if ($this->getBudgetStatusId() == 5) {
       $this->setBudgetStatusId(1);
     }
-  }
-
-  /**
-   * returns the difference percent of estimated margin and real
-   *
-   * @return double
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   **/
-  public function getBudgetCostDifference() {
-    // TODO implement getBudgetTotalHourCosts
-    return 0;//($this->getBudgetTotalHourCosts()) ? 100 - ($this->getBudgetTotalHourCosts() * 100 / $this->getBudgetTotalCost()) : 100;
   }
 
   /**
@@ -295,24 +286,14 @@ class Budget extends BaseBudget
       $v->setBudgetClientId(null);
     $v->updateBudget();
     // Check if budget is last
-    $c = new Criteria();
-    $c->add(BudgetPeer::BUDGET_NUMBER, $v->getBudgetNumber());
-    $c->add(BudgetPeer::BUDGET_PREFIX, $v->getBudgetPrefix());
-    $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
-    //$c->addDescendingOrderByColumn(BudgetPeer::BUDGET_REVISION);
-    $last_budget = BudgetPeer::doSelectOne($c);
     if ($v->isNew()) {
+      $c = new Criteria();
+      $c->add(BudgetPeer::BUDGET_NUMBER, $v->getBudgetNumber());
+      $c->add(BudgetPeer::BUDGET_PREFIX, $v->getBudgetPrefix());
+      $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
+      $c->addDescendingOrderByColumn(BudgetPeer::BUDGET_REVISION);
+      $last_budget = BudgetPeer::doSelectOne($c);
       if ($last_budget) {
-        if ($last_budget->getBudgetRevision() < $v->getBudgetRevision()) {
-          $v->setBudgetIsLast(true);
-          $last_budget->setBudgetIsLast(false);
-          $last_budget->save();
-        }
-      } else {
-        $v->setBudgetIsLast(true);
-      }
-    } else {
-      if ($last_budget && $v->getId() != $last_budget->getId()) {
         if ($last_budget->getBudgetRevision() < $v->getBudgetRevision()) {
           $v->setBudgetIsLast(true);
           $last_budget->setBudgetIsLast(false);
@@ -442,6 +423,67 @@ class Budget extends BaseBudget
       $expense->setExpenseItemBudgetId(null);
       $expense->save();
     }
+  }
+
+  /**
+   * returns number of hours
+   *
+   * @return float
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getBudgetTotalHours()
+  {
+    $c = new Criteria();
+    $c->clearSelectColumns();
+    $c->add(TimesheetPeer::TIMESHEET_BUDGET_ID, $this->getId());
+    $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.')');
+    $rs = TimesheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  return $rs->getFloat(1);
+		}
+		return 0;
+  }
+
+  /**
+   * returns total expenses amount
+   *
+   * @return float
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getBudgetTotalExpenses()
+  {
+    $amount = 0;
+    $c = new Criteria();
+    $c->clearSelectColumns();
+    $c->add(ExpenseItemPeer::EXPENSE_ITEM_BUDGET_ID, $this->getId());
+    $c->add(ExpenseItemPeer::EXPENSE_ITEM_REIMBURSEMENT_ID, 1); // Reembolsable
+    $c->addSelectColumn('SUM('.ExpenseItemPeer::EXPENSE_ITEM_AMOUNT.')');
+    $rs = ExpenseItemPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  $amount += $rs->getFloat(1);
+		}
+		return $amount;
+  }
+  
+  /**
+   * returns cost of hours
+   *
+   * @return float
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getBudgetTotalHoursCost()
+  {
+    $c = new Criteria();
+    $c->clearSelectColumns();
+    $c->add(TimesheetPeer::TIMESHEET_BUDGET_ID, $this->getId());
+    $c->add(TimesheetPeer::TIMESHEET_IS_BILLABLE, true);
+    $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.'*'.TypeOfHourPeer::TYPE_OF_HOUR_COST.')');
+    $c->addJoin(TimeSheetPeer::TIMESHEET_TYPE_ID, TypeOfHourPeer::ID);
+    $rs = TimeSheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  return $rs->getFloat(1);
+		}
+		return 0;
   }
 
 }
