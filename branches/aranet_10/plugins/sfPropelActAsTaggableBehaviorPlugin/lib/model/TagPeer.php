@@ -645,4 +645,21 @@ class TagPeer extends BaseTagPeer
 
     return $tag;
   }
+  
+  /**
+   * returns tags like name
+   *
+   * @param string  $name
+   * @param integer  $max
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public static function getTagsLike($name, $max = 10)
+  {
+    $c = new Criteria();
+    $crit1 = $c->getNewCriterion(TagPeer::NAME, "%${name}%", Criteria::LIKE);
+    $c->setLimit($max);
+    $tags = TagPeer::doSelect($c);
+    return $tags;
+  }
 }

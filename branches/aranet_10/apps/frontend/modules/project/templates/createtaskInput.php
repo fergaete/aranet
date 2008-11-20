@@ -28,6 +28,7 @@
 )) ?></td>
 </tr>
 <tr>
+<?php if (!isset($milestones)) : $milestones = array(); endif ?>
   <td class="leftCol"><label><?php echo __('Task milestone') ?></label></td>
   <td class="rightCol"><?php echo select_tag('task_milestone_id', objects_for_select($milestones, 'getId', '__toString', (isset($task)) ? $task->getTaskMilestoneId() : $sf_params->get('task_milestone_id'), 'include_blank=true'), array ('class' => 'form-combobox')) ?></td>
 </tr>

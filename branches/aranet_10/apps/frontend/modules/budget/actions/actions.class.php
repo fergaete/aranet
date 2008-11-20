@@ -130,9 +130,10 @@ class budgetActions extends myActions
       $this->budget = $this->getFlash('budget');
     }
     if ($this->hasRequestParameter('id')) {
-      // Copy items
+      // Copy object
       $new_budget = new Budget();
-      $this->budget->copyInto($new_budget);
+      $this->budget->copyInto($new_budget, true); // Include items
+      $new_budget->setBudgetRevision($new_budget->getBudgetRevision()+1);
       $this->budget = $new_budget;
     }
     $this->setTemplate('edit');

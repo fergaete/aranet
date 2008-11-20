@@ -37,5 +37,38 @@ class Milestone extends BaseMilestone
     }
   }
 
+  /**
+   * updates milestone hours and costs
+   *
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function updateMilestoneHours()
+  {
+    $save = false;
+    $c = new Criteria();
+    $c->clearSelectColumns();
+    $c->add(TimesheetPeer::TIMESHEET_MILESTONE_ID, $this->getId());
+    $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.')');
+    $rs = TimesheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  $this->setMilestoneTotalHours($rs->getInt(1));
+		  $save = true;
+		}	
+		$c = new Criteria();
+    $c->clearSelectColumns();
+    $c->add(TimesheetPeer::TIMESHEET_MILESTONE_ID, $this->getId());
+    $c->add(TimesheetPeer::TIMESHEET_IS_BILLABLE, true);
+    $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.'*'.TypeOfHourPeer::TYPE_OF_HOUR_COST.')');
+    $c->addJoin(TimeSheetPeer::TIMESHEET_TYPE_ID, TypeOfHourPeer::ID);
+    $rs = TimesheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  $this->setMilestoneTotalHourCosts($rs->getFloat(1));
+		  $save = true;
+		}
+		if ($save) {
+      $this->save();
+    }
+  }
 
 }

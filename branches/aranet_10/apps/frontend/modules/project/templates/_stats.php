@@ -33,15 +33,15 @@
                         </tr>
                         <tr>
                             <td class="leftCol"><strong><?php echo __('Total hours') ?></strong></td>
-                            <td class="rightCol"><?php //echo format_hour($project->getProjectTotalHours()) ?></td>
+                            <td class="rightCol"><?php echo format_hour($project->getProjectTotalHours()) ?> / <?php echo format_currency($project->getProjectTotalHoursCost(), 'EUR') ?></td>
                         </tr>
                         <tr>
                             <td class="leftCol"><strong><?php echo __('Revenue generated') ?></strong></td>
-                            <td class="rightCol"><?php //echo format_currency($project->getProjectTotalInvoices() + $project->getProjectTotalIncomes(), 'EUR') ?></td>
+                            <td class="rightCol"><?php echo format_currency($project->getProjectTotalRevenue(), 'EUR') ?></td>
                         </tr>
                         <tr>
                             <td class="leftCol"><strong><?php echo __('Cost due') ?></strong></td>
-                            <td class="rightCol"><?php //echo format_currency($project->getProjectTotalExpenses(), 'EUR') ?></td>
+                            <td class="rightCol"><?php echo format_currency($project->getProjectTotalExpenses(), 'EUR') ?></td>
                         </tr>
                         <tr>
                             <td class="leftCol"><strong><?php echo __('Tags') ?></strong></td>

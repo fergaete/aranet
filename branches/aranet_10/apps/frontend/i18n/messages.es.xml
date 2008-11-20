@@ -3,2790 +3,2796 @@
   <file orginal="global" source-language="en" datatype="plaintext" date="2008-01-10T19:47:34Z">
     <body>
     
-<trans-unit id="1">
+<trans-unit>
 <source>View client details</source>
 <target>Vista de detalle de cliente</target>
 </trans-unit>
 
-<trans-unit id="2">
+<trans-unit>
 <source>Client stats</source>
 <target>Información de cliente</target>
 </trans-unit>
 
-<trans-unit id="3">
+<trans-unit>
 <source>Contacts</source>
 <target>Contactos</target>
 </trans-unit>
 
-<trans-unit id="4">
+<trans-unit>
 <source>Messages</source>
 <target>Mensajes</target>
 </trans-unit>
 
-<trans-unit id="5">
+<trans-unit>
 <source>Client since</source>
 <target>Cliente desde</target>
 </trans-unit>
 
-<trans-unit id="6">
+<trans-unit>
 <source>Number of projects</source>
 <target>Número de proyectos</target>
 </trans-unit>
 
-<trans-unit id="7">
+<trans-unit>
 <source>Total hours</source>
 <target>Horas totales</target>
 </trans-unit>
 
-<trans-unit id="8">
+<trans-unit>
 <source>Revenue generated</source>
 <target>Ingresos generados</target>
 </trans-unit>
 
-<trans-unit id="9">
+<trans-unit>
 <source>Projects (#%1%)</source>
 <target>Proyectos (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="10">
+<trans-unit>
 <source>Create new project</source>
 <target>Crear un nuevo proyecto</target>
 </trans-unit>
 
-<trans-unit id="11">
+<trans-unit>
 <source>Roll Up</source>
 <target>Recoger</target>
 </trans-unit>
 
-<trans-unit id="12">
+<trans-unit>
 <source>Roll Down</source>
 <target>Desplegar</target>
 </trans-unit>
 
-<trans-unit id="13">
+<trans-unit>
 <source>Invoices (#%1%)</source>
 <target>Facturas (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="14">
+<trans-unit>
 <source>Create new invoice</source>
 <target>Crear una nueva factura</target>
 </trans-unit>
 
-<trans-unit id="15">
+<trans-unit>
 <source>Edit client %1%</source>
 <target>Editar cliente %1%</target>
 </trans-unit>
 
-<trans-unit id="16">
+<trans-unit>
 <source>Add new client</source>
 <target>Añadir cliente</target>
 </trans-unit>
 
-<trans-unit id="17">
+<trans-unit>
 <source>Client common name</source>
 <target>Nombre común de cliente</target>
 </trans-unit>
 
-<trans-unit id="18">
+<trans-unit>
 <source>Company name</source>
 <target>Nombre de la empresa</target>
 </trans-unit>
 
-<trans-unit id="19">
+<trans-unit>
 <source>CIF</source>
 <target>CIF</target>
 </trans-unit>
 
-<trans-unit id="20">
+<trans-unit>
 <source>Industry or Business type</source>
 <target>Sector o Actividad empresarial</target>
 </trans-unit>
 
-<trans-unit id="21">
+<trans-unit>
 <source>Edit business types</source>
 <target>Editar actividades empresariales</target>
 </trans-unit>
 
-<trans-unit id="23">
+<trans-unit>
 <source>Client website</source>
 <target>Website del cliente</target>
 </trans-unit>
 
-<trans-unit id="24">
+<trans-unit>
 <source>Client comments</source>
 <target>Comentarios</target>
 </trans-unit>
 
-<trans-unit id="25">
+<trans-unit>
 <source>Client contact person</source>
 <target>Persona de contacto</target>
 </trans-unit>
 
-<trans-unit id="26">
+<trans-unit>
 <source>Address</source>
 <target>Dirección</target>
 </trans-unit>
 
-<trans-unit id="27">
+<trans-unit>
 <source>Complete?</source>
 <target>¿Completar?</target>
 </trans-unit>
 
-<trans-unit id="28">
+<trans-unit>
 <source>City</source>
 <target>Localidad</target>
 </trans-unit>
 
-<trans-unit id="29">
+<trans-unit>
 <source>State</source>
 <target>Provincia</target>
 </trans-unit>
 
-<trans-unit id="30">
+<trans-unit>
 <source>Country</source>
 <target>País</target>
 </trans-unit>
 
-<trans-unit id="31">
+<trans-unit>
 <source>Save client</source>
 <target>Guardar cliente</target>
 </trans-unit>
 
-<trans-unit id="32">
+<trans-unit>
 <source>View all clients</source>
 <target>Listado de clientes</target>
 </trans-unit>
 
-<trans-unit id="33">
+<trans-unit>
 <source>Company</source>
 <target>Empresa</target>
 </trans-unit>
 
-<trans-unit id="34">
+<trans-unit>
 <source>Contact</source>
 <target>Contacto</target>
 </trans-unit>
 
-<trans-unit id="35">
+<trans-unit>
 <source>Phone</source>
 <target>Teléfono</target>
 </trans-unit>
 
-<trans-unit id="36">
+<trans-unit>
 <source>Projects</source>
 <target>Proyectos</target>
 </trans-unit>
 
-<trans-unit id="37">
+<trans-unit>
 <source>Revenue</source>
 <target>Ingresos</target>
 </trans-unit>
 
-<trans-unit id="38">
+<trans-unit>
 <source>First</source>
 <target>Primero</target>
 </trans-unit>
 
-<trans-unit id="39">
+<trans-unit>
 <source>Previous</source>
 <target>Anterior</target>
 </trans-unit>
 
-<trans-unit id="40">
+<trans-unit>
 <source>Next</source>
 <target>Siguiente</target>
 </trans-unit>
 
-<trans-unit id="41">
+<trans-unit>
 <source>Last</source>
 <target>Último</target>
 </trans-unit>
 
-<trans-unit id="42">
+<trans-unit>
 <source>no result</source>
 <target>sin resultados</target>
 </trans-unit>
 
-<trans-unit id="43">
+<trans-unit>
 <source>result</source>
 <target>resultado</target>
 </trans-unit>
 
-<trans-unit id="44">
+<trans-unit>
 <source>results</source>
 <target>resultados</target>
 </trans-unit>
 
-<trans-unit id="45">
+<trans-unit>
 <source>Add business type...</source>
 <target>Añadir actividad empresarial</target>
 </trans-unit>
 
-<trans-unit id="46">
+<trans-unit>
 <source>View projects details</source>
 <target>Vista de detalle de proyecto</target>
 </trans-unit>
 
-<trans-unit id="47">
+<trans-unit>
 <source>Project stats</source>
 <target>Información de proyecto</target>
 </trans-unit>
 
-<trans-unit id="48">
+<trans-unit>
 <source>Project files</source>
 <target>Adjuntos al proyecto</target>
 </trans-unit>
 
-<trans-unit id="49">
+<trans-unit>
 <source>Notes</source>
 <target>Notas</target>
 </trans-unit>
 
-<trans-unit id="50">
+<trans-unit>
 <source>Team</source>
 <target>Equipo</target>
 </trans-unit>
 
-<trans-unit id="51">
+<trans-unit>
 <source>Project status</source>
 <target>Estado del proyecto</target>
 </trans-unit>
 
-<trans-unit id="52">
+<trans-unit>
 <source>Update status</source>
 <target>Actualizar estado</target>
 </trans-unit>
 
-<trans-unit id="54">
+<trans-unit>
 <source>to</source>
 <target>a</target>
 </trans-unit>
 
-<trans-unit id="55">
+<trans-unit>
 <source>Project URL</source>
 <target>URL de proyecto</target>
 </trans-unit>
 
-<trans-unit id="56">
+<trans-unit>
 <source>Cost due</source>
 <target>Gastos imputados</target>
 </trans-unit>
 
-<trans-unit id="57">
+<trans-unit>
 <source>Project budgets (#%1%)</source>
 <target>Presupuestos del proyecto (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="58">
+<trans-unit>
 <source>Create new budget</source>
 <target>Crear nuevo presupuesto</target>
 </trans-unit>
 
-<trans-unit id="59">
+<trans-unit>
 <source>Milestones and Tasks</source>
 <target>Hitos y tareas</target>
 </trans-unit>
 
-<trans-unit id="60">
+<trans-unit>
 <source>Project invoices (#%1%)</source>
 <target>Facturas del proyecto (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="61">
+<trans-unit>
 <source>Project expenses (#%1%)</source>
 <target>Gastos del proyecto (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="62">
+<trans-unit>
 <source>Create new expense</source>
 <target>Crear nuevo gasto</target>
 </trans-unit>
 
-<trans-unit id="63">
+<trans-unit>
 <source>Add new project</source>
 <target>Añadir proyecto</target>
 </trans-unit>
 
-<trans-unit id="64">
+<trans-unit>
 <source>Select client</source>
 <target>Seleccionar cliente</target>
 </trans-unit>
 
-<trans-unit id="66">
+<trans-unit>
 <source>Project number</source>
 <target>Número de proyecto</target>
 </trans-unit>
 
-<trans-unit id="67">
+<trans-unit>
 <source>Project name or title</source>
 <target>Nombre del proyecto</target>
 </trans-unit>
 
-<trans-unit id="68">
+<trans-unit>
 <source>Comments about this project</source>
 <target>Comentarios acerca del proyecto</target>
 </trans-unit>
 
-<trans-unit id="69">
+<trans-unit>
 <source>Project category</source>
 <target>Categoría de proyecto</target>
 </trans-unit>
 
-<trans-unit id="70">
+<trans-unit>
 <source>Edit categories</source>
 <target>Editar categorías</target>
 </trans-unit>
 
-<trans-unit id="71">
+<trans-unit>
 <source>Project date range</source>
 <target>Rango de fechas de proyecto</target>
 </trans-unit>
 
-<trans-unit id="72">
+<trans-unit>
 <source>To</source>
 <target>A</target>
 </trans-unit>
 
-<trans-unit id="73">
+<trans-unit>
 <source>Project main contact</source>
 <target>Principal persona de contacto</target>
 </trans-unit>
 
-<trans-unit id="74">
+<trans-unit>
 <source>Tags for this project</source>
 <target>Tags para este proyecto</target>
 </trans-unit>
 
-<trans-unit id="75">
+<trans-unit>
 <source>Save project</source>
 <target>Guardar proyecto</target>
 </trans-unit>
 
-<trans-unit id="76">
+<trans-unit>
 <source>View all projects</source>
 <target>Listado de proyectos</target>
 </trans-unit>
 
-<trans-unit id="77">
+<trans-unit>
 <source>Project title</source>
 <target>Titulo de proyecto</target>
 </trans-unit>
 
-<trans-unit id="78">
+<trans-unit>
 <source>Completion date</source>
 <target>Fecha de finalización</target>
 </trans-unit>
 
-<trans-unit id="79">
+<trans-unit>
 <source>Status</source>
 <target>Estado</target>
 </trans-unit>
 
-<trans-unit id="80">
+<trans-unit>
 <source>Hours</source>
 <target>Horas</target>
 </trans-unit>
 
-<trans-unit id="81">
+<trans-unit>
 <source>Title</source>
 <target>Título</target>
 </trans-unit>
 
-<trans-unit id="82">
+<trans-unit>
 <source>Description</source>
 <target>Descripción</target>
 </trans-unit>
 
-<trans-unit id="83">
+<trans-unit>
 <source>Milestone dates</source>
 <target>Fechas de hitos</target>
 </trans-unit>
 
-<trans-unit id="84">
+<trans-unit>
 <source>Start Date</source>
 <target>Fecha de inicio</target>
 </trans-unit>
 
-<trans-unit id="85">
+<trans-unit>
 <source>End Date</source>
 <target>Fecha de fin</target>
 </trans-unit>
 
-<trans-unit id="86">
+<trans-unit>
 <source>Created</source>
 <target>Creado</target>
 </trans-unit>
 
-<trans-unit id="87">
+<trans-unit>
 <source>Client</source>
 <target>Cliente</target>
 </trans-unit>
 
-<trans-unit id="88">
+<trans-unit>
 <source>Start date</source>
 <target>Fecha de inicio</target>
 </trans-unit>
 
-<trans-unit id="89">
+<trans-unit>
 <source>Expenses</source>
 <target>Gastos</target>
 </trans-unit>
 
-<trans-unit id="90">
+<trans-unit>
 <source>Select from frequently used tasks</source>
 <target>Seleccionar de tareas frecuentes</target>
 </trans-unit>
 
-<trans-unit id="91">
+<trans-unit>
 <source>Task title</source>
 <target>Título de tarea</target>
 </trans-unit>
 
-<trans-unit id="92">
+<trans-unit>
 <source>Task milestone</source>
 <target>Hito</target>
 </trans-unit>
 
-<trans-unit id="93">
+<trans-unit>
 <source>Task description</source>
 <target>Descripción de tarea</target>
 </trans-unit>
 
-<trans-unit id="94">
+<trans-unit>
 <source>Task dates</source>
 <target>Fechas de tarea</target>
 </trans-unit>
 
-<trans-unit id="95">
+<trans-unit>
 <source>Priority</source>
 <target>Prioridad</target>
 </trans-unit>
 
-<trans-unit id="96">
+<trans-unit>
 <source>Save to frequently used task list</source>
 <target>Guardar en tareas frecuentes</target>
 </trans-unit>
 
-<trans-unit id="97">
+<trans-unit>
 <source>Select project</source>
 <target>Seleccionar proyecto</target>
 </trans-unit>
 
-<trans-unit id="98">
+<trans-unit>
 <source>Edit invoice %1%</source>
 <target>Editar factura %1%</target>
 </trans-unit>
 
-<trans-unit id="99">
+<trans-unit>
 <source>Add new invoice</source>
 <target>Añadir factura</target>
 </trans-unit>
 
-<trans-unit id="100">
+<trans-unit>
 <source>Invoice title or name</source>
 <target>Título de la factura</target>
 </trans-unit>
 
-<trans-unit id="101">
+<trans-unit>
 <source>Invoice No. &amp; Date</source>
 <target>Factura nº y Fecha</target>
 </trans-unit>
 
-<trans-unit id="103">
+<trans-unit>
 <source>Project &amp; Budget</source>
 <target>Proyecto y Presupuesto</target>
 </trans-unit>
 
-<trans-unit id="104">
+<trans-unit>
 <source>Invoice category</source>
 <target>Categoría de factura</target>
 </trans-unit>
 
-<trans-unit id="105">
+<trans-unit>
 <source>Comments about this invoice</source>
 <target>Comentarios para esta factura</target>
 </trans-unit>
 
-<trans-unit id="106">
+<trans-unit>
 <source>Print comments on invoice</source>
 <target>Imprimir comentarios en la factura</target>
 </trans-unit>
 
-<trans-unit id="107">
+<trans-unit>
 <source>Tax rate (%)</source>
 <target>Impuestos (%)</target>
 </trans-unit>
 
-<trans-unit id="108">
+<trans-unit>
 <source>Freight charge</source>
 <target>Transporte</target>
 </trans-unit>
 
-<trans-unit id="109">
+<trans-unit>
 <source>Payment due</source>
 <target>Pago en</target>
 </trans-unit>
 
-<trans-unit id="110">
+<trans-unit>
 <source>Late fee (%)</source>
 <target>Penalización por retraso (%)</target>
 </trans-unit>
 
-<trans-unit id="111">
+<trans-unit>
 <source>Administrative contact person</source>
 <target>Contacto administrativo</target>
 </trans-unit>
 
-<trans-unit id="112">
+<trans-unit>
 <source>Payment</source>
 <target>Pago</target>
 </trans-unit>
 
-<trans-unit id="113">
+<trans-unit>
 <source>Date</source>
 <target>Fecha</target>
 </trans-unit>
 
-<trans-unit id="114">
+<trans-unit>
 <source>Method</source>
 <target>Método</target>
 </trans-unit>
 
-<trans-unit id="115">
+<trans-unit>
 <source>Number</source>
 <target>Número</target>
 </trans-unit>
 
-<trans-unit id="116">
+<trans-unit>
 <source>Invoice items</source>
 <target>Items de la factura</target>
 </trans-unit>
 
-<trans-unit id="117">
+<trans-unit>
 <source>View paid invoices</source>
 <target>Listado de facturas pagadas</target>
 </trans-unit>
 
-<trans-unit id="118">
+<trans-unit>
 <source>View open invoices</source>
 <target>Listado de facturas pendientes</target>
 </trans-unit>
 
-<trans-unit id="119">
+<trans-unit>
 <source>View all invoices</source>
 <target>Listado de facturas</target>
 </trans-unit>
 
-<trans-unit id="120">
+<trans-unit>
 <source>Filters</source>
 <target>Filtros</target>
 </trans-unit>
 
-<trans-unit id="121">
+<trans-unit>
 <source>Year</source>
 <target>Año</target>
 </trans-unit>
 
-<trans-unit id="122">
+<trans-unit>
 <source>reset</source>
 <target>borrar</target>
 </trans-unit>
 
-<trans-unit id="123">
+<trans-unit>
 <source>filter</source>
 <target>filtrar</target>
 </trans-unit>
 
-<trans-unit id="124">
+<trans-unit>
 <source>View invoice details</source>
 <target>Vista de detalle de factura</target>
 </trans-unit>
 
-<trans-unit id="125">
+<trans-unit>
 <source>Open:</source>
 <target>Abierta:</target>
 </trans-unit>
 
-<trans-unit id="126">
+<trans-unit>
 <source>Project</source>
 <target>Proyecto</target>
 </trans-unit>
 
-<trans-unit id="127">
+<trans-unit>
 <source>Comments</source>
 <target>Comentarios</target>
 </trans-unit>
 
-<trans-unit id="128">
+<trans-unit>
 <source>Tax and Freight</source>
 <target>Impuestos y Transporte</target>
 </trans-unit>
 
-<trans-unit id="129">
+<trans-unit>
 <source>Tax rate: %1%  Shipping Costs: %2%</source>
 <target>Impuestos: %1% Portes: %2%</target>
 </trans-unit>
 
-<trans-unit id="130">
+<trans-unit>
 <source>Payment terms</source>
 <target>Forma de pago</target>
 </trans-unit>
 
-<trans-unit id="131">
+<trans-unit>
 <source>Item Description</source>
 <target>Descripción</target>
 </trans-unit>
 
-<trans-unit id="132">
+<trans-unit>
 <source>Type</source>
 <target>Tipo</target>
 </trans-unit>
 
-<trans-unit id="133">
+<trans-unit>
 <source>Qty</source>
 <target>Uds.</target>
 </trans-unit>
 
-<trans-unit id="134">
+<trans-unit>
 <source>Cost</source>
 <target>Coste</target>
 </trans-unit>
 
-<trans-unit id="135">
+<trans-unit>
 <source>Total</source>
 <target>Total</target>
 </trans-unit>
 
-<trans-unit id="136">
+<trans-unit>
 <source>Shipping</source>
 <target>Portes</target>
 </trans-unit>
 
-<trans-unit id="137">
+<trans-unit>
 <source>Sales Tax</source>
 <target>Impuestos</target>
 </trans-unit>
 
-<trans-unit id="138">
+<trans-unit>
 <source>Subtotal</source>
 <target>Subtotal</target>
 </trans-unit>
 
-<trans-unit id="139">
+<trans-unit>
 <source>Nº</source>
 <target>Nº</target>
 </trans-unit>
 
-<trans-unit id="140">
+<trans-unit>
 <source>Cost/Rate</source>
 <target>Coste/Margen</target>
 </trans-unit>
 
-<trans-unit id="142">
+<trans-unit>
 <source>Payment status</source>
 <target>Estado de pago</target>
 </trans-unit>
 
-<trans-unit id="143">
+<trans-unit>
 <source>Enter Payment Information</source>
 <target>Información sobre el pago</target>
 </trans-unit>
 
-<trans-unit id="144">
+<trans-unit>
 <source>Payment type</source>
 <target>Forma de pago</target>
 </trans-unit>
 
-<trans-unit id="145">
+<trans-unit>
 <source>Date paid</source>
 <target>Fecha de pago</target>
 </trans-unit>
 
-<trans-unit id="146">
+<trans-unit>
 <source>Add new timesheet record</source>
 <target>Añadir registro de dedicación</target>
 </trans-unit>
 
-<trans-unit id="147">
+<trans-unit>
 <source>Timesheet description</source>
 <target>Descripción de dedicación</target>
 </trans-unit>
 
-<trans-unit id="148">
+<trans-unit>
 <source>Timesheet hours</source>
 <target>Horas de dedicación</target>
 </trans-unit>
 
-<trans-unit id="149">
+<trans-unit>
 <source>Timesheet project</source>
 <target>Proyecto</target>
 </trans-unit>
 
-<trans-unit id="150">
+<trans-unit>
 <source>Select project...</source>
 <target>Seleccionar proyecto</target>
 </trans-unit>
 
-<trans-unit id="151">
+<trans-unit>
 <source>Timesheet milestone</source>
 <target>Hito</target>
 </trans-unit>
 
-<trans-unit id="152">
+<trans-unit>
 <source>Select milestone...</source>
 <target>Seleccionar hito</target>
 </trans-unit>
 
-<trans-unit id="153">
+<trans-unit>
 <source>Timesheet is billable</source>
 <target>Es facturable</target>
 </trans-unit>
 
-<trans-unit id="154">
+<trans-unit>
 <source>Timesheet type</source>
 <target>Tipo de registro</target>
 </trans-unit>
 
-<trans-unit id="155">
+<trans-unit>
 <source>Select kind of work</source>
 <target>Tipo de trabajos</target>
 </trans-unit>
 
-<trans-unit id="156">
+<trans-unit>
 <source>Edit expense %1%</source>
 <target>Editar gasto %1%</target>
 </trans-unit>
 
-<trans-unit id="157">
+<trans-unit>
 <source>Add new expense</source>
 <target>Añadir gasto</target>
 </trans-unit>
 
-<trans-unit id="158">
+<trans-unit>
 <source>Expense item name</source>
 <target>Nombre del gasto</target>
 </trans-unit>
 
-<trans-unit id="159">
+<trans-unit>
 <source>Invoice</source>
 <target>Factura</target>
 </trans-unit>
 
-<trans-unit id="160">
+<trans-unit>
 <source>Expense item comments</source>
 <target>Comentarios</target>
 </trans-unit>
 
-<trans-unit id="161">
+<trans-unit>
 <source>Expense purchase date</source>
 <target>Fecha de compra</target>
 </trans-unit>
 
-<trans-unit id="162">
+<trans-unit>
 <source>Expense category</source>
 <target>Categoría del gasto</target>
 </trans-unit>
 
-<trans-unit id="163">
+<trans-unit>
 <source>Expense item payment method</source>
 <target>Forma de pago</target>
 </trans-unit>
 
-<trans-unit id="164">
+<trans-unit>
 <source>Reimbursement</source>
 <target>Reembolsable</target>
 </trans-unit>
 
-<trans-unit id="165">
+<trans-unit>
 <source>Billable to project</source>
 <target>Facturable a proyecto</target>
 </trans-unit>
 
-<trans-unit id="166">
+<trans-unit>
 <source>Amount</source>
 <target>Cantidad</target>
 </trans-unit>
 
-<trans-unit id="167">
+<trans-unit>
 <source>IRPF</source>
 <target>IRPF</target>
 </trans-unit>
 
-<trans-unit id="168">
+<trans-unit>
 <source>Expense vendor</source>
 <target>Proveedor</target>
 </trans-unit>
 
-<trans-unit id="169">
+<trans-unit>
 <source>Add new vendor</source>
 <target>Añadir proveedor</target>
 </trans-unit>
 
-<trans-unit id="170">
+<trans-unit>
 <source>Month</source>
 <target>Mes</target>
 </trans-unit>
 
-<trans-unit id="171">
+<trans-unit>
 <source>Category</source>
 <target>Categoría</target>
 </trans-unit>
 
-<trans-unit id="172">
+<trans-unit>
 <source>Project</source>
 <target>Proyecto</target>
 </trans-unit>
 
-<trans-unit id="173">
+<trans-unit>
 <source>View expense details</source>
 <target>Vista detallada de gasto</target>
 </trans-unit>
 
-<trans-unit id="174">
+<trans-unit>
 <source>Purchased:</source>
 <target>Comprado:</target>
 </trans-unit>
 
-<trans-unit id="175">
+<trans-unit>
 <source>Tax</source>
 <target>Impuestos</target>
 </trans-unit>
 
-<trans-unit id="176">
+<trans-unit>
 <source>Item name</source>
 <target>Nombre</target>
 </trans-unit>
 
-<trans-unit id="177">
+<trans-unit>
 <source>Tax rate</source>
 <target>Impuestos</target>
 </trans-unit>
 
-<trans-unit id="178">
+<trans-unit>
 <source>Vendor</source>
 <target>Proveedor</target>
 </trans-unit>
 
-<trans-unit id="179">
+<trans-unit>
 <source>Welcome %1%</source>
 <target>Bienvenido %1%</target>
 </trans-unit>
 
-<trans-unit id="180">
+<trans-unit>
 <source>Name</source>
 <target>Nombre</target>
 </trans-unit>
 
-<trans-unit id="181">
+<trans-unit>
 <source>Email</source>
 <target>Email</target>
 </trans-unit>
 
-<trans-unit id="182">
+<trans-unit>
 <source>Fax</source>
 <target>Fax</target>
 </trans-unit>
 
-<trans-unit id="183">
+<trans-unit>
 <source>Mobile</source>
 <target>Móvil</target>
 </trans-unit>
 
-<trans-unit id="184">
+<trans-unit>
 <source>Edit vendor %1%</source>
 <target>Editar proveedor %1%</target>
 </trans-unit>
 
-<trans-unit id="185">
+<trans-unit>
 <source>Vendor common name</source>
 <target>Nombre común de proveedor</target>
 </trans-unit>
 
-<trans-unit id="186">
+<trans-unit>
 <source>Vendor since</source>
 <target>Proveedor desde</target>
 </trans-unit>
 
-<trans-unit id="187">
+<trans-unit>
 <source>Vendor website</source>
 <target>Web del proveedor</target>
 </trans-unit>
 
-<trans-unit id="188">
+<trans-unit>
 <source>Vendor comments</source>
 <target>Comentarios</target>
 </trans-unit>
 
-<trans-unit id="189">
+<trans-unit>
 <source>Vendor contact person</source>
 <target>Persona de contacto</target>
 </trans-unit>
 
-<trans-unit id="190">
+<trans-unit>
 <source>Save vendor</source>
 <target>Guardar proveedor</target>
 </trans-unit>
 
-<trans-unit id="191">
+<trans-unit>
 <source>View all vendors</source>
 <target>Listado de proveedores</target>
 </trans-unit>
 
-<trans-unit id="192">
+<trans-unit>
 <source>View vendor details</source>
 <target>Vista detallada de proveedor</target>
 </trans-unit>
 
-<trans-unit id="193">
+<trans-unit>
 <source>Vendor stats</source>
 <target>Información de proveedor</target>
 </trans-unit>
 
-<trans-unit id="195">
+<trans-unit>
 <source>Amount due</source>
 <target>Importe realizado</target>
 </trans-unit>
 
-<trans-unit id="196">
+<trans-unit>
 <source>Expenses (#%1%)</source>
 <target>Gastos (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="197">
+<trans-unit>
 <source>Add new budget</source>
 <target>Añadir presupuesto</target>
 </trans-unit>
 
-<trans-unit id="198">
+<trans-unit>
 <source>Budget title or name</source>
 <target>Título del presupuesto</target>
 </trans-unit>
 
-<trans-unit id="199">
+<trans-unit>
 <source>Budget Prefix &amp; No.</source>
 <target>Presupuesto Prefijo y Nº</target>
 </trans-unit>
 
-<trans-unit id="200">
+<trans-unit>
 <source>Revision</source>
 <target>Revisión</target>
 </trans-unit>
 
-<trans-unit id="201">
+<trans-unit>
 <source>Budget date</source>
 <target>Fecha</target>
 </trans-unit>
 
-<trans-unit id="202">
+<trans-unit>
 <source>Budget client</source>
 <target>Cliente</target>
 </trans-unit>
 
-<trans-unit id="203">
+<trans-unit>
 <source>Budget project</source>
 <target>Proyecto</target>
 </trans-unit>
 
-<trans-unit id="204">
+<trans-unit>
 <source>Budget category</source>
 <target>Categoría de presupuesto</target>
 </trans-unit>
 
-<trans-unit id="205">
+<trans-unit>
 <source>Budget comments</source>
 <target>Comentarios</target>
 </trans-unit>
 
-<trans-unit id="206">
+<trans-unit>
 <source>Budget print comments</source>
 <target>Imprimir comentarios</target>
 </trans-unit>
 
-<trans-unit id="207">
+<trans-unit>
 <source>Contact person</source>
 <target>Persona de contacto</target>
 </trans-unit>
 
-<trans-unit id="208">
+<trans-unit>
 <source>Budget Items</source>
 <target>Items de presupuesto</target>
 </trans-unit>
 
-<trans-unit id="209">
+<trans-unit>
 <source>View budgets</source>
 <target>Listado de presupuestos</target>
 </trans-unit>
 
-<trans-unit id="210">
+<trans-unit>
 <source>View budget details</source>
 <target>Vista detallada de presupuesto</target>
 </trans-unit>
 
-<trans-unit id="211">
+<trans-unit>
 <source>Add new user</source>
 <target>Añadir usuario</target>
 </trans-unit>
 
-<trans-unit id="212">
+<trans-unit>
 <source>Username</source>
 <target>Nombre de usuario</target>
 </trans-unit>
 
-<trans-unit id="213">
+<trans-unit>
 <source>Password</source>
 <target>Contraseña</target>
 </trans-unit>
 
-<trans-unit id="214">
+<trans-unit>
 <source>Repeat password</source>
 <target>Repetir contraseña</target>
 </trans-unit>
 
-<trans-unit id="215">
+<trans-unit>
 <source>Salutation</source>
 <target>Saludo</target>
 </trans-unit>
 
-<trans-unit id="216">
+<trans-unit>
 <source>First name</source>
 <target>Nombre</target>
 </trans-unit>
 
-<trans-unit id="217">
+<trans-unit>
 <source>Last name</source>
 <target>Apellidos</target>
 </trans-unit>
 
-<trans-unit id="218">
+<trans-unit>
 <source>Url</source>
 <target>Url</target>
 </trans-unit>
 
-<trans-unit id="219">
+<trans-unit>
 <source>Street</source>
 <target>Calle</target>
 </trans-unit>
 
-<trans-unit id="220">
+<trans-unit>
 <source>Birthday</source>
 <target>Cumpleaños</target>
 </trans-unit>
 
-<trans-unit id="221">
+<trans-unit>
 <source>Contact data</source>
 <target>Forma de contacto</target>
 </trans-unit>
 
-<trans-unit id="222">
+<trans-unit>
 <source>Preferred language</source>
 <target>Idioma preferido</target>
 </trans-unit>
 
-<trans-unit id="223">
+<trans-unit>
 <source>View users</source>
 <target>Listado de usuarios</target>
 </trans-unit>
 
-<trans-unit id="224">
+<trans-unit>
 <source>User</source>
 <target>Usuario</target>
 </trans-unit>
 
-<trans-unit id="225">
+<trans-unit>
 <source>Created at</source>
 <target>Creado el</target>
 </trans-unit>
 
-<trans-unit id="226">
+<trans-unit>
 <source>View user details</source>
 <target>Vista detallada de usuario</target>
 </trans-unit>
 
-<trans-unit id="227">
+<trans-unit>
 <source>User since</source>
 <target>Usuario desde</target>
 </trans-unit>
 
-<trans-unit id="228">
+<trans-unit>
 <source>Website</source>
 <target>Website</target>
 </trans-unit>
 
-<trans-unit id="229">
+<trans-unit>
 <source>Phones</source>
 <target>Teléfonos</target>
 </trans-unit>
 
-<trans-unit id="230">
+<trans-unit>
 <source>Language</source>
 <target>Idioma</target>
 </trans-unit>
 
-<trans-unit id="231">
+<trans-unit>
 <source>no results</source>
 <target>sin resultados</target>
 </trans-unit>
 
-<trans-unit id="232">
+<trans-unit>
 <source>actions</source>
 <target>acciones</target>
 </trans-unit>
 
-<trans-unit id="233">
+<trans-unit>
 <source>yes or no</source>
 <target>si o no</target>
 </trans-unit>
 
-<trans-unit id="234">
+<trans-unit>
 <source>yes</source>
 <target>si</target>
 </trans-unit>
 
-<trans-unit id="235">
+<trans-unit>
 <source>no</source>
 <target>no</target>
 </trans-unit>
 
-<trans-unit id="236">
+<trans-unit>
 <source>remove file</source>
 <target>eliminar archivo</target>
 </trans-unit>
 
-<trans-unit id="238">
+<trans-unit>
 <source>Budget No. &amp; Date</source>
 <target>Presupuesto Nº y Fecha</target>
 </trans-unit>
 
-<trans-unit id="241">
+<trans-unit>
 <source>Add new address</source>
 <target>Añadir dirección</target>
 </trans-unit>
 
-<trans-unit id="242">
+<trans-unit>
 <source>Delete this address</source>
 <target>Eliminar dirección</target>
 </trans-unit>
 
-<trans-unit id="243">
+<trans-unit>
 <source>Work</source>
 <target>Trabajo</target>
 </trans-unit>
 
-<trans-unit id="244">
+<trans-unit>
 <source>Home</source>
 <target>Casa</target>
 </trans-unit>
 
-<trans-unit id="245">
+<trans-unit>
 <source>Default?</source>
 <target>¿Principal?</target>
 </trans-unit>
 
-<trans-unit id="246">
+<trans-unit>
 <source>Code</source>
 <target>C.P.</target>
 </trans-unit>
 
-<trans-unit id="247">
+<trans-unit>
 <source>Edit timesheet record</source>
 <target>Editar registro de dedicación</target>
 </trans-unit>
 
-<trans-unit id="248">
+<trans-unit>
 <source>Milestone</source>
 <target>Hito</target>
 </trans-unit>
 
-<trans-unit id="249">
+<trans-unit>
 <source>Select milestone</source>
 <target>Seleccionar hito</target>
 </trans-unit>
 
-<trans-unit id="250">
+<trans-unit>
 <source>Kind of work</source>
 <target>Tipo de trabajo</target>
 </trans-unit>
 
-<trans-unit id="251">
+<trans-unit>
 <source>Is billable?</source>
 <target>¿Es facturable?</target>
 </trans-unit>
 
-<trans-unit id="252">
+<trans-unit>
 <source>From</source>
 <target>De</target>
 </trans-unit>
 
-<trans-unit id="253">
+<trans-unit>
 <source>Member</source>
 <target>Miembro</target>
 </trans-unit>
 
-<trans-unit id="254">
+<trans-unit>
 <source>Type of work</source>
 <target>Tipo de trabajo</target>
 </trans-unit>
 
-<trans-unit id="255">
+<trans-unit>
 <source>First half of %1%: Incomes vs. Expenses</source>
 <target>Primer semestre de %1%: Ingresos vs. Gastos</target>
 </trans-unit>
 
-<trans-unit id="256">
+<trans-unit>
 <source>Pending invoices</source>
 <target>Facturas pendientes</target>
 </trans-unit>
 
-<trans-unit id="257">
+<trans-unit>
 <source>TOTAL</source>
 <target>TOTAL</target>
 </trans-unit>
 
-<trans-unit id="258">
+<trans-unit>
 <source>Next incomes</source>
 <target>Próximos ingresos</target>
 </trans-unit>
 
-<trans-unit id="259">
+<trans-unit>
 <source>Best clients</source>
 <target>Mejores clientes</target>
 </trans-unit>
 
-<trans-unit id="260">
+<trans-unit>
 <source>Margin</source>
 <target>Margen</target>
 </trans-unit>
 
-<trans-unit id="261">
+<trans-unit>
 <source>Active projects/budgets</source>
 <target>Proyectos/Presupuestos activos</target>
 </trans-unit>
 
-<trans-unit id="262">
+<trans-unit>
 <source>Project/Budget</source>
 <target>Proyecto/Presupuesto</target>
 </trans-unit>
 
-<trans-unit id="263">
+<trans-unit>
 <source>Main contact</source>
 <target>Contacto principal</target>
 </trans-unit>
 
-<trans-unit id="264">
+<trans-unit>
 <source>View contact details</source>
 <target>Vista detallada de contacto</target>
 </trans-unit>
 
-<trans-unit id="265">
+<trans-unit>
 <source>%1% addess', array('%1%' =&amp;gt; ucfirst($address-&amp;gt;getAddressType()))) : __('Address</source>
 <target/>
 </trans-unit>
 
-<trans-unit id="266">
+<trans-unit>
 <source>Tags</source>
 <target>Tags</target>
 </trans-unit>
 
-<trans-unit id="267">
+<trans-unit>
 <source>Add new contact</source>
 <target>Añadir contacto</target>
 </trans-unit>
 
-<trans-unit id="268">
+<trans-unit>
 <source>List contacts</source>
 <target>Listado de contactos</target>
 </trans-unit>
 
-<trans-unit id="269">
+<trans-unit>
 <source>View all contacts</source>
 <target>Listado de contactos</target>
 </trans-unit>
 
-<trans-unit id="270">
+<trans-unit>
 <source>Phone/Fax</source>
 <target>Teléfono/Fax</target>
 </trans-unit>
 
-<trans-unit id="271">
+<trans-unit>
 <source>Tel: </source>
 <target>Tel.: </target>
 </trans-unit>
 
-<trans-unit id="272">
+<trans-unit>
 <source>Fax: </source>
 <target>Fax: </target>
 </trans-unit>
 
-<trans-unit id="273">
+<trans-unit>
 <source>Tags for this contact</source>
 <target>Tags para el contacto</target>
 </trans-unit>
 
-<trans-unit id="274">
+<trans-unit>
 <source>If the tag doesn't exists, the program will create one</source>
 <target>Si la etiqueta no existe, se creará automáticamente</target>
 </trans-unit>
 
-<trans-unit id="275">
+<trans-unit>
 <source>Delete this contact</source>
 <target>Eliminar contacto</target>
 </trans-unit>
 
-<trans-unit id="276">
+<trans-unit>
 <source>Aditional contact</source>
 <target>Contacto adicional</target>
 </trans-unit>
 
-<trans-unit id="277">
+<trans-unit>
 <source>Rol</source>
 <target>Rol</target>
 </trans-unit>
 
-<trans-unit id="278">
+<trans-unit>
 <source>Open</source>
 <target>Abierto</target>
 </trans-unit>
 
-<trans-unit id="279">
+<trans-unit>
 <source>Edit invoice %1%</source>
 <target>Editar factura %1%</target>
 </trans-unit>
 
-<trans-unit id="281">
+<trans-unit>
 <source>Invoice project </source>
 <target>Proyecto</target>
 </trans-unit>
 
-<trans-unit id="282">
+<trans-unit>
 <source>Select budget</source>
 <target>Presupuesto</target>
 </trans-unit>
 
-<trans-unit id="283">
+<trans-unit>
 <source>Tags for this invoice</source>
 <target>Tags para esta factura</target>
 </trans-unit>
 
-<trans-unit id="284">
+<trans-unit>
 <source>List invoices</source>
 <target>Listado de facturas</target>
 </trans-unit>
 
-<trans-unit id="285">
+<trans-unit>
 <source>Date filter</source>
 <target>Filtro por fecha</target>
 </trans-unit>
 
-<trans-unit id="286">
+<trans-unit>
 <source>Status filter</source>
 <target>Filtro por estado</target>
 </trans-unit>
 
-<trans-unit id="287">
+<trans-unit>
 <source>Addresses</source>
 <target>Direcciones</target>
 </trans-unit>
 
-<trans-unit id="288">
+<trans-unit>
 <source>Create new income</source>
 <target>Crear nuevo ingreso</target>
 </trans-unit>
 
-<trans-unit id="289">
+<trans-unit>
 <source>Edit vendor %1%</source>
 <target>Editar proveedor %1%</target>
 </trans-unit>
 
-<trans-unit id="290">
+<trans-unit>
 <source>Tags for this vendor</source>
 <target>Tags para este proveedor</target>
 </trans-unit>
 
-<trans-unit id="291">
+<trans-unit>
 <source>List vendors</source>
 <target>Listado de proveedores</target>
 </trans-unit>
 
-<trans-unit id="292">
+<trans-unit>
 <source>Incomes</source>
 <target>Ingresos</target>
 </trans-unit>
 
-<trans-unit id="293">
+<trans-unit>
 <source>List projects</source>
 <target>Listado de proyectos</target>
 </trans-unit>
 
-<trans-unit id="294">
+<trans-unit>
 <source>Client filter</source>
 <target>Filtro por cliente</target>
 </trans-unit>
 
-<trans-unit id="295">
+<trans-unit>
 <source>Files</source>
 <target>Archivos</target>
 </trans-unit>
 
-<trans-unit id="296">
+<trans-unit>
 <source>List files</source>
 <target>Listar archivos</target>
 </trans-unit>
 
-<trans-unit id="297">
+<trans-unit>
 <source>Add new file</source>
 <target>Añadir archivo</target>
 </trans-unit>
 
-<trans-unit id="298">
+<trans-unit>
 <source>Search</source>
 <target>Buscar</target>
 </trans-unit>
 
-<trans-unit id="299">
+<trans-unit>
 <source>Popular tags</source>
 <target>Tags frecuentes</target>
 </trans-unit>
 
-<trans-unit id="300">
+<trans-unit>
 <source>List clients</source>
 <target>Listar clientes</target>
 </trans-unit>
 
-<trans-unit id="301">
+<trans-unit>
 <source>List vendors</source>
 <target>Listar proveedores</target>
 </trans-unit>
 
-<trans-unit id="302">
+<trans-unit>
 <source>List contacts</source>
 <target>Listar contactos</target>
 </trans-unit>
 
-<trans-unit id="303">
+<trans-unit>
 <source>List projects</source>
 <target>Listar proyectos</target>
 </trans-unit>
 
-<trans-unit id="304">
+<trans-unit>
 <source>List budgets</source>
 <target>Listar presupuestos</target>
 </trans-unit>
 
-<trans-unit id="305">
+<trans-unit>
 <source>List invoices</source>
 <target>Listar facturas</target>
 </trans-unit>
 
-<trans-unit id="306">
+<trans-unit>
 <source>List incomes</source>
 <target>Listar ingresos</target>
 </trans-unit>
 
-<trans-unit id="307">
+<trans-unit>
 <source>Add new income</source>
 <target>Añadir ingreso</target>
 </trans-unit>
 
-<trans-unit id="308">
+<trans-unit>
 <source>List cash movements</source>
 <target>Listar movimientos de caja</target>
 </trans-unit>
 
-<trans-unit id="309">
+<trans-unit>
 <source>Add new cash movement</source>
 <target>Añadir movimiento de caja</target>
 </trans-unit>
 
-<trans-unit id="310">
+<trans-unit>
 <source>List members</source>
 <target>Listar miembros</target>
 </trans-unit>
 
-<trans-unit id="311">
+<trans-unit>
 <source>Add new member</source>
 <target>Añadir miembro</target>
 </trans-unit>
 
-<trans-unit id="312">
+<trans-unit>
 <source>List expenses</source>
 <target>Listar gastos</target>
 </trans-unit>
 
-<trans-unit id="313">
+<trans-unit>
 <source>Add new expense item</source>
 <target>Añadir gasto</target>
 </trans-unit>
 
-<trans-unit id="314">
+<trans-unit>
 <source>Show expense</source>
 <target>Ver gasto</target>
 </trans-unit>
 
-<trans-unit id="315">
+<trans-unit>
 <source>Purchased</source>
 <target>Comprado</target>
 </trans-unit>
 
-<trans-unit id="316">
+<trans-unit>
 <source>Paid by</source>
 <target>Pagado por</target>
 </trans-unit>
 
-<trans-unit id="318">
+<trans-unit>
 <source>Upload new file</source>
 <target>Adjuntar nuevo archivo</target>
 </trans-unit>
 
-<trans-unit id="319">
+<trans-unit>
 <source>Edit expense %1%</source>
 <target>Editar gasto %1%</target>
 </trans-unit>
 
-<trans-unit id="320">
+<trans-unit>
 <source>If the vendor doesn't exists, the program will create one</source>
 <target>Si el proveedor no existe, se creará uno nuevo</target>
 </trans-unit>
 
-<trans-unit id="321">
+<trans-unit>
 <source>Base</source>
 <target>Base</target>
 </trans-unit>
 
-<trans-unit id="322">
+<trans-unit>
 <source>Tax (%)</source>
 <target>Impuestos (%)</target>
 </trans-unit>
 
-<trans-unit id="323">
+<trans-unit>
 <source>By</source>
 <target>Por</target>
 </trans-unit>
 
-<trans-unit id="324">
+<trans-unit>
 <source>Associated project</source>
 <target>Proyecto asociado</target>
 </trans-unit>
 
-<trans-unit id="325">
+<trans-unit>
 <source>Associated budget</source>
 <target>Presupuesto asociado</target>
 </trans-unit>
 
-<trans-unit id="326">
+<trans-unit>
 <source>Tags for this expense item</source>
 <target>Tags para este gasto</target>
 </trans-unit>
 
-<trans-unit id="327">
+<trans-unit>
 <source>Validation</source>
 <target>Validación</target>
 </trans-unit>
 
-<trans-unit id="328">
+<trans-unit>
 <source>Are you sure?</source>
 <target>Está seguro?</target>
 </trans-unit>
 
-<trans-unit id="329">
+<trans-unit>
 <source>List expenses</source>
 <target>Listar gastos</target>
 </trans-unit>
 
-<trans-unit id="330">
+<trans-unit>
 <source>View all expenses</source>
 <target>Listado de gastos</target>
 </trans-unit>
 
-<trans-unit id="331">
+<trans-unit>
 <source>Category filter</source>
 <target>Filtro por categoría</target>
 </trans-unit>
 
-<trans-unit id="332">
+<trans-unit>
 <source>Payment filter</source>
 <target>Filtro por pago</target>
 </trans-unit>
 
-<trans-unit id="333">
+<trans-unit>
 <source>Paid with</source>
 <target>Pagado con</target>
 </trans-unit>
 
-<trans-unit id="334">
+<trans-unit>
 <source>Project filter</source>
 <target>Filtro por proyecto</target>
 </trans-unit>
 
-<trans-unit id="335">
+<trans-unit>
 <source>Validation filter</source>
 <target>Filtro por validación</target>
 </trans-unit>
 
-<trans-unit id="336">
+<trans-unit>
 <source>Waiting approval</source>
 <target>Pendiente</target>
 </trans-unit>
 
-<trans-unit id="337">
+<trans-unit>
 <source>Approved</source>
 <target>Aprovado</target>
 </trans-unit>
 
-<trans-unit id="338">
+<trans-unit>
 <source>View income details</source>
 <target>Vista detallada de ingreso</target>
 </trans-unit>
 
-<trans-unit id="339">
+<trans-unit>
 <source>Edit income %1%</source>
 <target>Editar ingreso %1%</target>
 </trans-unit>
 
-<trans-unit id="340">
+<trans-unit>
 <source>Income item name</source>
 <target>Nombre de ingreso</target>
 </trans-unit>
 
-<trans-unit id="341">
+<trans-unit>
 <source>Income vendor</source>
 <target>Proveedor</target>
 </trans-unit>
 
-<trans-unit id="342">
+<trans-unit>
 <source>Income date</source>
 <target>Fecha de ingreso</target>
 </trans-unit>
 
-<trans-unit id="343">
+<trans-unit>
 <source>Income item comments</source>
 <target>Comentarios</target>
 </trans-unit>
 
-<trans-unit id="344">
+<trans-unit>
 <source>Income category</source>
 <target>Categoría de ingreso</target>
 </trans-unit>
 
-<trans-unit id="345">
+<trans-unit>
 <source>Income item payment method</source>
 <target>Forma de pago</target>
 </trans-unit>
 
-<trans-unit id="346">
+<trans-unit>
 <source>Tags for this income</source>
 <target>Tags para este ingreso</target>
 </trans-unit>
 
-<trans-unit id="347">
+<trans-unit>
 <source>List incomes</source>
 <target>Listar ingresos</target>
 </trans-unit>
 
-<trans-unit id="348">
+<trans-unit>
 <source>View all incomes</source>
 <target>Listado de ingresos</target>
 </trans-unit>
 
-<trans-unit id="349">
+<trans-unit>
 <source>Budget stats</source>
 <target>Información de presupuesto</target>
 </trans-unit>
 
-<trans-unit id="350">
+<trans-unit>
 <source>Versions</source>
 <target>Versiones</target>
 </trans-unit>
 
-<trans-unit id="352">
+<trans-unit>
 <source>Budget dates</source>
 <target>Fechas de presupuesto</target>
 </trans-unit>
 
-<trans-unit id="353">
+<trans-unit>
 <source>Valid till</source>
 <target>Válido hasta</target>
 </trans-unit>
 
-<trans-unit id="354">
+<trans-unit>
 <source>Tags for this budget</source>
 <target>Tags para este presupuesto</target>
 </trans-unit>
 
-<trans-unit id="355">
+<trans-unit>
 <source>List budgets</source>
 <target>Listar presupuestos</target>
 </trans-unit>
 
-<trans-unit id="356">
+<trans-unit>
 <source>View all budgets</source>
 <target>Listado de presupuestos</target>
 </trans-unit>
 
-<trans-unit id="357">
+<trans-unit>
 <source>Sended</source>
 <target>Enviado</target>
 </trans-unit>
 
-<trans-unit id="358">
+<trans-unit>
 <source>Tax rate: %1%  Shipping Costs: %2%</source>
 <target>Impuestos: %1%  Gastos de transporte: %2%</target>
 </trans-unit>
 
-<trans-unit id="359">
+<trans-unit>
 <source>Total cost</source>
 <target>Coste total</target>
 </trans-unit>
 
-<trans-unit id="360">
+<trans-unit>
 <source>Average margin</source>
 <target>Margen medio</target>
 </trans-unit>
 
-<trans-unit id="361">
+<trans-unit>
 <source>Cost/Margin/Price</source>
 <target>Coste/Margen/Precio</target>
 </trans-unit>
 
-<trans-unit id="362">
+<trans-unit>
 <source>Optional?</source>
 <target>¿Opcional?</target>
 </trans-unit>
 
-<trans-unit id="363">
+<trans-unit>
 <source>View members</source>
 <target>Listado de miembros</target>
 </trans-unit>
 
-<trans-unit id="364">
+<trans-unit>
 <source>Total expenses</source>
 <target>Gastos totales</target>
 </trans-unit>
 
-<trans-unit id="365">
+<trans-unit>
 <source>Budgets</source>
 <target>Presupuestos</target>
 </trans-unit>
 
-<trans-unit id="366">
+<trans-unit>
 <source>Active amount</source>
 <target>Cifra activa</target>
 </trans-unit>
 
-<trans-unit id="367">
+<trans-unit>
 <source>Approved amount</source>
 <target>Cifra aprovada</target>
 </trans-unit>
 
-<trans-unit id="368">
+<trans-unit>
 <source>Total amount</source>
 <target>Total cifra</target>
 </trans-unit>
 
-<trans-unit id="369">
+<trans-unit>
 <source>Edit client %1%</source>
 <target>Editar cliente %1%</target>
 </trans-unit>
 
-<trans-unit id="370">
+<trans-unit>
 <source>Tags for this client</source>
 <target>Tags para este cliente</target>
 </trans-unit>
 
-<trans-unit id="371">
+<trans-unit>
 <source>List clients</source>
 <target>Listar clientes</target>
 </trans-unit>
 
-<trans-unit id="372">
+<trans-unit>
 <source>Edit cash movement %1%</source>
 <target>Editar movimiento de caja %1%</target>
 </trans-unit>
 
-<trans-unit id="373">
+<trans-unit>
 <source>Signin panel</source>
 <target>Panel de acceso</target>
 </trans-unit>
 
-<trans-unit id="374">
+<trans-unit>
 <source>Please, complete with your data to access ARANet</source>
 <target>Por favor, rellene con sus datos para acceder a ARANet</target>
 </trans-unit>
 
-<trans-unit id="375">
+<trans-unit>
 <source>Lost your password?</source>
 <target>¿Olvidó su contraseña?</target>
 </trans-unit>
 
-<trans-unit id="376">
+<trans-unit>
 <source>Remember me?</source>
 <target>¿Recordar datos?</target>
 </trans-unit>
 
-<trans-unit id="377">
+<trans-unit>
 <source>Login</source>
 <target>Entrar</target>
 </trans-unit>
 
-<trans-unit id="378">
+<trans-unit>
 <source>Restringed access</source>
 <target>Acceso restringido</target>
 </trans-unit>
 
-<trans-unit id="379">
+<trans-unit>
 <source>You don't have enough permission to access this area</source>
 <target>No tiene suficientes permisos para acceder a éste área</target>
 </trans-unit>
 
-<trans-unit id="380">
+<trans-unit>
 <source>Maybe, something could be broken</source>
 <target>Tal vez, algo no funcione</target>
 </trans-unit>
 
-<trans-unit id="381">
+<trans-unit>
 <source>Please e-mail us at webmaster@aranova.es and let us know what you were doing when this error occurred.</source>
 <target>Por favor, envía un email a webmaster@aranova.es notificando el problema encontrado.</target>
 </trans-unit>
 
-<trans-unit id="382">
+<trans-unit>
 <source>We will fix it as soon as possible.</source>
 <target>Trataremos de corregirlo lo antes posible.</target>
 </trans-unit>
 
-<trans-unit id="383">
+<trans-unit>
 <source>Sorry for any inconvenience caused.</source>
 <target>Lamentamos cualquier inconveniente causado.</target>
 </trans-unit>
 
-<trans-unit id="384">
+<trans-unit>
 <source>What's next</source>
 <target>¿Cuál es el siguiente paso?</target>
 </trans-unit>
 
-<trans-unit id="385">
+<trans-unit>
 <source>Back to previous page</source>
 <target>Volver a la página anterior</target>
 </trans-unit>
 
-<trans-unit id="386">
+<trans-unit>
 <source>Go to Homepage</source>
 <target>Ir a la página de inicio</target>
 </trans-unit>
 
-<trans-unit id="387">
+<trans-unit>
 <source>Edit file %1%</source>
 <target>Editar archivo %1%</target>
 </trans-unit>
 
-<trans-unit id="388">
+<trans-unit>
 <source>File title</source>
 <target>Nombre de archivo</target>
 </trans-unit>
 
-<trans-unit id="389">
+<trans-unit>
 <source>Upload a File</source>
 <target>Subir un archivo</target>
 </trans-unit>
 
-<trans-unit id="390">
+<trans-unit>
 <source>List files</source>
 <target>Listar archivos</target>
 </trans-unit>
 
-<trans-unit id="391">
+<trans-unit>
 <source>View all files</source>
 <target>Listado de archivos</target>
 </trans-unit>
 
-<trans-unit id="392">
+<trans-unit>
 <source>File</source>
 <target>Archivo</target>
 </trans-unit>
 
-<trans-unit id="393">
+<trans-unit>
 <source>Size</source>
 <target>Tamaño</target>
 </trans-unit>
 
-<trans-unit id="394">
+<trans-unit>
 <source>Mime Type</source>
 <target>Tipo</target>
 </trans-unit>
 
-<trans-unit id="395">
+<trans-unit>
 <source>Dashboard</source>
 <target>Tablero</target>
 </trans-unit>
 
-<trans-unit id="396">
+<trans-unit>
 <source>Companies</source>
 <target>Empresas</target>
 </trans-unit>
 
-<trans-unit id="397">
+<trans-unit>
 <source>Finances</source>
 <target>Finanzas</target>
 </trans-unit>
 
-<trans-unit id="398">
+<trans-unit>
 <source>Members</source>
 <target>Miembros</target>
 </trans-unit>
 
-<trans-unit id="399">
+<trans-unit>
 <source>Logout</source>
 <target>Salir</target>
 </trans-unit>
 
-<trans-unit id="400">
+<trans-unit>
 <source>Timesheets</source>
 <target>Partes de dedicación</target>
 </trans-unit>
 
-<trans-unit id="401">
+<trans-unit>
 <source>View all timesheets</source>
 <target>Listado de registros de dedicación</target>
 </trans-unit>
 
-<trans-unit id="402">
+<trans-unit>
 <source>Add new timesheet</source>
 <target>Añadir registro de dedicación</target>
 </trans-unit>
 
-<trans-unit id="403">
+<trans-unit>
 <source>Timesheet reports</source>
 <target>Informes de dedicación</target>
 </trans-unit>
 
-<trans-unit id="404">
+<trans-unit>
 <source>Invoices</source>
 <target>Facturas</target>
 </trans-unit>
 
-<trans-unit id="406">
+<trans-unit>
 <source>Incomings</source>
 <target>Ingresos</target>
 </trans-unit>
 
-<trans-unit id="407">
+<trans-unit>
 <source>View all incomings</source>
 <target>Listado de ingresos</target>
 </trans-unit>
 
-<trans-unit id="408">
+<trans-unit>
 <source>Add new incoming</source>
 <target>Añadir ingreso</target>
 </trans-unit>
 
-<trans-unit id="409">
+<trans-unit>
 <source>Finance reports</source>
 <target>Informes financieros</target>
 </trans-unit>
 
-<trans-unit id="410">
+<trans-unit>
 <source>Save budget</source>
 <target>Guardar presupuesto</target>
 </trans-unit>
 
-<trans-unit id="411">
+<trans-unit>
 <source>Total costs</source>
 <target>Costes totales</target>
 </trans-unit>
 
-<trans-unit id="412">
+<trans-unit>
 <source>Costs</source>
 <target>Costes</target>
 </trans-unit>
 
-<trans-unit id="413">
+<trans-unit>
 <source>Associated files (#%1%)</source>
 <target>Archivos adjuntos (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="414">
+<trans-unit>
 <source>Budget expenses (#%1%)</source>
 <target>Gastos de presupuesto (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="415">
+<trans-unit>
 <source>Homepage</source>
 <target>Página de inicio</target>
 </trans-unit>
 
-<trans-unit id="416">
+<trans-unit>
 <source>Web Office Management</source>
 <target>Web Office Management</target>
 </trans-unit>
 
-<trans-unit id="417">
+<trans-unit>
 <source>See copy policies</source>
 <target>Ver políticas de copia</target>
 </trans-unit>
 
-<trans-unit id="418">
+<trans-unit>
 <source>Validate this site</source>
 <target>Validar este sitio</target>
 </trans-unit>
 
-<trans-unit id="419">
+<trans-unit>
 <source>This work is licensed under a Creative Commons.</source>
 <target>Este trabajo está licenciado con licencia Creative Commons.</target>
 </trans-unit>
 
-<trans-unit id="420">
+<trans-unit>
 <source>Summary of the news in RSS format</source>
 <target>Resumen de noticias en formato RSS</target>
 </trans-unit>
 
-<trans-unit id="421">
+<trans-unit>
 <source>Full news in ATOM format</source>
 <target>Noticias completas en formato ATOM</target>
 </trans-unit>
 
-<trans-unit id="422">
+<trans-unit>
 <source>Contact with webmaster</source>
 <target>Contactar con el webmaster</target>
 </trans-unit>
 
-<trans-unit id="423">
+<trans-unit>
 <source>App version %1%</source>
 <target>Versión %1%</target>
 </trans-unit>
 
-<trans-unit id="424">
+<trans-unit>
 <source>Clients</source>
 <target>Clientes</target>
 </trans-unit>
 
-<trans-unit id="425">
+<trans-unit>
 <source>Vendors</source>
 <target>Proveedores</target>
 </trans-unit>
 
-<trans-unit id="426">
+<trans-unit>
 <source>Cash</source>
 <target>Caja</target>
 </trans-unit>
 
-<trans-unit id="427">
+<trans-unit>
 <source>View all cash movements</source>
 <target>Ver todos los movimientos de caja</target>
 </trans-unit>
 
-<trans-unit id="428">
+<trans-unit>
 <source>View all members</source>
 <target>Ver todos los miembros</target>
 </trans-unit>
 
-<trans-unit id="429">
+<trans-unit>
 <source>Pagination</source>
 <target>Paginación</target>
 </trans-unit>
 
-<trans-unit id="430">
+<trans-unit>
 <source>All</source>
 <target>Todos</target>
 </trans-unit>
 
-<trans-unit id="431">
+<trans-unit>
 <source>[0] </source>
 <target/>
 </trans-unit>
 
-<trans-unit id="432">
+<trans-unit>
 <source>Result</source>
 <target>Resultado</target>
 </trans-unit>
 
-<trans-unit id="433">
+<trans-unit>
 <source>Results</source>
 <target>Resultados</target>
 </trans-unit>
 
-<trans-unit id="434">
+<trans-unit>
 <source>Showing from %1% to %2%.</source>
 <target>Mostrando desde %1% a %2%.</target>
 </trans-unit>
 
-<trans-unit id="435">
+<trans-unit>
 <source>Task</source>
 <target>Tarea</target>
 </trans-unit>
 
-<trans-unit id="436">
+<trans-unit>
 <source>Select task</source>
 <target>Seleccionar tarea</target>
 </trans-unit>
 
-<trans-unit id="437">
+<trans-unit>
 <source>List timesheet records</source>
 <target>Listar registros de dedicación</target>
 </trans-unit>
 
-<trans-unit id="438">
+<trans-unit>
 <source>View all timesheet records tagged with "%1%"</source>
 <target>Ver todos los registros etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="439">
+<trans-unit>
 <source>View all timesheet records</source>
 <target>Ver todos los registros de dedicación</target>
 </trans-unit>
 
-<trans-unit id="440">
+<trans-unit>
 <source>Member filter</source>
 <target>Filtro por miembro</target>
 </trans-unit>
 
-<trans-unit id="442">
+<trans-unit>
 <source>Billable filter</source>
 <target>Filtro por facturable</target>
 </trans-unit>
 
-<trans-unit id="443">
+<trans-unit>
 <source>Billable?</source>
 <target>¿Facturable?</target>
 </trans-unit>
 
-<trans-unit id="444">
+<trans-unit>
 <source>No</source>
 <target>No</target>
 </trans-unit>
 
-<trans-unit id="445">
+<trans-unit>
 <source>Yes</source>
 <target>Sí</target>
 </trans-unit>
 
-<trans-unit id="446">
+<trans-unit>
 <source>Total (%1%)</source>
 <target>Total (%1%)</target>
 </trans-unit>
 
-<trans-unit id="447">
+<trans-unit>
 <source>%1% addess</source>
 <target>%1% dirección</target>
 </trans-unit>
 
-<trans-unit id="448">
+<trans-unit>
 <source>View all contacts tagged with "%1%"</source>
 <target>Ver todos los contactos etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="449">
+<trans-unit>
 <source>Select</source>
 <target>Selecciona</target>
 </trans-unit>
 
-<trans-unit id="450">
+<trans-unit>
 <source>Invoice items</source>
 <target>Items de factura</target>
 </trans-unit>
 
-<trans-unit id="452">
+<trans-unit>
 <source>Enter payment information</source>
 <target>Forma de pago</target>
 </trans-unit>
 
-<trans-unit id="454">
+<trans-unit>
 <source>View all invoices tagged with "%1%"</source>
 <target>Ver todas las facturas etiquetas con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="455">
+<trans-unit>
 <source>Vendor %1%</source>
 <target>Proveedor %1%</target>
 </trans-unit>
 
-<trans-unit id="456">
+<trans-unit>
 <source>Incomes (#%1%)</source>
 <target>Ingresos (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="457">
+<trans-unit>
 <source>Industry or Business Type</source>
 <target>Negocio o actividad</target>
 </trans-unit>
 
-<trans-unit id="458">
+<trans-unit>
 <source>View all vendors tagged with "%1%"</source>
 <target>Ver todos los proveedores etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="459">
+<trans-unit>
 <source>Completion</source>
 <target>Finalización</target>
 </trans-unit>
 
-<trans-unit id="460">
+<trans-unit>
 <source>Completed/Estimated</source>
 <target>Completado/Estimado</target>
 </trans-unit>
 
-<trans-unit id="461">
+<trans-unit>
 <source>Estimated time</source>
 <target>Tiempo estimado</target>
 </trans-unit>
 
-<trans-unit id="462">
+<trans-unit>
 <source>View all projects tagged with "%1%"</source>
 <target>Ver todos los proyectos etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="463">
+<trans-unit>
 <source>Project %1%</source>
 <target>Proyecto %1%</target>
 </trans-unit>
 
-<trans-unit id="464">
+<trans-unit>
 <source>Project incomes (#%1%)</source>
 <target>Ingresos de proyecto (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="465">
+<trans-unit>
 <source>List timesheet records</source>
 <target>Listar registros de dedicación</target>
 </trans-unit>
 
-<trans-unit id="466">
+<trans-unit>
 <source>Add new record</source>
 <target>Añadir registro</target>
 </trans-unit>
 
-<trans-unit id="467">
+<trans-unit>
 <source>Paid by %1% (%2%)</source>
 <target>Pagado por %1% (%2%)</target>
 </trans-unit>
 
-<trans-unit id="468">
+<trans-unit>
 <source>View all expenses tagged with "%1%"</source>
 <target>Ver todos los gastos etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="469">
+<trans-unit>
 <source>View all incomes tagged with "%1%"</source>
 <target>Ver todos los ingresos etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="470">
+<trans-unit>
 <source>Budget %1%</source>
 <target>Presupuesto %1%</target>
 </trans-unit>
 
-<trans-unit id="471">
+<trans-unit>
 <source>Payment Terms</source>
 <target>Forma de pago</target>
 </trans-unit>
 
-<trans-unit id="472">
+<trans-unit>
 <source>Estimate</source>
 <target>Estimado</target>
 </trans-unit>
 
-<trans-unit id="473">
+<trans-unit>
 <source>Actual (%1%)</source>
 <target>Actual (%1%)</target>
 </trans-unit>
 
-<trans-unit id="474">
+<trans-unit>
 <source>Difference (%1%)</source>
 <target>Diferencia (%1%)</target>
 </trans-unit>
 
-<trans-unit id="475">
+<trans-unit>
 <source>Average margins</source>
 <target>Márgen medio</target>
 </trans-unit>
 
-<trans-unit id="476">
+<trans-unit>
 <source>Real</source>
 <target>Real</target>
 </trans-unit>
 
-<trans-unit id="477">
+<trans-unit>
 <source>Revision %1%</source>
 <target>Revisión %1%</target>
 </trans-unit>
 
-<trans-unit id="478">
+<trans-unit>
 <source>Budgets (#%1%)</source>
 <target>Presupuestos (#%1%)</target>
 </trans-unit>
 
-<trans-unit id="479">
+<trans-unit>
 <source>View all clients tagged with "%1%"</source>
 <target>Ver todos los clientes etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="480">
+<trans-unit>
 <source>Add new cash</source>
 <target>Añadir movimiento de caja</target>
 </trans-unit>
 
-<trans-unit id="481">
+<trans-unit>
 <source>Save timesheet</source>
 <target>Guardar registro</target>
 </trans-unit>
 
-<trans-unit id="482">
+<trans-unit>
 <source>Save contact</source>
 <target>Guardar contacto</target>
 </trans-unit>
 
-<trans-unit id="483">
+<trans-unit>
 <source>Save invoice</source>
 <target>Guardar factura</target>
 </trans-unit>
 
-<trans-unit id="485">
+<trans-unit>
 <source>Enter a number for this invoice</source>
 <target>Introduzca un número para esta factura</target>
 </trans-unit>
 
-<trans-unit id="486">
+<trans-unit>
 <source>This invoice number already exists. Please choose another one.</source>
 <target>El número de factura existe. Por favor, elija otro.</target>
 </trans-unit>
 
-<trans-unit id="487">
+<trans-unit>
 <source>Enter a valid date</source>
 <target>Introduzca una fecha válida</target>
 </trans-unit>
 
-<trans-unit id="488">
+<trans-unit>
 <source>Select a client</source>
 <target>Seleccione un cliente</target>
 </trans-unit>
 
-<trans-unit id="489">
+<trans-unit>
 <source>Select a budget for this invoice</source>
 <target>Seleccione un presupuesto para esta factura</target>
 </trans-unit>
 
-<trans-unit id="490">
+<trans-unit>
 <source>The field cannot be left blank</source>
 <target>Este campo no puede quedarse en blanco</target>
 </trans-unit>
 
-<trans-unit id="491">
+<trans-unit>
 <source>This name is too short (2 characters minimum)</source>
 <target>El nombre es demasiado corto (2 letras mínimo)</target>
 </trans-unit>
 
-<trans-unit id="492">
+<trans-unit>
 <source>This name is too long. (100 characters maximum)</source>
 <target>El nombre es demasiado largo (100 letras máximo)</target>
 </trans-unit>
 
-<trans-unit id="493">
+<trans-unit>
 <source>This name is too long. (255 characters maximum)</source>
 <target>El nombre es demasiado largo (255 letras máximo)</target>
 </trans-unit>
 
-<trans-unit id="494">
+<trans-unit>
 <source>Enter a number for this project</source>
 <target>Introduzca un número para este proyecto</target>
 </trans-unit>
 
-<trans-unit id="495">
+<trans-unit>
 <source>This project number already exists. Please choose another one.</source>
 <target>El número de proyecto existe. Por favor, elija otro.</target>
 </trans-unit>
 
-<trans-unit id="496">
+<trans-unit>
 <source>Save expense</source>
 <target>Guardar gasto</target>
 </trans-unit>
 
-<trans-unit id="497">
+<trans-unit>
 <source>Select report to print</source>
 <target>Seleccione un informe para imprimir</target>
 </trans-unit>
 
-<trans-unit id="498">
+<trans-unit>
 <source>Report</source>
 <target>Informe</target>
 </trans-unit>
 
-<trans-unit id="499">
+<trans-unit>
 <source>Enter a name for this expense</source>
 <target>Introduzca un nombre para este gasto</target>
 </trans-unit>
 
-<trans-unit id="500">
+<trans-unit>
 <source>Select a vendor</source>
 <target>Seleccione un proveedor</target>
 </trans-unit>
 
-<trans-unit id="501">
+<trans-unit>
 <source>Enter a cost amount</source>
 <target>Introduzca un coste</target>
 </trans-unit>
 
-<trans-unit id="502">
+<trans-unit>
 <source>Save income</source>
 <target>Guardar ingreso</target>
 </trans-unit>
 
-<trans-unit id="503">
+<trans-unit>
 <source>Enter a name for this income</source>
 <target>Introduzca un nombre para este ingreso</target>
 </trans-unit>
 
-<trans-unit id="504">
+<trans-unit>
 <source>Enter an amount</source>
 <target>Introduzca una cantidad</target>
 </trans-unit>
 
-<trans-unit id="506">
+<trans-unit>
 <source>View all budgets tagged with "%1%"</source>
 <target>Ver todos los presupuestos etiquetados con "%1%"</target>
 </trans-unit>
 
-<trans-unit id="507">
+<trans-unit>
 <source>The first revison must be 0</source>
 <target>La primera revisión debe ser la 0</target>
 </trans-unit>
 
-<trans-unit id="508">
+<trans-unit>
 <source>Enter a number for this budget</source>
 <target>Introduzca un número para este presupuesto</target>
 </trans-unit>
 
-<trans-unit id="509">
+<trans-unit>
 <source>This budget number already exists. Please choose another one.</source>
 <target>El número de presupuesto existe. Por favor, elija otro.</target>
 </trans-unit>
 
-<trans-unit id="510">
+<trans-unit>
 <source>Save member</source>
 <target>Guardar miembro</target>
 </trans-unit>
 
-<trans-unit id="511">
+<trans-unit>
 <source>Save cash movement</source>
 <target>Guardar movimiento</target>
 </trans-unit>
 
-<trans-unit id="512">
+<trans-unit>
 <source>Save file</source>
 <target>Guardar archivo</target>
 </trans-unit>
 
-<trans-unit id="513">
+<trans-unit>
 <source>Edit contact details</source>
 <target>Editar detalles del contacto</target>
 </trans-unit>
 
-<trans-unit id="514">
+<trans-unit>
 <source>Contact manager</source>
 <target>Gestor de contactos</target>
 </trans-unit>
 
-<trans-unit id="515">
+<trans-unit>
 <source>Client manager</source>
 <target>Gestor de clientes</target>
 </trans-unit>
 
-<trans-unit id="516">
+<trans-unit>
 <source>Vendor manager</source>
 <target>Gestor de proveed.</target>
 </trans-unit>
 
-<trans-unit id="517">
+<trans-unit>
 <source>Project manager</source>
 <target>Gestor de proyectos</target>
 </trans-unit>
 
-<trans-unit id="518">
+<trans-unit>
 <source>Budget manager</source>
 <target>Gestor de presup.</target>
 </trans-unit>
 
-<trans-unit id="519">
+<trans-unit>
 <source>Timesheet manager</source>
 <target>Gestor de partes</target>
 </trans-unit>
 
-<trans-unit id="520">
+<trans-unit>
 <source>Invoice manager</source>
 <target>Gestor de facturas</target>
 </trans-unit>
 
-<trans-unit id="521">
+<trans-unit>
 <source>Expense manager</source>
 <target>Gestor de gastos</target>
 </trans-unit>
 
-<trans-unit id="522">
+<trans-unit>
 <source>Income manager</source>
 <target>Gestor de ingresos</target>
 </trans-unit>
 
-<trans-unit id="523">
+<trans-unit>
 <source>Cash manager</source>
 <target>Gestor de caja</target>
 </trans-unit>
 
-<trans-unit id="524">
+<trans-unit>
 <source>User manager</source>
 <target>Gestor de miembros</target>
 </trans-unit>
 
-<trans-unit id="525">
+<trans-unit>
 <source>File manager</source>
 <target>Gestor de archivos</target>
 </trans-unit>
 
-<trans-unit id="526">
+<trans-unit>
 <source>View all cash movements</source>
 <target>Listado de movimientos de caja</target>
 </trans-unit>
 
-<trans-unit id="527">
+<trans-unit>
 <source>Leave blank if you don't want to select any project</source>
 <target>Dejar en blanco para no seleccionar ningún proyecto</target>
 </trans-unit>
 
-<trans-unit id="528">
+<trans-unit>
 <source>Leave blank if you don't want to select any budget</source>
 <target>Dejar en blanco para no seleccionar ningún presupuesto</target>
 </trans-unit>
 
-<trans-unit id="529">
+<trans-unit>
 <source>Cancel</source>
 <target>Cancelar</target>
 </trans-unit>
 
-<trans-unit id="530">
+<trans-unit>
 <source>Budget</source>
 <target>Presupuesto</target>
 </trans-unit>
 
-<trans-unit id="531">
+<trans-unit>
 <source>Full name</source>
 <target>Nombre completo</target>
 </trans-unit>
 
-<trans-unit id="532">
+<trans-unit>
 <source>For selected elements</source>
 <target>Para los elementos seleccionados</target>
 </trans-unit>
 
-<trans-unit id="533">
+<trans-unit>
 <source>If the client doesn't exists, the program will create one</source>
 <target>Si el cliente no existe, se creará automáticamente</target>
 </trans-unit>
 
-<trans-unit id="534">
+<trans-unit>
 <source>Department</source>
 <target>Departamento</target>
 </trans-unit>
 
-<trans-unit id="535">
+<trans-unit>
 <source>Administration</source>
 <target>Administración</target>
 </trans-unit>
 
-<trans-unit id="536">
+<trans-unit>
 <source>Configuration</source>
 <target>Configuración</target>
 </trans-unit>
 
-<trans-unit id="537">
+<trans-unit>
 <source>Backoffice Web Management</source>
 <target/>
 </trans-unit>
 
-<trans-unit id="538">
+<trans-unit>
 <source>Edit setting %1%</source>
 <target>Editar parámetro %1%</target>
 </trans-unit>
 
-<trans-unit id="539">
+<trans-unit>
 <source>Budget identifier</source>
 <target>Identificación de presupuesto</target>
 </trans-unit>
 
-<trans-unit id="540">
+<trans-unit>
 <source>Prefix</source>
 <target>Prefijo</target>
 </trans-unit>
 
-<trans-unit id="541">
+<trans-unit>
 <source>No.</source>
 <target>No.</target>
 </trans-unit>
 
-<trans-unit id="542">
+<trans-unit>
 <source>Please enter a number</source>
 <target>Por favor, introduce un número</target>
 </trans-unit>
 
-<trans-unit id="543">
+<trans-unit>
 <source>This URL is invalid</source>
 <target>La dirección web no es válida</target>
 </trans-unit>
 
-<trans-unit id="544">
+<trans-unit>
 <source>Contact name</source>
 <target>Nombre</target>
 </trans-unit>
 
-<trans-unit id="545">
+<trans-unit>
 <source>Contact birthday</source>
 <target>Cumpleaños</target>
 </trans-unit>
 
-<trans-unit id="546">
+<trans-unit>
 <source>Edit contact %1%</source>
 <target>Editar contacto %1%</target>
 </trans-unit>
 
-<trans-unit id="547">
+<trans-unit>
 <source>File title is mandatory</source>
 <target>El título del archivo es obligatorio</target>
 </trans-unit>
 
-<trans-unit id="548">
+<trans-unit>
 <source>This file already exists. Please upload another one.</source>
 <target>El archivo ya existe. Por favor carga otro.</target>
 </trans-unit>
 
-<trans-unit id="549">
+<trans-unit>
 <source>Select...</source>
 <target></target>
 </trans-unit>
 
-<trans-unit id="550">
+<trans-unit>
 <source>Invoice identifier</source>
 <target>Identificación de factura</target>
 </trans-unit>
 
-<trans-unit id="551">
+<trans-unit>
 <source>Kind of invoice</source>
 <target>Tipo de factura</target>
 </trans-unit>
 
-<trans-unit id="552">
+<trans-unit>
 <source>Edit project %1%</source>
 <target>Editar proyecto %1%</target>
 </trans-unit>
 
-<trans-unit id="553">
+<trans-unit>
 <source>Add new setting</source>
 <target>Añadir nuevo parámetro</target>
 </trans-unit>
 
-<trans-unit id="554">
+<trans-unit>
 <source>Environment</source>
 <target>Entorno</target>
 </trans-unit>
 
-<trans-unit id="555">
+<trans-unit>
 <source>Value</source>
 <target>Valor</target>
 </trans-unit>
 
-<trans-unit id="556">
+<trans-unit>
 <source>Save setting</source>
 <target>Guardar parámetro</target>
 </trans-unit>
 
-<trans-unit id="557">
+<trans-unit>
 <source>List settings</source>
 <target>Listado de parámetros</target>
 </trans-unit>
 
-<trans-unit id="558">
+<trans-unit>
 <source>View all settings</source>
 <target>Listado de parámetros</target>
 </trans-unit>
 
-<trans-unit id="559">
+<trans-unit>
 <source>Setting %1%</source>
 <target>Parámetro %1%</target>
 </trans-unit>
 
-<trans-unit id="560">
+<trans-unit>
 <source>View setting details</source>
 <target>Vista detallada de parámetro</target>
 </trans-unit>
 
-<trans-unit id="561">
+<trans-unit>
 <source>Since</source>
 <target>Desde</target>
 </trans-unit>
 
-<trans-unit id="562">
+<trans-unit>
 <source>Forgot your password?</source>
 <target>¿Olvidaste tu contraseña?</target>
 </trans-unit>
 
-<trans-unit id="563">
+<trans-unit>
 <source>Milestones </source>
 <target>Hitos </target>
 </trans-unit>
 
-<trans-unit id="564">
+<trans-unit>
 <source>Edit member %1%</source>
 <target>Editando miembro %1%</target>
 </trans-unit>
 
-<trans-unit id="565">
+<trans-unit>
 <source>Username is mandatory</source>
 <target>El nombre de usuario es obligatorio</target>
 </trans-unit>
 
-<trans-unit id="566">
+<trans-unit>
 <source>This username already exists. Please choose another one.</source>
 <target>El usuario ya existe. Por favor, usa otro nombre.</target>
 </trans-unit>
 
-<trans-unit id="567">
+<trans-unit>
 <source>Please enter a valid email</source>
 <target>Por favor, introduce una dirección de mail válida</target>
 </trans-unit>
 
-<trans-unit id="568">
+<trans-unit>
 <source>This email address is invalid</source>
 <target>La dirección de correo no es válida</target>
 </trans-unit>
 
-<trans-unit id="569">
+<trans-unit>
 <source>The two passwords do not match</source>
 <target>Las dos contraseñas no coinciden</target>
 </trans-unit>
 
-<trans-unit id="570">
+<trans-unit>
 <source>Enter a valid number</source>
 <target>Introduzca un número válido</target>
 </trans-unit>
 
-<trans-unit id="571">
+<trans-unit>
 <source>Enter a description</source>
 <target>Introduzca una descripción</target>
 </trans-unit>
 
-<trans-unit id="572">
+<trans-unit>
 <source>Enter a title</source>
 <target>Introduzca un título</target>
 </trans-unit>
 
-<trans-unit id="573">
+<trans-unit>
 <source>Enter a valid vendor</source>
 <target>Introduzca un proveedor</target>
 </trans-unit>
 
-<trans-unit id="574">
+<trans-unit>
 <source>Enter a number</source>
 <target>Introduzca un número</target>
 </trans-unit>
 
-<trans-unit id="575">
+<trans-unit>
   <source>E-mail is mandatory</source>
   <target>El email es obligatorio</target>
 </trans-unit>
+
+<trans-unit>
+  <source>Use demo/demo for username and password</source>
+  <target>Usa demo/demo como nombre de usuario y contraseña</target>
+</trans-unit>
+
 
 </body>
   </file>

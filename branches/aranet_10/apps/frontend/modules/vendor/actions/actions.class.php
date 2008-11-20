@@ -49,10 +49,12 @@ class vendorActions extends myActions
     $vendor = $this->getVendor();
     // Process contacts
     $contacts = ContactPeer::processContact($this->getRequest()->getParameterHolder()->getAll());
-    $i = 0;
-    foreach($contacts as $contact) {
-      $vendor->addContact($contact, ($i == 0));
-      $i++;
+    if ($contacts) {
+      $i = 0;
+      foreach($contacts as $contact) {
+        $vendor->addContact($contact, ($i == 0));
+        $i++;
+      }
     }
     // Process addresses
     $addresses = AddressPeer::processAddress($this->getRequest()->getParameterHolder()->getAll());
