@@ -43,7 +43,7 @@ class fileActions extends myActions
    **/
   public function executeUpdate()
   {
-    $sf_propel_file_storage_info = $this->getFile();
+    $sf_propel_file_storage_info = $this->getsfPropelFileStorageInfo();
     sfPropelFileStorageUtil::saveFromRequest($this->getRequest(), 'uploaded_file', $sf_propel_file_storage_info);
     $sf_propel_file_storage_info->save();
     return $this->redirect($this->getRequestParameter('referer', 'file/list'));
