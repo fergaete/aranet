@@ -1,0 +1,9 @@
+KindOfInvoice:
+  normal:
+    kind_of_invoice_title:             Normal
+
+  proforma:
+    kind_of_invoice_title:             Factura proforma
+
+  abono:
+    kind_of_invoice_title:             Abono

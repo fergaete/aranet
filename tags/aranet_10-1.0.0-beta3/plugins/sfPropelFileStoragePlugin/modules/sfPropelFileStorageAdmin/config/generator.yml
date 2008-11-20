@@ -1,0 +1,29 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      sfPropelFileStorageInfo
+    theme:            ARANOVA
+      
+    list:
+      title:          Files
+      display:        [_file_name, file_size, file_mime_type, file_width, file_height, file_is_cached, created_at]
+      sort:           file_name
+      filters:        [file_name, file_mime_type, created_at]
+      max_per_page:   20
+      object_actions:
+        _delete:      { name: Delete file, action: delete, icon: /sf/sf_admin/images/delete.png, params: confirm=Are you sure? }
+      
+
+    edit:
+      title:              Upload file
+      display:
+        NONE:             [file_name]
+      actions:
+        _save:            { name: Upload }
+        _list:
+
+      fields:
+        file_name:
+          name:       File
+          help:       max size 12MB
+          type:       admin_input_file_tag
