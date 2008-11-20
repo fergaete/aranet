@@ -43,7 +43,7 @@
                     <ul>
                       <li><?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit budget details"'), '/budget/edit?id=' . $budget->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonPrintLarge.gif', 'alt="Print budget"'), '/budget/print?id=' . $budget->getId()) ?></li>
-                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy budget"'), '/budget/create?copy_id=' . $budget->getId()) ?></li>
+                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy budget"'), '/budget/create?id=' . $budget->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Create invoice"'), '/budget/createinvoice?id=' . $budget->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonDeleteLarge.gif', 'alt="Delete budget"'), '/budget/delete?id=' . $budget->getId(), 'post=true&confirm=' . ('Are you sure?')) ?></li>
                     </ul>

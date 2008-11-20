@@ -124,20 +124,17 @@ class budgetActions extends myActions
   public function executeCreate()
   {
     $this->getUser()->setAttribute('index', 0);
-    if ($this->getRequestParameter('copy_id')) {
-      $c = new Criteria();
-      $c->add(BudgetPeer::ID, $request->getParameter('copy_id'));
-      $budget = BudgetPeer::doSelectOne($c);
-      $new_budget = new Budget();
-      if ($budget) {
-        // Copy items
-        $new_budget->copyFrom($budget);
-      }
-      $this->budget = $new_budget;
+    if (!$this->getFlash('budget')) {
+      $this->budget = $this->getBudget();
     } else {
-      $this->budget = new Budget();
+      $this->budget = $this->getFlash('budget');
     }
-
+    if ($this->hasRequestParameter('id')) {
+      // Copy items
+      $new_budget = new Budget();
+      $this->budget->copyInto($new_budget);
+      $this->budget = $new_budget;
+    }
     $this->setTemplate('edit');
     $c = new Criteria();
     if ($this->getRequestParameter('client_id')) {

@@ -83,7 +83,7 @@
                 <div id="incDetailActions" class="detailActions">
                     <ul>
                       <li><?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit income details"'), '/income/edit?id=' . $income_item->getId()) ?></li>
-                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy income"'), '/income/create?copy_id=' . $income_item->getId()) ?></li>
+                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy income"'), '/income/create?id=' . $income_item->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonDeleteLarge.gif', 'alt="Delete income"'), '/income/delete?id=' . $income_item->getId(), 'post=true&confirm=' . __('Are you sure?')) ?></li>
                     </ul>
                 </div>

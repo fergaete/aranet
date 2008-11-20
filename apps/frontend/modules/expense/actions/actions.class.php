@@ -70,7 +70,7 @@ class expenseActions extends myActions
     } else {
       $this->expense_item = $this->getFlash('expense_item');
     }
-    if ($this->getRequestParameter('copy_id')) {
+    if ($this->hasRequestParameter('id')) {
       // Copy items
       $new_expense_item = new ExpenseItem();
       $this->expense_item->copyInto($new_expense_item);
