@@ -177,7 +177,8 @@ class expenseActions extends myActions
    **/
   protected function getSortColumn()
   {
-    return ExpenseItemPeer::EXPENSE_PURCHASE_DATE;
+    // TODO
+    return 'expense_purchase_date';//ExpenseItemPeer::EXPENSE_PURCHASE_DATE;
   }
 
   /**

@@ -234,7 +234,7 @@ fi
 # To use a different logger, uncomment the one desired below
 # LOGCHOICE=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.NoOpLog
 # LOGCHOICE=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
-# LOGCHOICE=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Log4JLogger
+LOGCHOICE=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Log4JLogger
 
 # Logging levels
 # Below option is only if you are using SimpleLog instead of the default JDK1.4 Logger.
@@ -245,8 +245,8 @@ fi
 
 # Execute FOP using eval/exec to preserve spaces in paths,
 # java options, and FOP args
-fop_exec_command="exec \"$JAVACMD\" $LOGCHOICE $LOGLEVEL -classpath \"$LOCALCLASSPATH\" $FOP_OPTS org.apache.fop.cli.Main $fop_exec_args"
+fop_exec_command="exec \"$JAVACMD\" $LOGCHOICE $LOGLEVEL -Duser.home=/tmp -classpath \"conf:$LOCALCLASSPATH\" $FOP_OPTS org.apache.fop.cli.Main $fop_exec_args"
 if $fop_exec_debug ; then
     echo $fop_exec_command
 fi
-eval $fop_exec_command
+eval $fop_exec_command 

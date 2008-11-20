@@ -16,7 +16,7 @@ class fileActions extends myActions
    * @return ExpenseItem
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  protected function getFile()
+  protected function getsfPropelFileStorageInfo()
   {
     if ($this->getRequestParameter('id')) {
       $sf_propel_file_storage_info = sfPropelFileStorageInfoPeer::retrieveByPk($this->getRequestParameter('id'));
