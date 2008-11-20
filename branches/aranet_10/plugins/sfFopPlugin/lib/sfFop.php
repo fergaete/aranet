@@ -89,16 +89,17 @@ class sfFop {
         /// Process each command
         foreach ($this->_commandQueue as &$cmd) {
         	/* @var $cmd sfFopCommand */
-        	$cmdStr = escapeshellcmd ($this->_pathToFopBinary) . " -c " . sfConfig::get('app_fop_conf_file') . " " . $cmd->getCommand ();
-                $status = -1;
-            $return = array ();
-            /// Run command and store result
-            exec ($cmdStr, $return, $status);
-            $cmd->setStatus ($status);
-            $cmd->setReturn (implode (";", $return));
-            if ($cmd->hasSucceeded ()) {
-                ++$passed;
-            } // end if
+        	$path = dirname($this->_pathToFopBinary);
+        	$cmdStr = 'cd "'.$path.'"; ./'.basename($this->_pathToFopBinary)." -c " . $path.DIRECTORY_SEPARATOR.sfConfig::get('app_fop_conf_file') . " " . $cmd->getCommand ();
+          $status = -1;
+          $return = array ();
+          /// Run command and store result
+          exec ($cmdStr, $return, $status);
+          $cmd->setStatus ($status);
+          $cmd->setReturn (implode (";", $return));
+          if ($cmd->hasSucceeded ()) {
+            ++$passed;
+          } // end if
         } // end foreach
 
         return ($passed);

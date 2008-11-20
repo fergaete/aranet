@@ -35,8 +35,8 @@ the location of this file.
   <base>.</base>
 
   <!-- Font Base URL for resolving relative font URLs -->
-  <font-base>/var/www/local.aranova-it.com/aranet/data/fonts/</font-base>
-  <!-- <font-base>/Users/pablo/Documents/ARANOVA//aranet/data/fonts/</font-base> -->
+  <font-base>file:../fonts</font-base>
+  <!-- <font-base>/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/data/fonts/</font-base> -->
   
   <!-- Source resolution in dpi (dots/pixels per inch) for determining the size of pixels in SVG and bitmap images, default: 72dpi -->
   <source-resolution>72</source-resolution>
