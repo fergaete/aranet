@@ -90,12 +90,9 @@ client_delete_all:
   param:  { module: client, action: delete }
 
 # project
-project_create_from_object:
-  url:  /project/:related/:id
+project_create:
+  url:  /project/create
   param:  { module: project, action: create }
-project_list:
-  url:  /project/list
-  param:  { module: project, action: list }
 project_show_by_id:
   url:  /project/show/:id
   param:  { module: project, action: show }  
@@ -105,16 +102,18 @@ project_edit_by_id:
 project_index:
   url:  /project
   param:  { module: project, action: list }
+project_list:
+  url:  /project/list
+  param:  { module: project, action: list }
 project_list_remove_filters:
   url:  /project/list?filter=
   param:  { module: project, action: list }
-project_create:
-  url:  /project/create
-  param:  { module: project, action: create }
 project_delete_all:
   url:  /project/delete
   param:  { module: project, action: delete }
-
+project_create_from_object:
+  url:  /project/:related/:id
+  param:  { module: project, action: create }
 
 # budget
 budget_create_from_object:
