@@ -50,7 +50,7 @@ endif ?>
                     <div class="objectActions">
                         <ul>
                             <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), '@client_show_by_id?id='.$client->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), '@edit_client_by_id?id='.$client->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), '@client_edit_by_id?id='.$client->getId()) ?></li>
                             <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                                 'update'   => 'client_'.$client->getId(),
                                 'url'      => 'client/delete?id='.$client->getId(),

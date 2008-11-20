@@ -40,7 +40,7 @@
             </div>
             <div id="clientEdit" stlye="display: none;"></div>
             <div id="cliDetailEdit" style="width: 30%; text-align: right; padding: 4px;">
-                <?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit client details"'), '@edit_client_by_id?id=' . $client->getId()) ?>
+                <?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit client details"'), '@client_edit_by_id?id=' . $client->getId()) ?>
             </div>
         </td>
     </tr>

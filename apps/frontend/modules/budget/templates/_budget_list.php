@@ -31,7 +31,7 @@
                 </div>
                 </td>
                 <td><?php echo link_to($budget, 'budget/show?id=' . $budget->getId()) ?></td>
-                <td><?php echo link_to($budget->getDefaultContact(), '@contact_show_by_id?id=' . $budget->getDefaultContact()->getId()) ?></td>
+                <td><?php echo ($budget->getDefaultContact()) ? link_to($budget->getDefaultContact(), '@contact_show_by_id?id=' . $budget->getDefaultContact()->getId()) : '' ?></td>
                 <td><?php echo $budget->getBudgetTitle() ?></td>
                 <td class="date"><?php echo format_date($budget->getBudgetDate()) ?></td>
                 <td class="status" id="budStatus<?php echo $budget->getId() ?>">

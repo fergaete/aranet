@@ -120,7 +120,7 @@ class clientActions extends myActions
    **/
   protected function getSortColumn()
   {
-    return ClientPeer::CLIENT_COMMON_NAME;
+    return 'client_unique_name';//ClientPeer::CLIENT_UNIQUE_NAME;
   }
 
   /**
