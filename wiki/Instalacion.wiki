@@ -8,7 +8,7 @@ El siguiente tutorial permitirá instalar y configurar la aplicación ARANet.
 == Requerimientos previos ==
 
 Se requiere un sistema (Windows/Linux o Mac) con:
-  * Un servidor web (preferiblemente apache 2.x) con intérprete de PHP 5.1.x
+  * Un servidor web (preferiblemente apache 2.x) con intérprete de PHP > 5.2.3
   * Un servidor de bases de datos (preferiblemente MySQL 5.x)
 
 == Descarga del software ==
