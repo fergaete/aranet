@@ -1,0 +1,13 @@
+fields:
+  invoice_title:
+    required:
+      msg:       Enter a title
+  invoice_client_id:
+    required:
+      msg:       Select a client
+  invoice_number:
+    required:
+      msg:       Enter a number for this invoice
+  invoice_date:
+    required:
+      msg:       Enter a valid date

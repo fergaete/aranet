@@ -1,0 +1,258 @@
+KindOfCompany:
+  software:
+    kind_of_company_title:          Desarrollo de software
+    kind_of_company_description:    Empresas de desarrollo de software
+
+  telco:
+    kind_of_company_title:          Telecomunicaciones
+    kind_of_company_description:    Empresas de telecomunicaciones
+
+  distribuidor:
+    kind_of_company_title:          Distribuidor/Importador
+    kind_of_company_description:    Empresas de distribución/importación
+
+  integrador:
+    kind_of_company_title:          Integrador-Servicios
+    kind_of_company_description:    Empresas de integración y servicios
+
+  servicios:
+    kind_of_company_title:          Servicios
+    kind_of_company_description:    Empresas de servicios
+
+  particular:
+    kind_of_company_title:          Particular
+    kind_of_company_description:    
+
+  otros:
+    kind_of_company_title:          Otros
+    kind_of_company_description:    
+
+TypeOfHour:
+  gestor:
+    type_of_hour_title:         Gestor de Proyecto
+    type_of_hour_description:   Gestión técnica de proyectos
+    type_of_hour_cost:          25
+
+  requisitos:
+    type_of_hour_title:         Requisitos
+    type_of_hour_description:   Toma de requisitos, reuniones previas, etc
+    type_of_hour_cost:          23
+
+  analista:
+    type_of_hour_title:         Analista
+    type_of_hour_description:   Analista
+    type_of_hour_cost:          23
+
+  programador:
+    type_of_hour_title:         Programador
+    type_of_hour_description:   Programación
+    type_of_hour_cost:          19
+
+  disenador:
+    type_of_hour_title:         Diseñador
+    type_of_hour_description:   Diseño de interfaces, gráficos, etc.
+    type_of_hour_cost:          23
+
+  soporte:
+    type_of_hour_title:         Soporte de cliente
+    type_of_hour_description:   soporte de clientes
+    type_of_hour_cost:          25
+
+ProjectStatus:
+  not-started-es:
+    project_status_title:       Sin empezar
+
+  in-progress-es:
+    project_status_title:       En progreso
+
+  completed-es:
+    project_status_title:       Completado
+
+  on-hold-es:
+    project_status_title:       En espera
+
+PaymentCondition:
+  sin-especificar:
+    payment_condition_days:         -1
+    payment_condition_payment_day:  -1
+    payment_condition_title:        Sin especificar
+
+  inmediato:
+    payment_condition_days:         1
+    payment_condition_payment_day:  -1
+    payment_condition_title:        Inmediato
+
+  15dias-pago0:
+    payment_condition_days:         15
+    payment_condition_payment_day:  -1
+    payment_condition_title:        15 Días
+
+  30dias-pago0:
+    payment_condition_days:         30
+    payment_condition_payment_day:  -1
+    payment_condition_title:        30 Días
+
+  60dias-pago0:
+    payment_condition_days:         60
+    payment_condition_payment_day:  -1
+    payment_condition_title:        60 Días
+
+  90dias-pago0:
+    payment_condition_days:         90
+    payment_condition_payment_day:  -1
+    payment_condition_title:        90 Días
+
+  120dias-pago0:
+    payment_condition_days:         120
+    payment_condition_payment_day:  -1
+    payment_condition_title:        120 Días
+
+  0dias-pago15:
+    payment_condition_days:         0
+    payment_condition_payment_day:  15
+    payment_condition_title:        Inmediato, pago el día 15 del mes
+
+  15dias-pago15:
+    payment_condition_days:         15
+    payment_condition_payment_day:  15
+    payment_condition_title:        15 Días, pago el día 15 del mes
+
+  30dias-pago15:
+    payment_condition_days:         15
+    payment_condition_payment_day:  30
+    payment_condition_title:        30 Días, pago el día 15 del mes
+
+  60dias-pago15:
+    payment_condition_days:         60
+    payment_condition_payment_day:  15
+    payment_condition_title:        60 Días, pago el día 15 del mes
+
+  90dias-pago15:
+    payment_condition_days:         90
+    payment_condition_payment_day:  15
+    payment_condition_title:        90 Días, pago el día 15 del mes
+
+  120dias-pago15:
+    payment_condition_days:         120
+    payment_condition_payment_day:  15
+    payment_condition_title:        120 Días, pago el día 15 del mes
+
+PaymentStatus:
+  pendiente:
+    payment_status_title:     Pendiente de pago
+
+  cumplido-sinpagar:
+    payment_status_title:     Cumplido/Sin pagar
+
+  cumplido-pagado:
+    payment_status_title:     Cumplido/Pagado
+
+  pendiente-evio:
+    payment_status_title:     Pendiente de enviar
+
+
+PaymentMethod:
+  efectivo:
+    payment_method_title:       Efectivo
+
+  cheque:
+    payment_method_title:       Cheque
+
+  transferencia:
+    payment_method_title:       Transferencia
+
+  tarjeta:
+    payment_method_title:       Tarjeta de crédito
+
+InvoiceCategory:
+  horas:
+    category_title:             Horas
+
+  dias:
+    category_title:             Días
+
+  servicios:
+    category_title:             Servicio
+
+  productos:
+    category_title:             Producto
+
+TypeOfInvoiceItem:
+  horas:
+    type_of_item_title:             Horas
+
+  dias:
+    type_of_item_title:             Días
+
+  servicios:
+    type_of_item_title:             Servicio
+
+  productos:
+    type_of_item_title:             Producto
+
+ExpenseCategory:
+  compra-pequeno-material:
+    category_title:             Compra pequeño material
+
+  vuelo-publico:
+    category_title:             Vuelo/Transporte público
+
+  gasolina:
+    category_title:             Gasolina
+
+  comidas:
+    category_title:             Comidas
+
+  alquiler-coche:
+    category_title:             Alquiler de coches
+
+  imasd:
+    category_title:             I+D
+
+  gastos-envios-postal:
+    category_title:             Gastos postales/envíos
+
+  material-informatico:
+    category_title:             Equipamiento informático
+
+  equipos-para-proyecto:
+    category_title:             Materiales/Equipos para proyecto
+
+  alquiler-oficina:
+    category_title:             Alquiler oficina
+
+  telefonia:
+    category_title:             Telefonía
+
+  suscripciones:
+    category_title:             Suscripciones a medios
+
+  marketing-publicidad:
+    category_title:             Marketing & Publicidad
+
+  varios:
+    category_title:             Varios
+
+Reimbursement:
+  reembolsable:
+    reimbursement_title:        Reembolsable
+
+  no-reembolsable:
+    reimbursement_title:        No reembolsable
+
+  personal:
+    reimbursement_title:        Personal
+
+TaskPriority:
+  low:
+    task_priority_title:        Baja
+
+  medium:
+    task_priority_title:        Media
+
+  high:
+    task_priority_title:        Alta
+
+  critical:
+    task_priority_title:        Crítica
+    

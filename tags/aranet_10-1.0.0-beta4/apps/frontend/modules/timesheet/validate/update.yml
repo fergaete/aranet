@@ -1,0 +1,13 @@
+fields:
+  timesheet_description:
+    required:
+      msg:       Enter a description
+  timesheet_date:
+    required:
+      msg:       Enter a valid date
+  timesheet_hours:
+    required:
+      msg:       Enter a valid number
+    sfNumberValidator:
+      min:       0
+      min_error: The minimum number of hours must be 0
