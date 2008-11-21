@@ -382,7 +382,7 @@ propel:
   aranet_payment_method:
     _attributes:
       phpName: PaymentMethod
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     payment_method_title:       varchar(128)
     _indexes:
       payment_method_title_idx:
@@ -391,7 +391,7 @@ propel:
   aranet_invoice_category:
     _attributes:
       phpName: InvoiceCategory
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     category_title:             varchar(64)
     _indexes:
       category_title_idx:
@@ -400,7 +400,7 @@ propel:
   aranet_kind_of_invoice:
     _attributes:
       phpName: KindOfInvoice
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     kind_of_invoice_title:             varchar(64)
     _indexes:
       kind_of_invoice_title_idx:
@@ -435,7 +435,7 @@ propel:
   aranet_type_of_invoice_item:
     _attributes:
       phpName: TypeOfInvoiceItem
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     type_of_item_title:         varchar(64)
     _indexes:
       type_of_item_title_idx:
@@ -567,7 +567,7 @@ propel:
     expense_item_base:          { type: double, default: 0.0 }
     expense_item_tax_rate:      { type: float, default: 0.0 }
     expense_item_irpf:          { type: double, default: 0.0 }
-    expense_item_invoice_number:varchar(128)
+    expense_item_invoice_number: varchar(128)
     expense_item_vendor_id:     { type: integer, foreignTable: aranet_vendor, foreignReference: id, default: null }
     expense_validate_date:      { type: date }
     expense_validate_by:        { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
@@ -605,7 +605,7 @@ propel:
   aranet_expense_category:
     _attributes:
       phpName: ExpenseCategory
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     category_title:             varchar(64)
     _indexes:
       category_title_idx:
@@ -614,7 +614,7 @@ propel:
   aranet_reimbursement:
     _attributes:
       phpName: Reimbursement
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     reimbursement_title:        varchar(64)
     _indexes:
       reimbursement_title_idx:
@@ -682,7 +682,7 @@ propel:
   aranet_income_category:
     _attributes:
       phpName: IncomeCategory
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     category_title:             varchar(64)
     _indexes:
       category_title_idx:
@@ -872,7 +872,7 @@ propel:
         - indicator_name
       indicator_key_idx:
         - indicator_key
-        
+
   aranet_indicator:
     _attributes:
       phpName: Indicator
