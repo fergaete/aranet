@@ -1,75 +1,39 @@
 <?php
 
 /**
-  * client actions.
-  *
-  * @package    ARANet
-  * @subpackage client
-  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
-  * @version    SVN: $Id$
-  */
-class clientActions extends anActions
+ * client actions.
+ *
+ * @package    aranet
+ * @subpackage client
+ * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
+ */
+class clientActions extends myActions
 {
 
   /**
-   * executes edit action
+   * returns client from params
    *
-   * @param $request
-   */
-  public function executeEdit($request)
+   * @return Client
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getClient()
   {
-    if ($edit = $request->hasParameter('id'))
-    {
-      $this->client = $this->getClient();
+    if ($this->getRequestParameter('id')) {
+      $client = ClientPeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($client);
+    } else {
+      $client = new Client();
     }
-    else
-    {
-      $this->client = new Client();
-    }
-    
-    $this->form = new anClientEditForm($this->client);
-    
-    if ($request->isMethod('post'))
-    {
-      $cli = $request->getParameter('client');
-      $this->form->bind($cli);
-      if ($this->form->isValid())
-      {
-        $this->form->updateObject();
-        $client = $this->form->getObject();
-
-        $client->setTags($cli['tags']['name']);
-        if ($cli['tags']['name']) {
-          $client->setClientHasTags(true);
-        }
-        $client->setContacts($cli['contacts']);    
-        $client->setAddresses($cli['address']);
-        $client->save();
-        
-        $this->setFlash('success', $this->__($edit ? 'Client edited.' : 'Client created.'));
-
-        return $this->redirect('@client_show_by_id?id='.$client->getId());
-      }
-    }
-  }
-
-  /**
-   * executes show action
-   *
-   * @param $request
-   */
-  public function executeShow($request)
-  {
-    $this->client = $this->getClient();
-    return sfView::SUCCESS;
+    return $client;
   }
 
   /**
    * executes stats action
    *
-   * @param $request
-   */
-  public function executeStats($request)
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeStats()
   {
     $this->client = $this->getClient();
     return sfView::SUCCESS;
@@ -78,53 +42,99 @@ class clientActions extends anActions
   /**
    * executes autocomplete action
    *
-   * @param $request
-   */
-  public function executeAutocomplete($request)
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeAutocomplete()
   {
     sfConfig::set('sf_web_debug', false);
-    $name = $request->getParameter('query');
-    $this->setLayout(false);
-    $this->clients = ClientPeer::getClientsLike($name);
+    $client_name = $this->getRequestParameter('filters[client_name]', $this->getRequestParameter('client_name'));
+    if (!$client_name) {
+      $client_name = $this->getRequestParameter('company_name');
+    }
+    $this->clients = ClientPeer::getClientsLike($client_name);
+    return sfView::SUCCESS;
   }
 
   /**
-   * executes delete action
+   * executes update action
    *
-   * @param $request
-   */
-  public function executeDelete($request)
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeUpdate()
   {
-    $select = $request->getParameter('select', array());
-    if ($id = $request->getParameter('id')) {
-      $select[] = $id;
+    $client = $this->getClient();
+    // Process contacts
+    $contacts = ContactPeer::processContact($this->getRequest()->getParameterHolder()->getAll());
+    if ($contacts) {
+      $i = 0;
+      foreach($contacts as $contact) {
+        $client->addContact($contact, ($i==0));
+        $i++;
+      }
     }
-    foreach ($select as $item) {
-      if ($item != 0) {
-        $client = ClientPeer::retrieveByPk($item);
-        $this->forward404Unless($client);
-        $client->delete();
+    // Process addresses
+    $addresses = AddressPeer::processAddress($this->getRequest()->getParameterHolder()->getAll());
+    if ($addresses) {
+      if (count($addresses)) {
+        $addresses[0]->setAddressIsDefault(true);
+      }
+      foreach($addresses as $address) {
+        $client->addAddress($address);
       }
     }
 
-    if ($request->isXmlHttpRequest()) {
-      return sfView::SUCCESS;
-    } else {
-      $this->redirect('@client_list');
+    $client->setClientUniqueName($this->getRequestParameter('client_unique_name'));
+    $client->setClientCompanyName($this->getRequestParameter('client_company_name'));
+    $client->setClientCif($this->getRequestParameter('client_cif'));
+    $client->setClientKindOfCompanyId($this->getRequestParameter('client_kind_of_company_id') ? $this->getRequestParameter('client_kind_of_company_id') : null);
+    if ($this->getRequestParameter('client_since'))
+    {
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('client_since'), $this->getUser()->getCulture());
+      $client->setClientSince("$y-$m-$d");
     }
+    $client->setClientWebsite($this->getRequestParameter('client_website'));
+    $client->setClientComments($this->getRequestParameter('client_comments'));
+    $client->removeAllTags();
+    $client->addTag($this->getRequestParameter('tags') ? $this->getRequestParameter('tags') : null);
+
+    $client->save();
+
+    return $this->redirect('@client_show_by_id?id='.$client->getId());
   }
 
   /**
-   * add filter criteria
+   * executes editbusiness action
    *
-   * @param Criteria $c
-   */
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeEditbusiness()
+  {
+    $this->business = KindOfCompanyPeer::doSelect(new Criteria());
+    return sfView::SUCCESS;
+  }
+
+  /**
+   * returns order column
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getSortColumn()
+  {
+    return 'client_unique_name';//ClientPeer::CLIENT_UNIQUE_NAME;
+  }
+
+  /**
+   * adds filters criteria
+   *
+   * @param  Criteria  $c  the base criteria
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   protected function addFiltersCriteria ($c)
   {
-    if (isset($this->filters['name']) && $this->filters['name'] && $this->filters['name'] != __('Name') . '...')
+    if (isset($this->filters['client_name']) && $this->filters['client_name'] && $this->filters['client_name'] != sfI18N::getInstance()->__('Name') . '...')
     {
-      $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['name']."%", Criteria::LIKE);
-      $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['name']."%", Criteria::LIKE);
+      $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['client_name']."%", Criteria::LIKE);
+      $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['client_name']."%", Criteria::LIKE);
       $criterion->addOr($crit2);
       $c->add($criterion);
     }
@@ -134,30 +144,4 @@ class clientActions extends anActions
     }
   }
 
-  /**
-   * Returns the client from the request parameter "id"
-   *
-   * @return Client
-   */
-  private function getClient()
-  {
-    $c = new Criteria();
-    $c->add(ClientPeer::ID, $this->getRequestParameter('id'));
-
-    $clients = ClientPeer::doSelectJoinKindOfCompany($c);
-
-    $this->forward404Unless(isset($clients[0]) && $clients[0]);
-
-    return $clients[0];
-  }
-
-  /**
-   * Returns the column name to sort list by default
-   *
-   * @return string
-   */
-  protected function getSortColumn()
-  {
-    return ClientPeer::CLIENT_COMPANY_NAME;
-  }
 }

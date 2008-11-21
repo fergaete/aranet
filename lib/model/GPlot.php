@@ -1,13 +1,12 @@
 <?php
 
-
-
-class GPlot extends BaseGPlot {
-
-	
-	public function __construct()
-	{
-						parent::__construct();
-	}
-
-} 
+/**
+ * Subclass for representing a row from the 'aranet_plot' table.
+ *
+ * 
+ *
+ * @package lib.model
+ */ 
+class GPlot extends BaseGPlot
+{
+}

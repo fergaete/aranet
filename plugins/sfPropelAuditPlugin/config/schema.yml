@@ -11,4 +11,4 @@ propel:
     query:              longvarchar
     user:               varchar(255)
     type:               varchar(255)
-    created_at:
+    created_at:         timestamp

@@ -21,11 +21,11 @@ KindOfCompany:
 
   particular:
     kind_of_company_title:          Particular
-    kind_of_company_description:    
+    kind_of_company_description:
 
   otros:
     kind_of_company_title:          Otros
-    kind_of_company_description:    
+    kind_of_company_description:
 
 TypeOfHour:
   gestor:
@@ -177,106 +177,139 @@ PaymentStatus:
 
 PaymentMethod:
   efectivo:
+    id: 1
     payment_method_title:       Efectivo
 
   cheque:
+    id: 2
     payment_method_title:       Cheque
 
   transferencia:
+    id: 3
     payment_method_title:       Transferencia
 
   tarjeta:
+    id: 4
     payment_method_title:       Tarjeta de crédito
+
+  tarjeta:
+    id: 5
+    payment_method_title:       Cargo en cuenta
 
 InvoiceCategory:
   horas:
+    id: 1
     category_title:             Horas
 
   dias:
+    id: 2
     category_title:             Días
 
   servicios:
+    id: 3
     category_title:             Servicio
 
   productos:
+    id: 4
     category_title:             Producto
 
   mixto:
+    id: 5
     category_title:             Mixto
-
-  normal:
-    category_title:             Normal
-
-  proforma:
-    category_title:             Factura Proforma
-
-  abono:
-    category_title:             Abono
 
 TypeOfInvoiceItem:
   horas:
+    id: 1
     type_of_item_title:             Horas
 
   dias:
+    id: 2
     type_of_item_title:             Días
 
   servicios:
+    id: 3
     type_of_item_title:             Servicio
 
   productos:
+    id: 4
     type_of_item_title:             Producto
 
 ExpenseCategory:
   compra-pequeno-material:
+    id: 1
     category_title:             Compra pequeño material
 
   vuelo-publico:
+    id: 2
     category_title:             Vuelo/Transporte público
 
   gasolina:
+    id: 3
     category_title:             Gasolina
 
   comidas:
+    id: 4
     category_title:             Comidas
 
   alquiler-coche:
+    id: 5
     category_title:             Alquiler de coches
 
   imasd:
+    id: 6
     category_title:             I+D
 
   gastos-envios-postal:
+    id: 7
     category_title:             Gastos postales/envíos
 
   material-informatico:
+    id: 8
     category_title:             Equipamiento informático
 
   equipos-para-proyecto:
+    id: 9
     category_title:             Materiales/Equipos para proyecto
 
   alquiler-oficina:
+    id: 10
     category_title:             Alquiler oficina
 
   telefonia:
+    id: 11
     category_title:             Telefonía
 
   suscripciones:
+    id: 12
     category_title:             Suscripciones a medios
 
   marketing-publicidad:
+    id: 13
     category_title:             Marketing & Publicidad
 
   varios:
+    id: 14
     category_title:             Varios
+
+  impuestos:
+    id: 15
+    category_title:             Impuestos
+
+  impuestos_iva:
+    id: 16
+    category_title:             I.V.A.
 
 Reimbursement:
   reembolsable:
+    id: 1
     reimbursement_title:        Reembolsable
 
   no-reembolsable:
+    id: 2
     reimbursement_title:        No reembolsable
 
   personal:
+    id: 3
     reimbursement_title:        Personal
 
 TaskPriority:
@@ -291,44 +324,43 @@ TaskPriority:
 
   critical:
     task_priority_title:        Crítica
-    
-Report: 
-  Report_1: 
+
+Report:
+  Report_1:
     report_name: Listado de gastos
     report_model: ExpenseItem
-  Report_2: 
+  Report_2:
     report_name: Listado gestoría
     report_model: ExpenseItem
-
-ReportColumn: 
-  ReportColumn_1: 
+ReportColumn:
+  ReportColumn_1:
     report_id: Report_1
     column_name: Fecha
     column_order: 1
     column_width: 1.8
     column_eval_script: $this->getDate()
-  ReportColumn_2: 
+  ReportColumn_2:
     report_id: Report_1
     column_php_name: EXPENSE_PURCHASE_BY
     column_name: Miembro
     column_order: 2
     column_width: 4
     column_eval_script: $this->getMember()
-  ReportColumn_3: 
+  ReportColumn_3:
     report_id: Report_1
     column_php_name: EXPENSE_ITEM_PROJECT_ID
     column_name: Proyecto
     column_order: 3
     column_width: 2.5
     column_eval_script: $this->getProject()
-  ReportColumn_4: 
+  ReportColumn_4:
     report_id: Report_1
     column_php_name: EXPENSE_ITEM_BUDGET_ID
     column_name: Presupuesto
     column_order: 4
     column_width: 2.5
     column_eval_script: $this->getBudget()
-  ReportColumn_5: 
+  ReportColumn_5:
     report_id: Report_1
     column_php_name: EXPENSE_ITEM_VENDOR_ID
     column_name: Proveedor
@@ -337,28 +369,28 @@ ReportColumn:
     column_eval_script: >
       $this->getVendor() . " (" .
       $this->getVendor()->getVendorCif() . ")"
-  ReportColumn_6: 
+  ReportColumn_6:
     report_id: Report_1
-    column_php_name: 
+    column_php_name:
     column_name: Concepto
     column_order: 6
     column_width: 0
     column_eval_script: $this->__toString()
-  ReportColumn_7: 
+  ReportColumn_7:
     report_id: Report_1
     column_php_name: EXPENSE_ITEM_PAYMENT_METHOD_ID
     column_name: Forma de pago
     column_order: 7
     column_width: 2.5
     column_eval_script: $this->getPaymentMethod()
-  ReportColumn_8: 
+  ReportColumn_8:
     report_id: Report_1
-    column_php_name: 
+    column_php_name:
     column_name: Subtot.
     column_order: 8
     column_width: 2
     column_eval_script: $this->getSubtotal()
-  ReportColumn_9: 
+  ReportColumn_9:
     report_id: Report_1
     column_php_name: EXPENSE_ITEM_VALIDATION_ID
     column_name: Val.
@@ -368,47 +400,47 @@ ReportColumn:
       '<fo:external-graphic src="' .
       sfConfig::get('sf_web_dir') . '/images/'
       . $this->getValidation() . '"/>'
-  ReportColumn_10: 
+  ReportColumn_10:
     report_id: Report_2
-    column_php_name: 
+    column_php_name:
     column_name: Fecha
     column_order: 1
     column_width: 1.8
     column_eval_script: $this->getDate()
-  ReportColumn_11: 
+  ReportColumn_11:
     report_id: Report_2
-    column_php_name: 
+    column_php_name:
     column_name: Concepto
     column_order: 2
     column_width: 0
     column_eval_script: $this->__toString()
-  ReportColumn_12: 
+  ReportColumn_12:
     report_id: Report_2
     column_php_name: EXPENSE_ITEM_VENDOR_ID
     column_name: Proveedor
     column_order: 3
     column_width: 4
     column_eval_script: htmlspecialchars($this->getVendor())
-  ReportColumn_13: 
+  ReportColumn_13:
     report_id: Report_2
     column_name: CIF
     column_order: 4
     column_width: 2.2
     column_eval_script: $this->getVendor()->getVendorCif()
-  ReportColumn_14: 
+  ReportColumn_14:
     report_id: Report_2
     column_name: Nº Factura
     column_order: 5
     column_width: 3
     column_eval_script: $this->getExpenseItemInvoiceNumber()
-  ReportColumn_15: 
+  ReportColumn_15:
     report_id: Report_2
     column_php_name: EXPENSE_ITEM_AMOUNT
     column_name: B. Impon.
     column_order: 6
     column_width: 1.8
     column_eval_script: $this->getExpenseItemBase()
-  ReportColumn_16: 
+  ReportColumn_16:
     report_id: Report_2
     column_php_name: EXPENSE_ITEM_TAX_RATE
     column_name: IVA(%)
@@ -416,7 +448,7 @@ ReportColumn:
     column_width: 1.4
     column_eval_script: >
       format_percent($this->getExpenseItemTaxRate())
-  ReportColumn_17: 
+  ReportColumn_17:
     report_id: Report_2
     column_name: IVA
     column_order: 8
@@ -424,14 +456,14 @@ ReportColumn:
     column_eval_script: >
       ext_format_number($this->getExpenseItemTaxRate()
       * $this->getExpenseItemBase(), 2, 100)
-  ReportColumn_18: 
+  ReportColumn_18:
     report_id: Report_2
     column_php_name: EXPENSE_ITEM_IRPF
     column_name: IRPF
     column_order: 9
     column_width: 1.4
     column_eval_script: $this->getExpenseItemIrpf()
-  ReportColumn_19: 
+  ReportColumn_19:
     report_id: Report_2
     column_name: Importe
     column_order: 10
@@ -441,59 +473,10 @@ ReportColumn:
       *
       (100+$this->getExpenseItemTaxRate())/100
       + $this->getExpenseItemIrpf(), 2);
-  ReportColumn_20: 
+  ReportColumn_20:
     report_id: Report_2
     column_php_name: EXPENSE_ITEM_PAYMENT_METHOD_ID
     column_name: Pagado
     column_order: 11
     column_width: 2.2
     column_eval_script: $this->getPaymentMethod()
-
-Graphic: 
-  Graphic_1: 
-    graphic_name: "Cash Flow 2008: Ingresos vs. Gastos"
-    data_points: 24
-    start_date: 2008-01-01 00:00:00
-    end_date: 2008-12-31 23:59:59
-  Graphic_2: 
-    graphic_name: >
-      Primer semestre de 2008: Ingresos vs.
-      Gastos
-    data_points: 24
-    start_date: 2008-01-01 00:00:00
-    end_date: 2008-06-30 23:59:59
-  Graphic_3: 
-    graphic_name: >
-      Segundo semestre de 2008: Ingresos vs.
-      Gastos
-    data_points: 24
-    start_date: 2008-07-01 00:00:00
-    end_date: 2008-12-31 23:59:59
-  Graphic_4: 
-    graphic_name: >
-      Primer trimestre de 2008: Ingresos vs.
-      Gastos
-    data_points: 24
-    start_date: 2008-01-01 00:00:00
-    end_date: 2008-03-31 23:59:59
-  Graphic_5: 
-    graphic_name: >
-      Segundo trimestre de 2008: Ingresos vs.
-      Gastos
-    data_points: 24
-    start_date: 2008-04-01 00:00:00
-    end_date: 2008-06-30 23:59:59
-  Graphic_6: 
-    graphic_name: >
-      Tercer trimestre de 2008: Ingresos vs.
-      Gastos
-    data_points: 24
-    start_date: 2008-07-01 00:00:00
-    end_date: 2008-09-30 23:59:59
-  Graphic_7: 
-    graphic_name: >
-      Cuarto trimestre de 2008: Ingresos vs.
-      Gastos
-    data_points: 24
-    start_date: 2008-10-01 00:00:00
-    end_date: 2008-12-31 23:59:59

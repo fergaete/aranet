@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardPermissionPeer.php 3187 2007-01-08 10:51:03Z fabien $
  */
 class PluginsfGuardPermissionPeer extends BasesfGuardPermissionPeer
 {

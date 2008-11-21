@@ -1,6 +1,6 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript', 'Object') ?>
 
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Project %1%', array('%1%' => $project))) ?>
+<?php aranet_title(__('Project %1%', array('%1%' => $project))) ?>
 
 <h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View projects details') ?> <span class="subText">(<?php echo $project->__toString() ?>)</span></h3>
 
@@ -17,7 +17,7 @@
                 <ul id="menuItems">
                     <li id="menuItemStats" class="menuItemSelected"><?php echo link_to_remote('<span>'.__('Project stats').'</span>', array(
                         'update' => 'infoWindow',
-                        'url'    => 'project/stats?project_id='.$project->getId(),
+                        'url'    => 'project/stats?id='.$project->getId(),
                         'loading'  => "Element.show('indicator-tabs')",
                         'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemStats')",
                         )) ?></li>
@@ -66,8 +66,8 @@
     <div id="taskMenu" class="popUpDiv popUpWindow" style="text-align: left; display: none;" onClick="this.hide()">
     <div id="container_taskMenu">
         <ul style="font-size:10px;">
-            <li><?php echo image_tag('iconAddMilestone.gif', 'alt="Add milestone"') ?>
-            <?php echo link_to_remote('Add milestone', array(
+            <li><?php echo image_tag('iconAddMilestone.gif', 'alt="'.__('Add milestone').'"') ?>
+            <?php echo link_to_remote(__('Add milestone'), array(
                 'update' => 'projectMilestoneAddEdit',
                 'script' => true,
                 'url' => 'project/createmilestone?id='.$project->getId(),
@@ -75,8 +75,8 @@
                 'complete' => visual_effect('fade', "indicator-milestone").
                               visual_effect('highlight', "projectMilestoneAddEdit"),
                 )) ?></li>
-            <li><?php echo image_tag('iconAddSmall.gif', 'alt="Add task"') ?>
-                <?php echo link_to_remote('Add task', array(
+            <li><?php echo image_tag('iconAddSmall.gif', 'alt="'.__('Add task').'"') ?>
+                <?php echo link_to_remote(__('Add task'), array(
                 'update' => 'projectMilestoneAddEdit',
                 'script' => true,
                 'url' => 'project/createtask?id='.$project->getId(),
@@ -104,14 +104,14 @@
 <?php include_partial('project/milestone_list', array('project' => $project, 'id' => 'projectViewMilestones')) ?>
 </div>
 
-<div class="projectHeader"><div class="headerInvoices"><?php echo __('Invoices (#%1%)', array('%1%' => count($project->getInvoicesJoinPaymentStatus()))) ?></div>
+<div class="projectHeader"><div class="headerInvoices"><?php echo __('Invoices (#%1%)', array('%1%' => count($project->getInvoices()))) ?></div>
 <div class="windowControlsDashboard">
     <span><?php echo link_to(image_tag('button_add.gif', __('Create new invoice')), "/invoice/create?project_id=" . $project->getId()."&client_id=" . $project->getProjectClientId()) ?></span>
     <span id="projectViewInvoicesRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'projectViewInvoices') . visual_effect('appear', 'projectViewInvoicesRollDown') . visual_effect('fade', 'projectViewInvoicesRollUp')) ?></span>
     <span id="projectViewInvoicesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewInvoices') . visual_effect('appear', 'projectViewInvoicesRollUp') . visual_effect('fade', 'projectViewInvoicesRollDown')) ?></span>
 </div></div>
 
-<?php include_partial('invoice/invoice_list', array('invoices' => $project->getInvoicesJoinPaymentStatus(), 'id' => 'projectViewInvoices')) ?>
+<?php include_partial('invoice/invoice_list', array('invoices' => $project->getInvoices(), 'id' => 'projectViewInvoices')) ?>
 
 <div class="projectHeader"><div class="headerExpenses"><?php echo __('Expenses (#%1%)', array('%1%' => count($project->getExpenseItemsJoinExpenseCategory()))) ?></div>
 <div class="windowControlsDashboard">
@@ -120,13 +120,13 @@
     <span id="projectViewExpensesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewExpenses') . visual_effect('appear', 'projectViewExpensesRollUp') . visual_effect('fade', 'projectViewExpensesRollDown')) ?></span>
 </div></div>
 
-<?php include_partial('expense/expense_list', array('expense_items' => $project->getExpenseItemsJoinExpenseCategory(), 'id' => 'projectViewExpenses')) ?>
+<?php include_partial('expense/expense_list', array('expense_items' => $project->getExpenseItems(), 'id' => 'projectViewExpenses')) ?>
 
-<div class="projectHeader"><div class="headerIncomes"><?php echo __('Incomes (#%1%)', array('%1%' => count($project->getIncomeItemsJoinIncomeCategory()))) ?></div>
+<div class="projectHeader"><div class="headerIncomes"><?php echo __('Incomes (#%1%)', array('%1%' => count($project->getIncomeItems()))) ?></div>
 <div class="windowControlsDashboard">
     <span><?php echo link_to(image_tag('button_add.gif', __('Create new income')), "/income/create?project_id=" . $project->getId()) ?></span>
     <span id="projectViewIncomesRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'projectViewIncomes') . visual_effect('appear', 'projectViewIncomesRollDown') . visual_effect('fade', 'projectViewIncomesRollUp')) ?></span>
     <span id="projectViewIncomesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewIncomes') . visual_effect('appear', 'projectViewIncomesRollUp') . visual_effect('fade', 'projectViewIncomesRollDown')) ?></span>
 </div></div>
 
-<?php include_partial('income/income_list', array('income_items' => $project->getIncomeItemsJoinIncomeCategory(), 'id' => 'projectViewIncomes')) ?>
+<?php include_partial('income/income_list', array('income_items' => $project->getIncomeItems(), 'id' => 'projectViewIncomes')) ?>

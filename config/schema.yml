@@ -30,6 +30,87 @@ propel:
       client_unique_name_idx:
         - client_unique_name
 
+  aranet_contact:
+    _attributes:
+      phpName: Contact
+    id:
+    contact_salutation:         varchar(6)
+    contact_first_name:         varchar(128)
+    contact_last_name:          varchar(128)
+    contact_email:              varchar(128)
+    contact_phone:              varchar(16)
+    contact_fax:                varchar(16)
+    contact_mobile:             varchar(16)
+    contact_birthday:           date
+    contact_org_unit:           varchar(128)
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    deleted_at:                 timestamp
+    deleted_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      contact_first_name_idx:
+        - contact_first_name
+      contact_last_name_idx:
+        - contact_last_name
+
+  aranet_objectcontact:
+    _attributes:
+      phpName: ObjectContact
+    id:
+    objectcontact_contact_id:   { type: integer, foreignTable: aranet_contact, foreignReference: id, required: true, onDelete: cascade }
+    objectcontact_object_id:    { type: integer, required: true }
+    objectcontact_object_class: varchar(64)
+    objectcontact_rol:          varchar(128)
+    objectcontact_is_default:   { type: boolean, size: 1, default: false }
+    created_at:                 timestamp
+    created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    updated_at:                 timestamp
+    updated_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
+    _indexes:
+      objectcontact_contact_id_idx2:
+        - objectcontact_contact_id
+      objectcontact_object_id_idx2:
+        - objectcontact_object_id
+    _uniques:
+      objectcontact_unique_idx:
+        - objectcontact_contact_id
+        - objectcontact_object_id
+        - objectcontact_object_class
+
+  aranet_address:
+    _attributes:
+      phpName: Address
+    id:
+    address_line1:              varchar(255)
+    address_line2:              varchar(255)
+    address_location:           varchar(128)
+    address_state:              varchar(64)
+    address_postal_code:        varchar(5)
+    address_country:            varchar(2)
+
+  aranet_objectaddress:
+    _attributes:
+      phpName: ObjectAddress
+    id:
+    objectaddress_name:         varchar(128)
+    objectaddress_address_id:   { type: integer, foreignTable: aranet_address, foreignReference: id, required: true, onDelete: cascade }
+    objectaddress_object_id:    { type: integer, required: true }
+    objectaddress_object_class: varchar(64)
+    objectaddress_type:         varchar(16)
+    objectaddress_is_default:   { type: boolean, size: 1, default: false }
+    _indexes:
+      objectaddress_address_id_idx2:
+        - objectaddress_address_id
+      objectaddress_object_id_idx2:
+        - objectaddress_object_id
+    _uniques:
+      objectaddress_unique_idx:
+        - objectaddress_address_id
+        - objectaddress_object_id
+        - objectaddress_object_class
+
   aranet_kind_of_company:
     _attributes:
       phpName: KindOfCompany
@@ -151,7 +232,7 @@ propel:
     milestone_description:      longvarchar
     milestone_start_date:       { type: date, required: true }
     milestone_finish_date:      { type: date, required: true }
-    milestone_project_id:       { type: integer, foreignTable: aranet_project, foreignReference: id, onDelete: cascade }
+    milestone_project_id:       { type: integer, foreignTable: aranet_budget, foreignReference: id, onDelete: cascade }
     milestone_budget_id:        { type: integer, foreignTable: aranet_budget, foreignReference: id, default: null }
     milestone_estimated_hours:  { type: double, default: 0.0 }
     milestone_total_hours:      { type: double, default: 0.0 }
@@ -223,7 +304,7 @@ propel:
     id:
     task_title:            { type: varchar, size: 255, required: true }
     task_description:      longvarchar
-    task_priority_id:      integer
+    task_priority_id:      { type: integer, foreignTable: aranet_task_priority, foreignReference: id, default: null }
     created_at:                 timestamp
     created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
     updated_at:                 timestamp
@@ -301,7 +382,7 @@ propel:
   aranet_payment_method:
     _attributes:
       phpName: PaymentMethod
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     payment_method_title:       varchar(128)
     _indexes:
       payment_method_title_idx:
@@ -310,7 +391,7 @@ propel:
   aranet_invoice_category:
     _attributes:
       phpName: InvoiceCategory
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     category_title:             varchar(64)
     _indexes:
       category_title_idx:
@@ -319,7 +400,7 @@ propel:
   aranet_kind_of_invoice:
     _attributes:
       phpName: KindOfInvoice
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     kind_of_invoice_title:             varchar(64)
     _indexes:
       kind_of_invoice_title_idx:
@@ -354,7 +435,7 @@ propel:
   aranet_type_of_invoice_item:
     _attributes:
       phpName: TypeOfInvoiceItem
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     type_of_item_title:         varchar(64)
     _indexes:
       type_of_item_title_idx:
@@ -524,7 +605,7 @@ propel:
   aranet_expense_category:
     _attributes:
       phpName: ExpenseCategory
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     category_title:             varchar(64)
     _indexes:
       category_title_idx:
@@ -533,7 +614,7 @@ propel:
   aranet_reimbursement:
     _attributes:
       phpName: Reimbursement
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     reimbursement_title:        varchar(64)
     _indexes:
       reimbursement_title_idx:
@@ -601,7 +682,7 @@ propel:
   aranet_income_category:
     _attributes:
       phpName: IncomeCategory
-    id:
+    id:                     { type: integer, primaryKey: true, autoIncrement: false }
     category_title:             varchar(64)
     _indexes:
       category_title_idx:
@@ -716,7 +797,7 @@ propel:
     id:
     graphic_id:         { type: integer, foreignTable: aranet_graphic, foreignReference: id, default: null }
     plot_id:            { type: integer, foreignTable: aranet_plot, foreignReference: id, default: null }
-    
+
   sf_guard_user_profile:
     _attributes:
       phpName: sfGuardUserProfile
@@ -791,7 +872,7 @@ propel:
         - indicator_name
       indicator_key_idx:
         - indicator_key
-        
+
   aranet_indicator:
     _attributes:
       phpName: Indicator

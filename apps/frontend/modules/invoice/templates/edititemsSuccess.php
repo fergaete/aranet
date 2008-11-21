@@ -4,7 +4,7 @@
 
 <?php echo form_tag('invoice/updateitems', 'name=items') ?>
 
-<?php echo input_hidden_tag('invoice_id', $invoice->getId()) ?>
+<?php echo input_hidden_tag('id', $invoice->getId()) ?>
 
 <?php include_partial('invoice_item', array('invoice_items' => $invoice->getInvoiceItems(), 'invoice' => $invoice)) ?>
 <table class="gridTable" width="100%">

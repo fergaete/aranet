@@ -1,15 +1,18 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php $title = (isset($tag)) ? __('List clients tagged with "%1%"', array('%1%' => $tag)) : __('List clients') ?>
-<?php aranet_title($title) ?>
-<?php ysfYUI::addComponents('reset', 'fonts', 'grids') ?>
-<h3><?php echo $title ?></h3>
-
-<form action="<?php echo url_for('@client_delete_all') ?>" method="post" name="chklist">
+<?php aranet_title(__('List clients')) ?>
+<h3>
+<?php if (isset($tag)) : 
+ echo __('View all clients tagged with "%1%"', array('%1%' => $tag));
+else :
+ echo __('View all clients');
+endif ?>
+</h3>
+<?php echo form_tag('client/delete', 'name="chklist"') ?>
 <div id="clientDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
             <tr>
-                <th class="checkbox"><input type="checkbox" name="select[]" value="0" onclick="checkAll(this)" /></th>
+                <th class="checkbox"><?php echo checkbox_tag('select[]', 0, false, array('onclick' => "checkAll(this)")); ?></th>
                 <th class="actions"></th>
                 <th style="width: 32%;" onmouseover="this.style.cursor = 'pointer'; this.style.background = '#FBE27E';" onmouseout="this.style.background='#FBE9A1';">
                     <?php if ($sf_user->getAttribute('sort', null, 'client/sort') == 'client_company_name'): ?>
@@ -42,36 +45,35 @@
         <tbody>
         <?php $i = 1; foreach ($pager->getResults() as $client): $odd = fmod(++$i, 2) ?>
             <tr id="client_<?php echo $client->getId() ?>" style="background:<?php echo ($odd) ? '#eef' : '#fff' ?>" onmouseover="this.style.background = '#ededed!important';" onmouseout="this.style.background='#<?php echo $odd ? 'eef' : 'fff' ?>!important';">
-                <td class="checkbox"><input type="checkbox" name="select[]" value="<?php echo $client->getId() ?>" /></td>
+                <td class="checkbox"><?php echo checkbox_tag('select[]', $client->getId(), false) ?></td>
                 <td class="actions" id="clientMenu_<?php echo $client->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag(sfConfig::get("yui_icons_web_dir") . "/application_form.png", 'alt="View"'), '@client_show_by_id?id='.$client->getId()) ?></li>
-                            <li><?php echo link_to(image_tag(sfConfig::get("yui_icons_web_dir") . "/application_form_edit.png", 'alt="Edit"'), '@client_edit_by_id?id='.$client->getId()) ?></li>
-                            <li><?php echo link_to_remote(image_tag(sfConfig::get("yui_icons_web_dir") . "/application_form_delete.png", 'alt="Delete"'), array(
+                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), '@client_show_by_id?id='.$client->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), '@client_edit_by_id?id='.$client->getId()) ?></li>
+                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                                 'update'   => 'client_'.$client->getId(),
-                                'url'      => '@client_delete_by_id?id='.$client->getId(),
+                                'url'      => 'client/delete?id='.$client->getId(),
                                 'confirm'  => __('Are you sure?'),
                                 )) ?></li>
                         </ul>
                     </div>
                 </td>
-                <td class="text"><?php echo link_to($client->getClientCompanyName(), '@client_show_by_id?id='.$client->getId()) ?></td>
+                <td><?php echo link_to($client->getFullName(), '@client_show_by_id?id='.$client->getId()) ?></td>
                 <?php $dcontact = $client->getDefaultContact() ?>
-                <td class="text"><?php if ($dcontact) : ?>
+                <td style="vertical-align: top;"><?php if ($dcontact) : ?>
 <?php echo link_to($dcontact, '@contact_show_by_id?id=' . $dcontact->getId()) ?>
 <?php echo ($dcontact->getContactEmail()) ? '  ['.mail_to($dcontact->getContactEmail(),'email') . ']': '' ?>
 <?php echo ($dcontact->getContactRol()) ? '<br/>'.$dcontact->getContactRol() : '' ?>
 <?php endif ?></td>
-                <td class="phone"><?php echo ($dcontact instanceof Contact) ? smart_format_phone($dcontact->getContactPhone()) : '' ?></td>
+                <td style="vertical-align: top; text-align: center;"><?php echo ($dcontact instanceof Contact) ? smart_format_phone($dcontact->getContactPhone()) : '' ?></td>
                 <td class="number"><?php //echo $client->getClientNbProjects() ?></td>
                 <td class="currency"><?php //echo format_currency($client->getClientTotalInvoices(), "EUR") ?></td>
             </tr>
 <?php endforeach; ?>
         </tbody>
         <tfoot>
-            <tr>
-                <th colspan="7" class="tableFooter">
+            <tr><th colspan="7">
                 <div class="pagination">
 <?php use_helper('Pagination'); $uri = substr($sf_request->getUri(), strlen($sf_request->getUriPrefix())+1) ?>
 <?php echo pager_navigation($pager, $uri) ?>
@@ -86,7 +88,7 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?>:</li>
-  <li><?php echo link_to_function(image_tag(sfConfig::get("yui_icons_web_dir") . "/delete.png", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
+  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
 </ul>
 </div>
 

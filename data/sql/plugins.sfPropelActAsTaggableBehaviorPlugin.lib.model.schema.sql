@@ -14,7 +14,7 @@ CREATE TABLE `sf_tag`
 (
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(100),
-	`is_triple` TINYINT,
+	`is_triple` INTEGER(1),
 	`triple_namespace` VARCHAR(100),
 	`triple_key` VARCHAR(100),
 	`triple_value` VARCHAR(100),
@@ -38,7 +38,6 @@ CREATE TABLE `sf_tagging`
 	`tag_id` INTEGER  NOT NULL,
 	`taggable_model` VARCHAR(30),
 	`taggable_id` INTEGER,
-	`count` INTEGER,
 	PRIMARY KEY (`id`),
 	KEY `tag`(`tag_id`),
 	KEY `taggable`(`taggable_model`, `taggable_id`),

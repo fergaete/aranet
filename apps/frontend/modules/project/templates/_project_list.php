@@ -1,6 +1,5 @@
-<?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php if (count($projects)) : ?>
-<div class="windowFrame" id="<?php echo $related ?>ViewProjects">
+<?php use_helper('Number', 'NumberExtended', 'Javascript', 'gWidgets', 'Style') ?>
+<div class="windowFrame" id="<?php echo $id ?>">
     <table class="dataTable">
         <thead>
             <tr>
@@ -12,8 +11,8 @@
             </tr>
         </thead>
         <tbody>
-<?php $i = 1; foreach ($projects as $project): $odd = fmod(++$i, 2) ?>
-            <tr id="project_<?php echo $project->getId() ?>" style="background:<?php echo ($odd) ? '#eee' : '#fff' ?>" onmouseover="this.style.background = '#ededed!important';" onmouseout="this.style.background='#<?php echo $odd ? 'eee' : 'fff' ?>!important';">
+<?php foreach ($projects as $project): ?>
+            <tr id="project_<?php echo $project->getId() ?>">
                 <td class="actions" id="projectMenu_<?php echo $project->getId() ?>">
                 <div class="objectActions">
                 <ul>
@@ -22,12 +21,12 @@
                   <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'project_'.$project->getId(),
                     'url'      => 'project/delete?id='.$project->getId(),
-                    'confirm'  => __('Are you sure?'),
+                    'confirm'  => 'Are you sure?',
                     )) ?></li>
                 </ul>
                 </div>
                 </td>
-                <td class="text"><?php echo link_to($project, '/project/show?id='.$project->getId()) ?></td>
+                <td><?php echo link_to($project, '/project/show?id='.$project->getId()) ?></td>
                 <td class="date"><?php echo format_date($project->getProjectFinishDate()) ?></td>
                 <td class="status">
                 <?php echo icon_gtip(null, array('id' => 'statusTip'.$project->getId(), 'content' => $project->getFullStatus() , 'image' => 'iconStatus.gif', 'status' => $project->getProjectStatusId())) ?></td>
@@ -37,6 +36,3 @@
         </tbody>
     </table>
 </div>
-<?php else : ?>
-  <p><?php echo __('No related projects yet') ?></p>
-<?php endif ?>
