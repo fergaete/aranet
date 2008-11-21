@@ -71,8 +71,8 @@
                 <td class="text">
                 <table>
                 <tr>
-                <td style="border: none; width:20px"><?php echo ($project->getClient()->getClientWebsite()) ? link_to(image_tag('icon_website.gif', 'alt="' . $project->getClient() . '"'), $project->getClient()->getClientWebsite()) : '' ?></td>
-                <td style="border:none;"><?php echo link_to($project->getClient(), '@client_show_by_id?id='.$project->getProjectClientId()) ?></td>
+                <td style="border: none; width:20px"><?php echo ($project->getClient() && $project->getClient()->getClientWebsite()) ? link_to(image_tag('icon_website.gif', 'alt="' . $project->getClient() . '"'), $project->getClient()->getClientWebsite()) : '' ?></td>
+                <td style="border:none;"><?php echo $project->getClient() ? link_to($project->getClient(), '@client_show_by_id?id='.$project->getProjectClientId()) : __('Client mark as deleted') //link_to(__('Client mark as deleted'), '@client_show_deleted_by_id?&id='.$project->getProjectClientId()) ?></td>
                 </tr>
                 </table>
                 </td>
@@ -101,7 +101,7 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?> :</li>
-  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
+  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="Delete selected"'),"if (confirm('".__('Are you sure?')."')) { document.chklist.submit() }") ?></li>
 </ul>
 </div>
 

@@ -10,7 +10,6 @@
                 <th><?php echo __('Item name') ?></th>
                 <th><?php echo __('Category') ?></th>
                 <th class="currency"><?php echo __('Amount') ?></th>
-                <th class="currency"><?php echo __('Tax rate') ?></th>
                 <th class="currency"><?php echo __('Tax') ?></th>
                 <th class="currency"><?php echo __('IRPF') ?></th>
                 <th class="currency"><?php echo __('Total') ?></th>
@@ -45,8 +44,7 @@
                 <td><?php echo link_to($expense_item->getExpenseItemName(), 'expense/show?id='.$expense_item->getId()) ?></td>
                 <td><?php echo $expense_item->getExpenseCategory() ?></td>
                 <td class="currency"><?php echo format_currency($expense_item->getExpenseItemAmount(), 'EUR') ?></td>
-                <td class="currency"><?php echo format_percent($tax_rate) ?></td>
-                <td class="currency"><?php echo format_currency($tax, 'EUR') ?></td>
+                <td class="currency"><?php echo format_currency($tax, 'EUR').' ('.format_percent($tax_rate).')' ?></td>
                 <td class="currency"><?php echo format_currency($expense_item->getExpenseItemIrpf(), 'EUR') ?></td>
                 <td class="currency"><?php echo format_currency($total, 'EUR') ?></td>
             </tr>

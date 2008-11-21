@@ -56,10 +56,10 @@ class incomeActions extends myActions
     if ($project_id) {
       $c->add(BudgetPeer::BUDGET_PROJECT_ID, $project_id);
       $this->projects = ProjectPeer::doSelect(new Criteria());
+      $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
+      $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
+      $this->budgets = BudgetPeer::doSelect($c);
     }
-    $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
-    $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
-    $this->budgets = BudgetPeer::doSelect($c);
     return sfView::SUCCESS;
   }
 
@@ -71,13 +71,16 @@ class incomeActions extends myActions
   public function executeEdit()
   {
     $this->income_item = $this->getIncomeItem();
-    $this->projects = ProjectPeer::doSelect(new Criteria());
-    $c = new Criteria();
     if ($this->getRequestParameter('id')) {
-      $c->add(BudgetPeer::BUDGET_PROJECT_ID, $this->income_item->getIncomeItemProjectId());
-      $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
+      $c = new Criteria();
+      $this->projects = ProjectPeer::doSelect($c);
+      if ($this->income_item->getIncomeItemProjectId()) {
+        $c->add(BudgetPeer::BUDGET_PROJECT_ID, $this->income_item->getIncomeItemProjectId());
+        $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
+        $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
+        $this->budgets = BudgetPeer::doSelect($c);
+      }
     }
-    $this->budgets = BudgetPeer::doSelect($c);
     return sfView::SUCCESS;
   }
 

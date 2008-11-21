@@ -39,7 +39,15 @@
       <td style="vertical-align:middle;"><strong><?php echo $item->getMilestoneTitle() ?></strong><?php echo ($item->getMilestoneDescription()) ? '<br/>' . $item->getMilestoneDescription() : '' ?></td>
       <td class="date"><strong><?php echo format_date($item->getMilestoneStartDate()) ?></strong></td>
       <td class="date"><strong><?php echo format_date($item->getMilestoneFinishDate()) ?></strong></td>
-      <td class="number"><strong><?php echo ($item->getMilestoneTotalHours() || $item->getMilestoneEstimatedHours()) ? $item->getMilestoneTotalHours() . '/' . $item->getMilestoneEstimatedHours() . ' hrs (' . format_percent($item->getMilestoneCompletionFraction()) .')' : '' ?></strong></td>
+<?php
+  $fraction = $item->getMilestoneCompletionFraction();
+  if ($fraction > 100) {
+    $f = '<span style="color:red">('.format_percent($fraction).')</span>';
+  } else {
+    $f = '('.format_percent($fraction).')';
+  }
+?>
+      <td class="number"><strong><?php echo ($item->getMilestoneTotalHours() || $item->getMilestoneEstimatedHours()) ? $item->getMilestoneTotalHours() . '/' . $item->getMilestoneEstimatedHours() . ' hrs '.$f : '' ?></strong></td>
       <td class="currency"><strong><?php echo ($item->getMilestoneTotalHourCosts()) ? format_currency($item->getMilestoneTotalHourCosts(), 'EUR') : '' ?></td>
 <?php else: ?>
     <td class="actions" id="projectMenu_<?php echo $project->getId() ?>">
@@ -61,7 +69,16 @@
       <td>&nbsp;&nbsp;&nbsp;<?php echo $item->getTaskTitle() ?><?php echo $item->getTaskDescription() ? ' (' . $item->getTaskDescription() .')' : '' ?></td>
       <td class="date"><?php echo format_date($item->getTaskStartDate()) ?></td>
       <td class="date"><?php echo format_date($item->getTaskFinishDate()) ?></td>
-      <td class="number"><?php echo ($item->getTaskTotalHours() || $item->getTaskEstimatedHours()) ? $item->getTaskTotalHours() . '/' . $item->getTaskEstimatedHours() . ' hrs (' . format_percent($item->getTaskCompletionFraction()) .')' : '' ?></td>
+<?php
+  $fraction = $item->getTaskCompletionFraction();
+  if ($fraction > 100) {
+    $f = '<span style="color:red">('.format_percent($fraction).')</span>';
+  } else {
+    $f = '('.format_percent($fraction).')';
+  }
+?>
+
+      <td class="number"><?php echo ($item->getTaskTotalHours() || $item->getTaskEstimatedHours()) ? $item->getTaskTotalHours() . '/' . $item->getTaskEstimatedHours() . ' hrs '.$f : '' ?></td>
 
       <td class="currency"><?php echo ($item->getTaskTotalHourCosts()) ? format_currency($item->getTaskTotalHourCosts(), 'EUR') : '' ?></td>
 <?php endif ?>

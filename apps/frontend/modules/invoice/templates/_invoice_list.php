@@ -28,7 +28,7 @@
                 </ul>
                 </div>
                 </td>
-                <td><?php echo link_to($invoice->getInvoicePrefix() . $invoice->getInvoiceNumber(), 'invoice/show?id='.$invoice->getId()) ?></td>
+                <td><?php echo link_to($invoice, 'invoice/show?id='.$invoice->getId()) ?></td>
                 <td><?php echo $invoice->getInvoiceTitle() ?></td>
                 <td class="date"><?php echo format_date($invoice->getInvoiceDate()) ?></td>
                 <td class="status"><?php echo $invoice->getPaymentStatus() ?></td>

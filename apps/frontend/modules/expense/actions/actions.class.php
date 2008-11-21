@@ -91,9 +91,6 @@ class expenseActions extends myActions
       $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
       $this->budgets = BudgetPeer::doSelect($c);
     }
-    if ($this->getRequestParameter('budget_id')) {
-      $this->budget_id = $this->getRequestParameter('budget_id');
-    }
     if ($this->getRequestParameter('vendor_id')) {
       $this->vendor = VendorPeer::retrieveByPk($this->getRequestParameter('vendor_id'));
     }
@@ -127,20 +124,21 @@ class expenseActions extends myActions
   public function executeUpdate()
   {
     $expense_item = $this->getExpenseItem();
+    $vendor_id = null;
+    $vendor_name = $this->getRequestParameter('vendor_name');
     if ($this->getRequestParameter('expense_item_vendor_id', -1) == -1) {
-      $vendor = new Vendor();
-      $vendor->setVendorCompanyName($this->getRequestParameter('vendor_name'));
-      $vendor->setVendorUniqueName($this->getRequestParameter('vendor_name'));
-      $vendor->save();
-      $vendor_id = $vendor->getId();
+      if ($vendor_name && $vendor_name != $this->getContext()->getI18N()->__('Vendor') . '...') {
+        $vendor = VendorPeer::getVendorByCompanyName($vendor_name);
+        $vendor->save();
+        $vendor_id = $vendor->getId();
+      }
     } else {
       $vendor_id = $this->getRequestParameter('expense_item_vendor_id');
-      $name = $this->getRequestParameter('vendor_name');
       $vendor = VendorPeer::retrieveByPK($vendor_id);
-      if (!$vendor || $vendor->getVendorUniqueName() != $name) {
+      if (!$vendor || $vendor->getVendorUniqueName() != $vendor_name) {
         $vendor = new Vendor();
-        $vendor->setVendorCompanyName($this->getRequestParameter('vendor_name'));
-        $vendor->setVendorUniqueName($this->getRequestParameter('vendor_name'));
+        $vendor->setVendorCompanyName($vendor_name);
+        $vendor->setVendorUniqueName($vendor_name);
         $vendor->save();
         $vendor_id = $vendor->getId();
       }

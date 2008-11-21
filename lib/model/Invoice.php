@@ -19,7 +19,11 @@ class Invoice extends BaseInvoice
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function __toString() {
-    return $this->getInvoicePrefix() . $this->getInvoiceNumber();
+    if (defined('INVOICE_NUMBER_FORMAT')) {
+      return $this->getInvoicePrefix() . sprintf(INVOICE_NUMBER_FORMAT, $this->getInvoiceNumber());
+    } else {
+      return $this->getInvoicePrefix() . $this->getInvoiceNumber();
+    }
   }
 
   /**

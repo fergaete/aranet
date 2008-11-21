@@ -463,7 +463,7 @@ CREATE TABLE `aranet_project_frequently_task`
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`task_title` VARCHAR(255)  NOT NULL,
 	`task_description` TEXT,
-	`task_priority_id` INTEGER,
+	`task_priority_id` INTEGER default null,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,
@@ -472,16 +472,20 @@ CREATE TABLE `aranet_project_frequently_task`
 	`deleted_by` INTEGER default null,
 	PRIMARY KEY (`id`),
 	KEY `task_title_idx`(`task_title`),
-	INDEX `aranet_project_frequently_task_FI_1` (`created_by`),
+	INDEX `aranet_project_frequently_task_FI_1` (`task_priority_id`),
 	CONSTRAINT `aranet_project_frequently_task_FK_1`
+		FOREIGN KEY (`task_priority_id`)
+		REFERENCES `aranet_task_priority` (`id`),
+	INDEX `aranet_project_frequently_task_FI_2` (`created_by`),
+	CONSTRAINT `aranet_project_frequently_task_FK_2`
 		FOREIGN KEY (`created_by`)
 		REFERENCES `sf_guard_user` (`id`),
-	INDEX `aranet_project_frequently_task_FI_2` (`updated_by`),
-	CONSTRAINT `aranet_project_frequently_task_FK_2`
+	INDEX `aranet_project_frequently_task_FI_3` (`updated_by`),
+	CONSTRAINT `aranet_project_frequently_task_FK_3`
 		FOREIGN KEY (`updated_by`)
 		REFERENCES `sf_guard_user` (`id`),
-	INDEX `aranet_project_frequently_task_FI_3` (`deleted_by`),
-	CONSTRAINT `aranet_project_frequently_task_FK_3`
+	INDEX `aranet_project_frequently_task_FI_4` (`deleted_by`),
+	CONSTRAINT `aranet_project_frequently_task_FK_4`
 		FOREIGN KEY (`deleted_by`)
 		REFERENCES `sf_guard_user` (`id`)
 )Type=InnoDB;

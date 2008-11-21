@@ -64,6 +64,9 @@ client_stats_by_id:
 client_show_by_id:
   url:  /client/show/:id
   param:  { module: client, action: show }
+client_show_deleted_by_id:
+  url:  /client/show/:id/deleted
+  param:  { module: client, action: show, deleted: true }
 client_edit_by_id:
   url:  /client/edit/:id
   param:  { module: client, action: edit }

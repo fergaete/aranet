@@ -111,24 +111,32 @@
   function getProject(text, li){
       $('invoice_project_id').value = li.id;
       new Ajax.Updater('budgets', '/project/getBudgetSelect', {asynchronous:true, evalScripts:false, parameters:'class=invoice&project_id=' + li.id});
+      ".remote_function(array(
+                   'update' => 'budgets',
+                   'script' => true,
+                   'url' => 'project/getBudgetSelect',
+                   'with' => "'class=invoice&project_id=' + $('invoice_project_id').value"
+                 ))."
   }") ?>
-  <?php echo input_hidden_tag('invoice_project_id', $project_id) ?>
 <?php if (isset($projects)) : ?>
   <?php echo select_tag('invoice_project_id', objects_for_select($projects,
   'getId',
   '__toString',
   $project_id, 
   'include_custom='.__('Select project') . '...'),
-  array ('class' => 'form-combobox')) ?>
-<?php else : ?>   
-            <?php echo input_auto_complete_tag('project_name', $project,
-        'project/autocomplete',
-        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("invoice_project_id").value = ""', 'onblur' => remote_function(array(
+  array ('class' => 'form-combobox',
+    'onchange' => remote_function(array(
                    'update' => 'budgets',
                    'script' => true,
                    'url' => 'project/getBudgetSelect',
                    'with' => "'class=invoice&project_id=' + $('invoice_project_id').value"
-                 ))),
+                 )) 
+  )) ?>
+<?php else : ?>   
+    <?php echo input_hidden_tag('invoice_project_id', $project_id) ?>
+            <?php echo input_auto_complete_tag('project_name', $project,
+        'project/autocomplete',
+        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("invoice_project_id").value = ""'),
         array('use_style'    => true,
             'after_update_element' => 'getProject')
     ) ?><br/>
@@ -141,8 +149,8 @@
   <td class="leftCol"><label><?php echo __('Budget') ?></label></td>
       <td class="rightCol" id="budgets">
         <?php echo form_error('invoice_budget_id') ?>
-        <?php $bud = ($invoice->getInvoiceBudgetId()) ? $invoice->getBudget()->getFullTitle() : '' ?>
-            <?php if ($invoice->getInvoiceProjectId()) : ?>
+        <?php $bud = ($invoice->getInvoiceBudgetId()) ? $invoice->getBudget()->getFullTitle() : __('Budget').'...' ?>
+            <?php if (isset($budgets) && $budgets) : ?>
 <?php echo select_tag('invoice_budget_id', objects_for_select($budgets,
   'getId',
   'getFulltitle',

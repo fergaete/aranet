@@ -139,44 +139,63 @@
   <td class="actionsCol"></td>
   <td class="leftCol"><label><?php echo __('Associated project') ?></label></td>
   <td class="rightCol" id="projects">
-    <?php $pro = ($income_item->getIncomeItemProjectId()) ? $income_item->getProject() : '';
-    $pro = (!$pro && $sf_params->get('project_id')) ? ProjectPeer::retrieveByPk($sf_params->get('project_id')) : __('Project') . '...' ?>
+    <?php if (isset($projects) && $projects) : ?>
+  <?php echo select_tag('income_item_project_id', objects_for_select($projects,
+  'getId',
+  '__toString',
+  $sf_params->get('income_item_project_id', $sf_params->get('project_id')) ? $sf_params->get('income_item_project_id', $sf_params->get('project_id')) : $income_item->getIncomeItemProjectId(),
+  'include_custom='.__('Select project') . '...'),
+  array ('class' => 'form-combobox')) ?>
+<?php else : ?>
+      <?php $pro = ($income_item->getIncomeItemProjectId()) ? $income_item->getProject()->__toString() : __('Project') . '...' ?>
   <?php echo javascript_tag("
   function getProject(text, li){
       $('income_item_project_id').value = li.id;
       new Ajax.Updater('budgets', '/project/getBudgetSelect', {asynchronous:true, evalScripts:false, parameters:'class=income_item&project_id=' + li.id});
-  }") ?>
-  <?php echo input_hidden_tag('income_item_project_id', ($income_item->getIncomeItemProjectId()) ? $income_item->getIncomeItemProjectId() : $sf_params->get('income_item_project_id', $sf_params->get('project_id'))) ?>
-            <?php echo input_auto_complete_tag('project_name', ($sf_params->get('project_name') ? $sf_params->get('project_name') : $pro),
-        'project/autocomplete',
-        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("income_item_project_id").value = ""', 'onblur' => remote_function(array(
+      ".remote_function(array(
                    'update' => 'budgets',
                    'script' => true,
                    'url' => 'project/getBudgetSelect',
                    'with' => "'class=income_item&project_id=' + $('income_item_project_id').value"
-                 ))),
+                 ))."
+  }") ?>
+  <?php echo input_hidden_tag('income_item_project_id', ($income_item->getIncomeItemProjectId()) ? $income_item->getIncomeItemProjectId() : '') ?>
+            <?php echo input_auto_complete_tag('project_name', ($sf_params->get('project_name') ? $sf_params->get('project_name') : $pro),
+        'project/autocomplete',
+        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("income_item_project_id").value = ""'),
         array('use_style'    => true,
             'after_update_element' => 'getProject')
     ) ?><br/>
     <span class="notes"><?php echo __("Leave blank if you don't want to select any project") ?></span>
+<?php endif ?>
   </td>
 </tr>
 <tr>
   <td class="actionsCol"></td>
   <td class="leftCol"><label><?php echo __('Associated budget') ?></label></td>
       <td class="rightCol" id="budgets">
-            <?php $bud = ($income_item->getIncomeItemBudgetId()) ? $income_item->getBudget()->getFullTitle() : '' ?>
+        <?php echo form_error('invoice_budget_id') ?>
+        <?php $bud = ($income_item->getIncomeItemBudgetId()) ? $income_item->getBudget()->getFullTitle() : __('Budget').'...' ?>
+        <?php if (isset($budgets) && $budgets) : ?>
+<?php echo select_tag('income_item_budget_id', objects_for_select($budgets,
+  'getId',
+  'getFulltitle',
+  $income_item->getIncomeItemBudgetId(), 
+  'include_custom='.__('Select budget') . '...'),
+  array ('class' => 'form-combobox')) ?>
+            <?php else : ?>
   <?php echo javascript_tag("
   function getBudget(text, li){
       $('income_item_budget_id').value = li.id;
   }") ?>
-  <?php echo input_hidden_tag('income_item_budget_id', ($income_item->getIncomeItemBudgetId()) ? $income_item->getIncomeItemBudgetId() : '') ?>
+  <?php echo input_hidden_tag('income_item_budget_id', ($income_item->getIncomeItemBudgetId()) ? $income_item->getIncomeItemBudgetId() : '') ?>              
             <?php echo input_auto_complete_tag('budget_name', ($sf_params->get('budget_name') ? $sf_params->get('budget_name') : $bud),
         'budget/autocomplete',
         array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""'),
         array('use_style'    => true,
             'after_update_element' => 'getBudget')
-    ) ?><br/>
+    ) ?>
+    <?php endif ?><br/>
     <span class="notes"><?php echo __("Leave blank if you don't want to select any budget") ?></span>
   </td>
 </tr>
