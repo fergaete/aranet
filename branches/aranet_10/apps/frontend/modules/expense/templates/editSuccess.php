@@ -142,7 +142,7 @@
   <td class="actionsCol"></td>
   <td class="leftCol"><label><?php echo __('Associated project') ?></label></td>
   <td class="rightCol" id="projects">
-      <?php if (isset($projects)) : ?>
+      <?php if (isset($projects) && $projects) : ?>
   <?php echo select_tag('expense_item_project_id', objects_for_select($projects,
   'getId',
   '__toString',
@@ -150,21 +150,22 @@
   'include_custom='.__('Select project') . '...'),
   array ('class' => 'form-combobox')) ?>
 <?php else : ?>
-      <?php $pro = ($expense_item->getExpenseItemProjectId()) ? $expense_item->getProject()->__toString() : '' ?>
+      <?php $pro = ($expense_item->getExpenseItemProjectId()) ? $expense_item->getProject()->__toString() : __('Project') . '...' ?>
   <?php echo javascript_tag("
   function getProject(text, li){
       $('expense_item_project_id').value = li.id;
       new Ajax.Updater('budgets', '/project/getBudgetSelect', {asynchronous:true, evalScripts:false, parameters:'class=expense_item&project_id=' + li.id});
-  }") ?>
-  <?php echo input_hidden_tag('expense_item_project_id', ($expense_item->getExpenseItemProjectId()) ? $expense_item->getExpenseItemProjectId() : '') ?>
-            <?php echo input_auto_complete_tag('project_name', ($sf_params->get('project_name') ? $sf_params->get('project_name') : $pro),
-        'project/autocomplete',
-        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("expense_item_project_id").value = ""', 'onblur' => remote_function(array(
+      ".remote_function(array(
                    'update' => 'budgets',
                    'script' => true,
                    'url' => 'project/getBudgetSelect',
                    'with' => "'class=expense_item&project_id=' + $('expense_item_project_id').value"
-                 ))),
+                 ))."
+  }") ?>
+  <?php echo input_hidden_tag('expense_item_project_id', ($expense_item->getExpenseItemProjectId()) ? $expense_item->getExpenseItemProjectId() : '') ?>
+            <?php echo input_auto_complete_tag('project_name', ($sf_params->get('project_name') ? $sf_params->get('project_name') : $pro),
+        'project/autocomplete',
+        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("expense_item_project_id").value = ""'),
         array('use_style'    => true,
             'after_update_element' => 'getProject')
     ) ?><br/>
@@ -176,7 +177,7 @@
   <td class="actionsCol"></td>
   <td class="leftCol"><label><?php echo __('Associated budget') ?></label></td>
     <td class="rightCol" id="budgets">
-    <?php if (!isset($budgets)) : ?>
+    <?php if (!isset($budgets) || !$budgets) : ?>
     <?php
     if ($sf_params->get('budget_id')) {
         $budget_id = $sf_params->get('budget_id');

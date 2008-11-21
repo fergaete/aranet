@@ -77,7 +77,13 @@ class myActions extends sfActions
     if (in_array($object, array('expense', 'income', 'cash'))) {
       $object .= '_item';
     }
+    if ($this->getRequestParameter('deleted')) {
+      sfPropelParanoidBehavior::disable();
+    }
     $this->$object = call_user_func(array($this, 'get'.$model));
+    if ($this->getRequestParameter('deleted')) {
+      sfPropelParanoidBehavior::enable();
+    }
     return sfView::SUCCESS;
   }
 

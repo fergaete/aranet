@@ -59,16 +59,19 @@ class invoiceActions extends myActions
     }
     $this->setTemplate('edit');
     $this->budgets = array();
-    $project_id = $this->getRequestParameter('invoice_project_id', $this->invoice->getInvoiceProjectId());
+    $project_id = $this->getRequestParameter('project_id') ? $this->getRequestParameter('project_id') : $this->getRequestParameter('invoice_project_id', $this->invoice->getInvoiceProjectId());
     if ($project_id) {
       $c = new Criteria();
       $c->add(BudgetPeer::BUDGET_PROJECT_ID, $project_id);
+      if ($this->getRequestParameter('client_id')) {
+        $c->add(BudgetPeer::BUDGET_CLIENT_ID, $this->getRequestParameter('client_id'));
+      }
+      $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
       $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
-      $c->add(BudgetPeer::BUDGET_IS_LAST, true);
       $this->budgets = BudgetPeer::doSelect($c);
       $this->projects = ProjectPeer::doSelect(new Criteria());
     }
-    if (!$project_id && $this->getRequestParameter('client_id', $this->invoice->getInvoiceClientId())) {
+    if (!$project_id) {
       $c = new Criteria();
       $c->add(ProjectPeer::PROJECT_CLIENT_ID, $this->getRequestParameter('client_id', $this->invoice->getInvoiceClientId()));
       $this->projects = ProjectPeer::doSelect($c);
@@ -108,7 +111,7 @@ class invoiceActions extends myActions
    **/
   public function executeUpdate()
   {
-    $this->invoice = $this->getInvoice();
+    $invoice = $this->getInvoice();
     // Process Client
     if ($this->getRequestParameter('invoice_client_id', -1) == -1 || !$this->getRequestParameter('invoice_client_id', -1)) {
       $client_name = $this->getRequestParameter('client_name');
@@ -144,7 +147,7 @@ class invoiceActions extends myActions
       $budget_name = $this->getRequestParameter('budget_name');
       if ($budget_name && $budget_name != $this->getContext()->getI18N()->__('Budget') . '...') {
         $budget = new Budget();
-        $budget->setBudgetName($budget_name);
+        $budget->setBudgetTitle($budget_name);
         $budget->setBudgetProjectId($project_id);
         $budget->setBudgetClientId($client_id);
         $budget->save();

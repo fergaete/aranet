@@ -51,21 +51,23 @@
   function getProject(text, li){
       $('timesheet_project_id').value = li.id;
       new Ajax.Updater('budgets', '/project/getBudgetSelect', {asynchronous:true, evalScripts:false, parameters:'class=timesheet&project_id=' + li.id});
-  }") ?>
-  <?php echo input_hidden_tag('timesheet_project_id', ($timesheet->getTimesheetProjectId()) ? $timesheet->getTimesheetProjectId() : '') ?>
-            <?php echo input_auto_complete_tag('project_name', ($sf_params->get('project_name') ? $sf_params->get('project_name') : $pro),
-        'project/autocomplete',
-        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("timesheet_project_id").value = ""', 'onblur' => remote_function(array(
-                   'update' => 'budgets',
-                   'script' => true,
-                   'url' => 'project/getBudgetSelect',
-                   'with' => "'class=timesheet&project_id=' + $('timesheet_project_id').value"
-                 )) . ';' . remote_function(array(
+      ".remote_function(array(
                    'update' => 'milestones',
                    'script' => true,
                    'url' => 'project/getMilestones',
                    'with' => "'class=timesheet&project_id=' + $('timesheet_project_id').value"
-                 ))),
+                 )).
+      remote_function(array(
+                   'update' => 'budgets',
+                   'script' => true,
+                   'url' => 'project/getBudgetSelect',
+                   'with' => "'class=timesheet&project_id=' + $('timesheet_project_id').value"
+                 ))."
+  }") ?>
+  <?php echo input_hidden_tag('timesheet_project_id', ($timesheet->getTimesheetProjectId()) ? $timesheet->getTimesheetProjectId() : '') ?>
+            <?php echo input_auto_complete_tag('project_name', ($sf_params->get('project_name') ? $sf_params->get('project_name') : $pro),
+        'project/autocomplete',
+        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("timesheet_project_id").value = ""'),
         array('use_style'    => true,
             'after_update_element' => 'getProject')
     ) ?><br/>

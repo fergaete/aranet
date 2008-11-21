@@ -78,4 +78,9 @@ class sfPropelParanoidBehavior
   {
     self::$paranoidFlag = false;
   }
+
+  public static function enable()
+  {
+    self::$paranoidFlag = true;
+  }
 }

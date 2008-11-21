@@ -86,7 +86,7 @@ class projectActions extends myActions
   public function executeUpdate()
   {
     $project = $this->getProject();
-    if (!$this->getRequestParameter('project_client_id')) {
+    if ($this->getRequestParameter('project_client_id', -1) == -1) {
       $client = new Client();
       $client->setClientCompanyName($this->getRequestParameter('client_name'));
       $client->setClientUniqueName($this->getRequestParameter('client_name'));

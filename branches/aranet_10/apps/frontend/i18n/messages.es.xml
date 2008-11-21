@@ -1259,8 +1259,13 @@
 </trans-unit>
 
 <trans-unit>
-<source>Active projects/budgets</source>
-<target>Proyectos/Presupuestos activos</target>
+<source>Active budgets</source>
+<target>Presupuestos activos</target>
+</trans-unit>
+
+<trans-unit>
+<source>Approved budgets (in execution)</source>
+<target>Presupuestos aprobados (en ejecución)</target>
 </trans-unit>
 
 <trans-unit>
@@ -2793,6 +2798,20 @@
   <target>Usa demo/demo como nombre de usuario y contraseña</target>
 </trans-unit>
 
+<trans-unit>
+  <source>Add milestone</source>
+  <target>Añadir hito</target>
+</trans-unit>
+
+<trans-unit>
+  <source>Add task</source>
+  <target>Añadir tarea</target>
+</trans-unit>
+
+<trans-unit>
+  <source>Client mark as deleted</source>
+  <target>Cliente marcado como borrado</target>
+</trans-unit>
 
 </body>
   </file>

@@ -58,10 +58,12 @@ var myMenu =
         ['<?php echo image_tag('icons/list.png');?>','<?php echo __('View all members') ?>','<?php echo url_for('/user/list');?>','_self',null],
         ['<?php echo image_tag('icons/create.png');?>','<?php echo __('Add new member') ?>','<?php echo url_for('/user/create');?>','_self',null]
     ],
+<?php } ?>
     _cmSplit,
     [null,'<?php echo __('Files') ?>',null,null,null,
         ['<?php echo image_tag('icons/list.png');?>','<?php echo __('View all files') ?>','<?php echo url_for('/file/list');?>','_self',null],
     ],
+<?php if ($sf_user->hasCredential('admin')) { ?>
     _cmSplit,
     [null,'<?php echo __('Administration') ?>',null,null,null,
         [null, '<?php echo __('Configuration') ?>','<?php echo url_for('/setting/list');?>','_self',null],

@@ -57,7 +57,6 @@ class VendorPeer extends BaseVendorPeer
             $vendor = new Vendor();
             $vendor->setVendorCompanyName($name);
             $vendor->setVendorUniqueName($name);
-            //$vendor->save();
         }
     }
     return $vendor;

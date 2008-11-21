@@ -61,25 +61,13 @@ class dashboardActions extends sfActions
       $clients[$i]->setIndicator($inds[$i]);
     }
     $this->clients = $clients;
-    $c = new Criteria();
-    $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
-    $c->add(BudgetPeer::BUDGET_IS_LAST, 1);
-    $c->add(BudgetPeer::BUDGET_APPROVED_DATE, null, Criteria::ISNOTNULL);
-    $c->add(BudgetPeer::BUDGET_STATUS_ID, 3);
-    $c->add(BudgetPeer::DELETED_AT, null, Criteria::ISNULL);
-    $budgets = BudgetPeer::doSelectJoinClient($c);
-    $active_budgets = array();
-    // Approved budgets -> Check invoices
-    foreach ($budgets as $budget) {
-      // Check DB
-      $c = new Criteria();
-      $c->add(InvoicePeer::INVOICE_BUDGET_ID, $budget->getId());
-      $invoice = InvoicePeer::doSelect($c);
-      if (!$invoice) {
-        $active_budgets[] = $budget;
-      }
-    }
-    $this->budgets = $active_budgets;
+    // approved_budgets
+    $this->approved_budgets = BudgetPeer::getApprovedBudgets('doSelectJoinClient');
+    // active_budgets
+    $this->active_budgets = BudgetPeer::getActiveBudgets('doSelectJoinClient');
+    // last_caducated_budgets
+    $this->last_caducated_budgets = BudgetPeer::getLastCaducatedBudgets('doSelectJoinClient', 5);
+    
     $c = new Criteria();
     $c->add(GraphicPeer::IS_DEFAULT, true);
     $graphic = GraphicPeer::doSelectOne($c);

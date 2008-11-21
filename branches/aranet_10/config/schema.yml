@@ -304,7 +304,7 @@ propel:
     id:
     task_title:            { type: varchar, size: 255, required: true }
     task_description:      longvarchar
-    task_priority_id:      integer
+    task_priority_id:      { type: integer, foreignTable: aranet_task_priority, foreignReference: id, default: null }
     created_at:                 timestamp
     created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
     updated_at:                 timestamp

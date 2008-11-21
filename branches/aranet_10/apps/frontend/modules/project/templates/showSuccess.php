@@ -66,8 +66,8 @@
     <div id="taskMenu" class="popUpDiv popUpWindow" style="text-align: left; display: none;" onClick="this.hide()">
     <div id="container_taskMenu">
         <ul style="font-size:10px;">
-            <li><?php echo image_tag('iconAddMilestone.gif', 'alt="Add milestone"') ?>
-            <?php echo link_to_remote('Add milestone', array(
+            <li><?php echo image_tag('iconAddMilestone.gif', 'alt="'.__('Add milestone').'"') ?>
+            <?php echo link_to_remote(__('Add milestone'), array(
                 'update' => 'projectMilestoneAddEdit',
                 'script' => true,
                 'url' => 'project/createmilestone?id='.$project->getId(),
@@ -75,8 +75,8 @@
                 'complete' => visual_effect('fade', "indicator-milestone").
                               visual_effect('highlight', "projectMilestoneAddEdit"),
                 )) ?></li>
-            <li><?php echo image_tag('iconAddSmall.gif', 'alt="Add task"') ?>
-                <?php echo link_to_remote('Add task', array(
+            <li><?php echo image_tag('iconAddSmall.gif', 'alt="'.__('Add task').'"') ?>
+                <?php echo link_to_remote(__('Add task'), array(
                 'update' => 'projectMilestoneAddEdit',
                 'script' => true,
                 'url' => 'project/createtask?id='.$project->getId(),

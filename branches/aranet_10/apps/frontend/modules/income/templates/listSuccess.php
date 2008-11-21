@@ -33,7 +33,7 @@ endif ?>
     <div class="form-row">
     <label for="income_item_category_id"><?php echo __('Category') ?></label>
     <div class="content">
-    <?php echo select_tag('filters[income_item_category_id]', objects_for_select($income_categories,'getId', '__toString', isset($filters['income_item_category_id']) ? $filters['income_item_category_id'] : null, 'include_custom='.__('Category').'...'), array ('class' => 'form-full-combobox')) ?>
+    <?php echo select_tag('filters[income_item_category_id]', objects_for_select(IncomeCategoryPeer::doSelect(new Criteria()),'getId', '__toString', isset($filters['income_item_category_id']) ? $filters['income_item_category_id'] : null, 'include_custom='.__('Category').'...'), array ('class' => 'form-full-combobox')) ?>
     </div>
     </div>
     </fieldset>

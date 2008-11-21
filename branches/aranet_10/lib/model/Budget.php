@@ -232,7 +232,7 @@ class Budget extends BaseBudget
       $criteria = clone $criteria;
     }
     $criteria->addAscendingOrderByColumn(ExpenseItemPeer::EXPENSE_PURCHASE_DATE);
-    return parent::getExpenseItemsJoinExpenseCategory($criteria);
+    return parent::getExpenseItems($criteria);
   }
 
   /**
@@ -481,7 +481,7 @@ class Budget extends BaseBudget
     $c->addJoin(TimeSheetPeer::TIMESHEET_TYPE_ID, TypeOfHourPeer::ID);
     $rs = TimeSheetPeer::doSelectRS($c);
 		if ($rs->next()) {
-		  return $rs->getFloat(1);
+		  return $rs->getFloat(1) ? $rs->getFloat(1) : 0;
 		}
 		return 0;
   }

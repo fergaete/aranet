@@ -191,35 +191,40 @@ class budgetActions extends myActions
   {
     $budget = $this->getBudget();
     // Process Client
-    if ($this->getRequestParameter('budget_client_id', -1) == -1 || !$this->getRequestParameter('budget_client_id', -1)) {
-      $client_name = $this->getRequestParameter('client_name');
+    $client_id = null;
+    $client_name = $this->getRequestParameter('client_name');
+    if ($this->getRequestParameter('budget_client_id', -1) == -1) {
       if ($client_name && $client_name != $this->getContext()->getI18N()->__('Client') . '...') {
+        $client = ClientPeer::getClientByCompanyName($client_name);
+        $client->save();
+        $client_id = $client->getId();
+      }
+    } else {
+      $client_id = $this->getRequestParameter('budget_client_id');
+      $client = ClientPeer::retrieveByPK($client_id);
+      if (!$client || $client->getClientUniqueName() != $client_name) {
         $client = new Client();
         $client->setClientCompanyName($client_name);
         $client->setClientUniqueName($client_name);
         $client->save();
         $client_id = $client->getId();
-      } else {
-        $client_id = null;
       }
-    } else {
-      $client_id = $this->getRequestParameter('budget_client_id');
     }
     // Process Project
-    if ($this->getRequestParameter('budget_project_id', -1) == -1 || !$this->getRequestParameter('budget_project_id', -1)) {
-      $project_name = $this->getRequestParameter('project_name');
+    $project_id = null;
+    $project_name = $this->getRequestParameter('project_name');
+    if ($this->getRequestParameter('budget_project_id', -1) == -1) {
       if ($project_name && $project_name != $this->getContext()->getI18N()->__('Project') . '...') {
         $project = new Project();
         $project->setProjectName($project_name);
         $project->setProjectClientId($client_id);
         $project->save();
         $project_id = $project->getId();
-      } else {
-        $project_id = null;
       }
     } else {
       $project_id = $this->getRequestParameter('budget_project_id');
     }
+    // Process contacts
     $contacts = ContactPeer::processContact($this->getRequest()->getParameterHolder()->getAll());
     if ($contacts) {
       $i = 0;
