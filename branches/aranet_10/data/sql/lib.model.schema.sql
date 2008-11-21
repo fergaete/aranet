@@ -625,7 +625,7 @@ DROP TABLE IF EXISTS `aranet_payment_method`;
 
 CREATE TABLE `aranet_payment_method`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`payment_method_title` VARCHAR(128),
 	PRIMARY KEY (`id`),
 	KEY `payment_method_title_idx`(`payment_method_title`)
@@ -640,7 +640,7 @@ DROP TABLE IF EXISTS `aranet_invoice_category`;
 
 CREATE TABLE `aranet_invoice_category`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`category_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `category_title_idx`(`category_title`)
@@ -655,7 +655,7 @@ DROP TABLE IF EXISTS `aranet_kind_of_invoice`;
 
 CREATE TABLE `aranet_kind_of_invoice`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`kind_of_invoice_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `kind_of_invoice_title_idx`(`kind_of_invoice_title`)
@@ -698,7 +698,7 @@ DROP TABLE IF EXISTS `aranet_type_of_invoice_item`;
 
 CREATE TABLE `aranet_type_of_invoice_item`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`type_of_item_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `type_of_item_title_idx`(`type_of_item_title`)
@@ -965,7 +965,7 @@ DROP TABLE IF EXISTS `aranet_expense_category`;
 
 CREATE TABLE `aranet_expense_category`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`category_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `category_title_idx`(`category_title`)
@@ -980,7 +980,7 @@ DROP TABLE IF EXISTS `aranet_reimbursement`;
 
 CREATE TABLE `aranet_reimbursement`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`reimbursement_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `reimbursement_title_idx`(`reimbursement_title`)
@@ -1067,7 +1067,7 @@ DROP TABLE IF EXISTS `aranet_income_category`;
 
 CREATE TABLE `aranet_income_category`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`category_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `category_title_idx`(`category_title`)

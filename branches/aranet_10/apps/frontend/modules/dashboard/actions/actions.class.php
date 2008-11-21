@@ -112,7 +112,10 @@ class dashboardActions extends sfActions
     $c->addSelectColumn('SUM(expense_item_amount) as A');
     $c->addSelectColumn(ExpenseItemPeer::EXPENSE_ITEM_AMOUNT);
     $c->addSelectColumn(ExpenseItemPeer::EXPENSE_PURCHASE_DATE);
-    $c->add(ExpenseItemPeer::EXPENSE_ITEM_NAME, 'I.V.A. Mod. 300', Criteria::NOT_EQUAL);
+    $c1 = $c->getNewCriterion(ExpenseItemPeer::EXPENSE_ITEM_NAME, 'I.V.A. Mod. 300', Criteria::NOT_EQUAL);
+    $c2 = $c->getNewCriterion(ExpenseItemPeer::EXPENSE_ITEM_CATEGORY_ID, 16, Criteria::NOT_EQUAL);
+    $c1->addOr($c2);
+    $c->addAnd($c1);
     $c->addSelectColumn(ExpenseItemPeer::EXPENSE_ITEM_PAYMENT_METHOD_ID);
     $c->addGroupByColumn(ExpenseItemPeer::EXPENSE_ITEM_PAYMENT_METHOD_ID);
     $crit = $c->getNewCriterion(ExpenseItemPeer::EXPENSE_PURCHASE_DATE, '2007-01-01 00:00:00', Criteria::GREATER_EQUAL);
@@ -277,9 +280,6 @@ class dashboardActions extends sfActions
     sfConfig::set('sf_web_debug', false);
 
     //    In order to use fonts, you must define the location to your fonts:
-    if (defined('TTF_DIR')) {
-      define('TTF_DIR', null);
-    }
     define('TTF_DIR', sfConfig::get('sf_data_dir') . '/fonts/');
 
     //------------------------------------------------------------------
@@ -368,7 +368,7 @@ class dashboardActions extends sfActions
    **/
   public function executeShowGraphic() {
     if ($this->getRequestParameter('graphic_id') != -1) {
-      $graphic = GraphicPeer::retrieveByPk($this->getRequestParameter('graphic_id'));    
+      $graphic = GraphicPeer::retrieveByPk($this->getRequestParameter('graphic_id'));
     } else {
       $c = new Criteria();
       $c->add(GraphicPeer::IS_DEFAULT, true);
@@ -430,6 +430,7 @@ class dashboardActions extends sfActions
       $labelx[$i] = !fmod($i, 2) || true ? $i . "/" . strftime('%b', $datax[0][$i]) : '';
       $labelx2[$i] = $i;
     }
+
     // Now get labels at the start of each month
     $date = new DateScaleUtils();
     list($tickPositions,$minTickPositions) = $date->getTicks($datax[0],DSUTILS_MONTH1);
@@ -461,7 +462,7 @@ class dashboardActions extends sfActions
     $graph->xaxis->SetLabelFormatString('My',true);
     $graph->xaxis->SetLabelMargin(5);
     $graph->xgrid->Show();
-    $graph->setBackgroundImage("images/aranova_watermark.jpg"); 
+    $graph->setBackgroundImage("images/aranova_watermark.jpg");
     $desplz = 0;
     foreach ($plots as $plot) {
       if ($plot->getPlotAccFunction()) {

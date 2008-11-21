@@ -1,12 +1,12 @@
-sfGuardUser: 
-  sfGuardUser_1: 
+sfGuardUser:
+  admin:
     username: admin
     password: admin
     is_active: 1
     is_super_admin: 1
-sfGuardUserProfile: 
-  sfGuardUserProfile_1: 
-    user_id: sfGuardUser_1
+sfGuardUserProfile:
+  sfGuardUserProfile_1:
+    user_id: admin
     public_title: 1
     public_first_name: 0
     public_last_name: 0
@@ -29,31 +29,31 @@ sfGuardUserProfile:
     gravatar: 0
     user_newsletter: 0
     preferred_language: es_ES
-sfGuardGroup: 
-  sfGuardGroup_1: 
+sfGuardGroup:
+  sfGuardGroup_1:
     name: Admins
     description: Administrator group
-  sfGuardGroup_2: 
+  sfGuardGroup_2:
     name: Members
     description: Application member group
-sfGuardPermission: 
-  sfGuardPermission_1: 
+sfGuardPermission:
+  sfGuardPermission_1:
     name: admin
     description: Administrator permission
-  sfGuardPermission_2: 
+  sfGuardPermission_2:
     name: member
     description: Application member permission
-sfGuardGroupPermission: 
-  sfGuardGroupPermission_1_1: 
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_1:
     group_id: sfGuardGroup_1
     permission_id: sfGuardPermission_1
-  sfGuardGroupPermission_2_2: 
+  sfGuardGroupPermission_2_2:
     group_id: sfGuardGroup_2
     permission_id: sfGuardPermission_2
-sfGuardUserGroup: 
-  sfGuardUserGroup_1_1: 
+sfGuardUserGroup:
+  sfGuardUserGroup_1_1:
     group_id: sfGuardGroup_1
-    user_id: sfGuardUser_1
-  sfGuardUserGroup_2_2: 
+    user_id: admin
+  sfGuardUserGroup_2_2:
     group_id: sfGuardGroup_2
-    user_id: sfGuardUser_1
+    user_id: admin
