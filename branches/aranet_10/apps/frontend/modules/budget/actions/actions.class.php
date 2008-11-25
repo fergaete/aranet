@@ -161,7 +161,7 @@ class budgetActions extends myActions
       // Copy items
       $new_invoice->copyFrom($budget);
     }
-    $this->getUser()->setFlash('invoice', $new_invoice);
+    $this->setFlash('invoice', $new_invoice);
     $this->forward('invoice', 'create');
   }
 
@@ -202,10 +202,16 @@ class budgetActions extends myActions
     } else {
       $client_id = $this->getRequestParameter('budget_client_id');
       $client = ClientPeer::retrieveByPK($client_id);
-      if (!$client || $client->getClientUniqueName() != $client_name) {
+      if (!$client || $client->getFullName(false) != $client_name) {
         $client = new Client();
-        $client->setClientCompanyName($client_name);
-        $client->setClientUniqueName($client_name);
+        $pos = strpos($client_name, '(');
+        if (!$pos === false) {
+          $client->setClientCompanyName(substr($client_name, $pos+1, strpos($client_name, ')')-1));
+          $client->setClientUniqueName(substr($client_name, 0, $pos-1));
+        } else {
+          $client->setClientCompanyName($client_name);
+          $client->setClientUniqueName($client_name);
+        }
         $client->save();
         $client_id = $client->getId();
       }
