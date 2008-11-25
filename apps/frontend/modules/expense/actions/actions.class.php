@@ -356,7 +356,7 @@ class expenseActions extends myActions
     $this->getResponse()->setTitle('Expense list');
     $this->getResponse()->setContentType('application/zip');
     $zip = new ZipArchive();
-    $filename = "/tmp/expense_list_files.zip";
+    $filename = TEMP_PATH.DIRECTORY_SEPARATOR."expense_list_files.zip";
     if ($zip->open($filename, ZIPARCHIVE::CREATE) !== true) {
       exit("cannot open <$filename>\n");
     }
@@ -364,9 +364,9 @@ class expenseActions extends myActions
     foreach ($this->pager->getResults() as $expense_item) {
       $sf_propel_file_storage_infos = $expense_item->getFiles();
       foreach ($sf_propel_file_storage_infos as $sf_propel_file_storage_info) {
-        file_put_contents('/tmp/'.$sf_propel_file_storage_info->getFileName(), $sf_propel_file_storage_info->getFileData()->getFileBinaryData());
-        $zip->addFile('/tmp/'.$sf_propel_file_storage_info->getFileName(), $sf_propel_file_storage_info->getFileName());
-        unlink('/tmp/'.$sf_propel_file_storage_info->getFileName());
+        file_put_contents(TEMP_PATH.DIRECTORY_SEPARATOR.$sf_propel_file_storage_info->getFileName(), $sf_propel_file_storage_info->getFileData()->getFileBinaryData());
+        $zip->addFile(TEMP_PATH.DIRECTORY_SEPARATOR.$sf_propel_file_storage_info->getFileName(), $sf_propel_file_storage_info->getFileName());
+        unlink(TEMP_PATH.DIRECTORY_SEPARATOR.$sf_propel_file_storage_info->getFileName());
       }
     }
     $zip->close();
