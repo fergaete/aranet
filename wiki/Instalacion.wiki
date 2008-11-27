@@ -1,5 +1,5 @@
 #summary instalación paso a paso
-#labels Phase-Deploy
+#labels Phase-Deploy,Featured
 
 == Introducción ==
 
