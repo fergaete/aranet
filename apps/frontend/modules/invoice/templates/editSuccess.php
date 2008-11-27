@@ -44,6 +44,7 @@
   <td class="actionsCol"></td>
   <td class="leftCol"><label class="required"><?php echo __('Client') ?></label></td>
   <td class="rightCol">
+    <?php echo form_error('client_name') ?>
     <?php
     if ($sf_params->get('client_id')) {
         $client_id = $sf_params->get('client_id');
@@ -72,7 +73,7 @@
   <?php echo input_hidden_tag('invoice_client_id', $client_id) ?>
   <?php echo input_auto_complete_tag('client_name', $client,
                     'client/autocomplete',
-                    array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""'),
+                    array('autocomplete' => 'off', 'class' => $sf_request->getError('client_name') ? 'form-text err' : 'form-text', 'onclick' => 'this.value=""'),
                     array('use_style'    => true,
                         'after_update_element' => 'getClient')
                     ) ?><br/>

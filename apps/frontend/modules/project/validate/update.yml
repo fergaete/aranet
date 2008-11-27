@@ -11,6 +11,10 @@ fields:
   client_name:
     required:
       msg:       Select a client
+    sfRegexValidator:
+      match:        No
+      match_error:  Select a client
+      pattern:      /Client/si
 
   project_number:
     required:

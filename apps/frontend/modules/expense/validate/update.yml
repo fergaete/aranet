@@ -13,7 +13,11 @@ fields:
   vendor_name:
     required:
       msg:       Select a vendor
-      
+    sfRegexValidator:
+      match:        No
+      match_error:  Select a vendor
+      pattern:      /Vendor|Proveedor/si
+  
   expense_item_base:
     required:
       msg:       Enter a cost amount

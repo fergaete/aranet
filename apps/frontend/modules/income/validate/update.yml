@@ -10,10 +10,14 @@ fields:
       max:       100
       max_error: This name is too long. (100 characters maximum)
 
-  income_item_vendor_id:
+  vendor_name:
     required:
       msg:       Select a vendor
-      
+    sfRegexValidator:
+      match:        No
+      match_error:  Select a vendor
+      pattern:      /Vendor|Proveedor/si
+
   income_item_base:
     required:
       msg:       Enter an amount

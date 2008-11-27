@@ -10,6 +10,8 @@ $contact = new Contact();
   <td class="actionsCol"></td>
   <td class="leftCol"><label><?php echo __('Contact name') ?></label></td>
   <td class="rightCol">
+  <?php echo form_error('contact_first_name') ?>
+  <?php echo form_error('contact_last_name') ?>
    <table>
          <tr>
            <td>
@@ -18,11 +20,11 @@ $contact = new Contact();
            </td>
            <td>
                 <label class="required"><?php echo __('First name') ?></label><br/>
-                <?php echo object_input_tag($contact, 'getContactFirstName', array ('size' => 80, 'class' => 'form-small-text')) ?>
+                <?php echo object_input_tag($contact, 'getContactFirstName', array ('size' => 80, 'class' => $sf_request->getError('contact_first_name') ? 'form-small-text err' : 'form-small-text')) ?>
            </td>
            <td>
                 <label class="required"><?php echo __('Last name') ?></label><br/>
-                <?php echo object_input_tag($contact, 'getContactLastName', array ('size' => 80, 'class' => 'form-medium-text')) ?>
+                <?php echo object_input_tag($contact, 'getContactLastName', array ('size' => 80, 'class' => $sf_request->getError('contact_last_name') ? 'form-medium-text err' : 'form-medium-text')) ?>
            </td>
          </tr>
    </table>
