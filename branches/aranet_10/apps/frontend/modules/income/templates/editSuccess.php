@@ -32,7 +32,7 @@
   <td class="actionsCol"></td>
   <td class="leftCol"><label class="required"><?php echo __('Income vendor') ?></label></td>
   <td class="rightCol">
-    <?php echo form_error('income_item_vendor_id') ?>
+    <?php echo form_error('vendor_name') ?>
     <?php
     if ($sf_params->get('vendor_id')) {
         $vendor_id = $sf_params->get('vendor_id');
@@ -61,7 +61,7 @@
       <?php echo input_hidden_tag('income_item_vendor_id', $vendor_id) ?>
       <?php echo input_auto_complete_tag('vendor_name', $vendor,
                     'vendor/autocomplete',
-                    array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""'),
+                    array('autocomplete' => 'off', 'class' => $sf_request->getError('vendor_name') ? 'form-text err' : 'form-text', 'onclick' => 'this.value=""'),
                     array('use_style'    => true,
                         'after_update_element' => 'getVendor')
                     ) ?><br/>
@@ -89,9 +89,11 @@
 <tr>
   <td class="actionsCol"></td>
   <td class="leftCol"><label class="required"><?php echo __('Income date') ?></label></td>
-  <td class="rightCol"><?php echo object_input_date_tag($income_item, 'getIncomeDate', array (
+  <td class="rightCol">
+          <?php echo form_error('income_date') ?>
+          <?php echo object_input_date_tag($income_item, 'getIncomeDate', array (
   'rich' => true,
-  'class' => 'form-date'
+  'class' => $sf_request->getError('income_date') ? 'form-date err' : 'form-date'
 )) ?></td>
 </tr>
 <tr>

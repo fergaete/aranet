@@ -12,17 +12,19 @@
 <tr>
   <td class="actionsCol"></td>
   <td class="leftCol"><label class="required"><?php echo __('Description') ?></label></td>
-  <td class="rightCol"><?php echo object_input_hidden_tag($timesheet, 'getTimesheetUserId') ?>
+  <td class="rightCol">
+  <?php echo form_error('timesheet_description') ?>
+  <?php echo object_input_hidden_tag($timesheet, 'getTimesheetUserId') ?>
   <?php echo object_input_tag($timesheet, 'getTimesheetDescription', array (
-  'size' => 80, 'class' => 'form-text'
+  'size' => 80, 'class' => $sf_request->getError('timesheet_description') ? 'form-text err' : 'form-text'
 )) ?></td>
 </tr>
 <tr>
   <td class="actionsCol"></td>
   <td class="leftCol"><label class="required"><?php echo __('Timesheet hours') ?></label></td>
   <td class="rightCol">
-    <?php echo form_error('timesheet_hours') ? form_error('timesheet_hours') : '' ?>
-    <?php echo form_error('timesheet_date') ? form_error('timesheet_date') : '' ?>
+    <?php echo form_error('timesheet_hours') ?>
+    <?php echo form_error('timesheet_date') ?>
     <?php echo object_input_tag($timesheet, 'getTimesheetHours', array ('size' => 7, 'class' => $sf_request->getError('timesheet_hours') ? 'form-tiny-text err' : 'form-tiny-text')) ?>
     <label><?php echo __('Date') ?></label>
     <?php echo object_input_date_tag($timesheet, 'getTimesheetDate', array ('rich' => true, 'class' => $sf_request->getError('timesheet_date') ? 'form-date err' : 'form-date')) ?>
