@@ -1,5 +1,0 @@
-#summary sidebar.
-
-= Pruebas para sistema de navegación =
-
- * [Instalacion Instalación]
