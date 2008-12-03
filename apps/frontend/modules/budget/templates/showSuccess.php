@@ -76,7 +76,7 @@ $budget)) ?>
 
 <div class="budgetHeader"><div class="headerFiles"><?php echo __('Associated files (#%1%)', array('%1%' => $budget->countFiles())) ?></div>
 <div class="windowControlsDashboard">
-    <span><?php echo link_to(image_tag('button_add.gif', __('Upload new file')), "/file/create?class=Budget&object_id=" . $budget->getId().'&referer='.urlencode('budget/show?id=' . $budget->getId())) ?></span>
+    <span><?php echo '<a href="/file/create?class=Budget&object_id=' . $budget->getId().'&referer=budget/show?id=' . $budget->getId() .'">'.image_tag('button_add.gif', __('Upload new file')).'</a>' ?></span>
     <span id="budgetViewFilesRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'budgetViewFiles') . visual_effect('appear', 'budgetViewFilesRollDown') . visual_effect('fade', 'budgetViewFilesRollUp')) ?></span>
     <span id="budgetViewFilesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'budgetViewFiles') . visual_effect('appear', 'budgetViewFilesRollUp') . visual_effect('fade', 'budgetViewFilesRollDown')) ?></span>
 </div></div>
