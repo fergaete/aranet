@@ -24,7 +24,7 @@ class anContactEditForm extends ContactForm
       $addresses = array($address);
     }
     foreach ($addresses as $address) {
-      $this->widgetSchema['address['.$address->getId().']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullHTMLAddress', 'resultSchema' => '["ResultSet.Result","FullAddress"]', 'action' => '/address/autocomplete', 'value' => $address->__toString(true)));
+      $this->widgetSchema['address['.$address->getId().']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullHTMLAddress', 'resultSchema' => '["ResultSet.Result","FullAddress"]', 'action' => '/address/autocomplete', 'value' => $address->__toString(true)), array('class' => 'large'));
     
     }
     $this->validatorSchema['address'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));

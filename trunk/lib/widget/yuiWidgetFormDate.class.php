@@ -25,7 +25,7 @@ class yuiWidgetFormDate extends sfWidgetForm
    */
   protected function configure($options = array(), $attributes = array())
   {
-    ysfYUI::addComponent('container', 'menu', 'button', 'calendar');
+    ysfYUI::addComponents('calendar', 'container', 'button');
   }
 
   /**
@@ -55,25 +55,25 @@ class yuiWidgetFormDate extends sfWidgetForm
     
     $js = '
     var oDateFields'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_datefields");
-			oMonthField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_month"),
-			oDayField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_day"),
-			oYearField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_year");
+      oMonthField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_month"),
+      oDayField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_day"),
+      oYearField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_year");
     oMonthField'.$this->generateId($name).'.style.display = "none";
-		oDayField'.$this->generateId($name).'.style.display = "none";
-		oYearField'.$this->generateId($name).'.style.display = "none";
+    oDayField'.$this->generateId($name).'.style.display = "none";
+    oYearField'.$this->generateId($name).'.style.display = "none";
     var oCalendarMenu'.$this->generateId($name).' = new YAHOO.widget.Overlay("'.$this->generateId($name).'_calendarmenu", { visible: false });
     var oCalendarButton'.$this->generateId($name).' = new YAHOO.widget.Button({ 
-    								type: "menu", 
-    								id: "calendarpicker'.$this->generateId($name).'", 
-    								label: "'.$v.'", 
-    								menu: oCalendarMenu'.$this->generateId($name).', 
-    								container: "'.$this->generateId($name).'_datefields" });
+                    type: "menu", 
+                    id: "calendarpicker'.$this->generateId($name).'", 
+                    label: "'.$v.'", 
+                    menu: oCalendarMenu'.$this->generateId($name).', 
+                    container: "'.$this->generateId($name).'_datefields" });
     ';
   
     $js .= 'oCalendarButton'.$this->generateId($name).'.on("appendTo", function () {
       oCalendarMenu'.$this->generateId($name).'.setBody(" ");
-    	oCalendarMenu'.$this->generateId($name).'.body.id = "'.$this->generateId($name).'_calendarcontainer";
-    	oCalendarMenu'.$this->generateId($name).'.render(this.get("'.$this->generateId($name).'_datefields"));
+      oCalendarMenu'.$this->generateId($name).'.body.id = "'.$this->generateId($name).'_calendarcontainer";
+      oCalendarMenu'.$this->generateId($name).'.render(this.get("'.$this->generateId($name).'_datefields"));
     });
     
     function oCalendarButton'.$this->generateId($name).'Click() {
@@ -90,59 +90,59 @@ class yuiWidgetFormDate extends sfWidgetForm
       };
   
 
-	    var oCalendar'.$this->generateId($name).' = new YAHOO.widget.Calendar("buttoncalendar", oCalendarMenu'.$this->generateId($name).'.body.id, { 
-	        navigator: navConfig'.$this->generateId($name).',
-	        title: "'.__('Choose a date:').'"
-	    });
-	    ';
-	    if (sfContext::getInstance()->getUser()->getCulture() == 'es_ES') {
+      var oCalendar'.$this->generateId($name).' = new YAHOO.widget.Calendar("'.$this->generateId($name).'", oCalendarMenu'.$this->generateId($name).'.body.id, { 
+          navigator: navConfig'.$this->generateId($name).',
+          title: "'.__('Choose a date:').'"
+      });
+      ';
+      if (sfContext::getInstance()->getUser()->getCulture() == 'es_ES') {
         // Correct formats for Spain: dd/mm/yyyy, dd/mm, mm/yyyy
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("START_WEEKDAY", "1");'."\n";
-		    $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("DATE_FIELD_DELIMITER", "/");'."\n";
+        $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("DATE_FIELD_DELIMITER", "/");'."\n";
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("MDY_DAY_POSITION", 1);'."\n";
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("MDY_MONTH_POSITION", 2);'."\n";
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("MDY_YEAR_POSITION", 3);'."\n";
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("MD_DAY_POSITION", 1);'."\n";
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("MD_MONTH_POSITION", 2);'."\n";
 
-		    // Date labels for Spanish locale
+        // Date labels for Spanish locale
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("MONTHS_SHORT",   ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]);'."\n";
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("MONTHS_LONG",    ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]);'."\n";
         $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("WEEKDAYS_1CHAR", ["D", "L", "M", "X", "J", "V", "S"]);'."\n";
-		    $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("WEEKDAYS_SHORT", ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"]);'."\n";
-		    $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("WEEKDAYS_MEDIUM",["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]);'."\n";
-		    $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("WEEKDAYS_LONG",  ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]);'."\n";
+        $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("WEEKDAYS_SHORT", ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"]);'."\n";
+        $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("WEEKDAYS_MEDIUM",["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]);'."\n";
+        $js .= 'oCalendar'.$this->generateId($name).'.cfg.setProperty("WEEKDAYS_LONG",  ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]);'."\n";
       }
-	    $js .= 'oCalendar'.$this->generateId($name).'.render();
-	    oCalendar'.$this->generateId($name).'.changePageEvent.subscribe(function () {
-		    window.setTimeout(function () {
-			    oCalendarMenu'.$this->generateId($name).'.show();
-		    }, 0);
-	    });
+      $js .= 'oCalendar'.$this->generateId($name).'.render();
+      oCalendar'.$this->generateId($name).'.changePageEvent.subscribe(function () {
+        window.setTimeout(function () {
+          oCalendarMenu'.$this->generateId($name).'.show();
+        }, 0);
+      });
       
-	    oCalendar'.$this->generateId($name).'.selectEvent.subscribe(function (p_sType, p_aArgs) {
-		    var aDate,
-			    nMonth,
-			    nDay,
-			    nYear;
-		    if (p_aArgs) {
-			    aDate = p_aArgs[0][0];
-			    nMonth = aDate[1];
-			    nDay = aDate[2];
-			    nYear = aDate[0];
-			    oCalendarButton'.$this->generateId($name).'.set("label", ('.$date_format.'));
+      oCalendar'.$this->generateId($name).'.selectEvent.subscribe(function (p_sType, p_aArgs) {
+        var aDate,
+          nMonth,
+          nDay,
+          nYear;
+        if (p_aArgs) {
+          aDate = p_aArgs[0][0];
+          nMonth = aDate[1];
+          nDay = aDate[2];
+          nYear = aDate[0];
+          oCalendarButton'.$this->generateId($name).'.set("label", ('.$date_format.'));
 
-			    YAHOO.util.Dom.get("'.$this->generateId($name).'_month").value = nMonth;
-			    YAHOO.util.Dom.get("'.$this->generateId($name).'_day").value = nDay;
-			    YAHOO.util.Dom.get("'.$this->generateId($name).'_year").value = nYear;
-		    }
-		    oCalendarMenu'.$this->generateId($name).'.hide();
-	    });
+          YAHOO.util.Dom.get("'.$this->generateId($name).'_month").value = nMonth;
+          YAHOO.util.Dom.get("'.$this->generateId($name).'_day").value = nDay;
+          YAHOO.util.Dom.get("'.$this->generateId($name).'_year").value = nYear;
+        }
+        oCalendarMenu'.$this->generateId($name).'.hide();
+      });
 
-	    this.unsubscribe("click", oCalendarButton'.$this->generateId($name).'Click);
+      this.unsubscribe("click", oCalendarButton'.$this->generateId($name).'Click);
     }
     oCalendarButton'.$this->generateId($name).'.on("click", oCalendarButton'.$this->generateId($name).'Click);';
-	  ysfYUI::addEvent('document', 'ready', $js);
+    ysfYUI::addEvent($this->generateId($name)."_datefields", 'ready', $js);
                                      
     return $this->renderContentTag('div',
       $this->renderTag('input', array('name' => $name.'[month]', 'value' => substr($value, 5, 2))) .

@@ -26,9 +26,10 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?>:</li>
-  <li><?php echo yui_link_to_function(image_tag(sfConfig::get("yui_icons_web_dir") . "/delete.png", 'alt="Delete selected"'),"document.chklist.submit()", array('confirm' => __('Are you sure?'))) ?></li>
+  <li><?php echo yui_link_to_function(image_tag("icons/delete.png", 'alt="Delete selected"'),"document.chklist.submit()", array('confirm' => __('Are you sure?'))) ?></li>
 </ul>
 </div>
 </form>
-
+<div class="clearer"></div>
+<?php echo yui_button_to(__('New'), '@contact_create') ?>
 <?php echo $table->render('contactTable', 'contactTable', 'paginator', 'contact'); ?>

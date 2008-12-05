@@ -15,36 +15,19 @@ class ContactForm extends BaseContactForm
     parent::configure();
     
     // created_at
-    unset($this->widgetSchema['created_at']);
-    unset($this->validatorSchema['created_at']);
-
-    // created_by
-    unset($this->widgetSchema['created_by']);
-    unset($this->validatorSchema['created_by']);
-
-    // updated_at
-    unset($this->widgetSchema['updated_at']);
-    unset($this->validatorSchema['updated_at']);
-
-    // updated_by
-    unset($this->widgetSchema['updated_by']);
-    unset($this->validatorSchema['updated_by']);
-
-    // deleted_at
-    unset($this->widgetSchema['deleted_at']);
-    unset($this->validatorSchema['deleted_at']);
-
-    // deleted_by
-    unset($this->widgetSchema['deleted_by']);
-    unset($this->validatorSchema['deleted_by']);
+    unset($this['created_at'], $this['created_by'], $this['updated_at'], $this['updated_by'], $this['deleted_at'], $this['deleted_by']);
     
     // contact_birthday
-    //$this->widgetSchema['contact_birthday'] = new yuiWidgetFormDate();
+    $this->widgetSchema['contact_birthday'] = new yuiWidgetFormDate();
 
     // contact_salutation && contact_first_name && contact_last_name
     $this->widgetSchema['contact_salutation'] = new sfWidgetFormInput(array(), array('class' => 'tiny'));
     $this->widgetSchema['contact_first_name'] = new sfWidgetFormInput();
     $this->widgetSchema['contact_last_name'] = new sfWidgetFormInput();
+    
+    $this->validatorSchema['contact_email'] = new sfValidatorEmail(array('required' => false), array('invalid' => 'The e-mail address is invalid.'));
+
+
     
     $this->widgetSchema->setLabels(array(
       'contact_salutation' => 'Salutation',

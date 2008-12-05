@@ -10,7 +10,18 @@
  */
 class AddressFormFilter extends BaseAddressFormFilter
 {
-  public function configure()
+  public function setup()
   {
+    parent::setup();
+    unset($this['address_line2']);
+    
+    $this->widgetSchema->setLabels(array(
+      'address_line1' => 'Street',
+      'address_location' => 'Location',
+      'address_state' => 'State',
+      'address_postal_code' => 'Postal code',
+      'address_country' => 'Country',
+      ));
+
   }
 }

@@ -6,7 +6,7 @@
 <?php $i = 0; foreach ($pager->getResults() as $vendor) : $i++ ?>
         {"id":"<?php echo $vendor->getId() ?>",
         "checkbox":"<input type='checkbox' name='select[]' value='<?php echo $vendor->getId() ?>' />",
-        "actions":"<div class='objectActions'><ul><li><?php echo str_replace('"', "'", link_to(image_tag(sfConfig::get('yui_icons_web_dir') . '/application_form.png', 'alt='.__("View")), '@vendor_show_by_id?id='.$vendor->getId())) ?></li><li><?php echo str_replace('"', "'", link_to(image_tag(sfConfig::get('yui_icons_web_dir') . '/application_form_edit.png', 'alt='.__('Edit')), '@vendor_edit_by_id?id='.$vendor->getId())) ?></li><li><?php echo str_replace('"', "'", link_to(image_tag(sfConfig::get('yui_icons_web_dir') . '/application_form_delete.png', 'alt='.__('Delete')), '@vendor_delete_by_id?id='.$vendor->getId())) ?></li></ul></div>",
+        "actions":"<div class='objectActions'><ul><li><?php echo str_replace('"', "'", link_to(image_tag('icons/application_form.png', 'alt='.__("View")), '@vendor_show_by_id?id='.$vendor->getId())) ?></li><li><?php echo str_replace('"', "'", link_to(image_tag('icons/application_form_edit.png', 'alt='.__('Edit')), '@vendor_edit_by_id?id='.$vendor->getId())) ?></li><li><?php echo str_replace('"', "'", link_to(image_tag('icons/application_form_delete.png', 'alt='.__('Delete')), '@vendor_delete_by_id?id='.$vendor->getId())) ?></li></ul></div>",
         "vendor_company_name":"<?php echo $vendor->getVendorCompanyName() ?>",
 <?php
 $dcontact = $vendor->getDefaultContact();

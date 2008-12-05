@@ -54,7 +54,7 @@
 <?php foreach ($client->getAddresses() as $address): ?>
     <td class='actionsCol'>
     <ul>
-      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
+      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag('icons/add.png', 'alt="'.__('Add new address') .'"'), array(
             'url' => url_for('address/create'),
             'update' => 'newAddress',
             'position' => 'before',
@@ -62,7 +62,7 @@
             'loading'  => "Element.show('indicator-address')",
             'complete' => "Element.hide('indicator-address')"
             )) ?></li>
-         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
+         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag('icons/delete.png', 'alt="'.__('Delete this address') .'"'), array(
             'url' => url_for('address/delete'),
             'update' => 'li_address_0',
             'loading'  => "Element.show('indicator-address')",
@@ -77,7 +77,7 @@
 <tr id="li_address_0">
   <td class='actionsCol'>
     <ul>
-      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
+      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag('icons/add.png', 'alt="'.__('Add new address') .'"'), array(
             'url' => url_for('address/create'),
             'update' => 'newAddress',
             'position' => 'before',
@@ -85,7 +85,7 @@
             'loading'  => "Element.show('indicator-address')",
             'complete' => "Element.hide('indicator-address')"
             )) ?></li>
-         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
+         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag('icons/delete.png', 'alt="'.__('Delete this address') .'"'), array(
             'url' => url_for('address/delete'),
             'update' => 'li_address_0',
             'loading'  => "Element.show('indicator-address')",

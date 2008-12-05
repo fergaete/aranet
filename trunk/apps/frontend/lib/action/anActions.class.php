@@ -388,22 +388,24 @@ class anActions extends sfActions
     // Caso especial para algunos objetos
     $column = $request->getParameter('editColumn');
     $model = $this->getModel();
-    if ($column != 'name') {
-      $column = $this->getColumnName($column);
-      $object = call_user_func($model.'Peer::getOneBy', $column, $request->getParameter('oldData'));
-    } else {
-      $object = call_user_func($model.'Peer::retrieveByName', $request->getParameter('oldData'));
-    }
-    if ($object) {
+    if ($request->getParameter('oldData')) {
       if ($column != 'name') {
-        $setter = $this->forgeMethodName('set', $request->getParameter('editColumn'));
+        $column = $this->getColumnName($column);
+        $object = call_user_func($model.'Peer::getOneBy', $column, $request->getParameter('oldData'));
       } else {
-        $setter = 'setName';
+        $object = call_user_func($model.'Peer::retrieveByName', $request->getParameter('oldData'));
       }
-      if (is_callable(array($object, $setter))) {
-        call_user_func(array($object, $setter), $request->getParameter('newData'));
-        $object->save();
-        return sfView::NONE;
+      if ($object) {
+        if ($column != 'name') {
+          $setter = $this->forgeMethodName('set', $request->getParameter('editColumn'));
+        } else {
+          $setter = 'setName';
+        }
+        if (is_callable(array($object, $setter))) {
+          call_user_func(array($object, $setter), $request->getParameter('newData'));
+          $object->save();
+          return sfView::NONE;
+        }
       }
     }
     $this->forward404();

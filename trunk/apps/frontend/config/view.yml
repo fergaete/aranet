@@ -11,7 +11,7 @@ default:
 
   stylesheets:    [aranet]
 
-  javascripts:    [functions, /static/ysf/yui/calendar/calendar.js, /static/ysf/yui/yahoo-dom-event/yahoo-dom-event.js, /static/ysf/yui/animation/animation.js, /static/ysf/yui/container/container_core.js, /static/ysf/yui/menu/menu.js]
+  javascripts:    [functions]
 
   has_layout:     on
   layout:         layout

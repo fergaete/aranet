@@ -6,6 +6,7 @@ dev:
 
 all:
 
+  loader_enabled:     true
   # Yahoo! User Interface Libraries
   lib_web_dir:        /static/ysf/yui
   suffix:             -min

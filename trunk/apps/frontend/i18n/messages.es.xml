@@ -1058,6 +1058,38 @@
         <source>Phone/Fax</source>
         <target>Teléfono/Fax</target>
       </trans-unit>
+      <trans-unit>
+        <source>Salutation</source>
+        <target>Tratamiento</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Last name</source>
+        <target>Apellidos</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Birthday</source>
+        <target>Cumpleaños</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Tags</source>
+        <target>Etiquetas</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Save</source>
+        <target>Guardar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Details</source>
+        <target>Detalles</target>
+      </trans-unit>
+      <trans-unit>
+        <source>History</source>
+        <target>Historial</target>
+      </trans-unit>
+      <trans-unit>
+        <source>New</source>
+        <target>Nuevo</target>
+      </trans-unit>
       
       
     </body>

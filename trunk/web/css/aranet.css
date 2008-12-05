@@ -200,7 +200,6 @@ a:hover {
 .gridTable .actionsCol ul{padding:0;margin:5px 0 0 2px;display:inline;}
 .gridTable .actionsCol ul li{padding:0 3px 0 0;margin:0;display:inline;}
 .gridTable .leftCol {width:180px !important;vertical-align:top;text-align:left;font-weight:700;}
-.formActions{;background:#F6F4F0;width:100%;margin:0;}
 .gridTable .leftColM {width:23% !important;}
 .gridTable label {
 	color: #504D4D;

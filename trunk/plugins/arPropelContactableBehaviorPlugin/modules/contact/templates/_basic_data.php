@@ -13,6 +13,6 @@
             elseif ($contact->getContactRol()):
                 echo '<p>'.$contact->getContactRol().'</p>';
             endif ?>
-            <p><?php echo __('Phone: %1%', array('%1%' => smart_format_phone($contact->getContactPhone()))) ?></p>
+            <p><?php echo $contact->getContactPhone() ? __('Phone') . smart_format_phone($contact->getContactPhone()) : '' ?></p>
             <?php echo ($contact->getContactEmail()) ? '<p>'.mail_to($contact->getContactEmail(), $contact->getContactEmail(), 'encode=true').'</p>': '' ?>
 <?php endif ?>
