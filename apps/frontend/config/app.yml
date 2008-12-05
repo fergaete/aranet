@@ -1,7 +1,5 @@
 # default values
-all:
-  sf_settings_plugin:
-    company:        ARANOVA
-    company_logo:   aranova/aranova_logo.gif
-    company_site:   http://www.aranova.es
-    version:        "1.0"
+all:    
+  gravatar:
+    default_image:  buddyicon.jpg
+    default_size:   40

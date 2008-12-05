@@ -54,9 +54,7 @@ class yuiWidgetFormAutocomplete extends sfWidgetForm
    */
   public function render($name, $value = null, $attributes = array(), $errors = array())
   {
-    ysfYUI::addComponent('autocomplete');
-    ysfYUI::addComponents('json', 'get');
-    ysfYUI::addComponents('connection');
+    ysfYUI::addComponents('datasource', 'autocomplete', 'json');
 
     if ($this->getOption('delimChar'))
     {

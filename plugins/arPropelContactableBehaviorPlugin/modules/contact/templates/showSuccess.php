@@ -15,7 +15,7 @@
             <div id="tabs" class="yui-navset">
                 <ul class="yui-nav">
 	                <li class="selected"><a href="#stats"><em><?php echo __('Contact stats') ?></em></a></li>
-                  <li><?php echo link_to_remote('<em>'.__('History').'</em>', array(
+                  <li><?php echo yui_link_to_remote('<em>'.__('History').'</em>', array(
 	                  'url' => '@contact_history_by_id?id='.$contact->getId() . '#history',
 	                  'update' => 'history',
 	                  'loading'  => "Element.show('indicator-tabs')",

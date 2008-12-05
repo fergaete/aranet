@@ -39,7 +39,7 @@ class ContactForm extends BaseContactForm
     unset($this->validatorSchema['deleted_by']);
     
     // contact_birthday
-    $this->widgetSchema['contact_birthday'] = new yuiWidgetFormDate();
+    //$this->widgetSchema['contact_birthday'] = new yuiWidgetFormDate();
 
     // contact_salutation && contact_first_name && contact_last_name
     $this->widgetSchema['contact_salutation'] = new sfWidgetFormInput(array(), array('class' => 'tiny'));

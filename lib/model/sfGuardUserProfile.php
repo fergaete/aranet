@@ -1,115 +1,86 @@
 <?php
 
 /**
- * Subclass for representing a row from the 'sf_guard_user_profile' table.
- *
- * @package    aranet
- * @subpackage lib.model
- * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
- */
-
+  * Subclass for representing a row from the 'sf_guard_user_profile' table.
+  *
+  *
+  *
+  * @package lib.model
+  */
 class sfGuardUserProfile extends BasesfGuardUserProfile {
 
-    protected $contact = null;
+  protected $user = null;
 
-    public function __construct()
-	  {
-			  parent::__construct();
-	  }
+  public function __toString() {
+    return $this->getFullName();
+  }
 
-    public function __toString() {
-        return $this->getFullName();
+  public function getFullName ($public = true) {
+    $name = "";
+    $name = (($this->getPublicFirstName() || $public) && $this->getFirstName()) ? $this->getFirstName() : '';
+    $name .= (($this->getPublicLastName() || $public) && $this->getLastName()) ? ' ' . $this->getLastName() : '';
+    if (!$name) {
+      $name = $this->getGuardUser()->getUsername();
+      if (!$name) {
+        $name = $this->getOpenidUrl();
+      }
     }
+    return $name;
+  }
 
-    public function getLanguage() {
-        $lang = $this->getPreferredLanguage();
-        return substr($lang, 0, strpos($lang, '_'));
-    }
+  public function getEditLink () {
+    return link_to($this->__toString(), '/sfGuardUser/edit?id=' . $this->getUserId());
+  }
 
-    public function getPhones() {
-        $phones = $this->getPhone1();
-        $phones .= ($phones || $this->getPhone2()) ? ' / ' . $this->getPhone2() : '';
-        return ($this->getPhone2() && !$this->getPhone1()) ? substr($phones, 3) : $phones;
+  public function getGuardUser() {
+    if (!$this->user) {
+      $this->user = sfGuardUserPeer::retrieveByPk($this->getUserId());
     }
- 
-    public function getFullName ($public = false) {
-        $name = "";
-        $name = (($this->getPublicFirstName() || !$public) && $this->getFirstName()) ? $this->getFirstName() : '';
-        $name .= (($this->getPublicLastName() || !$public) && $this->getLastName()) ? ' ' . $this->getLastName() : '';
-        if (!$name) {
-            $name = $this->getsfGuardUserRelatedByUserId()->getUsername();
-        }
-        return $name;
-    }
+    return $this->user;
+  }
 
-    public function getEditLink () {
-        return link_to($this->__toString(), '/sfGuardUser/edit?id=' . $this->getUserId());
+  public function getGravatarUrl() {
+    $default = sfConfig::get('app_gravatar_default_image', null);
+    if ($default) {
+      $default_url = $_SERVER['HTTP_HOST'].'/images/'.$default;
+      $size = sfConfig::get('app_gravatar_default_size', 40);
+      if ($this->getGravatar()) {
+        return "http://www.gravatar.com/avatar.php?gravatar_id=".md5($this->getEmail())."&amp;default=".urlencode($default)."&amp;size=".$size;
+      }
+      else
+      {
+        return $default;
+      }
+    } else {
+      return '';
     }
+  }
 
-    public function getEmail ($public = true) {
-        $email = "";
-        return (($this->getPublicEmail() || !$public) && parent::getEmail()) ? parent::getEmail() : '';
+  public function getFullDirection($public = true) {
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('i18N'));
+    $dir = "";
+    $dir .= (($this->getPublicStreet() || $public) && $this->getStreet()) ? " , " . $this->getStreet() : '';
+    $dir .= (($this->getPublicCode() || $public) && $this->getCode()) ? "<br/>" . $this->getCode() : '<br/>';
+    $dir .= (($this->getPublicCity() || $public) && $this->getCity()) ? " - " . $this->getCity() : '';
+    if ($dir != '<br/>') {
+      $dir .= (($this->getPublicCountry() || $public) && $this->getCountry()) ? " (" . format_country($this->getCountry()) . ")" : '';
+      return substr($dir,3);
     }
+    else
+    {
+      return (($this->getPublicCountry() || $public) && $this->getCountry()) ? format_country($this->getCountry()) : '';
+    }
+  }
 
-    public function getUrl ($public = true) {
-        $url = "";
-        return (($this->getPublicUrl() || !$public) && parent::getUrl()) ? parent::getUrl() : '';
+  public function getTitleString ($long = false) {
+    switch ($this->getTitle()) {
+      case 1:
+      return ($long) ? 'Señor' : 'Sr.';
+      case 2:
+      return ($long) ? 'Señorita' : 'Srta.';
+      case 3:
+      return ($long) ? 'Señora' : 'Sra.';
     }
+  }
 
-    public function getBirthday ($public = true) {
-        $birthday = "";
-        return (($this->getPublicBirthday() || !$public) && parent::getBirthday() != '11/30/99') ? parent::getBirthday() : '';
-    }
-
-    public function getFullCountry () {
-        switch ($this->getCountry()) {
-            case 'ES':
-                return "España";
-                break;
-            default:
-                return '';
-        }
-    }
-
-    public function getGravatarUrl() {
-        $default = sfConfig::get('app_gravatar_default_url', null);
-        $size = sfConfig::get('app_gravatar_default_size', 40);
-        if ($this->getGravatar()) {
-            return "http://www.gravatar.com/avatar.php?gravatar_id=".md5($this->getEmail())."&amp;default=".urlencode($default)."&amp;size=".$size;
-        }
-        else
-        {
-            return $default;
-        }
-    }
-
-    public function getFullDirection($public = true) {
-        $dir = "";
-        $dir .= (($this->getPublicStreet() || !$public) && $this->getStreet()) ? " , " . $this->getStreet() : '';
-        $dir .= (($this->getPublicCode() || !$public) && $this->getCode()) ? "<br/>" . $this->getCode() : '<br/>';
-        $dir .= (($this->getPublicCity() || !$public) && $this->getCity()) ? " - " . $this->getCity() : '';
-        if ($dir) {
-            $dir .= (($this->getPublicCountry() || !$public) && $this->getCountry()) ? " (" . $this->getFullCountry() . ")" : '';
-            return substr($dir,5);
-        }
-        else
-        {
-            return (($this->getPublicCountry() || !$public) && $this->getCountry()) ? $this->getFullCountry() : '';
-        }
-    }
-
-    public function getTitleString ($long = false) {
-        switch ($this->getTitle()) {
-            case 1:
-                return ($long) ? 'Señor' : 'Sr.';
-            case 2:
-                return ($long) ? 'Señorita' : 'Srta.';
-            case 3:
-                return ($long) ? 'Señoras' : 'Sra.';
-        }
-    }
-            
 } // sfGuardUserProfile
-
-//sfMixer::register('BasesfGuardUserProfile:save:pre', array('sfGuardUserProfile', 'preSave'));

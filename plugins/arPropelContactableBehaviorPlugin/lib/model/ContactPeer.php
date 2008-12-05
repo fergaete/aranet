@@ -22,7 +22,7 @@ class ContactPeer extends BaseContactPeer
   {
     $c = new Criteria();
     $concatField = 'CONCAT(' . ContactPeer::CONTACT_FIRST_NAME.", ' ', " . ContactPeer::CONTACT_LAST_NAME.')';
-    $c->add(ContactPeer::ID, $concatField."='".$name."'", Criteria::CUSTOM);
+    $c->add(ContactPeer::ID, $concatField."='".trim($name)."'", Criteria::CUSTOM);
     return ContactPeer::doSelectOne($c);
   }
 

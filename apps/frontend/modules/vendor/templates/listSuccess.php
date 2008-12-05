@@ -1,15 +1,15 @@
-<?php $title = (isset($tag)) ? __('List clients tagged with "%1%"', array('%1%' => $tag)) : __('List clients') ?>
+<?php $title = (isset($tag)) ? __('List vendors tagged with "%1%"', array('%1%' => $tag)) : __('List vendors') ?>
 <?php aranet_title($title) ?>
 
 <?php slot('filters') ?>
 <div class="module-filters module">
   <h2 class="module-header"><?php echo __('Filters') ?></h2>
   <div class="module-content">
-<form action="<?php echo url_for('@client_list') ?>" method="get" name="client_filters">
+<form action="<?php echo url_for('@vendor_list') ?>" method="get" name="vendor_filters">
 <?php echo $filter_form ?>
 
   <div class="filterActions">
-    <?php echo yui_reset_tag(__('Reset'), '@client_list_remove_filters') ?>
+    <?php echo yui_reset_tag(__('Reset'), '@vendor_list_remove_filters') ?>
     <?php echo yui_submit_tag(__('Filter')) ?>
   </div>
 </form>
@@ -20,8 +20,8 @@
 <?php end_slot() ?>
 
 <h3><?php echo $title ?></h3>
-<form action="<?php echo url_for('@client_delete_all') ?>" method="post" name="chklist">
-<div id="clientTable"></div>
+<form action="<?php echo url_for('@vendor_delete_all') ?>" method="post" name="chklist">
+<div id="vendorTable"></div>
 <div id="paginator"></div>
 <div class="listActions">
 <ul>
@@ -31,4 +31,4 @@
 </div>
 </form>
 
-<?php echo $table->render('clientTable', 'clientTable', 'paginator', 'client'); ?>
+<?php echo $table->render('vendorTable', 'vendorTable', 'paginator', 'vendor'); ?>

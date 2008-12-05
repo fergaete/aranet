@@ -3,14 +3,19 @@
 /**
  * Contact filter form.
  *
- * @package    ##PROJECT_NAME##
+ * @package    aranet
  * @subpackage filter
- * @author     ##AUTHOR_NAME##
+ * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
  * @version    SVN: $Id$
  */
 class ContactFormFilter extends BaseContactFormFilter
 {
-  public function configure()
+  public function setup()
   {
+    $this->setWidgets(array('name' => new sfWidgetFormFilterInput()));
+    $this->setValidators(array('name' => new sfValidatorPass(array('required' => false))));
+    $this->widgetSchema->setNameFormat('contact_filters[%s]');
+
+    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
   }
 }

@@ -6,55 +6,49 @@
 <?php echo include_metas() ?>
 <?php echo include_title() ?>
 
-<link rel="shortcut icon" href="/images/<?php echo sfConfig::get('app_sf_settings_plugin_icon') ?>" type="image/x-icon" />
-<link rel="icon" href="/images/<?php echo sfConfig::get('app_sf_settings_plugin_icon') ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="/images/aranet.ico" type="image/x-icon" />
+<link rel="icon" href="/images/aranet.ico" type="image/x-icon" />
 <link rel="start" href="/" title="<?php echo __('Homepage') ?>"/>
 </head>
-<body class="layout-two-column-right yui-skin-<?php echo sfConfig::get('yui_default_skin') ?>" id="top">
-    <div id="container">
-        <div id="container-inner" class="block">
 
-            <div id="banner">
-                <div id="banner-inner" class="block">
-                    <div class="loginBox"><?php include_partial('widgets/user') ?></div>
-                    <h1 id="banner-header"><?php echo link_to(image_tag(sfConfig::get('app_sf_settings_plugin_company_logo'), 'alt="' . sfConfig::get('app_sf_settings_plugin_company') . '"'), sfConfig::get('app_sf_settings_plugin_company_site', 'http://www.aranova.es'), 'accesskey="1"');?></h1>
-                    <h2 id="banner-subject"><?php echo link_to(image_tag('aranet_logo.jpg', 'alt="ARANet" style="margin-top:10px"'), sfConfig::get('app_sf_settings_plugin_aranet_site', 'http://aranet.aranova-it.com'), 'accesskey="2"') ?></h2>
-                    <h3 id="banner-description"><?php echo __('Backoffice Web Management') ?></h3>
-                </div>
-            </div>
+<body class="yui-skin-<?php echo sfConfig::get('yui_default_skin') ?>" id="top">
+<!-- the id on the containing div determines the page width. -->
+<!-- #doc = 750px; #doc2 = 950px; #doc3 = 100%; #doc4 = 974px -->
 
-            <div id="pagebody">
-                <div id="pagebody-inner" class="block">
+<!-- To set the Preset Template, add a class to the containing node -->
+<!-- .yui-t1 = left 160px; .yui-t2 = left 180px; .yui-t3 = left 300px; -->
+<!-- .yui-t4 = right 180px; .yui-t5 = right 240px; .yui-t6 = right 300px; -->
+<div id="doc3" class="yui-t6">
+  <div id="bd">
 
-                    <div class='hnav'>
-                        <?php include('_yui_nav.php') ?>
-                    </div>
-                    
-                    <?php //include_component('widgets', 'subnav') ?>
-
-                <div id="beta">
-                    <div id="beta-inner">
-                        <?php include_slot('filters') ?>
-                        <?php include_partial('widgets/yui_calendar') ?>
-                        <?php include_component('widgets', 'tags') ?>
-                        <?php include_slot('sidebar') ?>
-                    </div>
-                </div>
-
-                <div id="alpha">
-                    <div id="alpha-inner" class="content">
-<?php echo $sf_content ?>
-
-                    </div>
-                </div>
-
-                </div>
-            </div>
-
-            <div id="footer" class="main_footer">
-              <?php include('_footer.php') ?>
-            </div>
-        </div>
+    <div id="hd" class="header">
+      <h1><?php echo link_to(image_tag(sfConfig::get('aranet_company_logo'), 'alt="' . sfConfig::get('aranet_company_name') . '"'), sfConfig::get('aranet_company_site', 'http://www.aranova.es'), 'accesskey="1"');?></h1>
+      <h2><?php echo link_to(image_tag('aranet_logo.jpg', 'alt="ARANet" style="margin-top:10px"'), 'http://aranet.aranova-it.com', 'accesskey="2"') ?></h2>
+      <h3><?php echo __('Backoffice Web Management') ?></h3>
     </div>
+
+    <div class='hnav'>
+      <?php include('_yui_nav.php') ?>
+    </div>
+
+    <div id="yui-main">
+      <div class="yui-b content">
+<?php echo $sf_content ?>
+      </div>
+    </div>
+      
+    <div class="yui-b sidebar">
+      <?php include_slot('filters') ?>
+      <?php include_partial('widgets/yui_calendar') ?>
+      <?php include_component('widgets', 'tags') ?>
+      <?php include_slot('sidebar') ?>
+    </div>
+
+    <div id="ft" class="footer">
+      <?php include('_footer.php') ?>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>

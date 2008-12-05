@@ -28,7 +28,7 @@ class Contact extends BaseContact
 
     public function setName($name)
     {
-      $names = explode(' ', $name);
+      $names = explode(' ', trim($name));
       if (count($names) == 1) {
         $contact_first_name = $names[0];
         $contact_last_name = null;
@@ -36,13 +36,8 @@ class Contact extends BaseContact
         $contact_first_name = $names[0];
         $contact_last_name = $names[1];
       } elseif (count($names) == 3) {
-        if (strlen($names[1]) > 8) {
-          $contact_first_name = $names[0];
-          $contact_last_name = $names[1] + " " + $names[2];
-        } else {
-          $contact_first_name = $names[0] + " " + $names[1];
-          $contact_last_name = $names[2];
-        }
+        $contact_first_name = $names[0];
+        $contact_last_name = $names[1] . " " . $names[2];
       }
       $this->setContactFirstName($contact_first_name);
       $this->setContactLastName($contact_last_name);
@@ -50,7 +45,7 @@ class Contact extends BaseContact
     
     public function getFullName() {
         $salutation = ($this->getContactSalutation()) ? $this->getContactSalutation() . ' ' : '';
-        return $salutation . $this->getContactFirstName() . ' ' . $this->getContactLastName();
+        return trim($salutation . $this->getContactFirstName() . ' ' . $this->getContactLastName());
     }
 
     public function getContactIsDefault() {

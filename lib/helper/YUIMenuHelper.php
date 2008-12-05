@@ -21,7 +21,7 @@
  *
  */
 
-sfContext::getInstance()->getConfiguration()->loadHelpersarray('Tag', 'Javascript'));
+sfContext::getInstance()->getConfiguration()->loadHelpers(array('Tag', 'Javascript'));
 
   function yui_menu($name, $option_tags = null, $options = array())
   {
