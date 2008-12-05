@@ -50,8 +50,29 @@ class ClientForm extends BaseClientForm
       'client_comments' => 'Comments',
       ));
     
-    $this->validatorSchema['client_website'] = new sfValidatorUrl(array(), array('invalid' => 'The url address is invalid.'));
+    $this->validatorSchema['client_website'] = new sfValidatorUrl(array('required' => false), array('invalid' => 'The url address is invalid.'));
 
+    // client_kind_of_company_id    
+    $this->widgetSchema['client_kind_of_company_id'] = new yuiWidgetFormPropelSelect(array('model' => 'KindOfCompany', 'add_empty' => false, 'multiple' => false), array('class' => 'yui_select'));
+
+
+    // address
+    $address = new Address();
+    $address->setId(0);
+    if ($this->object->getAddresses()) {
+      $addresses = $this->object->getAddresses();
+      $addresses[] = $address;
+    } else {
+      $addresses = array($address);
+    }
+    $i = 0;
+    foreach ($addresses as $address) {
+      $this->widgetSchema['address['.$address->getId().']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullHTMLAddress', 'resultSchema' => '["ResultSet.Result","FullAddress"]', 'action' => '/address/autocomplete', 'value' => $address->__toString(true)));
+      $this->widgetSchema->setLabels(array('address['.$address->getId().']' => 'Address'));
+    
+    }
+    $this->validatorSchema['address'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
+    
     // validators
     if ($this->object->isNew()) {
       $this->validatorSchema->setPostValidator(new sfValidatorPropelUnique(
@@ -63,7 +84,7 @@ class ClientForm extends BaseClientForm
     }
     ysfYUI::addComponents('logger', 'calendar');
     // client_since
-    //$this->widgetSchema['client_since'] = new ysfYUICalendarWidget();
+    $this->widgetSchema['client_since'] = new yuiWidgetFormDate();
 
     // contacts
     $this->widgetSchema['contacts'] = new yuiWidgetFormAutocomplete(array('delimChar' => array(','), 'formatResult' => '%1%.FullName + " (" + %1%.Rol + ")"', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/contact/autocomplete', 'value' => $this->object->getContacts(array('serialized' => true))));

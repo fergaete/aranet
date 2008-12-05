@@ -31,35 +31,14 @@ class contactActions extends anActions
   }
 
   /**
-   * executes stats action
-   *
-   * @param $request
-   */
-  public function executeStats($request)
-  {
-    $this->contact = $this->getContact();
-    return sfView::SUCCESS;
-  }
-
-  /**
    * executes history action
    *
    * @param $request
    */
   public function executeHistory($request)
   {
-    $this->contact = $this->getContact();
+    $this->contact = $this->getObject();
     return sfView::SUCCESS;
-  }
-
-  /**
-   * executes show action
-   *
-   * @param $request
-   */
-  public function executeShow($request)
-  {
-    $this->executeStats($request);
   }
 
   /**
@@ -71,7 +50,7 @@ class contactActions extends anActions
   {
     if ($edit = $request->hasParameter('id'))
     {
-      $this->contact = $this->getContact();
+      $this->contact = $this->getObject();
     }
     else
     {
@@ -107,7 +86,7 @@ class contactActions extends anActions
    */
   public function executeMiniedit($request)
   {
-
+    return sfView::SUCCESS;
   }
 
   /**
@@ -127,33 +106,6 @@ class contactActions extends anActions
   }
 
   /**
-   * executes delete action
-   *
-   * @param $request
-   */
-  public function executeDelete($request)
-  {
-    $select = $request->getParameter('select', array());
-    if ($id = $request->getParameter('id')) {
-      $select[] = $id;
-    }
-    foreach ($select as $item) {
-      if ($item != 0) {
-        $contact = ContactPeer::retrieveByPk($item);
-        $this->forward404Unless($contact);
-        $contact->delete();
-      }
-    }
-
-    if ($request->isXmlHttpRequest()) {
-      return sfView::SUCCESS;
-    } else {
-      $this->redirect('@contact_list');
-    }
-    return sfView::SUCCESS;
-  }
-
-  /**
    * executes autocomplete action
    *
    * @param $request
@@ -162,7 +114,6 @@ class contactActions extends anActions
   {
     sfConfig::set('sf_web_debug', false);
     $name = $this->getRequestParameter('query');
-    //$contact = array_pop($contacts);
     $this->setLayout(false);
     $this->contacts = ContactPeer::getContactsLike($name);
   }
@@ -195,34 +146,33 @@ class contactActions extends anActions
     if (isset($this->filters['name']) && $this->filters['name'] && $this->filters['name'] != $this->__('Name') . '...')
     {
       $concatField = 'CONCAT(' . ContactPeer::CONTACT_FIRST_NAME.", ' ', " . ContactPeer::CONTACT_LAST_NAME.')';
-      $c->add(ContactPeer::ID, $concatField." LIKE '%".$this->filters['name']."%'", Criteria::CUSTOM);
+      $c->add(ContactPeer::ID, $concatField." LIKE '%".$this->filters['name']['text']."%'", Criteria::CUSTOM);
     }
   }
   
-  /**
-   * Returns the contact from the request parameter "id"
-   *
-   * @return Contact
-   */
-  private function getContact()
-  {
-    $c = new Criteria();
-    $c->add(ContactPeer::ID, $this->getRequestParameter('id'));
-
-    $contacts = ContactPeer::doSelect($c);
-
-    $this->forward404Unless(isset($contacts[0]) && $contacts[0]);
-
-    return $contacts[0];
-  }
-
   /**
    * Returns the column name to sort list by default
    *
    * @return string
    */
-  protected function getSortColumn()
+  protected function getDefaultSortField()
   {
-    return 'CONCAT(' . ContactPeer::CONTACT_FIRST_NAME.", ' ', " . ContactPeer::CONTACT_LAST_NAME.')';
+    return 'name';
   }
+  
+  public function getColumns()
+  {
+    $keys = array(
+        array('name' => 'id'),
+        array('name' => 'actions', 'label' => $this->__('Actions')),
+        array('name' => 'name', 'label' => $this->__('Name'), 'sortable' => true, 'editor' => true),
+        array('name' => 'contact_email', 'label' => $this->__('E-Mail'), 'sortable' => true, 'editor' => true, 'parser' => 'email'),
+        array('name' => 'contact_phone', 'label' => $this->__('Phone')),
+        array('name' => 'contact_fax', 'label' => $this->__('Fax')),
+        array('name' => 'contact_mobile', 'label' => $this->__('Mobile')),
+        array('name' => 'contact_address', 'label' => $this->__('Address'))
+        );
+    return $keys;
+  }
+
 }

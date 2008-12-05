@@ -73,7 +73,7 @@ class yuiWidgetFormDate extends sfWidgetForm
     $js .= 'oCalendarButton'.$this->generateId($name).'.on("appendTo", function () {
       oCalendarMenu'.$this->generateId($name).'.setBody(" ");
     	oCalendarMenu'.$this->generateId($name).'.body.id = "'.$this->generateId($name).'_calendarcontainer";
-    	oCalendarMenu'.$this->generateId($name).'.render(this.get("container"));
+    	oCalendarMenu'.$this->generateId($name).'.render(this.get("'.$this->generateId($name).'_datefields"));
     });
     
     function oCalendarButton'.$this->generateId($name).'Click() {

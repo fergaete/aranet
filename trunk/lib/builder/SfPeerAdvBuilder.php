@@ -19,7 +19,7 @@ class SfPeerAdvBuilder extends SfPeerBuilder
     {
 
         $temp = '
-        public static function getPager($page, $peer_method = "doSelect", $max_items_per_page = null, $criteria = null)
+        public static function getPager($startIndex, $peer_method = "doSelect", $max_items_per_page = null, $criteria = null)
         {
 
        if($criteria == null)
@@ -35,6 +35,7 @@ class SfPeerAdvBuilder extends SfPeerBuilder
             }
 
             // Pager
+            $page = $startIndex + $max_items_per_page / $max_items_per_page;
             $pager = new sfPropelPager(\''.$this->getObjectClassname().'\', $max_items_per_page);
             $pager->setCriteria($criteria);
             $pager->setPage($page);

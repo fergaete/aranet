@@ -19,8 +19,8 @@ class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
   {
-      $this->enableAllPluginsExcept(array('sfDoctrinePlugin', 'sfCompat10Plugin'));
-  // Personalización de directorios cache y log
+    $this->enableAllPluginsExcept(array('sfDoctrinePlugin', 'sfCompat10Plugin'));
+    // Personalización de directorios cache y log
     if (is_readable($file = dirname(__FILE__).'/dirs.php'))
     {
       $dirs = require($file);

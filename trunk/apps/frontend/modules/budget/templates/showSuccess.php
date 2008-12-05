@@ -16,7 +16,7 @@
                 <ul id="menuItems">
                     <li id="menuItemStats" class="menuItemSelected"><?php echo link_to_remote('<span>'.__('Budget stats').'</span>', array(
                         'update' => 'infoWindow',
-                        'url'    => 'budget/stats?budget_id='.$budget->getId(),
+                        'url'    => 'budget/stats?id='.$budget->getId(),
                         'loading'  => "Element.show('indicator-tabs')",
                         'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemStats')",
                         )) ?></li>
@@ -28,7 +28,7 @@
                         )) ?></li>
                     <li id="menuItemVersions" class=""><?php echo link_to_remote('<span>'.__('Versions').'</span>', array(
                         'update' => 'infoWindow',
-                        'url'    => 'budget/versions?budget_id='.$budget->getId(),
+                        'url'    => 'budget/versions?id='.$budget->getId(),
                         'loading'  => "Element.show('indicator-tabs')",
                         'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemVersions')",
                         )) ?></li>

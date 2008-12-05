@@ -18,16 +18,9 @@ class clientActions extends anActions
    */
   public function executeEdit($request)
   {
-    if ($edit = $request->hasParameter('id'))
-    {
-      $this->client = $this->getClient();
-    }
-    else
-    {
-      $this->client = new Client();
-    }
-    
-    $this->form = new anClientEditForm($this->client);
+    $this->client = $this->getObject();
+    $edit = $request->hasParameter('id');
+    $this->form = new ClientForm($this->client);
     
     if ($request->isMethod('post'))
     {
@@ -54,28 +47,6 @@ class clientActions extends anActions
   }
 
   /**
-   * executes show action
-   *
-   * @param $request
-   */
-  public function executeShow($request)
-  {
-    $this->client = $this->getClient();
-    return sfView::SUCCESS;
-  }
-
-  /**
-   * executes stats action
-   *
-   * @param $request
-   */
-  public function executeStats($request)
-  {
-    $this->client = $this->getClient();
-    return sfView::SUCCESS;
-  }
-
-  /**
    * executes autocomplete action
    *
    * @param $request
@@ -89,42 +60,16 @@ class clientActions extends anActions
   }
 
   /**
-   * executes delete action
-   *
-   * @param $request
-   */
-  public function executeDelete($request)
-  {
-    $select = $request->getParameter('select', array());
-    if ($id = $request->getParameter('id')) {
-      $select[] = $id;
-    }
-    foreach ($select as $item) {
-      if ($item != 0) {
-        $client = ClientPeer::retrieveByPk($item);
-        $this->forward404Unless($client);
-        $client->delete();
-      }
-    }
-
-    if ($request->isXmlHttpRequest()) {
-      return sfView::SUCCESS;
-    } else {
-      $this->redirect('@client_list');
-    }
-  }
-
-  /**
    * add filter criteria
    *
    * @param Criteria $c
    */
   protected function addFiltersCriteria ($c)
   {
-    if (isset($this->filters['name']) && $this->filters['name'] && $this->filters['name'] != __('Name') . '...')
+    if (isset($this->filters['name']) && $this->filters['name'] && $this->filters['name'] != $this->__('Name') . '...')
     {
-      $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['name']."%", Criteria::LIKE);
-      $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['name']."%", Criteria::LIKE);
+      $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
+      $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
       $criterion->addOr($crit2);
       $c->add($criterion);
     }
@@ -135,29 +80,28 @@ class clientActions extends anActions
   }
 
   /**
-   * Returns the client from the request parameter "id"
-   *
-   * @return Client
-   */
-  private function getClient()
-  {
-    $c = new Criteria();
-    $c->add(ClientPeer::ID, $this->getRequestParameter('id'));
-
-    $clients = ClientPeer::doSelectJoinKindOfCompany($c);
-
-    $this->forward404Unless(isset($clients[0]) && $clients[0]);
-
-    return $clients[0];
-  }
-
-  /**
    * Returns the column name to sort list by default
    *
    * @return string
    */
-  protected function getSortColumn()
+  protected function getDefaultSortField()
   {
-    return ClientPeer::CLIENT_COMPANY_NAME;
+    return 'client_company_name';
   }
+  
+  public function getColumns()
+  {
+    $keys = array(
+        array('name' => 'id'),
+        array('name' => 'actions', 'label' => $this->__('Actions')),
+        array('name' => 'client_company_name', 'label' => $this->__('Company'), 'sortable' => true, 'editor' => true),
+        array('name' => 'contact', 'label' => $this->__('Main contact')),
+        array('name' => 'phone', 'label' => $this->__('Phone')),
+        array('name' => 'nb_projects', 'label' => $this->__('Projects')),
+        array('name' => 'revenue', 'label' => $this->__('Revenue'))
+        );
+    return $keys;
+  }
+  
+
 }

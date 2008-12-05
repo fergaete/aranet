@@ -1,0 +1,7 @@
+all:
+  company:
+    name:         ARANOVA
+    logo:         aranova/aranova_logo.gif
+    site:         http://www.aranova.es
+  
+  version:        "1.0"

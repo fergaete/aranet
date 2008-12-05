@@ -1,5 +1,8 @@
 <?php
 
+/* Estandar helpers */
+ysfYUI::addComponents('reset', 'fonts', 'base');
+
 /**
  * Asigna al título de la web el texto que se le pasa acompañado de la coletilla " | Symplan".
  *

@@ -1,5 +1,4 @@
 <?php aranet_title(__('Login')) ?>
-<?php ysfYUI::addComponents('reset', 'fonts', 'grids') ?>
 <?php sfContext::getInstance()->getResponse()->addStylesheet('forms') ?>    
 <div class="loginContainer">
 <div class='loginShell'>
@@ -25,7 +24,7 @@
                 <td></td>
                 <td class="actions">
                     <?php use_helper('YUIForm') ?>
-                    <?php echo yui_submit_tag(__('Login')." &raquo;") ?>
+                    <?php echo submit_tag(__('Login')." &raquo;") ?>
                 </td>
             </tr>
         </table>

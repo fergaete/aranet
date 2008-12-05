@@ -1,4 +1,3 @@
-<?php use_helper('Javascript', 'YUIForm', 'YUIJavascript') ?>
 <?php if ($contact->isNew()) {
     $title = __('Add new contact');
 } else {
@@ -39,15 +38,15 @@
 <tr id="li_address_0">
   <td class='actionsCol'>
     <ul>
-      <li id="addressActionAdd"><?php echo link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
-            'url' => 'address/create',
+      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
+            'url' => '@address_create',
             'update' => 'newAddress',
             'position' => 'before',
             'script' => 'true',
             'loading'  => "Element.show('indicator-address')",
             'complete' => "Element.hide('indicator-address')"
             )) ?></li>
-         <li id="addressActionDel"><?php echo link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
+         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
             'url' => 'address/delete',
             'update' => 'li_address_0',
             'loading'  => "Element.show('indicator-address')",

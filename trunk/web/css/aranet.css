@@ -8,16 +8,10 @@ Template:
 Version:      1.1
 */
 
-/***** GENERAL PAGE STYLES *****/
+/* general */
 body {
     font-family: Verdana, Arial;
     font-size:77%;
-}
-#pagebody{
-  padding-bottom: 5px;
-}
-#container{
-  overflow: hidden;
 }
 .block {
 	clear: both;
@@ -28,39 +22,48 @@ body {
 	color:#666;
 	margin:.2em;
 }
-.layout-two-column-right #beta{
-  width: 25%;
-  float:right;
-}
-.layout-two-column-right #alpha{
-  width:75%; 
-  padding:0;
-}
-#alpha-inner {padding:10px 10px 40px 10px;}
-#beta-inner{margin:30px 0 30px 10px;}
-
-table, td, th{border:0;}
 p{padding:.2em 0;}
 strong{font-weight:700;}
-/* ------------------------ banner -------------------------- */
-#banner{
+
+table td, table th {border:0;}
+
+/* misc */
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.clearer {
+  clear: both;
+  font-size: 0;
+  height: 0;
+}
+/*.aranova {color:#1B489A;font-weight:700;text-transform:uppercase;font-style:italic}*/
+.help {
+	clear: both;
+	display:block;
+	color:#666;
+	margin:.2em;
+}
+
+
+/* ------------------------ header -------------------------- */
+.header{
   text-align:left;
   height: 69px;
   border-top:4px solid #4d91d1;
   border-bottom: 2px solid #5E9DD3;
 }
-#banner h1{
+.header h1{
   border:0;
   margin:4px 0 0 0;
-}
-#banner-header{
-  margin:0;
   padding:0 0 0 15px;
 }
-#banner-header a{
+.header a{
   color:#5E9DD3;
 }
-#banner-subject {
+.header h2 {
   position:absolute;
   margin:0;
   padding:0;
@@ -70,7 +73,7 @@ strong{font-weight:700;}
   left:150px;
 }
 
-#banner-description {
+.header h3 {
   color: #999;
   position:absolute;
   margin:0;
@@ -81,24 +84,11 @@ strong{font-weight:700;}
   font-size:123.1%;
 }
 
-#myMenuID{
-  background:#5e9dd3 url(/images/stripe_blue_h.png) repeat-x 0 50%;
-  padding-left:127px;
-  height:22px;
+/* content */
+.content {
+  padding: .8em 0
 }
-
 /* ------------------ Text -------------- */
-h2 {
-    font-family: Arial;
-    color: #039; 
-}
-h3 {
-    color: #333;
-}
-h4 {
-    font-size: 1.5em;
-    color: #933;
-}
 .subText {
     color: #5e9dd3;
 }
@@ -110,25 +100,26 @@ h4 {
 }
 
 /* ------------------------ footer -------------------------- */
-#footer {
+#ft {
 width:100%;
 background:url(/images/stripe_blue_h.png) repeat-x 0 50%;
+font-size:85%;
+padding:2px;
+text-align:center;
+color:#fff;
 }
-.main_footer{
+#ft a {
+  color:#fff;
+  padding:0 .4em;
+  text-decoration:none;
+  font-weight:700;
+}
+.footer{
   position:fixed;
   bottom:0;
   left:0;
   width:100%;
 }
-#footer-inner{
-padding:2px 0;
-font-weight:700;
-text-align:center;
-color:#fff;
-}
-#footer a:link, #footer a:visited, #footer a {font-size:90%;padding:0 .4em;text-decoration:none;color:#fff;}
-#footer a:hover, #footer a:active {color:#222;}
-
 /***** LINK STYLES *****/
 a {
 	color: #039;
@@ -504,8 +495,8 @@ margin-top:5px;
 }
 .objectActions li {
     display: inline;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .sum {
@@ -786,6 +777,9 @@ ul.filterActions li
 /*.auto_complete{display:block ! important;}*/
 
 /* YUI */
+.yui-dt table { width:100%;}
+.yui-dt table .yui-dt-col-checkbox { width:20px;}
+.yui-dt table .yui-dt-col-actions { width:80px;}
 #aranetnav {
   padding-left:127px;
 }
