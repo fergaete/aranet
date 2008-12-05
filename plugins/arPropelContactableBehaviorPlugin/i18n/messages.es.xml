@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.0">
   <file orginal="global" source-language="en" datatype="plaintext" date="2008-11-17T08:02:44Z">
-    <body/>
+    <body>
+      <trans-unit>
+        <source>Choose a date</source>
+        <target>Selecciona una fecha</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Edit contact</source>
+        <target>Editar contacto</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Contact "%1%"</source>
+        <target>Contacto "%1%"</target>
+      </trans-unit>
+
+    </body>
   </file>
 </xliff>

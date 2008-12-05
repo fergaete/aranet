@@ -6,7 +6,6 @@
 <?php aranet_title($title) ?>
 <h3><?php echo $title ?></h3>
 
-
 <form action="<?php echo url_for($contact->isNew() ? '@contact_create' : '@contact_edit_by_id?id='.$contact->getId()) ?>" method="post" class="form">
   <?php if ($form->hasGlobalErrors()): ?>
 <table class="formActions">
@@ -38,19 +37,11 @@
 <tr id="li_address_0">
   <td class='actionsCol'>
     <ul>
-      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/add.png', 'alt="'.__('Add new address') .'"'), array(
-            'url' => '@address_create',
+      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag('icons/add.png', 'alt="'.__('Add new address') .'"'), array(
+            'url' => url_for('@address_create'),
             'update' => 'newAddress',
             'position' => 'before',
-            'script' => 'true',
-            'loading'  => "Element.show('indicator-address')",
-            'complete' => "Element.hide('indicator-address')"
-            )) ?></li>
-         <li id="addressActionDel"><?php echo yui_link_to_remote(image_tag(sfConfig::get('yui_icons_web_dir') . '/delete.png', 'alt="'.__('Delete this address') .'"'), array(
-            'url' => 'address/delete',
-            'update' => 'li_address_0',
-            'loading'  => "Element.show('indicator-address')",
-            'complete' => "Element.hide('indicator-address')"
+            'script' => 'true'
             )) ?></li>
     </ul>
   </td>
@@ -63,11 +54,10 @@
 <?php echo $form['tags']->renderRow() ?>
 </tbody>
 </table>
-
 <table class="formActions">
     <tr>
-        <td>
-          <?php echo yui_submit_tag(__('Save contact')) ?>
+        <td style="text-align:center">
+          <?php echo yui_submit_tag(__('Save')) ?>
           <?php echo yui_reset_tag(__('Reset')) ?>
           <?php echo yui_button_to(__('Cancel'), '@contact_list') ?>
         </td>

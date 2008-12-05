@@ -18,7 +18,7 @@ class anAddressEditForm extends BaseFormPropel
     parent::configure();
 
     // address
-    $id = uniqid();
+    $id = 1;//uniqid();
     $this->widgetSchema['address['.$id.']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullHTMLAddress', 'resultSchema' => '["ResultSet.Result","FullAddress"]', 'action' => '/address/autocomplete', 'value' => $this->object->__toString(true)));
     
     $this->validatorSchema['address['.$id.']'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));

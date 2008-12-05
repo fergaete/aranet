@@ -41,6 +41,9 @@ label:after {content:":";}
 input.autocomplete { position:static!important;width:25em!important; } /* to center, set static and explicit width: */
 div.autocomplete { text-align:left;width:25em!important; } /* to center, set left-align and explicit width: */
 
+.formActions{background:#F6F4F0;width:100%;padding:2px 0;}
+.formActions td{text-align:center;}
+
 /* YUI */
 .yui-cal-nav label {float:none;display:block;}
 .yui-cal-nav input, .yui-cal-nav select {float:none;display:block;}

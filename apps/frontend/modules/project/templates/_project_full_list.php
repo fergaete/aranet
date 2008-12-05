@@ -101,7 +101,7 @@
       <div class="listActions">
         <ul>
           <li><?php echo __('For selected elements') ?> :</li>
-          <li><?php echo link_to_function(image_tag(sfConfig::get("yui_icons_web_dir") . "/delete.png", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
+          <li><?php echo link_to_function(image_tag("icons/delete.png", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
         </ul>
       </div>
 
