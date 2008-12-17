@@ -19,8 +19,9 @@ class tagActions extends sfActions
   public function executeAutocomplete()
   {
     sfConfig::set('sf_web_debug', false);
-    $tag_name = $this->getRequestParameter('filters[tag_name]');
-    if (!$tag_name) {
+    if ($this->hasRequestParameter('filters[tag_name]')) {
+      $tag_name = $this->hasRequestParameter('filters[tag_name]');
+    } else {
       $tag_name = $this->getRequestParameter('tags');
     }
     $this->tags = TagPeer::getTagsLike($tag_name);

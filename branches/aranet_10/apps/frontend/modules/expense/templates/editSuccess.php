@@ -38,20 +38,20 @@
         $vendor_id = $sf_params->get('vendor_id');
         $ven = VendorPeer::retrieveByPk($vendor_id);
         if ($ven)
-            $vendor = $vendor->getFullName(false);
+            $vendor = $vendor->getVendorUniqueName();
     }
     if ($sf_params->get('expense_item_vendor_id') || $sf_params->get('vendor_name')) {
         $vendor_id = $sf_params->get('expense_item_vendor_id');
         if ($vendor_id)
             $ven = VendorPeer::retrieveByPk($vendor_id);
         if (isset($ven) && $ven)
-            $vendor = $ven->getFullName(false);
+            $vendor = $ven->getVendorUniqueName();
         else
             $vendor = $sf_params->get('vendor_name');
     }
     if ($expense_item->getExpenseItemVendorId()) {
         $vendor_id = $expense_item->getExpenseItemVendorId();
-        $vendor = $expense_item->getVendor()->getFullName(false);
+        $vendor = $expense_item->getVendor()->getVendorUniqueName();
     }
     if (!isset($vendor) || !$vendor) {
         $vendor = __('Vendor') . '...';
@@ -215,7 +215,7 @@
           <?php echo select_tag('expense_item_budget_id', objects_for_select($budgets,
   'getId',
   'getFulltitle',
-  (isset($budget_id)) ? $budget_id : $expense_item->getExpenseItemBudgetId(),
+  ($sf_params->has('budget_id')) ? $sf_params->get('budget_id') : $expense_item->getExpenseItemBudgetId(),
   'include_custom='.__('Select budget') . '...'),
   array ('class' => 'form-combobox')) ?>
     <?php endif?>

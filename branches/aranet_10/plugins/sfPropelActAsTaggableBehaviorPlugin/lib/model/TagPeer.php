@@ -657,7 +657,7 @@ class TagPeer extends BaseTagPeer
   public static function getTagsLike($name, $max = 10)
   {
     $c = new Criteria();
-    $crit1 = $c->getNewCriterion(TagPeer::NAME, "%${name}%", Criteria::LIKE);
+    $c->add(TagPeer::NAME, "%${name}%", Criteria::LIKE);
     $c->setLimit($max);
     $tags = TagPeer::doSelect($c);
     return $tags;
