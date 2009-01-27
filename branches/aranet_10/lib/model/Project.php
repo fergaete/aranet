@@ -141,6 +141,7 @@ class Project extends BaseProject
   {
     $c = new Criteria();
     $c->add(MilestonePeer::MILESTONE_PROJECT_ID, $this->getId());
+    $c->addAscendingOrderByColumn(MilestonePeer::MILESTONE_START_DATE);
     $c->addAscendingOrderByColumn(MilestonePeer::MILESTONE_TITLE);
     $milestones = MilestonePeer::doSelect($c);
     $c1 = new Criteria();
