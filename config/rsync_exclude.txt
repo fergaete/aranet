@@ -4,3 +4,4 @@
 /log/*
 /config/propel.ini
 /config/databases.yml
+/doc
