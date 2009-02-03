@@ -297,7 +297,7 @@ class expenseActions extends myActions
    **/
   public function executeUpdatevalidation ()
   {
-    $this->expense_item = $this->getExpenseItem();
+    $expense_item = $this->getExpenseItem();
     if ($this->getRequestParameter('expense_item_validation_id') == 2) {
       // Update date
       $expense_item->setExpenseValidateDate(date('Y-m-d'));
