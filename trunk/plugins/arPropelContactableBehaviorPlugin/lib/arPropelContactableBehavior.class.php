@@ -128,7 +128,6 @@ class arPropelContactableBehavior
    */
   public function addContact(BaseObject $object, $contact)
   {
-
     $contact_names = arPropelContactableToolkit::explodeContactString($contact['name']);
 
     if (is_array($contact_names))
@@ -337,6 +336,8 @@ class arPropelContactableBehavior
   public function setContacts(BaseObject $object, $contacts)
   {
     $this->removeAllContacts($object);
-    $this->addContact($object, $contacts);
+    foreach ($contacts as $contact) {
+      $this->addContact($object, $contact);
+    }
   }
 }

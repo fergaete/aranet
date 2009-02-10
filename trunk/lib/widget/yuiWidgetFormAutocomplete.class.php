@@ -40,6 +40,7 @@ class yuiWidgetFormAutocomplete extends sfWidgetForm
     $this->addOption('formatResult', "%1%.Title");
     $this->addOption('resultSchema', '["ResultSet.Result","Title"]');
     $this->addOption('value', "");
+    parent::configure($options, $attributes);
   }
 
   /**
@@ -54,6 +55,8 @@ class yuiWidgetFormAutocomplete extends sfWidgetForm
    */
   public function render($name, $value = null, $attributes = array(), $errors = array())
   {
+    $attributes = array_merge($this->attributes, $attributes);
+    $attributes = $this->fixFormId($attributes);
     ysfYUI::addComponents('datasource', 'autocomplete', 'json');
 
     if ($this->getOption('delimChar'))
@@ -69,6 +72,13 @@ class yuiWidgetFormAutocomplete extends sfWidgetForm
     $formatResult = $this->getOption('formatResult');
     $resultSchema = $this->getOption('resultSchema');
     $value = $this->getOption('value');
+    if (is_array($value)) {
+      $string_value = $value[0];
+      $id_value = $value[1];
+    } else {
+      $string_value = $value;
+      $id_value = '';
+    }
 
     $js = '
       var ACJson'.$this->generateId($name).' = new function(){
@@ -97,22 +107,27 @@ class yuiWidgetFormAutocomplete extends sfWidgetForm
           return true;
         };
         var itemSelectHandler'.$this->generateId($name).' = function(sType, aArgs) { 
-	        YAHOO.log(sType);
-	        var oInput = YAHOO.util.Dom.get("'.$this->generateId($name).'_ids");
-	        if (oInput.value != "") {
-	          oInput.value = aArgs[2][1].Id + "," + oInput.value + ",";
+          YAHOO.log(sType);
+          var oInput = YAHOO.util.Dom.get("'.$this->generateId($name).'_ids");
+          if (oInput.value != "") {
+            oInput.value = aArgs[2][1].Id + "," + oInput.value + ",";
           } else {
             oInput.value = aArgs[2][1].Id;
           }
-	      }; 
+          oInput.value = aArgs[2][1].Id;
+        }; 
         oAutoComp'.$this->generateId($name).'.itemSelectEvent.subscribe(itemSelectHandler'.$this->generateId($name).'); 
       };';
       ysfYUI::addEvent('document', 'ready', $js);
     
-    return 
-      $this->renderTag('input', array_merge(array('name' => $name."[name]", 'id' => $this->generateId($name), 'value' => $value, 'class' => 'autocomplete'), $attributes)).
-      $this->renderTag('input', array_merge(array('type' => 'hidden', 'name' => $name."[ids]"), $attributes)).
-      $this->renderContentTag('div', '', array_merge(array('id' => $this->generateId($name).'-container', 'class' => 'autocomplete'), $attributes));
+    $class = (isset($attributes['class'])) ? 'autocomplete ' . $attributes['class'] : 'autocomplete';
+    unset($attributes['class']);
+    $field = 
+      $this->renderTag('input', array_merge(array('name' => $name."[name]", 'id' => $this->generateId($name), 'value' => $string_value, 'class' => $class), $attributes));
+    $field .=
+      $this->renderTag('input', array_merge(array('type' => 'hidden', 'name' => $name."[ids]", 'value' => $id_value), $attributes)).
+      $this->renderContentTag('div', '', array_merge(array('id' => $this->generateId($name).'-container', 'class' => $class), $attributes));
+    return $field;
   }
 
 }

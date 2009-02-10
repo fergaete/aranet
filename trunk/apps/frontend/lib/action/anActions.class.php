@@ -101,7 +101,8 @@ class anActions extends sfActions
     $this->addSortCriteria($c);
     $this->addFiltersCriteria($c);
     $this->pager = call_user_func($model.'Peer::getPager', $request->getParameter('startIndex'), 'doSelect', $request->getParameter('results', $this->getDefaultMaxPerPage()), $c);
-    return 'Json';  }
+    return 'Json';  
+  }
   
   /**
    * returns max results per page
@@ -158,6 +159,7 @@ class anActions extends sfActions
    */
   public function executeDelete($request)
   {
+    
     $select = $request->getParameter('select', array());
     if ($id = $request->getParameter('id')) {
       $select[] = $id;
@@ -332,8 +334,8 @@ class anActions extends sfActions
 
     if (!$this->getUser()->getAttribute('sort', null, $this->getModuleName().'/sort'))
     {
-      $this->getUser()->setAttribute('sort', $this->getSortField(), $this->getModuleName().'/sort');
-      $this->getUser()->setAttribute('dir', $this->getOrderType(), $this->getModuleName().'/sort');
+      $this->getUser()->setAttribute('sort', $this->getDefaultSortField(), $this->getModuleName().'/sort');
+      $this->getUser()->setAttribute('dir', $this->getDefaultOrderDir(), $this->getModuleName().'/sort');
     }
   }
 

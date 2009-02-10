@@ -45,7 +45,7 @@ class Client extends BaseClient
         $criteria->add(InvoicePeer::DELETED_AT, null, Criteria::ISNULL);
         return parent::getInvoicesJoinPaymentStatus($criteria);
     }
-    
+
     public function getClientAverageMargin() {
 //        return ($this->getClientTotalExpenses() || $this->getClientTotalCosts()) ? $this->getClientTotalInvoices()/($this->getClientTotalExpenses() + $this->getClientTotalCosts())*100-100 : 0;
         return 0;//($this->getClientTotalExpenses() || $this->getClientTotalCosts()) ? ($this->getClientTotalInvoices() - $this->getClientTotalExpenses() - $this->getClientTotalCosts())*100 / $this->getClientTotalInvoices() : 0;

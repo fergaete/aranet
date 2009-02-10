@@ -31,12 +31,12 @@ class vendorActions extends anActions
         $this->form->updateObject();
         $vendor = $this->form->getObject();
 
-        $vendor->setTags($cli['tags']['name']);
+        $vendor->setTags($ven['tags']['name']);
         if ($ven['tags']['name']) {
           $vendor->setVendorHasTags(true);
         }
-        $vendor->setContacts($cli['contacts']);    
-        $vendor->setAddresses($cli['address']);
+        $vendor->setContacts($ven['contact']);    
+        $vendor->setAddresses($ven['address']);
         $vendor->save();
         
         $this->setFlash('success', $this->__($edit ? 'Vendor edited.' : 'Vendor created.'));
@@ -61,17 +61,32 @@ class vendorActions extends anActions
 
   /**
    * add filter criteria
-   *
+   * 
    * @param Criteria $c
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function addFiltersCriteria ($c)
   {
-    if (isset($this->filters['name']) && $this->filters['name'] && $this->filters['name'] != $this->__('Name') . '...')
+    if (isset($this->filters['name']))
     {
-      $criterion = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
-      $crit2 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
-      $criterion->addOr($crit2);
-      $c->add($criterion);
+      if (isset($this->filters['name']['text']) && $this->filters['name']['text'] && $this->filters['name']['text'] != $this->__('Name') . '...')
+      {
+        $criterion = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
+        $crit2 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
+        $criterion->addOr($crit2);   
+      }
+      if (isset($this->filters['name']['is_empty']) && $this->filters['name']['is_empty'])
+      {
+        
+        $criterion = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, null, Criteria::ISNULL);
+        
+        $crit2 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, null, Criteria::ISNULL);
+        $crit3 = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, "");
+        $crit4 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, "");
+        $crit3->addOr($crit4);
+        $criterion->addOr($crit2);
+        $criterion->addOr($crit3);
+      }
     }
     if (isset($criterion))
     {
@@ -94,7 +109,7 @@ class vendorActions extends anActions
     $keys = array(
         array('name' => 'id'),
         array('name' => 'actions', 'label' => $this->__('Actions')),
-        array('name' => 'vendor_company_name', 'label' => $this->__('Company'), 'sortable' => true, 'editor' => true),
+        array('name' => 'vendor_company_name', 'label' => $this->__('Company'), 'sortable' => true, 'editor' => 'textbox'),
         array('name' => 'contact', 'label' => $this->__('Main contact')),
         array('name' => 'phone', 'label' => $this->__('Phone')),
         array('name' => 'address', 'label' => $this->__('Address')),

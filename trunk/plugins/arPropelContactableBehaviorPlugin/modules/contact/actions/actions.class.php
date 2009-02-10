@@ -57,7 +57,7 @@ class contactActions extends anActions
       $this->contact = new Contact();
     }
     
-    $this->form = new anContactEditForm($this->contact);
+    $this->form = new ContactForm($this->contact);
     
     if ($request->isMethod('post'))
     {
@@ -165,11 +165,11 @@ class contactActions extends anActions
     $keys = array(
         array('name' => 'id'),
         array('name' => 'actions', 'label' => $this->__('Actions')),
-        array('name' => 'name', 'label' => $this->__('Name'), 'sortable' => true, 'editor' => true),
-        array('name' => 'contact_email', 'label' => $this->__('E-Mail'), 'sortable' => true, 'editor' => true, 'parser' => 'email'),
+        array('name' => 'name', 'label' => $this->__('Name'), 'sortable' => true, 'editor' => 'textbox'),
+        array('name' => 'contact_email', 'label' => $this->__('E-Mail'), 'sortable' => true, 'editor' => 'textbox', 'parser' => 'email'),
         array('name' => 'contact_phone', 'label' => $this->__('Phone')),
         array('name' => 'contact_fax', 'label' => $this->__('Fax')),
-        array('name' => 'contact_mobile', 'label' => $this->__('Mobile')),
+        array('name' => 'contact_mobile', 'label' => $this->__('Mobile'), 'editor' => 'textbox'),
         array('name' => 'contact_address', 'label' => $this->__('Address'))
         );
     return $keys;

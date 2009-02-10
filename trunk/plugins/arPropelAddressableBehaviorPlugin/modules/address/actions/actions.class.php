@@ -43,14 +43,14 @@ class addressActions extends anActions
   {
     if ($edit = $request->hasParameter('id'))
     {
-      $this->contact = $this->getObject();
+      $this->address = $this->getObject();
     }
     else
     {
       $this->address = new Address();
     }
     
-    $this->form = new anContactEditForm($address);
+    $this->form = new AddressForm($this->address);
     
     if ($request->isMethod('post'))
     {
@@ -65,7 +65,7 @@ class addressActions extends anActions
         
         $this->setFlash('success', $this->__($edit ? 'Address edited.' : 'Address created.'));
 
-        return $this->redirect('@address_show_by_id?id='.$contact->getId());
+        return $this->redirect('@address_show_by_id?id='.$address->getId());
       }
     }
   }
@@ -126,13 +126,15 @@ class addressActions extends anActions
   
   public function getColumns()
   {
+    $c = sfCultureInfo::getInstance(sfContext::getInstance()->getUser()->getCulture());
+    $countries = $c->getCountries();
     $keys = array(
         array('name' => 'id'),
-        array('name' => 'address_line1', 'label' => $this->__('Street'), 'sortable' => true, 'editor' => true),
-        array('name' => 'address_location', 'label' => $this->__('Location'), 'sortable' => true, 'editor' => true),
-        array('name' => 'address_state', 'label' => $this->__('State'), 'sortable' => true, 'editor' => true),
-        array('name' => 'address_postal_code', 'label' => $this->__('Code'), 'sortable' => true, 'editor' => true),
-        array('name' => 'address_country', 'label' => $this->__('Country'), 'sortable' => true, 'editor' => true)
+        array('name' => 'address_line1', 'label' => $this->__('Street'), 'sortable' => true, 'editor' => 'textbox'),
+        array('name' => 'address_location', 'label' => $this->__('Location'), 'sortable' => true, 'editor' => 'textbox'),
+        array('name' => 'address_state', 'label' => $this->__('State'), 'sortable' => true, 'editor' => 'textbox'),
+        array('name' => 'address_postal_code', 'label' => $this->__('Code'), 'sortable' => true, 'parser' => 'postal_code', 'editor' => 'textbox'),
+        array('name' => 'address_country', 'label' => $this->__('Country'), 'sortable' => true, 'editor' => 'dropdown', 'options' => $countries)
         );
     return $keys;
   }

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 input, textarea, select {border:1px solid #ccc;padding:.3em;}
-input:focus {background: #ECF5FD;border:1px solid #6699CC;}
+input[type="text"]:focus, input[type="password"]:focus {background: #ECF5FD;border:1px solid #6699CC;}
 label {width:120px;padding:.3em;white-space:nowrap;}
 label:after {content:":";}
 
@@ -9,9 +9,13 @@ label:after {content:":";}
 .error_list li{list-style:none;padding:.3em;}
 .help{font-size:.93em;color:#555;margin-top:.1em;}
 
-.form input, .form textarea, .form select {
+.form input[type="text"], .form input[type="password"], .form textarea, .form select {
   float:left;
   width:25em;
+}
+
+.form input.large {
+  width:35em;
 }
 
 .form label.float {
@@ -24,8 +28,8 @@ label:after {content:":";}
 }
 
 .form label.required {
-	background: url("/images/iconRequired.gif") no-repeat 2px 6px;
-	padding-left: 10px;
+  background: url("/images/iconRequired.gif") no-repeat 2px 6px;
+  padding-left: 10px;
 }
 
 
@@ -38,8 +42,9 @@ label:after {content:":";}
 
 .signin input[type="text"], .signin input[type="password"]{width:150px;}
 
-input.autocomplete { position:static!important;width:25em!important; } /* to center, set static and explicit width: */
-div.autocomplete { text-align:left;width:25em!important; } /* to center, set left-align and explicit width: */
+input.autocomplete { position:static!important;width:25em; } /* to center, set static and explicit width: */
+div.autocomplete { text-align:left;width:25em;} /* to center, set left-align and explicit width: */
+div.large {width:35em!important;} /* to center, set left-align and explicit width: */
 
 .formActions{background:#F6F4F0;width:100%;padding:2px 0;}
 .formActions td{text-align:center;}

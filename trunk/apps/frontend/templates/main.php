@@ -6,12 +6,12 @@
 <?php echo include_metas() ?>
 <?php echo include_title() ?>
 
-<link rel="shortcut icon" href="/images/aranet.ico" type="image/x-icon" />
-<link rel="icon" href="/images/aranet.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/images/<?php echo sfConfig::get('aranet_app_icon', 'aranet.ico') ?>" type="image/x-icon" />
+<link rel="icon" href="/images/<?php echo sfConfig::get('aranet_app_icon', 'aranet.ico') ?>" type="image/x-icon" />
 <link rel="start" href="/" title="<?php echo __('Homepage') ?>"/>
 </head>
 
-<body class="yui-skin-<?php echo sfConfig::get('yui_default_skin') ?>" id="top">
+<body id="top">
 <!-- the id on the containing div determines the page width. -->
 <!-- #doc = 750px; #doc2 = 950px; #doc3 = 100%; #doc4 = 974px -->
 
@@ -22,9 +22,7 @@
   <div id="bd">
 
     <div id="hd" class="header">
-      <h1><?php echo link_to(image_tag(sfConfig::get('aranet_company_logo'), 'alt="' . sfConfig::get('aranet_company_name') . '"'), sfConfig::get('aranet_company_site', 'http://www.aranova.es'), 'accesskey="1"');?></h1>
-      <h2><?php echo link_to(image_tag('aranet_logo.jpg', 'alt="ARANet" style="margin-top:10px"'), 'http://aranet.aranova-it.com', 'accesskey="2"') ?></h2>
-      <h3><?php echo __('Backoffice Web Management') ?></h3>
+      <?php include('_header.php') ?>
     </div>
 
     <div id="yui-main">

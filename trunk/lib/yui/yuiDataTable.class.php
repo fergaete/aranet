@@ -23,7 +23,7 @@ class yuiDataTable
   public function __construct($class, $maxPerPage = 10)
   {
     //sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url', 'Javascript'));
-    ysfYUI::addComponents('datasource', 'datatable', 'paginator', 'json');
+    ysfYUI::addComponents('datasource', 'datatable', 'paginator', 'json', 'lang', 'dom');
     $this->class = $class;
     $this->tableName = constant($this->getClassPeer().'::TABLE_NAME');
     $count = call_user_func(array($this->getClassPeer(), 'doCount'), new Criteria());
@@ -120,11 +120,25 @@ class yuiDataTable
           $schema .= ', sortable:true';
         }
         if (array_key_exists('editor', $column)) {
-          $schema .= ', editor: new YAHOO.widget.TextboxCellEditor()';
+          $btn_string = 'LABEL_CANCEL:"'.sfContext::getInstance()->getI18N()->__('Cancel').'", LABEL_SAVE:"'.sfContext::getInstance()->getI18N()->__('Save').'"';
+          if ($column['editor'] == 'phone') {
+              $schema .= ', editor: new YAHOO.widget.RegExpCellEditor({
+                  regExp:"^[0-9]{0,2}[ |-]?[0-9]{0,3}[ |-]?[0-9]{0,3}[ |-]?[0-9]{0,3}$",
+                  finalRegExp:"^[0-9]{2}-[0-9]{3}-[0-9]{3}-[0-9]{3}$",
+                  failedRegExpClassName:"warning"
+              })';
+            } elseif ($column['editor'] == 'textbox') {
+              $schema .= ', editor: new YAHOO.widget.TextboxCellEditor({'.$btn_string.'})';
+            } elseif ($column['editor'] == 'dropdown') {
+              $schema .= ', editor: new YAHOO.widget.DropdownCellEditor({dropdownOptions:["'.implode('","',$column['options']).'"],'.$btn_string.'})';
+            } else {
+              $schema .= ', editor: new YAHOO.widget.TextboxCellEditor({'.$btn_string.'})';
+          }
         }
         $schema .= '},';
       }
     }
+                 // echo $schema;die();
     $this->table_schema = substr($schema,0,-1);
   }
   
@@ -132,7 +146,67 @@ class yuiDataTable
     if (!$this->rowsPerPage) {
       $this->setRowsPerPage();
     }
-    $js = 'YAHOO.util.Event.onContentReady("'.$container.'", function() {
+    $js = '
+    // From here on, the declaration of my Regular Expression editor
+	// It is commented on the article
+	var RECE = function (oConfigs) {
+		this._sId = "yui-regexptextboxceditor" + YAHOO.widget.BaseCellEditor._nCount++;
+		oConfigs = oConfigs || {};
+		oConfigs.type = "regexptextbox";
+		RECE.superclass.constructor.call(this, oConfigs); 
+		
+	};
+	
+	YAHOO.widget.RegExpCellEditor = RECE;
+
+YAHOO.lang.extend(RECE, YAHOO.widget.TextboxCellEditor, {
+		regExp: null,
+		finalRegExp: null,
+		failedRegExpClassName : "",
+		render: function () {
+			if (this.regExp && YAHOO.lang.isString(this.regExp)) { this.regExp = new RegExp(this.regExp); }
+			if (this.finalRegExp && YAHOO.lang.isString(this.finalRegExp)) { this.finalRegExp = new RegExp(this.finalRegExp); }
+			RECE.superclass.render.call(this);
+			YAHOO.util.Event.on(this.textbox,"keypress", function(ev) {
+				if (YAHOO.lang.isNull(this.regExp)) { return; }
+				var textbox = this.textbox;
+				if (YAHOO.env.ua.gecko > 0 && ev.keyCode) { 
+					return;
+				}
+				var ch = ev.keyCode || ev.charCode, 
+					val = textbox.value, 
+					start, 
+					end; 
+				if (document.selection && document.selection.createRange) {
+					//undocumented IE trick to get the selection box.
+					start = Math.abs(document.selection.createRange().moveStart("character", -1000000));
+					end = Math.abs(document.selection.createRange().moveEnd("character", -1000000)); 
+				} else {
+					start = textbox.selectionStart;
+					end = textbox.selectionEnd;
+				}
+				val = val.substr(0,start) + String.fromCharCode(ch) + val.substr(end);
+				if (!this.regExp.test(val)) {
+					YAHOO.util.Event.stopEvent(ev);
+				}
+			},this,true);
+			YAHOO.util.Event.on(this.textbox,"keyup",function(ev) {
+				if (YAHOO.lang.isNull(this.finalRegExp)) { return; }
+				if (this.finalRegExp.test(this.textbox.value)) {
+					YAHOO.util.Dom.removeClass(this.textbox,this.failedRegExpClassName);
+				} else {
+				  YAHOO.util.Dom.addClass(this.textbox,this.failedRegExpClassName);
+				}
+			},this,true);
+		}
+	
+	});
+	YAHOO.lang.augmentObject(RECE, YAHOO.widget.TextboxCellEditor);
+	
+	// This is the way to add it to the Editors hash so it can be located by keyname.
+	YAHOO.widget.DataTable.Editors.regexp = RECE;
+	
+    YAHOO.util.Event.onContentReady("'.$container.'", function() {
     EnhanceFromMarkup_update = new function() {
         YAHOO.widget.BaseCellEditor.prototype.asyncSubmitter = function() {
             // ++++ this is the inner function to handle the several possible failure conditions
@@ -178,7 +252,7 @@ class yuiDataTable
                 scope: this
             }
                     );
-            this.unblock();            
+            this.unblock();
 
         };
         ;

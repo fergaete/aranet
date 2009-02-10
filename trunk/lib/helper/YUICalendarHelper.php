@@ -1,5 +1,6 @@
 <?php
 use_helper('Javascript');
+
 /*
  * This file is part of the symfony package.
  * (c) 2008 Yang Tang <pureyang@gmail.com>

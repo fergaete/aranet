@@ -7,39 +7,6 @@ client:
     column:              id
     with_wildcard_routes: true
 
-# TODO: temporal hasta que funcione el routing en los modulos
-t_contact_show_by_id:
-  url:   /contact/show/:id
-  param: { module: contact, action: show }
-
-t_contact_edit_by_id:
-  url:   /contact/edit/:id
-  param: { module: contact, action: edit }
-
-t_contact_list:
-  url:   /contact/list
-  param: { module: contact, action: list }
-
-t_contact_delete_by_id:
-  url:   /contact/delete/:id
-  param: { module: contact, action: delete }
-
-t_contact_delete_all:
-  url:  /contact/delete
-  param:  { module: contact, action: delete }
-t_contact_list_remove_filters:
-  url:  /contact/list?filter=
-  param:  { module: client, action: list }
-
-
-t_contact_minilist:
-  url:   /contact/minilist/:related/:id
-  param: { module: contact, action: minilist }
-  
-t_contact_index:
-  url:   /contact
-  param: { module: contact, action: index }
-
 
 sf_guard_signin:
   url:   /login
@@ -90,7 +57,7 @@ client_list:
   url:  /client/list
   param:  { module: client, action: list }
 client_list_remove_filters:
-  url:  /client/list?filter=
+  url:  /client/list?client_filters[]=
   param:  { module: client, action: list }
 client_index:
   url:  /client
@@ -113,7 +80,7 @@ project_index:
   url:  /project
   param:  { module: project, action: list }
 project_list_remove_filters:
-  url:  /project/list?filter=
+  url:  /project/list?project_filters[]=
   param:  { module: project, action: list }
 project_create:
   url:  /project/create
@@ -149,7 +116,7 @@ budget_minilist:
   url:  /budget/minilist/related/:related/id/:id
   param:  { module: budget, action: minilist }
 budget_list_remove_filters:
-  url:  /budget/list?filter=
+  url:  /budget/list?budget_filters[]=
   param:  { module: budget, action: list }
 budget_index:
   url:  /budget
@@ -181,7 +148,7 @@ timesheet_list:
   url:  /timesheet/list
   param:  { module: timesheet, action: list }
 timesheet_list_remove_filters:
-  url:  /timesheet/list?filter=
+  url:  /timesheet/list?timesheet_filters[]=
   param:  { module: timesheet, action: list }
 timesheet_index:
   url:  /timesheet
@@ -219,7 +186,7 @@ invoice_list:
   url:  /invoice/list
   param:  { module: invoice, action: list }
 invoice_list_remove_filters:
-  url:  /invoice/list?filter=
+  url:  /invoice/list?invoice_filters[]=
   param:  { module: invoice, action: list }
 invoice_index:
   url:  /invoice
@@ -254,7 +221,7 @@ cash_list:
   url:  /cash/list
   param:  { module: cash, action: list }
 cash_list_remove_filters:
-  url:  /cash/list?filter=
+  url:  /cash/list?cash_filters[]=
   param:  { module: cash, action: list }
 cash_index:
   url:  /cash
@@ -274,7 +241,7 @@ member_list:
   url:  /member/list
   param:  { module: member, action: list }
 member_list_remove_filters:
-  url:  /member/list?filter=
+  url:  /member/list?member_filters[]=
   param:  { module: member, action: list }
 member_index:
   url:  /member
@@ -288,7 +255,7 @@ file_list:
   url:  /file/list
   param:  { module: file, action: list }
 file_list_remove_filters:
-  url:  /file/list?filter=
+  url:  /file/list?file_filters[]=
   param:  { module: file, action: list }
 file_index:
   url:  /file
@@ -298,6 +265,9 @@ file_create:
   param:  { module: file, action: create }
 
 # expense
+expense_create_from_object:
+  url:  /expense/:related/:id
+  param:  { module: expense, action: create }
 expense_stats_by_id:
   url:  /expense/stats/:id
   param:  { module: expense, action: stats }
@@ -317,7 +287,7 @@ expense_list:
   url:  /expense/list
   param:  { module: expense, action: list }
 expense_list_remove_filters:
-  url:  /expense/list?filter=
+  url:  /expense/list?expense_filters[]=
   param:  { module: expense, action: list }
 expense_index:
   url:  /expense
@@ -355,7 +325,7 @@ income_list:
   url:  /income/list
   param:  { module: income, action: list }
 income_list_remove_filters:
-  url:  /income/list?filter=
+  url:  /income/list?income_filters[]=
   param:  { module: income, action: list }
 income_index:
   url:  /income
@@ -390,7 +360,7 @@ vendor_list:
   url:  /vendor/list
   param:  { module: vendor, action: list }
 vendor_list_remove_filters:
-  url:  /vendor/list?filter=
+  url:  /vendor/list?vendor_filters[]=
   param:  { module: vendor, action: list }
 vendor_index:
   url:  /vendor

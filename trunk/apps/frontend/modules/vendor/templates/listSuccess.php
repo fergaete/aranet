@@ -2,21 +2,7 @@
 <?php aranet_title($title) ?>
 
 <?php slot('filters') ?>
-<div class="module-filters module">
-  <h2 class="module-header"><?php echo __('Filters') ?></h2>
-  <div class="module-content">
-<form action="<?php echo url_for('@vendor_list') ?>" method="get" name="vendor_filters">
-<?php echo $filter_form ?>
-
-  <div class="filterActions">
-    <?php echo yui_reset_tag(__('Reset'), '@vendor_list_remove_filters') ?>
-    <?php echo yui_submit_tag(__('Filter')) ?>
-  </div>
-</form>
-</div>
-  <div class="module-footer">
-  </div>
-</div>
+<?php include_partial('filters', array('filter_form' => $filter_form)) ?>
 <?php end_slot() ?>
 
 <h3><?php echo $title ?></h3>
@@ -26,9 +12,11 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?>:</li>
-  <li><?php echo link_to_function(image_tag("icons/delete.png", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
+  <li><?php echo link_to_function(image_tag("icons/delete.png", 'alt="'.__('Delete selected').'"'),"document.chklist.submit()", array('confirm' => __('Are you sure?'))) ?></li>
 </ul>
 </div>
 </form>
 
+<div class="clearer"></div>
+<?php echo yui_button_to(__('New'), '@vendor_create') ?>
 <?php echo $table->render('vendorTable', 'vendorTable', 'paginator', 'vendor'); ?>
