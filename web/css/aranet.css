@@ -13,14 +13,17 @@ body {
     font-family: Verdana, Arial;
     font-size:77%;
 }
+#doc, #doc2, #doc3, #doc4 {
+    margin:0;
+}
 .block {
-	clear: both;
+    clear: both;
 }
 .help {
-	clear: both;
-	display:block;
-	color:#666;
-	margin:.2em;
+    clear: both;
+    display:block;
+    color:#666;
+    margin:.2em;
 }
 p{padding:.2em 0;}
 strong{font-weight:700;}
@@ -41,10 +44,10 @@ table td, table th {border:0;}
 }
 /*.aranova {color:#1B489A;font-weight:700;text-transform:uppercase;font-style:italic}*/
 .help {
-	clear: both;
-	display:block;
-	color:#666;
-	margin:.2em;
+    clear: both;
+    display:block;
+    color:#666;
+    margin:.2em;
 }
 
 
@@ -86,7 +89,7 @@ table td, table th {border:0;}
 
 /* content */
 .content {
-  padding: .8em 0
+  padding: 1em 1em 4em 1em;
 }
 /* ------------------ Text -------------- */
 .subText {
@@ -104,7 +107,7 @@ table td, table th {border:0;}
 width:100%;
 background:url(/images/stripe_blue_h.png) repeat-x 0 50%;
 font-size:85%;
-padding:2px;
+padding:5px;
 text-align:center;
 color:#fff;
 }
@@ -122,22 +125,22 @@ color:#fff;
 }
 /***** LINK STYLES *****/
 a {
-	color: #039;
-	text-decoration: none;
+    color: #039;
+    text-decoration: none;
 }
 a:hover {
-	color: #C60;
+    color: #C60;
 }
 
 .bigLink {
-	color: #039;
-	text-decoration: none;
-	font-weight: 700;
+    color: #039;
+    text-decoration: none;
+    font-weight: 700;
 }
 
 .bigLink:hover {
-	text-decoration: none;
-	color: #618FEB;
+    text-decoration: none;
+    color: #618FEB;
 }
 
 /* -------------------- tables ------------------- */
@@ -147,34 +150,34 @@ a:hover {
 }
 
 .gridTable th {
-	height: 17px;	
-	font-weight: bold;
-	color: #039;
-	padding: 3px;
-	line-height: 10px;
-	text-align: center;
+    height: 17px;   
+    font-weight: bold;
+    color: #039;
+    padding: 3px;
+    line-height: 10px;
+    text-align: center;
 }
 
 .gridTable td {
-	padding: 3px 10px 3px 3px;
-	border-top: 1px solid #ECECEC;
-	border-bottom: 1px solid #ECECEC;
-	vertical-align: middle;
+    padding: 3px 10px 3px 3px;
+    border-top: 1px solid #ECECEC;
+    border-bottom: 1px solid #ECECEC;
+    vertical-align: middle;
 }
 .gridTable .currency, .dataTable .currency {
-	text-align: right;
-	white-space:nowrap;
+    text-align: right;
+    white-space:nowrap;
 }
 .gridTable .number, .gridTable .date, .dataTable .number, .dataTable .status, .dataTable .percent, .dataTable .date, .dataTable .phone, .dataTable .lang {
-	text-align: center;
+    text-align: center;
 }
 .dataTable .checkbox {
-	width:10px;
-	text-align: center;
+    width:10px;
+    text-align: center;
 }
 .gridTable .text, .dataTable .text {
-	text-align:left;
-	padding-left:5px;
+    text-align:left;
+    padding-left:5px;
 }
 .dataTable th.actions {width:60px;}
 .dataTable td.actions {
@@ -182,18 +185,18 @@ a:hover {
   vertical-align:middle;
 }
 .gridTable .title, .dataTable .title {
-	font-weight:700;
+    font-weight:700;
 }
 .gridTable .total, .dataTable .total {
-	text-align:right;
-	font-weight:700;
+    text-align:right;
+    font-weight:700;
 }
 .gridTable .rightCol {
-	background: #F6F4F0;
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #fff;
-	text-align: left;
-	padding-left: 10px;
+    background: #F6F4F0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    text-align: left;
+    padding-left: 10px;
   width:auto;
 }
 .gridTable .actionsCol{width:35px;padding:5px 2px;text-align:center;background:#F6F4F0;border-right:2px solid #ECECEC;white-space:nowrap;}
@@ -202,7 +205,7 @@ a:hover {
 .gridTable .leftCol {width:180px !important;vertical-align:top;text-align:left;font-weight:700;}
 .gridTable .leftColM {width:23% !important;}
 .gridTable label {
-	color: #504D4D;
+    color: #504D4D;
 }
 
 .tableFooter {
@@ -289,8 +292,9 @@ a:hover {
   background:url(/images/stripe_blue_h.png) repeat-x 0 50%;
   color:#fff;
   margin:0;
-  padding:2px 0;
+  padding:3px 0 3px 5px;
   font-weight:700;
+  font-size:92%;
 }
 .module .module-footer {
   background:#4d91d1;
@@ -303,6 +307,7 @@ a:hover {
   border-left:4px solid #4d91d1;
   border-right:4px solid #4d91d1;
   text-align:left;
+  padding:.4em;
   font-size:85%;
 }
 .module p {padding:.3em;}
@@ -323,6 +328,32 @@ a:hover {
 .tag-cloud{margin:0;padding:2px 3px 6px 3px;}
 .tag-cloud li{display:inline;padding-left:5px;}
 big{font-size:120%;}
+
+/* filters */
+.module-filters input[type="checkbox"] + label
+{
+  display: inline;
+  float: none;
+}
+
+.module-filters table {
+    width:100%;
+}
+.module-filters th {
+    vertical-align:middle;
+    border-right:2px solid #ccc;
+    font-weight:700;
+}
+.module-filters td {
+    padding-left:.5em;
+}
+.module-filters input[type="text"], .module-filters textarea, .module-filters select {border:1px solid #ccc;padding:.3em;}
+.module-filters label {
+    padding-right:5px;
+}
+.module-filters input[type="text"] {
+    width:90%;
+}
 /***** FIELD STYLES *****/
 .form-text, .form-combobox, .form-textarea {
 width:350px!important;
@@ -355,6 +386,9 @@ width:100%!important;
 .form-save{background:#f00 url(/images/button_save.gif) no-repeat 0 0; width:60px;height:17px;padding:0;border:0;margin:0 0 4px 0;}
 .form-save span{display:none}
 
+
+/* -------------------- nav ------------------- */
+#myMenuID{background:#5e9dd3 url(/images/stripe_blue_h.png) repeat-x 0 50%;padding-left:120px;}
 
 /* -------------------- subNav ------------------- */
 #subMenuBG {
@@ -499,8 +533,8 @@ margin-top:5px;
 }
 
 .sum {
-		width: 100%;
-		text-align: right;
+    width: 100%;
+    text-align: right;
 }
 
 /* ------------- pagination ---------- */
@@ -567,7 +601,7 @@ ul.filterActions li
 /* ------------- windows ---------- */
 .windowFrame {
     border: 1px solid #DFDCDC;
-		margin:10px 0;
+    margin:10px 0 0;
     background: #fff url(/images/bgWindow.gif) repeat-x top left;
     padding:0!important;
 }
@@ -587,6 +621,7 @@ ul.filterActions li
 
 .windowFrame .leftSide li {
     padding:2px 0 2px 0;
+    list-style:none;
 }
 
 .windowHeadDashboard {
@@ -620,7 +655,7 @@ ul.filterActions li
   background-position: 60px 20px;
   background-repeat: no-repeat;
   padding: 10px;
-	overflow:hidden;
+  overflow:hidden;
   margin-left:auto;
   margin-right:auto;
 }
@@ -794,3 +829,5 @@ margin:.3em auto!important;
   float:right;
 }
 .loginBox .welcome{font-weight:700;}
+
+#related_tabs {margin-top:1em!important;}

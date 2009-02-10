@@ -2,7 +2,7 @@
 <?php aranet_title(__('Client "%1%"', array('%1%' => $client))) ?>
 <?php ysfYUI::addComponents('reset', 'fonts', 'grids', 'tabview'); ysfYUI::addEvent('tabs', 'ready', "var tabs = new YAHOO.widget.TabView('tabs');"); ?>
 
-<h3 id="pageSubTitle"><?php echo __('View client details') ?>: <span class="subText"><?php echo $client ?></span></h3>
+<h3><?php echo __('View client details') ?>: <span class="subText"><?php echo $client ?></span></h3>
 
 <div id="clientDisplay" class="windowFrame">
     <table>
@@ -16,18 +16,18 @@
         <td class="rightSide">
               <div id="tabs" class="yui-navset">
                 <ul class="yui-nav">
-	                <li class="selected"><a href="#stats"><em><?php echo __('Client stats') ?></em></a></li>
-	                <li><?php echo yui_link_to_remote('<em>'.__('Contacts').'</em>', array(
-	                  'url' => url_for('@contact_minilist?related=Client&id='.$client->getId() . '#contacts'),
-	                  'update' => 'contacts-tab',
-	                  'loading'  => "Element.show('indicator-tabs')",
+                  <li class="selected"><a href="#stats"><em><?php echo __('Client stats') ?></em></a></li>
+                  <li><?php echo yui_link_to_remote('<em>'.__('Contacts').'</em>', array(
+                    'url' => url_for('@contact_minilist?related=Client&id='.$client->getId() . '#contacts'),
+                    'update' => 'contacts-tab',
+                    'loading'  => "Element.show('indicator-tabs')",
                     'complete' => "Element.hide('indicator-tabs')")) ?></li>
-	                <li><?php echo yui_link_to_remote('<em>'.__('Addresses').'</em>', array(
-	                  'url' => url_for('@address_minilist?related=Client&id='.$client->getId() . '#addresses'),
-	                  'update' => 'addresses-tab',
-	                  'loading'  => "Element.show('indicator-tabs')",
+                  <li><?php echo yui_link_to_remote('<em>'.__('Addresses').'</em>', array(
+                    'url' => url_for('@address_minilist?related=Client&id='.$client->getId() . '#addresses'),
+                    'update' => 'addresses-tab',
+                    'loading'  => "Element.show('indicator-tabs')",
                     'complete' => "Element.hide('indicator-tabs')")) ?></li>
-	              </ul>
+                </ul>
                 <div class="yui-content">
                   <div id="stats">
                     <?php include_partial('stats', array('client' => $client)) ?>
@@ -40,7 +40,7 @@
         </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" style="text-align:center">
           <div id="cliDetailEdit" style="padding: 4px;">
             <?php echo yui_button_to(__('Edit'), '@client_edit_by_id?id=' . $client->getId()) ?>
             <?php echo yui_button_to(__('Delete'), '@client_delete_by_id?id=' . $client->getId()) ?>
@@ -61,9 +61,9 @@
     <li><a href="#budgets"><em><?php echo __('Budgets') ?></em></a></li>
     <li><a href="#invoices"><em><?php echo __('Invoices') ?></em></a></li>
     <!-- <li><?php echo yui_link_to_remote('<em>'.__('Budgets (AJAX)').'</em>', array(
-	                  'url' => url_for('@budget_minilist?related=Client&id='.$client->getId() . '#budgets-ajax'),
-	                  'update' => 'budgets-ajax',
-	                  'loading'  => "Element.show('indicator-related_tabs')",
+                    'url' => url_for('@budget_minilist?related=Client&id='.$client->getId() . '#budgets-ajax'),
+                    'update' => 'budgets-ajax',
+                    'loading'  => "Element.show('indicator-related_tabs')",
                     'complete' => "Element.hide('indicator-related_tabs')")) ?></li> -->
   </ul>
   <div class="yui-content">
@@ -80,10 +80,11 @@
       <?php echo yui_button_to(__('Create new budget'), "@budget_create_from_object?related=Client&id=" . $client->getId()) ?>
     </div>
     <div id="invoices">
-      <div id="clientBudgets">
+      <div id="clientInvoices">
 <?php include_partial('invoice/invoice_list', array('invoices' => $client->getInvoicesJoinPaymentStatusOrderByNumber(), 'related' => 'Client')) ?>
       </div>
       <?php echo yui_button_to(__('Create new invoice'), "@invoice_create_from_object?related=Client&id=" . $client->getId()) ?>
     </div>
     <div id="budgets-ajax"></div>
+  </div>
 </div>

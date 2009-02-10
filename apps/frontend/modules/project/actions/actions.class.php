@@ -43,7 +43,7 @@ class projectActions extends anActions
         if ($pro['tags']['name']) {
           $project->setProjectHasTags(true);
         }
-        $project->setContacts($pro['contacts']);
+        $project->setContacts($pro['contact']);
         $project->save();
         
         $this->setFlash('success', $this->__($edit ? 'Project edited.' : 'Project created.'));
@@ -51,28 +51,6 @@ class projectActions extends anActions
         return $this->redirect('@project_show_by_id?id='.$project->getId());
       }
     }
-  }
-
-  /**
-   * executes show action
-   *
-   * @param $request
-   */
-  public function executeShow($request)
-  {
-    $this->project = $this->getProject();
-    return sfView::SUCCESS;
-  }
-
-  /**
-   * executes stats action
-   *
-   * @param $request
-   */
-  public function executeStats($request)
-  {
-    $this->project = $this->getProject();
-    return sfView::SUCCESS;
   }
   
   /**
@@ -86,48 +64,6 @@ class projectActions extends anActions
     $name = $request->getParameter('query');
     $this->setLayout(false);
     $this->projects = ProjectPeer::getProjectsLike($name);
-  }
-
-  /**
-   * executes delete action
-   *
-   * @param $request
-   */
-  public function executeDelete($request)
-  {
-    $select = $request->getParameter('select', array());
-    if ($id = $request->getParameter('id')) {
-      $select[] = $id;
-    }
-    foreach ($select as $item) {
-      if ($item != 0) {
-        $project = ProjectPeer::retrieveByPk($item);
-        $this->forward404Unless($project);
-        $project->delete();
-      }
-    }
-
-    if ($request->isXmlHttpRequest()) {
-      return sfView::SUCCESS;
-    } else {
-      $this->redirect('@project_list');
-    }
-  }
-
-  /**
-   * executes list action
-   *
-   * @param $request
-   */
-  public function executeList($request)
-  {
-    $this->processList(new Criteria(), 'doSelect');
-    $this->filters = $this->getUser()->getAttributeHolder()->getAll('project/filters');
-    $filter = new Filter();
-    $filter->fromArray($this->filters);
-    $this->filter_form = new anProjectFilterForm($filter);
-
-    return sfView::SUCCESS;
   }
 
   public function executeCreatemilestone()
@@ -413,29 +349,24 @@ class projectActions extends anActions
   }
 
   /**
-   * Returns the project from the request parameter "id"
-   *
-   * @return Project
-   */
-  private function getProject()
-  {
-    $c = new Criteria();
-    $c->add(ProjectPeer::ID, $this->getRequestParameter('id'));
-
-    $projects = ProjectPeer::doSelectJoinProjectStatus($c);
-
-    $this->forward404Unless(isset($projects[0]) && $projects[0]);
-
-    return $projects[0];
-  }
-
-  /**
    * Returns the column name to sort list by default
    *
    * @return string
    */
-  protected function getSortColumn()
+  protected function getDefaultSortField()
   {
-    return ProjectPeer::PROJECT_NUMBER;
+    return 'project_number';
   }
+  
+  public function getColumns()
+  {
+    $keys = array(
+        array('name' => 'id'),
+        array('name' => 'actions', 'label' => $this->__('Actions')),
+        array('name' => 'project_number', 'label' => $this->__('Number')),
+        array('name' => 'project_title', 'label' => $this->__('Title'), 'sortable' => true, 'editor' => 'textbox'),
+        );
+    return $keys;
+  }
+  
 }

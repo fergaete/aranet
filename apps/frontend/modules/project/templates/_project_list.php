@@ -1,5 +1,5 @@
-<?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
 <?php if (count($projects)) : ?>
+<?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
 <div class="windowFrame" id="<?php echo $related ?>ViewProjects">
     <table class="dataTable">
         <thead>

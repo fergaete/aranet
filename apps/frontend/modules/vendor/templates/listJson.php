@@ -14,12 +14,22 @@ if ($dcontact) {
   $con = link_to($dcontact, '@contact_show_by_id?id=' . $dcontact->getId());
   $con .= ($dcontact->getContactEmail()) ? '  ['.mail_to($dcontact->getContactEmail(),'email') . ']': '';
   $con .= ($dcontact->getContactRol()) ? '<br/>'.$dcontact->getContactRol() : '';
+} else {
+  $con = "";
 }
 ?>
         "contact":"<?php echo str_replace('"', "'",$con) ?>",
+<?php
+$daddress = $vendor->getDefaultAddress();
+if ($daddress) {
+  $add = link_to($daddress, '@address_show_by_id?id=' . $daddress->getId());
+} else {
+  $add = "";
+}
+?>
+        "address":"<?php echo str_replace('"', "'",$add) ?>",
         "phone":"<?php echo $dcontact ? smart_format_phone($dcontact->getContactPhone()) : '' ?>",
-        "address":"<?php echo ($vendor->getDefaultAddress()) ?  $vendor->getDefaultAddress() : '' ?>",
-        "total_amount":"<?php //echo format_currency($vendor->getVendorTotalAmount(), "EUR") ?>"},
+        "total_amount":<?php //echo format_currency($vendor->getVendorTotalInvoices(), "EUR") ?>""},
         <?php if ($i+$pager->getFirstIndice()-1 < $pager->getLastIndice()) : ?>,<?php endif ?>
 <?php endforeach ?>
     ]

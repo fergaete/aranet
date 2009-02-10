@@ -2,47 +2,47 @@
 <xliff version="1.0">
   <file orginal="global" source-language="en" datatype="plaintext" date="2008-11-17T08:02:44Z">
     <body>
-      <trans-unit id="1">
+      <trans-unit>
         <source>Client common name</source>
         <target>Nombre común de cliente</target>
       </trans-unit>
       
-      <trans-unit id="2">
+      <trans-unit>
         <source>Company name</source>
         <target>Nombre de la empresa</target>
       </trans-unit>
       
-      <trans-unit id="3">
+      <trans-unit>
         <source>Industry or Business type</source>
         <target>Actividad empresarial</target>
       </trans-unit>
       
-      <trans-unit id="4">
+      <trans-unit>
         <source>The url address is invalid.</source>
         <target>La dirección web no es válida.</target>
       </trans-unit>
 
-      <trans-unit id="5">
+      <trans-unit>
         <source>Client since</source>
         <target>Cliente desde</target>
       </trans-unit>
 
-      <trans-unit id="6">
-        <source>Client website</source>
+      <trans-unit>
+        <source>Website</source>
         <target>Página web</target>
       </trans-unit>
       
-      <trans-unit id="7">
+      <trans-unit>
         <source>Comments</source>
         <target>Comentarios</target>
       </trans-unit>
       
-      <trans-unit id="8">
+      <trans-unit>
         <source>Contacts</source>
         <target>Contactos</target>
       </trans-unit>
       
-      <trans-unit id="9">
+      <trans-unit>
         <source>Address</source>
         <target>Dirección</target>
       </trans-unit>
@@ -57,6 +57,26 @@
         <target>Fecha...</target>
       </trans-unit>
       
+      <trans-unit>
+        <source>Required.</source>
+        <target>Obligatorio.</target>
+      </trans-unit>
+
+      <trans-unit>
+        <source>Vendor common name</source>
+        <target>Nombre común de proveedor</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>Vendor kind of company</source>
+        <target></target>
+      </trans-unit>
+
+      <trans-unit>
+        <source>Contact</source>
+        <target>Contacto</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

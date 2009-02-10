@@ -1,4 +1,3 @@
-<?php ysfYUI::addComponents('calendar', 'container', 'button'); ?>
 <?php use_helper('YUICalendar') ?>
 <div class="module-calendar module">
   <h2><?php echo __('Calendar events') ?></h2>

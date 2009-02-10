@@ -32,15 +32,28 @@
 <?php echo $form['contact_birthday']->renderRow() ?>
 
 <?php foreach ($contact->getAddresses() as $address): ?>
-<?php echo $form['address['.$address->getId().']']->renderRow() ?>
+<tr id="li_address_<?php echo $address->getId() ?>">
+  <td class="actionsCol">
+    <ul>
+         <li><?php echo yui_link_to_remote(image_tag('icons/delete.png', 'alt="'.__('Delete this address') .'"'), array(
+            'url' => url_for('@address_delete_by_id?id='.$address->getId()),
+            'update' => 'li_address_'.$address->getId(),
+            'loading'  => "Element.show('indicator-address')",
+            'complete' => "Element.hide('indicator-address')"
+            )) ?></li>
+    </ul>
+  </td>
+  <td class='leftCol'><?php echo $form['address['.$address->getId().']']->renderLabel() ?></td>
+  <td class='rightCol'><?php echo $form['address['.$address->getId().']'] ?></td>
+</tr>
 <?php endforeach ?>
 <tr id="li_address_0">
   <td class='actionsCol'>
     <ul>
-      <li id="addressActionAdd"><?php echo yui_link_to_remote(image_tag('icons/add.png', 'alt="'.__('Add new address') .'"'), array(
+      <li><?php echo yui_link_to_remote(image_tag('icons/add.png', 'alt="'.__('Add new address') .'"'), array(
             'url' => url_for('@address_create'),
             'update' => 'newAddress',
-            'position' => 'before',
+
             'script' => 'true'
             )) ?></li>
     </ul>
@@ -59,7 +72,8 @@
         <td style="text-align:center">
           <?php echo yui_submit_tag(__('Save')) ?>
           <?php echo yui_reset_tag(__('Reset')) ?>
-          <?php echo yui_button_to(__('Cancel'), '@contact_list') ?>
+          <?php (!$contact->isNew()) ? echo yui_button_to(__('Delete'), '@contact_delete_by_id?id='.$contact->getId(), array('confirm' => __('Are you sure?'))) : '' ?>
+          <?php echo yui_button_to(__('Return to list'), '@contact_list') ?>
         </td>
     </tr>
 </table>

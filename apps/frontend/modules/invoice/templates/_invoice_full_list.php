@@ -101,7 +101,7 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?> :</li>
-  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
+  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="'.__('Delete selected').'"'),"document.chklist.submit()") ?></li>
 </ul>
 </div>
 
