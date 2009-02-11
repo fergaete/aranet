@@ -6,9 +6,9 @@
 <?php echo include_metas() ?>
 <?php echo include_title() ?>
 
-<link rel="shortcut icon" href="/images/<?php echo sfConfig::get('aranet_app_icon', 'aranet.ico') ?>" type="image/x-icon" />
-<link rel="icon" href="/images/<?php echo sfConfig::get('aranet_app_icon', 'aranet.ico') ?>" type="image/x-icon" />
-<link rel="start" href="/" title="<?php echo __('Homepage') ?>"/>
+<link rel="shortcut icon" href="<?php echo url_for('images/'.sfConfig::get('aranet_app_icon', 'aranet.ico'), true) ?>" type="image/x-icon" />
+<link rel="icon" href="<?php echo url_for('images/'.sfConfig::get('aranet_app_icon', 'aranet.ico'), true) ?>" type="image/x-icon" />
+<link rel="start" href="<?php echo url_for('/', true) ?>" title="<?php echo __('Homepage') ?>"/>
 </head>
 
 <body id="top">

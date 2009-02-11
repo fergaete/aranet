@@ -1,6 +1,6 @@
 <?php use_helper('NumberExtended') ?>
 {"recordsReturned":<?php echo $pager->getMaxPerPage() ?>,
-    "totalRecords":<?php echo $pager->getNbResults() ?>,
+    "totalRecords":<?php echo count($pager->getResults()) ?>,
     "startIndex":<?php echo $pager->getFirstIndice()-1 ?>,
     "records":[
 <?php $i = 0; foreach ($pager->getResults() as $client) : $i++ ?>
@@ -19,8 +19,8 @@ if ($dcontact) {
         "contact":"<?php echo str_replace('"', "'",$con) ?>",
         "phone":"<?php echo $dcontact ? smart_format_phone($dcontact->getContactPhone()) : '' ?>",
         "nb_projects":"<?php //echo $client->getClientNbProjects() ?>",
-        "revenue":"<?php //echo format_currency($client->getClientTotalInvoices(), "EUR") ?>"},
-        <?php if ($i+$pager->getFirstIndice()-1 < $pager->getLastIndice()) : ?>,<?php endif ?>
+        "revenue":"<?php //echo format_currency($client->getClientTotalInvoices(), "EUR") ?>"}
+        <?php if ($i+$pager->getFirstIndice()-1 < count($pager->getResults())) : ?>,<?php endif ?>
 <?php endforeach ?>
     ]
 }

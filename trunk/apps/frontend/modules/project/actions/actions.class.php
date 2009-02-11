@@ -259,6 +259,7 @@ class projectActions extends anActions
    */
   protected function addFiltersCriteria ($c)
   {
+    /*
     if (isset($this->filters['project_from_is_empty']))
     {
       $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_START_DATE, '');
@@ -286,16 +287,6 @@ class projectActions extends anActions
         $criterion = $criterion2;
       }
     }
-    if (isset($this->filters['project_status_id_is_empty']))
-    {
-      $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_STATUS_ID, '');
-      $criterion->addOr($c->getNewCriterion(ProjectPeer::PROJECT_STATUS_ID, null, Criteria::ISNULL));
-      $c->add($criterion);
-    }
-    else if (isset($this->filters['project_status_id']) && $this->filters['project_status_id'] !== '0' && $this->filters['project_status_id'] !== '')
-    {
-      $c->add(ProjectPeer::PROJECT_STATUS_ID, $this->filters['project_status_id']);
-    }
     if (isset($this->filters['client_name_is_empty']))
     {
       $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_CLIENT_ID, '');
@@ -310,16 +301,88 @@ class projectActions extends anActions
       $c->add($criterion);
       $c->addJoin(ClientPeer::ID, ProjectPeer::PROJECT_CLIENT_ID);
     }
-    if (isset($this->filters['name']) && $this->filters['name'] && $this->filters['name'] != sfContext::getInstance()->getI18N()->__('Name') . '...')
+    */
+    if (isset($this->filters['name']))
     {
-      $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NUMBER, "%".$this->filters['name']."%", Criteria::LIKE);
-      $criterion2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "%".$this->filters['name']."%", Criteria::LIKE);
-      $criterion->addOr($criterion2);
+      if (isset($this->filters['name']['text']) && $this->filters['name']['text'] && $this->filters['name']['text'] != $this->__('Name') . '...')
+      {
+        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NUMBER, "%".$this->filters['name']['text']."%", Criteria::LIKE);
+        $crit2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
+        $criterion->addOr($crit2);   
+        $c->add($criterion);
+      }
+      if (isset($this->filters['name']['is_empty']) && $this->filters['name']['is_empty'])
+      {
+        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, null, Criteria::ISNULL);
+        $crit2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, null, Criteria::ISNULL);
+        $crit3 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "");
+        $crit4 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "");
+        $crit3->addOr($crit4);
+        $criterion->addOr($crit2);
+        $criterion->addOr($crit3);
+        $c->add($criterion);
+      }
     }
-    if (isset($criterion))
+    $criterion = null;
+    if (isset($this->filters['project_start_date_from'])) {
+      list($d, $m, $y) = array($this->filters['project_start_date_from']['day'], $this->filters['project_start_date_from']['month'], $this->filters['project_start_date_from']['year']);
+      if ($d && $m && $y) {
+        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_START_DATE, $y.'-'.$m.'-'.$d, Criteria::GREATER_EQUAL);
+      }
+    }
+    if (isset($this->filters['project_start_date_to'])) {
+      list($d, $m, $y) = array($this->filters['project_start_date_to']['day'], $this->filters['project_start_date_to']['month'], $this->filters['project_start_date_to']['year']);
+      if ($d && $m && $y) {
+        $crit1 = $c->getNewCriterion(ProjectPeer::PROJECT_START_DATE, $y.'-'.$m.'-'.$d, Criteria::LESS_EQUAL);
+        if ($criterion) {
+          $criterion->addAnd($crit1);
+        } else {
+          $criterion = $crit1;
+        }
+      }
+    }
+    if (isset($criterion)) $c->add($criterion);
+    $criterion = null;
+    if (isset($this->filters['project_finish_date_from'])) {
+      list($d, $m, $y) = array($this->filters['project_finish_date_from']['day'], $this->filters['project_finish_date_from']['month'], $this->filters['project_finish_date_from']['year']);
+      if ($d && $m && $y) {
+        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_FINISH_DATE, $y.'-'.$m.'-'.$d, Criteria::GREATER_EQUAL);
+      }
+    }
+    if (isset($this->filters['project_finish_date_to'])) {
+      list($d, $m, $y) = array($this->filters['project_finish_date_to']['day'], $this->filters['project_finish_date_to']['month'], $this->filters['project_finish_date_to']['year']);
+      if ($d && $m && $y) {
+        $crit1 = $c->getNewCriterion(ProjectPeer::PROJECT_FINISH_DATE, $y.'-'.$m.'-'.$d, Criteria::LESS_EQUAL);
+        if ($criterion) {
+          $criterion->addAnd($crit1);
+        } else {
+          $criterion = $crit1;
+        }
+      }
+    }
+    if (isset($criterion)) $c->add($criterion);
+    $criterion = null;
+    if (isset($this->filters['project_status_id']) && !empty($this->filters['project_status_id']))
     {
-      $c->add($criterion);
+      $c->add(ProjectPeer::PROJECT_STATUS_ID, $this->filters['project_status_id']);
     }
+    if (isset($this->filters['project_category_id']) && !empty($this->filters['project_category_id']))
+    {
+      $c->add(ProjectPeer::PROJECT_CATEGORY_ID, $this->filters['project_category_id']);
+    }
+    if (isset($this->filters['project_client_id']))
+    {
+      if ($this->filters['project_client_id']['ids'] != '')
+      {
+        $c->add(ProjectPeer::PROJECT_CLIENT_ID, $this->filters['project_client_id']['ids']);
+      } else {
+        $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['project_client_id']['name']."%", Criteria::LIKE);
+        $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['project_client_id']['name']."%", Criteria::LIKE);
+        $criterion->addOr($crit2);
+        $c->addJoin(ProjectPeer::PROJECT_CLIENT_ID, ClientPeer::ID);
+      }
+    }    
+    if (isset($criterion)) $c->add($criterion);
   }
 
   public function executeGetClientSelect() {

@@ -288,6 +288,8 @@ class anActions extends sfActions
           foreach ($filter as $k => $f) {
             $filters_string .= '&'.$this->getModuleName().'_filters['.$key.']['.$k.']='.$f;
           }
+        } else {
+          $filters_string .= '&'.$this->getModuleName().'_filters['.$key.']='.$filter;
         }
       }
     }
