@@ -5,11 +5,7 @@
     $title = __('Edit client %1%', array('%1%' => $client->__toString()));
 } ?>
 <?php aranet_title($title) ?>
-<?php ysfYUI::addComponents('reset', 'fonts', 'grids', 'datasource') ?>
-
 <h3><?php echo $title ?></h3>
-
-
 <form action="<?php echo url_for($client->isNew() ? '@client_create' : '@client_edit_by_id?id='.$client->getId()) ?>" method="post" class="form">
   <?php if ($form->hasGlobalErrors()): ?>
 <table class="formActions">

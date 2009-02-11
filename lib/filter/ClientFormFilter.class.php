@@ -10,8 +10,9 @@
  */
 class ClientFormFilter extends BaseClientFormFilter
 {
-  public function setup()
+  public function configure()
   {
+    parent::configure();
     $this->setWidgets(array('name' => new sfWidgetFormFilterInput()));
     $this->setValidators(array('name' => new sfValidatorPass(array('required' => false))));
     $this->widgetSchema->setNameFormat('client_filters[%s]');

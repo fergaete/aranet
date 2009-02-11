@@ -1,132 +1,106 @@
-<?php use_helper('Number', 'NumberExtended', 'Javascript', 'Object') ?>
+<?php use_helper('Number', 'NumberExtended') ?>
+<?php aranet_title(__('Project "%1%"', array('%1%' => $project))) ?>
+<?php ysfYUI::addComponents('reset', 'fonts', 'grids', 'tabview'); ysfYUI::addEvent('tabs', 'ready', "var tabs = new YAHOO.widget.TabView('tabs');"); ?>
 
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Project %1%', array('%1%' => $project))) ?>
-
-<h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View projects details') ?> <span class="subText">(<?php echo $project->__toString() ?>)</span></h3>
+<h3><?php echo __('View project details') ?>: <span class="subText"><?php echo $project ?></span></h3>
 
 <div id="projectDisplay" class="windowFrame">
-    <table style="width:100%">
+    <table>
     <tr>
         <td class="leftSide">
-            <span class="bigText"><?php echo link_to($project->getClient()->getFullName(false), 'client/show?id=' . $project->getClient()->getId()) ?></span><br \>
-            <?php include_partial('address/basic_data', array('address' => $project->getClient()->getDefaultAddress())) ?><br/>
+            <h4><?php echo $project ?></h4>
+            <?php echo ($project->getProjectUrl()) ? '<p>'.link_to($project->getProjectUrl(), $project->getProjectUrl()) .'</p>': '' ?>
+            <h5><?php echo __('Client') ?>:</h5>
+            <p><?php echo link_to($project->getClient()->getFullName(false), '@client_show_by_id?id=' . $project->getClient()->getId()) ?></p>
+            <?php include_partial('address/basic_data', array('address' => $project->getClient()->getDefaultAddress())) ?>
             <?php include_partial('contact/basic_data', array('contact' => $project->getDefaultContact())) ?>
         </td>
-        <td style="vertical-align: top; width: 60%;">
-            <div class="infoWindowMenu">
-                <ul id="menuItems">
-                    <li id="menuItemStats" class="menuItemSelected"><?php echo link_to_remote('<span>'.__('Project stats').'</span>', array(
-                        'update' => 'infoWindow',
-                        'url'    => 'project/stats?project_id='.$project->getId(),
-                        'loading'  => "Element.show('indicator-tabs')",
-                        'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemStats')",
-                        )) ?></li>
-                    <li id="menuItemContacts" class=""><?php echo link_to_remote('<span>'.__('Contacts').'</span>', array(
-                        'update' => 'infoWindow',
-                        'url'    => 'contact/minilist?class=Project&id='.$project->getId(),
-                        'loading'  => "Element.show('indicator-tabs')",
-                        'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemContacts')",
-                        )) ?></li>
-                    <li id="menuItemMessages" class=""><?php echo __('Files') ?></li>
-                    <li id="menuItemMessages" class=""><?php echo __('Messages') ?></li>
-                    <li id="menuItemMessages" class=""><?php echo __('Notes') ?></li>
-                    <!--<li id="menuItemMessages" class=""><?php //echo __('Team') ?></li> -->
+        <td class="rightSide">
+              <div id="tabs" class="yui-navset">
+                <ul class="yui-nav">
+                  <li class="selected"><a href="#stats"><em><?php echo __('Project stats') ?></em></a></li>
+                  <li><?php echo yui_link_to_remote('<em>'.__('Contacts').'</em>', array(
+                    'url' => url_for('@contact_minilist?related=Project&id='.$project->getId() . '#contacts'),
+                    'update' => 'contacts-tab',
+                    'loading'  => "Element.show('indicator-tabs')",
+                    'complete' => "Element.hide('indicator-tabs')")) ?></li>
+                  <li><?php echo yui_link_to_remote('<em>'.__('Files').'</em>', array(
+                    'url' => url_for('@file_minilist?related=Project&id='.$project->getId() . '#files'),
+                    'update' => 'files-tab',
+                    'loading'  => "Element.show('indicator-tabs')",
+                    'complete' => "Element.hide('indicator-tabs')")) ?></li>
                 </ul>
-            </div>
-            <div id="indicator-tabs" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
-            <div id="infoWindow" class="infoWindow">
-<?php include_partial('stats', array('project' => $project)) ?>
+                <div class="yui-content">
+                  <div id="stats">
+                    <?php include_partial('stats', array('project' => $project)) ?>
+                  </div>
+                  <div id="contacts-tab"></div>
+                  <div id="files-tab"></div>
                 </div>
-                <div id="projectEdit" stlye="display: none;"></div>
-                <div id="proDetailEdit" style="width: 30%; text-align: right; padding: 4px;">
-                <?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit project details"'), '/project/edit?id=' . $project->getId()) ?>
-                </div>
+              </div>
+              <div id="indicator-tabs" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
         </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center">
+          <div id="cliDetailEdit" style="padding: 4px;">
+            <?php echo yui_button_to(__('Edit'), '@project_edit_by_id?id=' . $project->getId()) ?>
+            <?php echo yui_button_to(__('Delete'), '@project_delete_by_id?id=' . $project->getId()) ?>
+            <?php echo yui_button_to(__('Return to list'), '@project_list') ?>
+          </div>
+      </td>
     </tr>
     </table>
 </div>
 
-<div class="projectHeader"><div class="headerBudgets"><?php echo __('Budgets (#%1%)', array('%1%' => count($project->getLastBudgetsOrderedByDate()))) ?></div>
-<div class="windowControlsDashboard">
-    <span><?php echo link_to(image_tag('button_add.gif', __('Create new budget')), "/budget/create?project_id=" . $project->getId()."&client_id=" . $project->getProjectClientId()) ?></span>
-    <span id="projectViewBudgetsRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'projectViewBudgets') . visual_effect('appear', 'projectViewBudgetsRollDown') . visual_effect('fade', 'projectViewBudgetsRollUp')) ?></span>
-    <span id="projectViewBudgetsRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewBudgets') . visual_effect('appear', 'projectViewBudgetsRollUp') . visual_effect('fade', 'projectViewBudgetsRollDown')) ?></span>
-</div></div>
+<div id="indicator-related_tabs" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
 
-<div id="indicator-budget" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
-<div id="projectBudgets">
-<div id="projectBudgetAddEdit" style="margin-top: 10px;">
-</div>
-<?php include_partial('budget/budget_list', array('budgets' => $project->getLastBudgetsOrderedByDate(), 'id' => 'projectViewBudgets')) ?>
-</div>
+<?php ysfYUI::addEvent('related_tabs', 'ready', "var relatedTabs = new YAHOO.widget.TabView('related_tabs');"); ?>
 
-<div class="projectHeader"><div class="headerTasks"><?php echo __('Milestones and Tasks') ?></div>
-<div style="float: right; margin-top: -25px;">
-    <?php echo link_to_function(image_tag('buttonTaskMenu.gif', 'alt="Task menu" style="border: medium none ; cursor: pointer;'), visual_effect('appear', 'taskMenu')) ?>
-    <div id="taskMenu" class="popUpDiv popUpWindow" style="text-align: left; display: none;" onClick="this.hide()">
-    <div id="container_taskMenu">
-        <ul style="font-size:10px;">
-            <li><?php echo image_tag('iconAddMilestone.gif', 'alt="Add milestone"') ?>
-            <?php echo link_to_remote('Add milestone', array(
-                'update' => 'projectMilestoneAddEdit',
-                'script' => true,
-                'url' => 'project/createmilestone?id='.$project->getId(),
-                'loading'  => visual_effect('appear', "indicator-milestone"),
-                'complete' => visual_effect('fade', "indicator-milestone").
-                              visual_effect('highlight', "projectMilestoneAddEdit"),
-                )) ?></li>
-            <li><?php echo image_tag('iconAddSmall.gif', 'alt="Add task"') ?>
-                <?php echo link_to_remote('Add task', array(
-                'update' => 'projectMilestoneAddEdit',
-                'script' => true,
-                'url' => 'project/createtask?id='.$project->getId(),
-                'loading'  => visual_effect('appear', "indicator-milestone"),
-                'complete' => visual_effect('fade', "indicator-milestone").
-                              visual_effect('highlight', "projectMilestoneAddEdit"),
-                )) ?></li>
-                <!-- 
-           <li><?php echo image_tag('iconPrintSmall.gif', 'alt="Print task list"') ?>
-               <?php echo link_to('Print task list', '/project/taskreport?project_id=' . $project->getId()) ?></li>
-           <li><?php echo image_tag('iconGanttSmall.gif', 'alt="View Gantt Chart"') ?>
-               <?php echo link_to('View Gantt chart', '/project/gantt?project_id=' . $project->getId()) ?></li>-->
-         </ul>
+<div id="related_tabs" class="yui-navset">
+  <ul class="yui-nav">
+    <li class="selected"><a href="#budgets"><em><?php echo __('Budgets') ?></em></a></li>
+    <li><a href="#invoices"><em><?php echo __('Invoices') ?></em></a></li>
+    <li><a href="#incomes"><em><?php echo __('Incomes') ?></em></a></li>
+    <li><a href="#expenses"><em><?php echo __('Expenses') ?></em></a></li>
+    <li><a href="#tasks"><em><?php echo __('Tasks and Milestones') ?></em></a></li>    
+    <!-- <li><?php echo yui_link_to_remote('<em>'.__('Budgets (AJAX)').'</em>', array(
+                    'url' => url_for('@budget_minilist?related=Project&id='.$project->getId() . '#budgets-ajax'),
+                    'update' => 'budgets-ajax',
+                    'loading'  => "Element.show('indicator-related_tabs')",
+                    'complete' => "Element.hide('indicator-related_tabs')")) ?></li> -->
+  </ul>
+  <div class="yui-content">
+    <div id="budgets">
+      <div id="clientBudgets">
+<?php include_partial('budget/budget_list', array('budgets' => $project->getLastBudgetsOrderedByDate(), 'related' => 'Project')) ?>
+      </div>
+      <?php echo yui_button_to(__('Create new budget'), "@budget_create_from_object?related=Project&id=" . $project->getId()) ?>
     </div>
+    <div id="invoices">
+      <div id="clientInvoices">
+<?php include_partial('invoice/invoice_list', array('invoices' => $project->getInvoicesJoinPaymentStatusOrderByNumber(), 'related' => 'Project')) ?>
+      </div>
+      <?php echo yui_button_to(__('Create new invoice'), "@invoice_create_from_object?related=Project&id=" . $project->getId()) ?>
     </div>
-    <span id="projectViewTasksRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'projectViewMilestones') . visual_effect('appear', 'projectViewTasksRollDown') . visual_effect('fade', 'projectViewTasksRollUp')) ?></span>
-    <span id="projectViewTasksRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewMilestones') . visual_effect('appear', 'projectViewTasksRollUp') . visual_effect('fade', 'projectViewTasksRollDown')) ?></span>
+    <div id="incomes">
+      <div id="clientIncomes">
+<?php include_partial('income/income_list', array('income_items' => $project->getIncomeItems(), 'related' => 'Project')) ?>
+      </div>
+      <?php echo yui_button_to(__('Create new income'), "@income_create_from_object?related=Project&id=" . $project->getId()) ?>
+    </div>
+    <div id="expenses">
+      <div id="clientExpenses">
+<?php include_partial('expense/expense_list', array('expense_items' => $project->getExpenseItems(), 'related' => 'Project')) ?>
+      </div>
+      <?php echo yui_button_to(__('Create new expense'), "@expense_create_from_object?related=Project&id=" . $project->getId()) ?>
+    </div>
+    <div id="tasks">
+      <div id="clientTasks">
+<?php include_partial('project/milestone_list', array('project' => $project, 'id' => 'projectViewMilestones')) ?>      </div>
+      <?php echo yui_button_to(__('Create new task'), "@project_create_task?id=" . $project->getId()) ?>
+      <?php echo yui_button_to(__('Create new milestone'), "@project_create_milestone?id=" . $project->getId()) ?>
+    </div>
+    <div id="budgets-ajax"></div>
+  </div>
 </div>
-</div>
-
-<div id="indicator-milestone" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
-<div id="projectMilestones">
-<div id="projectMilestoneAddEdit" style="margin-top: 10px;">
-</div>
-<?php include_partial('project/milestone_list', array('project' => $project, 'id' => 'projectViewMilestones')) ?>
-</div>
-
-<div class="projectHeader"><div class="headerInvoices"><?php echo __('Invoices (#%1%)', array('%1%' => count($project->getInvoicesJoinPaymentStatus()))) ?></div>
-<div class="windowControlsDashboard">
-    <span><?php echo link_to(image_tag('button_add.gif', __('Create new invoice')), "/invoice/create?project_id=" . $project->getId()."&client_id=" . $project->getProjectClientId()) ?></span>
-    <span id="projectViewInvoicesRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'projectViewInvoices') . visual_effect('appear', 'projectViewInvoicesRollDown') . visual_effect('fade', 'projectViewInvoicesRollUp')) ?></span>
-    <span id="projectViewInvoicesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewInvoices') . visual_effect('appear', 'projectViewInvoicesRollUp') . visual_effect('fade', 'projectViewInvoicesRollDown')) ?></span>
-</div></div>
-
-<?php include_partial('invoice/invoice_list', array('invoices' => $project->getInvoicesJoinPaymentStatus(), 'id' => 'projectViewInvoices')) ?>
-
-<div class="projectHeader"><div class="headerExpenses"><?php echo __('Expenses (#%1%)', array('%1%' => count($project->getExpenseItemsJoinExpenseCategory()))) ?></div>
-<div class="windowControlsDashboard">
-    <span><?php echo link_to(image_tag('button_add.gif', __('Create new expense')), "/expense/create?project_id=" . $project->getId()) ?></span>
-    <span id="projectViewExpensesRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'projectViewExpenses') . visual_effect('appear', 'projectViewExpensesRollDown') . visual_effect('fade', 'projectViewExpensesRollUp')) ?></span>
-    <span id="projectViewExpensesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewExpenses') . visual_effect('appear', 'projectViewExpensesRollUp') . visual_effect('fade', 'projectViewExpensesRollDown')) ?></span>
-</div></div>
-
-<?php include_partial('expense/expense_list', array('expense_items' => $project->getExpenseItemsJoinExpenseCategory(), 'id' => 'projectViewExpenses')) ?>
-
-<div class="projectHeader"><div class="headerIncomes"><?php echo __('Incomes (#%1%)', array('%1%' => count($project->getIncomeItemsJoinIncomeCategory()))) ?></div>
-<div class="windowControlsDashboard">
-    <span><?php echo link_to(image_tag('button_add.gif', __('Create new income')), "/income/create?project_id=" . $project->getId()) ?></span>
-    <span id="projectViewIncomesRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'projectViewIncomes') . visual_effect('appear', 'projectViewIncomesRollDown') . visual_effect('fade', 'projectViewIncomesRollUp')) ?></span>
-    <span id="projectViewIncomesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'projectViewIncomes') . visual_effect('appear', 'projectViewIncomesRollUp') . visual_effect('fade', 'projectViewIncomesRollDown')) ?></span>
-</div></div>
-
-<?php include_partial('income/income_list', array('income_items' => $project->getIncomeItemsJoinIncomeCategory(), 'id' => 'projectViewIncomes')) ?>

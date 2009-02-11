@@ -14,9 +14,9 @@ class Client extends BaseClient
     protected $_indicators = array();
 
     public function __construct()
-	  {
-			  parent::__construct();
-	  }
+    {
+        parent::__construct();
+    }
 
     public function __toString() {
         return $this->getClientUniqueName();

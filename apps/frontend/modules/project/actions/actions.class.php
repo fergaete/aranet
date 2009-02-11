@@ -20,14 +20,14 @@ class projectActions extends anActions
   {
     if ($edit = $request->hasParameter('id'))
     {
-      $this->project = $this->getProject();
+      $this->project = $this->getObject();
     }
     else
     {
       $this->project = new Project();
     }
     
-    $this->form = new anProjectEditForm($this->project);
+    $this->form = new ProjectForm($this->project);
     
     if ($request->isMethod('post'))
     {
@@ -35,10 +35,21 @@ class projectActions extends anActions
       $this->form->bind($pro);
       if ($this->form->isValid())
       {
-        print_r($pro);die();
         $this->form->updateObject();
         $project = $this->form->getObject();
 
+        if ($pro['project_client_id']) {
+          if ($pro['project_client_id']['ids']) {
+            $client = ClientPeer::retrieveByPk($pro['project_client_id']['ids']);
+          }
+          if (!$client) {
+            $client = new Client();
+            $client->setClientCompanyName($pro['project_client_id']['name']);
+            $client->setClientCommonName($pro['project_client_id']['name']);
+            //$client->save();
+          }
+          $project->setClient($client);
+        }
         $project->setTags($pro['tags']['name']);
         if ($pro['tags']['name']) {
           $project->setProjectHasTags(true);
@@ -299,10 +310,10 @@ class projectActions extends anActions
       $c->add($criterion);
       $c->addJoin(ClientPeer::ID, ProjectPeer::PROJECT_CLIENT_ID);
     }
-    if (isset($this->filters['project_name']) && $this->filters['project_name'] && $this->filters['project_name'] != sfContext::getInstance()->getI18N()->__('Name') . '...')
+    if (isset($this->filters['name']) && $this->filters['name'] && $this->filters['name'] != sfContext::getInstance()->getI18N()->__('Name') . '...')
     {
-      $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NUMBER, "%".$this->filters['project_name']."%", Criteria::LIKE);
-      $criterion2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "%".$this->filters['project_name']."%", Criteria::LIKE);
+      $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NUMBER, "%".$this->filters['name']."%", Criteria::LIKE);
+      $criterion2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "%".$this->filters['name']."%", Criteria::LIKE);
       $criterion->addOr($criterion2);
     }
     if (isset($criterion))
@@ -364,7 +375,14 @@ class projectActions extends anActions
         array('name' => 'id'),
         array('name' => 'actions', 'label' => $this->__('Actions')),
         array('name' => 'project_number', 'label' => $this->__('Number')),
-        array('name' => 'project_title', 'label' => $this->__('Title'), 'sortable' => true, 'editor' => 'textbox'),
+        array('name' => 'project_name', 'label' => $this->__('Title'), 'sortable' => true, 'editor' => 'textbox'),
+        array('name' => 'client', 'label' => $this->__('Client')),
+        array('name' => 'project_start_date', 'label' => $this->__('Start')),
+        array('name' => 'project_end_date', 'label' => $this->__('End')),
+        array('name' => 'project_status', 'label' => $this->__('Status')),
+        array('name' => 'project_total_hours', 'label' => $this->__('Hours')),
+        array('name' => 'project_total_incomes', 'label' => $this->__('Incomes')),
+        array('name' => 'project_total_expenses', 'label' => $this->__('Expenses')),
         );
     return $keys;
   }

@@ -40,7 +40,11 @@ class yuiWidgetFormDate extends sfWidgetForm
    */
   public function render($name, $value = null, $attributes = array(), $errors = array())
   {
-    $v = $value ? format_date($value, 'p') : __('Choose a date');
+    if (!is_array($value)) {
+      $value = array('month' => substr($value, 5, 2), 'day' => substr($value, 8, 2), 'year' => substr($value, 0, 4));
+    }
+
+    $v = (implode('', $value)) ? format_date(sprintf('%04d', $value['year']).'-'.sprintf('%02d', $value['month']).'-'.sprintf('%02d', $value['day']), 'p') : __('Choose a date');
     $culture = sfContext::getInstance()->getUser()->getCulture();
     static $dateFormats = array();
     if (!isset($dateFormats[$culture]))
@@ -52,7 +56,7 @@ class yuiWidgetFormDate extends sfWidgetForm
 
     //$date_format = 'nMonth + "/" + nDay + "/" + nYear';
     //$attributes = $this->fixFormId(array_merge(array('name' => $name), $attributes));
-    
+
     $js = '
     var oDateFields'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_datefields");
       oMonthField'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId($name).'_month"),
@@ -145,9 +149,9 @@ class yuiWidgetFormDate extends sfWidgetForm
     ysfYUI::addEvent($this->generateId($name)."_datefields", 'ready', $js);
                                      
     return $this->renderContentTag('div',
-      $this->renderTag('input', array('name' => $name.'[month]', 'value' => substr($value, 5, 2))) .
-      $this->renderTag('input', array('name' => $name.'[day]', 'value' => substr($value, 8, 2))) .
-      $this->renderTag('input', array('name' => $name.'[year]', 'value' => substr($value, 0, 4))) 
+      $this->renderTag('input', array('name' => $name.'[month]', 'value' => $value['month'])) .
+      $this->renderTag('input', array('name' => $name.'[day]', 'value' => $value['day'])) .
+      $this->renderTag('input', array('name' => $name.'[year]', 'value' => $value['year'])) 
     , array_merge(array('id' => $this->generateId($name)."_datefields"), $attributes));
   }
 
