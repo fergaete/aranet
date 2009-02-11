@@ -79,7 +79,7 @@
     </ul>
   </td>
   <td class='leftCol'><?php echo $form['contact[0]']->renderLabel() ?></td>
-  <td class='rightCol'><?php echo $form['contact[0]'] ?><span class="help"><?php echo $form['contact[0]']->renderHelp() ?></span></td>
+  <td class='rightCol'><?php echo $form['contact[0]'] ?><span class="help"><?php echo __($form['contact[0]']->renderHelp()) ?></span></td>
 </tr>
 <tr id="newContact">
     <td colspan="3" id="indicator-contact" style="text-align:left;display:none"><?php echo image_tag('indicator.gif') ?></td>

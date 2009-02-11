@@ -57,9 +57,9 @@
             <td class="actions" id="projectMenu_<?php echo $project->getId() ?>">
               <div class="objectActions">
                 <ul>
-                  <li><?php echo link_to(image_tag("button_view.gif", 'alt="View"'), 'project/show?id='.$project->getId()) ?></li>
-                  <li><?php echo link_to(image_tag("button_edit.gif", 'alt="Edit"'), 'project/edit?id='.$project->getId()) ?></li>
-                  <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
+                  <li><?php echo link_to(image_tag("button_view.gif", 'alt="'.__("View").'"'), 'project/show?id='.$project->getId()) ?></li>
+                  <li><?php echo link_to(image_tag("button_edit.gif", 'alt="'.__("Edit").'"'), 'project/edit?id='.$project->getId()) ?></li>
+                  <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="'.__("Delete").'"'), array(
                     'update'   => 'project_'.$project->getId(),
                       'url'      => 'project/delete?id='.$project->getId(),
                       'confirm'  => __('Are you sure?'),

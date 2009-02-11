@@ -49,9 +49,9 @@
                 <td class="actions" id="invoiceMenu_<?php echo $invoice->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'invoice/show?id='.$invoice->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'invoice/edit?id='.$invoice->getId()) ?></li>
-                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
+                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__("View").'"'), 'invoice/show?id='.$invoice->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__("Edit").'"'), 'invoice/edit?id='.$invoice->getId()) ?></li>
+                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__("Delete").'"'), array(
                                 'update'   => 'invoice_'.$invoice->getId(),
                                 'url'      => 'invoice/delete?id='.$invoice->getId(),
                                 'confirm'  => __('Are you sure?'),

@@ -114,7 +114,7 @@
       
       <trans-unit>
         <source>If the tag doesn't exists, the program will create one</source>
-        <target>Si la etiqueta no existe, se cerará una nueva</target>
+        <target>Si la etiqueta no existe, se creará una nueva</target>
       </trans-unit>
       
     </body>
