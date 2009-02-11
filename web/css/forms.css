@@ -18,6 +18,11 @@ label:after {content:":";}
   width:35em;
 }
 
+.module-filters input.tiny {
+  width:5em;
+}
+
+
 .form label.float {
   float:left;
   padding-left:10px;
