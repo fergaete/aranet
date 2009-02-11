@@ -72,7 +72,7 @@
         <td style="text-align:center">
           <?php echo yui_submit_tag(__('Save')) ?>
           <?php echo yui_reset_tag(__('Reset')) ?>
-          <?php (!$contact->isNew()) ? echo yui_button_to(__('Delete'), '@contact_delete_by_id?id='.$contact->getId(), array('confirm' => __('Are you sure?'))) : '' ?>
+          <?php echo (!$contact->isNew()) ? yui_button_to(__('Delete'), '@contact_delete_by_id?id='.$contact->getId(), array('confirm' => __('Are you sure?'))) : '' ?>
           <?php echo yui_button_to(__('Return to list'), '@contact_list') ?>
         </td>
     </tr>
