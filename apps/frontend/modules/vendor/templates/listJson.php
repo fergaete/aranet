@@ -22,7 +22,7 @@ if ($dcontact) {
 <?php
 $daddress = $vendor->getDefaultAddress();
 if ($daddress) {
-  $add = link_to($daddress, '@address_show_by_id?id=' . $daddress->getId());
+  $add = link_to($daddress, '@address_edit_by_id?id=' . $daddress->getId());
 } else {
   $add = "";
 }

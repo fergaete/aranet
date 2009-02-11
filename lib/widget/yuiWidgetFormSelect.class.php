@@ -60,8 +60,10 @@ class yuiWidgetFormSelect extends sfWidgetForm
     }
     if (!empty($choices) && array_key_exists($value, $choices)) {
       $label = $choices[$value];
+      $val = $value;
     } else {
       $label = sfContext::getInstance()->getI18N()->__('Select').'...';
+      $val = null;
     }
     ysfYUI::addComponent('menu');
     ysfYUI::addComponent('dom');
@@ -85,7 +87,7 @@ class yuiWidgetFormSelect extends sfWidgetForm
     ');
     return 
       $this->renderContentTag('div', 
-        $this->renderTag('input', array_merge(array('type' => 'hidden', 'value' => $value, 'name' => $name, 'id' => $this->generateId("aux_".$name)), $attributes)),
+        $this->renderTag('input', array_merge(array('type' => 'hidden', 'value' => $val, 'name' => $name, 'id' => $this->generateId("aux_".$name)), $attributes)),
         array('id' => $this->generateId($name)));
   }
 
