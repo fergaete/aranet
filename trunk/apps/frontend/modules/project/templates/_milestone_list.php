@@ -20,11 +20,11 @@
     <td class="actions" id="projectMenu_<?php echo $project->getId() ?>">
         <div class="objectActions">
             <ul>
-              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="Edit"'), array(
+              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="'.__("Edit").'"'), array(
                     'update'   => 'projectMilestoneAddEdit',
                     'url'      => 'project/editmilestone?id='.$item->getId()
                     )) ?></li>
-              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
+              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="'.__("Delete").'"'), array(
                     'update'   => 'item_'.$item->getId(),
                     'url'      => 'project/deletemilestone?id='.$item->getId(),
                     'confirm'  => __('Are you sure?'),
@@ -45,11 +45,11 @@
     <td class="actions" id="projectMenu_<?php echo $project->getId() ?>">
         <div class="objectActions">
             <ul>
-              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="Edit"'), array(
+              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="'.__("Edit").'"'), array(
                     'update'   => 'projectMilestoneAddEdit',
                     'url'      => 'project/edittask?id='.$item->getId()
                     )) ?></li>
-              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
+              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="'.__("Delete").'"'), array(
                     'update'   => 'item_'.$item->getId(),
                     'url'      => 'project/deletetask?id='.$item->getId(),
                     'confirm'  => 'Are you sure?',

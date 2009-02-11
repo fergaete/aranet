@@ -27,6 +27,8 @@ class yuiWidgetFormSelect extends sfWidgetForm
   {
     $this->addRequiredOption('choices');
     $this->addOption('multiple', false);
+    //TODO: Dont work
+    ysfYUI::addComponents('yahoo', 'dom', 'button');
   }
 
   /**
@@ -56,18 +58,35 @@ class yuiWidgetFormSelect extends sfWidgetForm
     {
       $choices = $choices->call();
     }
+    if (!empty($choices) && array_key_exists($value, $choices)) {
+      $label = $choices[$value];
+    } else {
+      $label = sfContext::getInstance()->getI18N()->__('Select').'...';
+    }
     ysfYUI::addComponent('menu');
     ysfYUI::addComponent('dom');
     ysfYUI::addComponent('event');
-    ysfYUI::addEvent('document', 'ready', '
-      var splitButton'.$this->generateId($name).' = new YAHOO.widget.Button("yui-'.$this->generateId($name).'", { type: "menu",
-                              menu: "'.$this->generateId($name).'" });
+    ysfYUI::addEvent($this->generateId($name), 'ready', '
+        var menuClick'.$this->generateId($name).' = function(type, args, item) {
+          var menu = item.parent;
+          splitButton'.$this->generateId($name).'.set("label", item.cfg.getProperty("text")); 
+          splitButton'.$this->generateId($name).'.set("value", item.value); 
+          var aux'.$this->generateId($name).' = YAHOO.util.Dom.get("'.$this->generateId('aux_'.$name).'");
+          aux'.$this->generateId($name).'.value = item.value;
+          var menu_items = menu.getItems()
+          for (var i = 0; i < menu_items.length; i++) {
+              //Uncheck the menu item
+              menu_items[i].cfg.setProperty("checked", false);
+          }
+          item.cfg.setProperty("checked", true);
+        };
+        var Menu'.$this->generateId($name).' = [ '.$this->getOptionsForJavascript($value, $choices, $this->generateId($name)).' ];
+        var splitButton'.$this->generateId($name).' = new YAHOO.widget.Button({ type: "menu", label: "'.$label.'", menu: Menu'.$this->generateId($name).', container: "'.$this->generateId($name).'" });            
     ');
-    // TODO: Cambiar la etiqueta al seleccionar
-    // TODO: Al editar no se guarda la seleccion
     return 
-    $this->renderTag('input', array_merge(array('type' => 'button', 'value' => !$value ? __('Select').'...' : $choices[$value], 'name' => 'yui-'.$name), $attributes)) . 
-          $this->renderContentTag('select', "\n".implode("\n", $this->getOptionsForSelect($value, $choices))."\n", array_merge(array('name' => $name), $attributes));
+      $this->renderContentTag('div', 
+        $this->renderTag('input', array_merge(array('type' => 'hidden', 'value' => $value, 'name' => $name, 'id' => $this->generateId("aux_".$name)), $attributes)),
+        array('id' => $this->generateId($name)));
   }
 
   /**
@@ -107,6 +126,29 @@ class yuiWidgetFormSelect extends sfWidgetForm
     return $options;
   }
 
+/**
+   * Returns an array of option tags for the given choices
+   *
+   * @param  string $value    The selected value
+   * @param  array  $choices  An array of choices
+   *
+   * @return array  An array of option tags
+   */
+  protected function getOptionsForJavascript($value, $choices, $id)
+  {
+    $options = "";
+    foreach ($choices as $key => $option)
+    {
+      $options .= '{ text: "'.$option.'", value: "'.$key.'", onclick: { fn: menuClick'.$id.' }';
+      if ($value == $key) {
+        $options .= ', checked: true';
+      }
+      $options .= ' },';
+    }
+
+    return substr($options,0,-1);
+  }
+  
   /**
    * @see sfWidget
    *

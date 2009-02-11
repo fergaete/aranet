@@ -440,7 +440,7 @@ class projectActions extends anActions
         array('name' => 'project_number', 'label' => $this->__('Number')),
         array('name' => 'project_name', 'label' => $this->__('Title'), 'sortable' => true, 'editor' => 'textbox'),
         array('name' => 'client', 'label' => $this->__('Client')),
-        array('name' => 'project_start_date', 'label' => $this->__('Start')),
+        array('name' => 'project_start_date', 'label' => $this->__('Start'), 'sortable' => true),
         array('name' => 'project_end_date', 'label' => $this->__('End')),
         array('name' => 'project_status', 'label' => $this->__('Status')),
         array('name' => 'project_total_hours', 'label' => $this->__('Hours')),

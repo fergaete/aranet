@@ -7,9 +7,9 @@
                 <td class="actions">
                     <div class="objectActions">
                         <ul>
-                          <li><?php echo link_to(image_tag("icons/application_form.png", 'alt="View"'), '@address_show_by_id?id='.$address->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("icons/application_form_edit.png", 'alt="Edit"'), '@address_edit_by_id?id='.$address->getId()) ?></li>
-                            <li><?php echo link_to_remote(image_tag('icons/application_form_delete.png', 'alt="Delete"'), array(
+                          <li><?php echo link_to(image_tag("icons/application_form.png", 'alt="'.__("View").'"'), '@address_show_by_id?id='.$address->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("icons/application_form_edit.png", 'alt="'.__("Edit").'"'), '@address_edit_by_id?id='.$address->getId()) ?></li>
+                            <li><?php echo link_to_remote(image_tag('icons/application_form_delete.png', 'alt="'.__("Delete").'"'), array(
                                 'update'   => 'address_'.$address->getId(),
                                 'url'      => '@address_delete_related?related='.get_class($object).'&oid='.$object->getId() . '&id='.$address->getId(),
                                 'confirm'  => __('Are you sure?'),
