@@ -40,6 +40,20 @@ class Project extends BaseProject
         return $content;
     }
 
+    public function getInvoicesJoinPaymentStatusOrderByNumber($criteria = null)
+    {
+        if ($criteria === null) {
+            $criteria = new Criteria();
+        }
+        elseif ($criteria instanceof Criteria)
+        {
+            $criteria = clone $criteria;
+        }
+        $criteria->addAscendingOrderByColumn(InvoicePeer::INVOICE_NUMBER);
+        $criteria->add(InvoicePeer::DELETED_AT, null, Criteria::ISNULL);
+        return parent::getInvoicesJoinPaymentStatus($criteria);
+    }
+
     public function getBudgetsOrderedByDate($criteria = null)
     {
         if ($criteria === null) {

@@ -70,6 +70,15 @@ client_delete_all:
   param:  { module: client, action: delete }
 
 # project
+project_show_by_id:
+  url:  /project/show/id/:id
+  param:  { module: project, action: show }
+project_edit_by_id:
+  url:  /project/edit/id/:id
+  param:  { module: project, action: edit }
+project_delete_by_id:
+  url:  /project/delete/id/:id
+  param:  { module: project, action: delete }
 project_create_from_object:
   url:  /project/:related/:id
   param:  { module: project, action: create }
@@ -88,7 +97,12 @@ project_create:
 project_delete_all:
   url:  /project/delete
   param:  { module: project, action: delete }
-
+project_create_milestone:
+  url:  /project/createMilestone/:id
+  param:  { module: project, action: createMilestone }
+project_create_task:
+  url:  /project/createTask/:id
+  param:  { module: project, action: createTask }
 
 # budget
 budget_create_from_object:
@@ -254,6 +268,9 @@ member_create:
 file_list:
   url:  /file/list
   param:  { module: file, action: list }
+file_minilist:
+  url:  /file/minilist/related/:related/id/:id
+  param:  { module: file, action: minilist }
 file_list_remove_filters:
   url:  /file/list?file_filters[]=
   param:  { module: file, action: list }

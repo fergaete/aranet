@@ -32,14 +32,6 @@ label:after {content:":";}
   padding-left: 10px;
 }
 
-
-.form .width-auto {width:auto !important;}
-
-.form .medium {width:150px}
-.form .small {width:90px}
-.form .smaller {width:60px}
-.form .tiny {width:40px}
-
 .signin input[type="text"], .signin input[type="password"]{width:150px;}
 
 input.autocomplete { position:static!important;width:25em; } /* to center, set static and explicit width: */
@@ -48,6 +40,12 @@ div.large {width:35em!important;} /* to center, set left-align and explicit widt
 
 .formActions{background:#F6F4F0;width:100%;padding:2px 0;}
 .formActions td{text-align:center;}
+
+.form .width-auto {width:auto !important;}
+.form .medium {width:150px!important}
+.form .small {width:90px!important}
+.form .smaller {width:60px!important}
+.form .tiny {width:40px!important}
 
 /* YUI */
 .yui-cal-nav label {float:none;display:block;}

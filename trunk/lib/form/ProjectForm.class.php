@@ -13,36 +13,16 @@ class ProjectForm extends BaseProjectForm
   public function configure()
   {
     parent::configure();
-    
-    // created_at
-    unset($this->widgetSchema['created_at']);
-    unset($this->validatorSchema['created_at']);
 
-    // created_by
-    unset($this->widgetSchema['created_by']);
-    unset($this->validatorSchema['created_by']);
+    // created_at, created_by, updated_at, updated_by, deleted_at, deleted_by
+    unset($this['created_at'], $this['created_by'], $this['updated_at'], $this['updated_by'], $this['deleted_at'], $this['deleted_by']);
 
-    // updated_at
-    unset($this->widgetSchema['updated_at']);
-    unset($this->validatorSchema['updated_at']);
-
-    // updated_by
-    unset($this->widgetSchema['updated_by']);
-    unset($this->validatorSchema['updated_by']);
-
-    // deleted_at
-    unset($this->widgetSchema['deleted_at']);
-    unset($this->validatorSchema['deleted_at']);
-
-    // deleted_by
-    unset($this->widgetSchema['deleted_by']);
-    unset($this->validatorSchema['deleted_by']);
-
-    
     // project_prefix && project_number
     $this->widgetSchema['project_prefix'] = new sfWidgetFormInput(array(), array('class' => 'tiny'));
-    $this->widgetSchema['project_number'] = new sfWidgetFormInput(array(), array('class' => 'smaller'));
-      
+    $this->widgetSchema['project_number'] = new sfWidgetFormInput(array(), array('class' => 'small'));
+    $this->widgetSchema['project_name'] = new sfWidgetFormInput(array(), array('class' => 'large'));
+    $this->widgetSchema['project_url'] = new sfWidgetFormInput(array(), array('class' => 'large'));
+    
     $this->widgetSchema->setLabels(array(
       'project_url' => 'Project URL',
       'project_client_id' => 'Client',
@@ -52,6 +32,7 @@ class ProjectForm extends BaseProjectForm
       'project_comments' => 'Comments',
       'project_start_date' => 'Start date',
       'project_finish_date' => 'Finish date',
+      'project_number' => 'Identification' 
       ));
     
     
@@ -62,9 +43,15 @@ class ProjectForm extends BaseProjectForm
     ));
 
     // project_client_id
-    $client = ($this->object->getClient()) ? $this->object->getClient()->getFullName(false) : '';
-    $this->widgetSchema['project_client_id'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullName', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/client/autocomplete', 'value' => $client));
-    $this->validatorSchema['project_client_id'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
+    if ($this->object->getClient()) {
+      $client_string = $this->object->getClient()->getFullName(false);
+      $client_id = $this->object->getClient()->getId();
+    } else {
+      $client_string = '';
+      $client_id = '';
+    }
+    $this->widgetSchema['project_client_id'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullName', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/client/autocomplete', 'value' => array($client_string, $client_id)), array('class' => 'large'));
+    $this->validatorSchema['project_client_id'] = new sfValidatorTags('name', new sfValidatorString(array('required' => true)));
 
     // project_status_id    
     $this->widgetSchema['project_status_id'] = new yuiWidgetFormPropelSelect(array('model' => 'ProjectStatus', 'add_empty' => false, 'multiple' => false), array('class' => 'yui_select'));
@@ -79,20 +66,31 @@ class ProjectForm extends BaseProjectForm
     $this->widgetSchema['project_finish_date'] = new yuiWidgetFormDate();
     
     // contacts
-    $this->widgetSchema['contacts'] = new yuiWidgetFormAutocomplete(array('delimChar' => array(','), 'formatResult' => '%1%.FullName + " (" + %1%.Rol + ")"', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/contact/autocomplete', 'value' => $this->object->getContacts(array('serialized' => true))));
-    
-    $this->validatorSchema['contacts'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
-    
+    $contact = new Contact();
+    $contact->setId(0);
+    if ($this->object->getContacts()) {
+      $contacts = $this->object->getContacts();
+      $contacts[] = $contact;
+    } else {
+      $contacts = array($contact);
+    }
+    foreach ($contacts as $contact) {
+      $this->widgetSchema['contact['.$contact->getId().']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullName', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/contact/autocomplete', 'value' => array($contact->__toString(), $contact->getId())), array('class' => 'large'));
+      $this->widgetSchema->setLabels(array('contact['.$contact->getId().']' => 'Contact'));
+    }
+    $this->validatorSchema['contact'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
+
+    $this->widgetSchema->setHelp('contact[0]', "If the contact doesn't exists, the program will create one");
     $this->widgetSchema->setHelp('tags', "If the tag doesn't exists, the program will create one");
-    $this->widgetSchema->setHelp('contacts', "If the contact doesn't exists, the program will create one");
     $this->widgetSchema->setHelp('project_client_id', "If the client doesn't exists, the program will create one");
     
     // tags
-    $this->widgetSchema['tags'] = new yuiWidgetFormAutocomplete(array('delimChar' => array(','), 'formatResult' => '%1%.Name', 'resultSchema' => '["ResultSet.Result","Name"]', 'action' => '/tag/autocomplete', 'value' => implode(', ', $this->object->getTags())));
+    $this->widgetSchema['tags'] = new yuiWidgetFormAutocomplete(array('delimChar' => array(','), 'formatResult' => '%1%.Name', 'resultSchema' => '["ResultSet.Result","Name"]', 'action' => '/tag/autocomplete', 'value' => implode(', ', $this->object->getTags())), array('class' => 'large'));
     $this->validatorSchema['tags'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
     
     $decorator = new anWidgetFormSchemaFormatterAranet($this->widgetSchema);
     $this->widgetSchema->addFormFormatter('aranet', $decorator);
     $this->widgetSchema->setFormFormatterName('aranet');
+    $this->widgetSchema->getFormFormatter()->setTranslationCatalogue('forms');
   }
 }

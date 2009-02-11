@@ -404,12 +404,12 @@
 </trans-unit>
 
 <trans-unit>
-<source>Start Date</source>
+<source>Start date</source>
 <target>Fecha de inicio</target>
 </trans-unit>
 
 <trans-unit>
-<source>End Date</source>
+<source>End date</source>
 <target>Fecha de fin</target>
 </trans-unit>
 
@@ -421,11 +421,6 @@
 <trans-unit>
 <source>Client</source>
 <target>Cliente</target>
-</trans-unit>
-
-<trans-unit>
-<source>Start date</source>
-<target>Fecha de inicio</target>
 </trans-unit>
 
 <trans-unit>

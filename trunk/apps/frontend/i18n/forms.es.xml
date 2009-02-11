@@ -77,6 +77,46 @@
         <target>Contacto</target>
       </trans-unit>
 
+      <trans-unit>
+        <source>Client</source>
+        <target>Cliente</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>Identification</source>
+        <target>Identificación</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>Project URL</source>
+        <target>Website del proyecto</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>Status</source>
+        <target>Estado</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>Start date</source>
+        <target>Fecha de inicio</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>End date</source>
+        <target>Fecha de fin</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>If the contact doesn't exists, the program will create one</source>
+        <target>Si el contacto no existe, se creará uno nuevo</target>
+      </trans-unit>
+      
+      <trans-unit>
+        <source>If the tag doesn't exists, the program will create one</source>
+        <target>Si la etiqueta no existe, se cerará una nueva</target>
+      </trans-unit>
+      
     </body>
   </file>
 </xliff>
