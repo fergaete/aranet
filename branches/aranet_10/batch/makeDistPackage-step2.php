@@ -1,4 +1,44 @@
-propel.targetPackage       = lib.model
+<?php
+
+/**
+ * makeDistPackage batch script
+ *
+ * Here goes a brief description of the purpose of the batch script
+ *
+ * @package    aranet
+ * @subpackage batch
+ * @version    $Id$
+ */
+
+define('SF_ROOT_DIR',    realpath(dirname(__file__).'/..'));
+define('SF_APP',         'frontend');
+define('SF_ENVIRONMENT', 'cli');
+define('SF_DEBUG',       1);
+
+require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php');
+
+// initialize database manager
+//$databaseManager = new sfDatabaseManager();
+//$databaseManager->initialize();
+
+// batch process here
+//1. Clean
+$path = getcwd();
+exec('rm -rf cache/*'); // cache and logs
+exec('rm -rf log/*'); // cache and logs
+exec('find . -name Base* -print0 | xargs -0 rm -rf'); // Generated Base*
+exec('find . -name generated-* -print0 | xargs -0 rm -rf'); // Generated*
+
+//2. rewrite configs
+file_put_contents($path.'/config/databases.yml',
+'#all:
+#  propel:
+#    class:          sfPropelDatabase
+#    param:
+#      dsn:          mysql://root@localhost/aranet');
+
+file_put_contents($path.'/config/propel.ini',
+'propel.targetPackage       = lib.model
 propel.packageObjectModel  = true
 propel.project             = aranet
 propel.database            = mysql
@@ -45,4 +85,11 @@ propel.builder.nodepeerstub.class      = propel.engine.builder.om.php5.PHP5Exten
 propel.builder.addIncludes = false
 propel.builder.addComments = false
 
-propel.builder.AddBehaviors = true
+propel.builder.AddBehaviors = true');
+file_put_contents($path.'/config/properties.ini',
+'[symfony]
+  name=aranet
+');
+
+//3. makes a zip file
+exec('cd '.$path.'/..; zip -r -9 ARANet-1.0-latest.zip aranet_10-dist');
