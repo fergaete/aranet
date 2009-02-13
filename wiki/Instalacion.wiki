@@ -89,7 +89,10 @@ Es muy importante respetar los tabuladores y usar espacios y no tabulaciones al 
 
 == Instalar ARANet ==
 
-Para instalar la aplicación se deberá ejecutar el comando `php symfony install-aranet`
+Para instalar la aplicación se deberá ejecutar el comando:
+{{{
+php symfony install-aranet
+}}}
 
 Si todo ha ido bien, al finalizar se podrá acceder a la url http://aranet.local, que mostrará un panel de login.
 
