@@ -25,7 +25,9 @@ También es preciso descargar las librerías symfony y descomprimirlas dentro de
 == Comprobaciones previas ==
 
 Desde una interfaz de comandos, en la carpeta dónde se haya descomprimido la aplicación, ejecutar:
-{{{php symfony --version}}}
+{{{
+php symfony --version
+}}}
 La salida deberá mostrar algo como "symfony version 1.0.x". Luego se ejecutarán las siguientes órdenes:
 {{{
 php symfony fix-perms   # Para reparar los permisos de lectura/escritura de los directorios
