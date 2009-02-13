@@ -14,7 +14,7 @@
             $graphic_id), array('style' => 'font-size:14px;font-weight:700')),
         observe_field('graphic', array(
             'update'   => 'first-graph',
-            'url'      => '@show_graphic?graphic_id=1',
+            'url'      => '@get_graphic?graphic_id=1',
             'with'     => "'graphic_id=' + value",
             )) ?>
         </form>

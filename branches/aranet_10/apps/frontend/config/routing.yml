@@ -23,6 +23,10 @@ show_graphic:
   url:  /dasboard/showGraphic/:graphic_id
   param:  { module: dashboard, action: showGraphic }
 
+get_graphic:
+  url:  /dasboard/getGraphic/:graphic_id
+  param:  { module: dashboard, action: getGraphic }
+
 copyright:
   url:  /copyright
   param:  { module: static, action: index, content: copyright }
