@@ -1,0 +1,14 @@
+compressWebFiles:
+  
+  .extra:
+    see_errors_in_console:      no                 # Show the errors found by the external libraries in the console.
+    set_time_limit:             30                 # Limit the maximum execution time. This uses the function set_time_limit().
+    css_compressor_by_default:  .YUICompressor     # Compressor of CSS files by default.
+    js_compressor_by_default:   .YUICompressor     # Compressor of JavaScript files by default.
+  
+  # For more details visit: http://www.julienlecomte.net/yuicompressor/
+  .YUICompressor:
+    yuic_version:           yuicompressor-2.2.5.jar                                  # Version of YUI Compressor
+    yuic_charset:           UTF-8                                                    # Character Encoding of archives
+    yuic_command_line_css:  java -jar %s --type css --charset %s -o %s %s 2>&1       # Command line for CSS files
+    yuic_command_line_js:   java -jar %s --type js --charset %s -o %s %s 2>&1        # Command line for JavaScript files

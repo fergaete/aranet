@@ -1,0 +1,7 @@
+.svn
+/web/uploads/*
+/cache/*
+/log/*
+/config/propel.ini
+/config/databases.yml
+/doc

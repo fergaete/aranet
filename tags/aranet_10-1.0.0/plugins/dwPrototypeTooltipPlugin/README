@@ -1,0 +1,40 @@
+= dwPrototypeTooltipPlugin - Plugin for prototype based tooltips =
+
+== Overview ==
+
+The plugin provides tooltips via the prototype library for the symfony php framework. Based on the snippet from Dmitry Parnas.
+
+== License ==
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+== Installation ==
+
+To install the plugin use `symfony plugin-install` command
+{{{
+symfony plugin-install http://plugins.symfony-project.com/dwPrototypeTooltipPlugin
+}}}
+
+== Using the plugin ==
+
+http://www.symfony-project.com/snippets/snippet/24
+
+{{{
+
+<?php use_helper('Tooltip') ?>
+
+<?php echo tooltips_js('autoMoveToCursor=false showEvent=click', 'appear=true blindDown=true', 'blindUp=true', array('style.position' => 'absolute'), array('style.position' => 'absolute')) ?>
+
+<div id="some_id">some text</div>
+
+<?php echo tooltip_div('some_id', 'css_class', array('style' => 'visibility: hidden'))?>
+  Tooltip text.
+</div>
+
+}}}
+
+== Examples ==
+
+http://tooltip.crtx.org/index.php?page=Demos
+

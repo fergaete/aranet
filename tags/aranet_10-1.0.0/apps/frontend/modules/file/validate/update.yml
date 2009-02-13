@@ -1,0 +1,10 @@
+fields:
+  file_title:
+    required:
+      msg:    File title is mandatory
+      
+  uploaded_file:
+    sfPropelUniqueValidator:
+      class:        sfPropelFileStorageInfo
+      column:       file_name
+      unique_error: This file already exists. Please upload another one.

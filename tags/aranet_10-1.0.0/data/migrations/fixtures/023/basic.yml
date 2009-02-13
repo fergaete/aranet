@@ -1,0 +1,150 @@
+GPlot:
+  plot-1:
+    id: 1
+    plot_name:  Gastos (sin I.V.A.)
+    plot_color: red
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_expense_item.EXPENSE_PURCHASE_DATE
+    plot_class: ExpenseItem
+    plot_function: "-"
+    plot_acc_function: PLOT_1
+  plot-1b:
+    id: 2
+    plot_name:  Gastos (con I.V.A.)
+    plot_color: red
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_expense_item.EXPENSE_PURCHASE_DATE
+    plot_class: ExpenseItem
+    plot_function: "-"
+    plot_acc_function: PLOT_2
+  plot-2:
+    id: 3
+    plot_name:  Ingresos (sin I.V.A.)
+    plot_color: green
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_income_item.INCOME_DATE
+    plot_class: IncomeItem
+    plot_function: "+"
+    plot_acc_function: PLOT_3
+  plot-2b:
+    id: 4
+    plot_name:  Ingresos (sin I.V.A.)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_income_item.INCOME_DATE
+    plot_class: IncomeItem
+    plot_function: "+"
+  plot-2c:
+    id: 5
+    plot_name:  Ingresos (con I.V.A.)
+    plot_color: green
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_income_item.INCOME_DATE
+    plot_class: IncomeItem
+    plot_function: "+"
+  plot-2d:
+    id: 6
+    plot_name:  Ingresos (con I.V.A.)
+    plot_color: green
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_income_item.INCOME_DATE
+    plot_class: IncomeItem
+    plot_function: "+"
+    plot_acc_function: PLOT_6
+  plot-3:
+    id: 7
+    plot_name:  Facturación (sin I.V.A.)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_invoice.INVOICE_PAYMENT_DATE
+    plot_class: Invoice
+    plot_function: "+"
+    plot_acc_function: PLOT_7
+  plot-3b:
+    id: 8
+    plot_name:  Facturación (con I.V.A.)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_invoice.INVOICE_PAYMENT_DATE
+    plot_class: Invoice
+    plot_function: "+"
+    plot_acc_function: PLOT_8
+  plot-4:
+    id: 9
+    plot_name:  Total ingresos (sin I.V.A.)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_invoice.INVOICE_PAYMENT_DATE
+    plot_class: Invoice
+    plot_function: "+"
+    plot_acc_function: PLOT_4 + PLOT_9
+  plot-4b:
+    id: 10
+    plot_name:  Total ingresos (con I.V.A.)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_invoice.INVOICE_PAYMENT_DATE
+    plot_class: Invoice
+    plot_function: "+"
+    plot_acc_function: PLOT_5 + PLOT_10
+  plot-5:
+    id: 11
+    plot_name:  Cash Flow
+    plot_color: darkolivegreen
+    plot_type:  LinePlot
+    plot_criteria: 
+    plot_acc_function: PLOT_2 + PLOT_5 + PLOT_10 + ACC
+  plot-5b:
+    id: 12
+    plot_name:  Cash Flow
+    plot_color: darkolivegreen
+    plot_type:  LinePlot
+    plot_criteria: 
+    plot_acc_function: PLOT_2 + PLOT_5 + PLOT_10 + ACC
+  plot-6:
+    id: 13
+    plot_name:  Facturación (sin I.V.A)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_invoice.INVOICE_DATE
+    plot_class: Invoice
+    plot_function: "+"
+    plot_acc_function: PLOT_13
+  plot-6b:
+    id: 14
+    plot_name:  Facturación (con I.V.A.)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_invoice.INVOICE_DATE
+    plot_class: Invoice
+    plot_function: "+"
+    plot_acc_function: PLOT_14
+  plot-7:
+    id: 15
+    plot_name:  Total ingresos (sin I.V.A.)
+    plot_color: blue
+    plot_type:  BarPlot
+    plot_criteria: 
+    plot_date_variable: aranet_invoice.INVOICE_DATE
+    plot_class: Invoice
+    plot_function: "+"
+    plot_acc_function: PLOT_4 + PLOT_15
+  plot-8:
+    id: 16
+    plot_name:  Balance
+    plot_color: darkolivegreen
+    plot_type:  LinePlot
+    plot_criteria: 
+    plot_acc_function: PLOT_1 + PLOT_4 + PLOT_15 + ACC
