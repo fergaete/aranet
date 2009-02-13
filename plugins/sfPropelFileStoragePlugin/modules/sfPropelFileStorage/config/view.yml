@@ -1,0 +1,5 @@
+showSuccess:
+  has_layout: Off
+  
+downloadSuccess:
+  has_layout: Off

@@ -12,44 +12,12 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfPropelParanoidBehavior.class.php 7 2008-10-16 08:39:20Z pablo $
  */
 class sfPropelParanoidBehavior
 {
   static public $paranoidFlag = true;
   protected $paranoidFlags = array();
-
-	public static function doSelectStmt($class, Criteria $criteria, PropelPDO $con = null)
-	{
-    $columnName = sfConfig::get('propel_behavior_paranoid_'.$class.'_column', 'deleted_at');
-
-    if (self::$paranoidFlag)
-    {
-      $criteria->add(call_user_func(array($class, 'translateFieldName'), $columnName, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_COLNAME), null, Criteria::ISNULL);
-    }
-    else
-    {
-      self::$paranoidFlag = true;
-    }
-
-    return false;
-	}
-
-  	public static function doCount($class, Criteria $criteria, $distinct = false, PropelPDO $con = null)
-  	{
-      $columnName = sfConfig::get('propel_behavior_paranoid_'.$class.'_column', 'deleted_at');
-
-      if (self::$paranoidFlag)
-      {
-        $criteria->add(call_user_func(array($class, 'translateFieldName'), $columnName, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_COLNAME), null, Criteria::ISNULL);
-      }
-      else
-      {
-        self::$paranoidFlag = true;
-      }
-    $criteria->add(ClientPeer::ID, 3);
-      return false;
-  	}
 
   public function doSelectRS($class, $criteria, $con = null)
   {
@@ -109,5 +77,10 @@ class sfPropelParanoidBehavior
   public static function disable()
   {
     self::$paranoidFlag = false;
+  }
+
+  public static function enable()
+  {
+    self::$paranoidFlag = true;
   }
 }

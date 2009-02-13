@@ -6,47 +6,61 @@
 <?php echo include_metas() ?>
 <?php echo include_title() ?>
 
-<link rel="shortcut icon" href="/images/<?php echo sfConfig::get('aranet_app_icon', 'aranet.ico') ?>" type="image/x-icon" />
-<link rel="icon" href="/images/<?php echo sfConfig::get('aranet_app_icon', 'aranet.ico') ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="/images/<?php echo ICON ?>" type="image/x-icon" />
+<link rel="icon" href="/images/<?php echo ICON ?>" type="image/x-icon" />
 <link rel="start" href="/" title="<?php echo __('Homepage') ?>"/>
+
 </head>
 
-<body class="yui-skin-sam" id="top">
-<!-- the id on the containing div determines the page width. -->
-<!-- #doc = 750px; #doc2 = 950px; #doc3 = 100%; #doc4 = 974px -->
+<body class="layout-two-column-right">
+    <div id="top"></div>
+    <div id="container">
+        <div id="container-inner" class="pkg">
 
-<!-- To set the Preset Template, add a class to the containing node -->
-<!-- .yui-t1 = left 160px; .yui-t2 = left 180px; .yui-t3 = left 300px; -->
-<!-- .yui-t4 = right 180px; .yui-t5 = right 240px; .yui-t6 = right 300px; -->
-<div id="doc3" class="yui-t6">
-  <div id="bd">
+            <div id="banner">
+                <div id="banner-inner" class="pkg">
+                    <h1 id="banner-header"><?php echo link_to(image_tag(COMPANY_LOGO, 'alt="' . COMPANY . '"'), COMPANY_SITE, 'accesskey="1"');?></a></h1>
+                    <h2 id="banner-subject"><?php echo link_to(image_tag('aranet_logo.jpg', 'alt="ARANet"'), HOME_URL, 'accesskey="2"') ?></h2>
+                    <h3 id="banner-description"><?php echo __('Backoffice Web Management') ?></h3>
+                </div>
+            </div>
 
-    <div id="hd" class="header">
-      <?php include('_header.php') ?>
+            <div id="pagebody">
+                <div id="pagebody-inner" class="pkg">
+
+                    <div class='hnav'>
+                        <?php include('_nav.php') ?>
+                    </div>
+
+                    <?php include_component_slot('widget_subnav') ?>
+
+                <div id="beta">
+                    <div id="beta-inner" class="pkg">
+                        <?php include_slot('filters') ?>
+                        <?php include_component_slot('widget_calendar') ?>
+                        <?php include_component_slot('widget_tags') ?>
+                        <?php include_slot('sidebar') ?>
+                        <?php echo javascript_tag(nifty_round_elements( "div.module h2.module-header", "tl")) ?>
+                        <?php echo javascript_tag(nifty_round_elements( "div.module-footer", "bottom")) ?>
+                    </div>
+                </div>
+
+                <div id="alpha">
+                    <div id="alpha-inner" class="pkg content">
+
+<?php echo $sf_data->getRaw('sf_content') ?>
+                    </div>
+                </div>
+
+                <div class="clear">&nbsp;</div>
+
+                </div>
+            </div>
+
+            <div id="footer">
+              <?php include('_footer.php') ?>
+            </div>
+        </div>
     </div>
-
-    <div class='hnav'>
-      <?php include('_yui_nav.php') ?>
-    </div>
-
-    <div id="yui-main">
-      <div class="yui-b content">
-<?php echo $sf_content ?>
-      </div>
-    </div>
-      
-    <div class="yui-b sidebar">
-      <?php include_slot('filters') ?>
-      <?php include_partial('widgets/yui_calendar') ?>
-      <?php include_component('widgets', 'tags') ?>
-      <?php include_slot('sidebar') ?>
-    </div>
-
-    <div id="ft" class="footer">
-      <?php include('_footer.php') ?>
-    </div>
-
-  </div>
-</div>
 </body>
 </html>

@@ -1,0 +1,17 @@
+fields:
+  invoice_title:
+    required:
+      msg:       Enter a title
+  client_name:
+    required:
+      msg:       Select a client
+    sfRegexValidator:
+      match:        No
+      match_error:  Select a client
+      pattern:      /Client/si
+  invoice_number:
+    required:
+      msg:       Enter a number for this invoice
+  invoice_date:
+    required:
+      msg:       Enter a valid date

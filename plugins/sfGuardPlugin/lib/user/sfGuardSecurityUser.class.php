@@ -13,16 +13,16 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardSecurityUser.class.php 10134 2008-07-05 12:20:24Z fabien $
  */
 class sfGuardSecurityUser extends sfBasicSecurityUser
 {
   protected
     $user = null;
 
-  public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $options = array())
+  public function initialize($context, $parameters = array())
   {
-    parent::initialize($dispatcher, $storage, $options);
+    parent::initialize($context, $parameters);
 
     if (!$this->isAuthenticated())
     {
@@ -30,19 +30,6 @@ class sfGuardSecurityUser extends sfBasicSecurityUser
       $this->getAttributeHolder()->removeNamespace('sfGuardSecurityUser');
       $this->user = null;
     }
-  }
-
-  public function getReferer($default)
-  {
-    $referer = $this->getAttribute('referer', $default);
-    $this->getAttributeHolder()->remove('referer');
-
-    return $referer ? $referer : $default;
-  }
-
-  public function setReferer($referer)
-  {
-    $this->setAttribute('referer', $referer);
   }
 
   public function hasCredential($credential, $useAnd = true)

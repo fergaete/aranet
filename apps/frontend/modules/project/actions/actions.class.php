@@ -3,153 +3,223 @@
 /**
  * project actions.
  *
- * @package    ARANet
+ * @package    aranet
  * @subpackage project
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
  */
-class projectActions extends anActions
+class projectActions extends myActions
 {
 
   /**
-   * executes edit action
+   * returns project from params
    *
-   * @param $request
-   */
-  public function executeEdit($request)
+   * @return Project
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getProject()
   {
-    if ($edit = $request->hasParameter('id'))
-    {
-      $this->project = $this->getObject();
+    if ($this->getRequestParameter('id')) {
+      $project = ProjectPeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($project);
+    } else {
+      $project = new Project();
     }
-    else
-    {
-      $this->project = new Project();
+    return $project;
+  }
+  
+  /**
+   * returns task from params
+   *
+   * @return Task
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getTask()
+  {
+    if ($this->getRequestParameter('id')) {
+      $task = TaskPeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($task);
+    } else {
+      $task = new Task();
     }
-    
-    $this->form = new ProjectForm($this->project);
-    
-    if ($request->isMethod('post'))
-    {
-      $pro = $request->getParameter('project');
-      $this->form->bind($pro);
-      if ($this->form->isValid())
-      {
-        $this->form->updateObject();
-        $project = $this->form->getObject();
-
-        if ($pro['project_client_id']) {
-          if ($pro['project_client_id']['ids']) {
-            $client = ClientPeer::retrieveByPk($pro['project_client_id']['ids']);
-          }
-          if (!$client) {
-            $client = new Client();
-            $client->setClientCompanyName($pro['project_client_id']['name']);
-            $client->setClientCommonName($pro['project_client_id']['name']);
-            //$client->save();
-          }
-          $project->setClient($client);
-        }
-        $project->setTags($pro['tags']['name']);
-        if ($pro['tags']['name']) {
-          $project->setProjectHasTags(true);
-        }
-        $project->setContacts($pro['contact']);
-        $project->save();
-        
-        $this->setFlash('success', $this->__($edit ? 'Project edited.' : 'Project created.'));
-
-        return $this->redirect('@project_show_by_id?id='.$project->getId());
-      }
+    return $task;
+  }
+  
+  /**
+   * returns milestone from params
+   *
+   * @return Milestone
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getMilestone()
+  {
+    if ($this->getRequestParameter('id')) {
+      $milestone = MilestonePeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($milestone);
+    } else {
+      $milestone = new Milestone();
+    }
+    return $milestone;
+  }
+  
+  /**
+   * pre executes this action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function preExecute() {
+    $this->referer = $this->getRequest()->getReferer();
+    if (!($project_status = $this->getUser()->getAttribute('project_status'))) {
+      $project_status = ProjectStatusPeer::doSelect(new Criteria());
+      $this->getUser()->setAttribute('project_status', $project_status);
+    }
+    if (in_array($this->getActionName(), array('list', 'listByTag'))) {
+      $this->project_status = $this->getUser()->getAttribute('project_status');
     }
   }
   
   /**
-   * executes autocomplete action
+   * executes update action
    *
-   * @param $request
-   */
-  public function executeAutocomplete($request)
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeUpdate()
   {
-    sfConfig::set('sf_web_debug', false);
-    $name = $request->getParameter('query');
-    $this->setLayout(false);
-    $this->projects = ProjectPeer::getProjectsLike($name);
+    $project = $this->getProject();
+    if ($this->getRequestParameter('project_client_id', -1) == -1) {
+      $client = new Client();
+      $client->setClientCompanyName($this->getRequestParameter('client_name'));
+      $client->setClientUniqueName($this->getRequestParameter('client_name'));
+      $client->save();
+      $client_id = $client->getId();
+    } else {
+      $client_id = $this->getRequestParameter('project_client_id');
+    }
+    // Process contacts
+    $contacts = ContactPeer::processContact($this->getRequest()->getParameterHolder()->getAll());
+    if ($contacts) {
+      $i = 0;
+      foreach($contacts as $contact) {
+        $project->addContact($contact, ($i == 0));
+        $i++;
+      }
+    }
+    $project->setId($this->getRequestParameter('id'));
+    $project->setProjectPrefix($this->getRequestParameter('project_prefix'));
+    $project->setProjectNumber($this->getRequestParameter('project_number'));
+    $project->setProjectName($this->getRequestParameter('project_name'));
+    $project->setProjectUrl($this->getRequestParameter('project_url'));
+    $project->setProjectClientId($client_id);
+    $project->setProjectComments($this->getRequestParameter('project_comments'));
+    $project->setProjectCategoryId($this->getRequestParameter('project_category_id') ? $this->getRequestParameter('project_category_id') : null);
+    if ($this->getRequestParameter('project_start_date'))
+    {
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('project_start_date'), $this->getUser()->getCulture());
+      $project->setProjectStartDate("$y-$m-$d");
+    }
+    if ($this->getRequestParameter('project_finish_date'))
+    {
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('project_finish_date'), $this->getUser()->getCulture());
+      $project->setProjectFinishDate("$y-$m-$d");
+    }
+    $project->setProjectStatusId($this->getRequestParameter('project_status_id') ? $this->getRequestParameter('project_status_id') : null);
+    $project->removeAllTags();
+    $project->addTag($this->getRequestParameter('tags') ? $this->getRequestParameter('tags') : null);
+
+    $project->save();
+
+    return $this->redirect('project/show?id='.$project->getId());
   }
 
+  /**
+   * executes createmilestone action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeCreatemilestone()
   {
-    $project = ProjectPeer::retrieveByPk($this->getRequestParameter('id'));
-    $this->forward404Unless($project);
-    $this->project_id = $project->getId();
+    $this->project = $this->getProject();
     return sfView::INPUT;
   }
 
+  /**
+   * executes createtask action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeCreatetask()
   {
-    $project = ProjectPeer::retrieveByPk($this->getRequestParameter('id'));
-    $this->forward404Unless($project);
-    $this->project_id = $project->getId();
-    $this->milestones = $project->getMilestones();
+    $this->project = $this->getProject();
+    $this->milestones = $this->project->getMilestones();
     return sfView::INPUT;
   }
 
+  /**
+   * executes createtask action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeDeletetask()
   {
-    $task = TaskPeer::retrieveByPk($this->getRequestParameter('id'));
-    $this->forward404Unless($task);
-
+    $task = $this->getTask();
     $task->delete();
     $this->setTemplate('delete');
     return sfView::SUCCESS;
   }
 
+  /**
+   * executes edittask action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeEdittask()
   {
-    $this->task = TaskPeer::retrieveByPk($this->getRequestParameter('id'));
-    $this->forward404Unless($this->task);
-    $project = ProjectPeer::retrieveByPk($this->task->getTaskProjectId());
-    $this->forward404Unless($project);
-    $this->project_id = $project->getId();
-    $this->milestones = $project->getMilestones();
+    $this->task = $this->getTask();
+    if ($this->task->getTaskProjectId()) {
+      $this->project = ProjectPeer::retrieveByPk($this->task->getTaskProjectId());
+    }
+    $this->forward404Unless($this->project);
     $this->setTemplate('createtask');
     return sfView::INPUT;
   }
 
+  /**
+   * executes deletemilestone action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeDeletemilestone()
   {
-    $milestone = MilestonePeer::retrieveByPk($this->getRequestParameter('id'));
-    $this->forward404Unless($milestone);
-
+    $milestone = $this->getMilestone();
     $milestone->delete();
     $this->setTemplate('delete');
     return sfView::SUCCESS;
   }
 
+  /**
+   * executes editmilestone action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeEditmilestone()
   {
-    $this->milestone = MilestonePeer::retrieveByPk($this->getRequestParameter('id'));
-    $this->forward404Unless($this->milestone);
-    $project = ProjectPeer::retrieveByPk($this->milestone->getMilestoneProjectId());
-    $this->forward404Unless($project);
-    $this->project_id = $project->getId();
+    $this->milestone = $this->getMilestone();
+    if ($this->milestone->getMilestoneProjectId()) {
+      $this->project = ProjectPeer::retrieveByPk($this->milestone->getMilestoneProjectId());
+    }
+    $this->forward404Unless($this->project);
     $this->setTemplate('createmilestone');
     return sfView::INPUT;
   }
 
-
+  /**
+   * executes updatemilestone action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeUpdatemilestone()
   {
-    if (!$this->getRequestParameter('id'))
-    {
-      $milestone = new Milestone();
-    }
-    else
-    {
-      $milestone = MilestonePeer::retrieveByPk($this->getRequestParameter('id'));
-      $this->forward404Unless($milestone);
-    }
-
+    $milestone = $this->getMilestone();
     $milestone->setId($this->getRequestParameter('id'));
     $milestone->setMilestoneTitle($this->getRequestParameter('milestone_title'));
     $milestone->setMilestoneDescription($this->getRequestParameter('milestone_description'));
@@ -176,18 +246,14 @@ class projectActions extends anActions
     return sfView::SUCCESS;
   }
 
+  /**
+   * executes updatetask action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeUpdatetask()
   {
-    if (!$this->getRequestParameter('id'))
-    {
-      $task = new Task();
-    }
-    else
-    {
-      $task = TaskPeer::retrieveByPk($this->getRequestParameter('id'));
-      $this->forward404Unless($task);
-    }
-
+    $task = $this->getTask();
     $task->setId($this->getRequestParameter('id'));
     $task->setTaskTitle($this->getRequestParameter('task_title'));
     $task->setTaskDescription($this->getRequestParameter('task_description'));
@@ -217,9 +283,7 @@ class projectActions extends anActions
       $ftask->save();
     }
 
-    $c = new Criteria();
-    $c->add(ProjectPeer::ID, $this->getRequestParameter('task_project_id'));
-    $this->project = ProjectPeer::doSelectOne($c);
+    $this->project = ProjectPeer::retrieveByPk($this->getRequestParameter('task_project_id'));
     $this->forward404Unless($this->project);
 
     $this->setTemplate('updatemilestone');
@@ -227,6 +291,22 @@ class projectActions extends anActions
     return sfView::SUCCESS;
   }
 
+  /**
+   * executes stats action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeStats()
+  {
+    $this->project = $this->getProject();
+    return sfView::SUCCESS;
+  }
+
+  /**
+   * executes getFrecuentlyTaskTitle action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeGetFrecuentlyTaskTitle()
   {
     if ($this->getRequestParameter('id'))
@@ -236,30 +316,46 @@ class projectActions extends anActions
     return sfView::SUCCESS;
   }
 
+  /**
+   * executes updatestatus action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeUpdatestatus()
   {
     if ($status_id = $this->getRequestParameter('project_status_id')) {
-      $this->project = ProjectPeer::retrieveByPk($this->getRequestParameter('project_id'));
-      if ($this->project) {
-        $this->project->setProjectStatusId($status_id);
-        switch ($status_id) {
-          case 3:
+      $this->project = $this->getProject();
+      $this->project->setProjectStatusId($status_id);
+      switch ($status_id) {
+        case 3:
           $this->project->setProjectFinishdate(date('Y-m-d'));
           break;
-        }
-        $this->project->save();
       }
+      $this->project->save();
     }
+    return sfView::SUCCESS;
   }
 
   /**
-   * add filter criteria
+   * Returns the column name to sort list by default
    *
-   * @param Criteria $c
+   * @return string
    */
+  protected function getSortColumn()
+  {
+    // TODO
+    return 'project_number';
+    //return 'CONCAT(' . ProjectPeer::PROJECT_PREFIX.", ' ', " . ProjectPeer::PROJECT_NUMBER.')';
+  }
+
+  /**
+   * adds filters criteria
+   *
+   * @param  Criteria  $c  the base criteria
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   protected function addFiltersCriteria ($c)
   {
-    /*
     if (isset($this->filters['project_from_is_empty']))
     {
       $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_START_DATE, '');
@@ -287,13 +383,23 @@ class projectActions extends anActions
         $criterion = $criterion2;
       }
     }
+    if (isset($this->filters['project_status_id_is_empty']))
+    {
+      $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_STATUS_ID, '');
+      $criterion->addOr($c->getNewCriterion(ProjectPeer::PROJECT_STATUS_ID, null, Criteria::ISNULL));
+      $c->add($criterion);
+    }
+    else if (isset($this->filters['project_status_id']) && $this->filters['project_status_id'] !== '0' && $this->filters['project_status_id'] !== '')
+    {
+      $c->add(ProjectPeer::PROJECT_STATUS_ID, $this->filters['project_status_id']);
+    }
     if (isset($this->filters['client_name_is_empty']))
     {
       $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_CLIENT_ID, '');
       $criterion->addOr($c->getNewCriterion(ProjectPeer::PROJECT_CLIENT_ID, null, Criteria::ISNULL));
       $c->add($criterion);
     }
-    else if (isset($this->filters['client_name']) && $this->filters['client_name'] && $this->filters['client_name'] != sfContext::getInstance()->getI18N()->__('Client') . '...')
+    else if (isset($this->filters['client_name']) && $this->filters['client_name'] && $this->filters['client_name'] != sfI18N::getInstance()->__('Client') . '...')
     {
       $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['client_name']."%", Criteria::LIKE);
       $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['client_name']."%", Criteria::LIKE);
@@ -301,96 +407,51 @@ class projectActions extends anActions
       $c->add($criterion);
       $c->addJoin(ClientPeer::ID, ProjectPeer::PROJECT_CLIENT_ID);
     }
-    */
-    if (isset($this->filters['name']))
+    if (isset($this->filters['project_name']) && $this->filters['project_name'] && $this->filters['project_name'] != sfI18N::getInstance()->__('Name') . '...')
     {
-      if (isset($this->filters['name']['text']) && $this->filters['name']['text'] && $this->filters['name']['text'] != $this->__('Name') . '...')
-      {
-        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NUMBER, "%".$this->filters['name']['text']."%", Criteria::LIKE);
-        $crit2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
-        $criterion->addOr($crit2);   
-        $c->add($criterion);
-      }
-      if (isset($this->filters['name']['is_empty']) && $this->filters['name']['is_empty'])
-      {
-        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, null, Criteria::ISNULL);
-        $crit2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, null, Criteria::ISNULL);
-        $crit3 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "");
-        $crit4 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "");
-        $crit3->addOr($crit4);
-        $criterion->addOr($crit2);
-        $criterion->addOr($crit3);
-        $c->add($criterion);
-      }
+      $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_NUMBER, "%".$this->filters['project_name']."%", Criteria::LIKE);
+      $criterion2 = $c->getNewCriterion(ProjectPeer::PROJECT_NAME, "%".$this->filters['project_name']."%", Criteria::LIKE);
+      $criterion->addOr($criterion2);
     }
-    $criterion = null;
-    if (isset($this->filters['project_start_date_from'])) {
-      list($d, $m, $y) = array($this->filters['project_start_date_from']['day'], $this->filters['project_start_date_from']['month'], $this->filters['project_start_date_from']['year']);
-      if ($d && $m && $y) {
-        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_START_DATE, $y.'-'.$m.'-'.$d, Criteria::GREATER_EQUAL);
-      }
-    }
-    if (isset($this->filters['project_start_date_to'])) {
-      list($d, $m, $y) = array($this->filters['project_start_date_to']['day'], $this->filters['project_start_date_to']['month'], $this->filters['project_start_date_to']['year']);
-      if ($d && $m && $y) {
-        $crit1 = $c->getNewCriterion(ProjectPeer::PROJECT_START_DATE, $y.'-'.$m.'-'.$d, Criteria::LESS_EQUAL);
-        if ($criterion) {
-          $criterion->addAnd($crit1);
-        } else {
-          $criterion = $crit1;
-        }
-      }
-    }
-    if (isset($criterion)) $c->add($criterion);
-    $criterion = null;
-    if (isset($this->filters['project_finish_date_from'])) {
-      list($d, $m, $y) = array($this->filters['project_finish_date_from']['day'], $this->filters['project_finish_date_from']['month'], $this->filters['project_finish_date_from']['year']);
-      if ($d && $m && $y) {
-        $criterion = $c->getNewCriterion(ProjectPeer::PROJECT_FINISH_DATE, $y.'-'.$m.'-'.$d, Criteria::GREATER_EQUAL);
-      }
-    }
-    if (isset($this->filters['project_finish_date_to'])) {
-      list($d, $m, $y) = array($this->filters['project_finish_date_to']['day'], $this->filters['project_finish_date_to']['month'], $this->filters['project_finish_date_to']['year']);
-      if ($d && $m && $y) {
-        $crit1 = $c->getNewCriterion(ProjectPeer::PROJECT_FINISH_DATE, $y.'-'.$m.'-'.$d, Criteria::LESS_EQUAL);
-        if ($criterion) {
-          $criterion->addAnd($crit1);
-        } else {
-          $criterion = $crit1;
-        }
-      }
-    }
-    if (isset($criterion)) $c->add($criterion);
-    $criterion = null;
-    if (isset($this->filters['project_status_id']) && !empty($this->filters['project_status_id']))
+    if (isset($criterion))
     {
-      $c->add(ProjectPeer::PROJECT_STATUS_ID, $this->filters['project_status_id']);
+      $c->add($criterion);
     }
-    if (isset($this->filters['project_category_id']) && !empty($this->filters['project_category_id']))
-    {
-      $c->add(ProjectPeer::PROJECT_CATEGORY_ID, $this->filters['project_category_id']);
-    }
-    if (isset($this->filters['project_client_id']))
-    {
-      if ($this->filters['project_client_id']['ids'] != '')
-      {
-        $c->add(ProjectPeer::PROJECT_CLIENT_ID, $this->filters['project_client_id']['ids']);
-      } else {
-        $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['project_client_id']['name']."%", Criteria::LIKE);
-        $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['project_client_id']['name']."%", Criteria::LIKE);
-        $criterion->addOr($crit2);
-        $c->addJoin(ProjectPeer::PROJECT_CLIENT_ID, ClientPeer::ID);
-      }
-    }    
-    if (isset($criterion)) $c->add($criterion);
   }
 
+  /**
+   * executes autocomplete action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeAutocomplete()
+  {
+    sfConfig::set('sf_web_debug', false);
+    $project_name = $this->getRequestParameter('filters[project_name]');
+    if (!$project_name) {
+      $project_name = $this->getRequestParameter('project_name');
+    }
+    $this->projects = ProjectPeer::getProjectsLike($project_name);
+    return sfView::SUCCESS;
+  }
+
+  /**
+   * executes getClientSelect action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeGetClientSelect() {
     $c = new Criteria();
     $c->add(ProjectPeer::PROJECT_CLIENT_ID, $this->getRequestParameter('client_id'));
     $this->projects = ProjectPeer::doSelect($c);
+    return sfView::SUCCESS;
   }
 
+  /**
+   * executes getBudgetSelect action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeGetBudgetSelect() {
     $c = new Criteria();
     if ($this->getRequestParameter('project_id')) {
@@ -402,52 +463,30 @@ class projectActions extends anActions
     return sfView::SUCCESS;
   }
 
+  /**
+   * executes getMilestones action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeGetMilestones() {
     $c = new Criteria();
     $c->add(ProjectPeer::ID, $this->getRequestParameter('project_id'));
-    $projects = ProjectPeer::doSelectJoinAllExceptsfGuardUserRelatedByDeletedBy($c);
-    if (isset($projects[0])) {
-      $this->project = $projects[0];
-    } else {
-      $this->project = new Project();
-    }
+    $this->project = ProjectPeer::doSelectOne($c);
     return sfView::SUCCESS;
   }
 
+  /**
+   * executes getTaskSelect action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
   public function executeGetTaskSelect() {
     $c = new Criteria();
     $c->add(TaskPeer::TASK_MILESTONE_ID, $this->getRequestParameter('milestone_id'));
     $c->addAscendingOrderByColumn(TaskPeer::TASK_START_DATE);
     $c->addAscendingOrderByColumn(TaskPeer::ID);
     $this->tasks = TaskPeer::doSelect($c);
+    return sfView::SUCCESS;
   }
 
-  /**
-   * Returns the column name to sort list by default
-   *
-   * @return string
-   */
-  protected function getDefaultSortField()
-  {
-    return 'project_number';
-  }
-  
-  public function getColumns()
-  {
-    $keys = array(
-        array('name' => 'id'),
-        array('name' => 'actions', 'label' => $this->__('Actions')),
-        array('name' => 'project_number', 'label' => $this->__('Number')),
-        array('name' => 'project_name', 'label' => $this->__('Title'), 'sortable' => true, 'editor' => 'textbox'),
-        array('name' => 'client', 'label' => $this->__('Client')),
-        array('name' => 'project_start_date', 'label' => $this->__('Start'), 'sortable' => true),
-        array('name' => 'project_end_date', 'label' => $this->__('End')),
-        array('name' => 'project_status', 'label' => $this->__('Status')),
-        array('name' => 'project_total_hours', 'label' => $this->__('Hours')),
-        array('name' => 'project_total_incomes', 'label' => $this->__('Incomes')),
-        array('name' => 'project_total_expenses', 'label' => $this->__('Expenses')),
-        );
-    return $keys;
-  }
-  
 }

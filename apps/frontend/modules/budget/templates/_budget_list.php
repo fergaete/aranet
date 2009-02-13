@@ -1,6 +1,6 @@
-<?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php if (count($budgets)) : ?>
-<div class="windowFrame" id="<?php echo $related ?>ViewBudgets">
+<?php use_helper('Number', 'NumberExtended', 'Javascript', 'gWidgets', 'Style') ?>
+<div id="<?php echo $id ?>">
+<div class="windowFrame">
     <table class="dataTable">
         <thead>
             <tr>
@@ -15,14 +15,14 @@
             </tr>
         </thead>
         <tbody>
-          <?php $i = 1; $total = 0; foreach ($budgets as $budget): $total += $budget->getBudgetTotalAmount(); $odd = fmod(++$i, 2) ?>
-            <tr id="budget_<?php echo $budget->getId() ?>" style="background:<?php echo ($odd) ? '#eee' : '#fff' ?>" onmouseover="this.style.background = '#ededed!important';" onmouseout="this.style.background='#<?php echo $odd ? 'eee' : 'fff' ?>!important';">
+<?php $total = 0; foreach ($budgets as $budget): $total += $budget->getBudgetTotalAmount() ?>
+            <tr id="project_<?php echo $budget->getId() ?>">
                 <td class="actions" id="budgetMenu_<?php echo $budget->getId() ?>">
                 <div class="objectActions">
                 <ul>
-                  <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__("View").'"'), 'budget/show?id='.$budget->getId()) ?></li>
-                  <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__("Edit").'"'), 'budget/edit?id='.$budget->getId()) ?></li>
-                  <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__("Delete").'"'), array(
+                  <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'budget/show?id='.$budget->getId()) ?></li>
+                  <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'budget/edit?id='.$budget->getId()) ?></li>
+                  <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'budget_'.$budget->getId(),
                     'url'      => 'budget/delete?id='.$budget->getId(),
                     'confirm'  => __('Are you sure?'),
@@ -31,8 +31,8 @@
                 </div>
                 </td>
                 <td><?php echo link_to($budget, 'budget/show?id=' . $budget->getId()) ?></td>
-                <td class="text"><?php echo $budget->getDefaultContact() ?></td>
-                <td class="text"><?php echo $budget->getBudgetTitle() ?></td>
+                <td><?php echo ($budget->getDefaultContact()) ? link_to($budget->getDefaultContact(), '@contact_show_by_id?id=' . $budget->getDefaultContact()->getId()) : '' ?></td>
+                <td><?php echo $budget->getBudgetTitle() ?></td>
                 <td class="date"><?php echo format_date($budget->getBudgetDate()) ?></td>
                 <td class="status" id="budStatus<?php echo $budget->getId() ?>">
                 <?php $remote = array(
@@ -56,6 +56,4 @@
     </div></div>
 </div>
 <?php endif ?>
-<?php else : ?>
-  <p><?php echo __('No related budgets yet') ?></p>
-<?php endif ?>
+</div>

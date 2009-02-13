@@ -20,11 +20,11 @@
     <td class="actions" id="projectMenu_<?php echo $project->getId() ?>">
         <div class="objectActions">
             <ul>
-              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="'.__("Edit").'"'), array(
+              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="Edit"'), array(
                     'update'   => 'projectMilestoneAddEdit',
                     'url'      => 'project/editmilestone?id='.$item->getId()
                     )) ?></li>
-              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="'.__("Delete").'"'), array(
+              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'item_'.$item->getId(),
                     'url'      => 'project/deletemilestone?id='.$item->getId(),
                     'confirm'  => __('Are you sure?'),
@@ -39,17 +39,25 @@
       <td style="vertical-align:middle;"><strong><?php echo $item->getMilestoneTitle() ?></strong><?php echo ($item->getMilestoneDescription()) ? '<br/>' . $item->getMilestoneDescription() : '' ?></td>
       <td class="date"><strong><?php echo format_date($item->getMilestoneStartDate()) ?></strong></td>
       <td class="date"><strong><?php echo format_date($item->getMilestoneFinishDate()) ?></strong></td>
-      <td class="number"><strong><?php echo ($item->getMilestoneTotalHours() || $item->getMilestoneEstimatedHours()) ? $item->getMilestoneTotalHours() . '/' . $item->getMilestoneEstimatedHours() . ' hrs (' . format_percent($item->getMilestoneCompletionFraction()) .')' : '' ?></strong></td>
+<?php
+  $fraction = $item->getMilestoneCompletionFraction();
+  if ($fraction > 100) {
+    $f = '<span style="color:red">('.format_percent($fraction).')</span>';
+  } else {
+    $f = '('.format_percent($fraction).')';
+  }
+?>
+      <td class="number"><strong><?php echo ($item->getMilestoneTotalHours() || $item->getMilestoneEstimatedHours()) ? $item->getMilestoneTotalHours() . '/' . $item->getMilestoneEstimatedHours() . ' hrs '.$f : '' ?></strong></td>
       <td class="currency"><strong><?php echo ($item->getMilestoneTotalHourCosts()) ? format_currency($item->getMilestoneTotalHourCosts(), 'EUR') : '' ?></td>
 <?php else: ?>
     <td class="actions" id="projectMenu_<?php echo $project->getId() ?>">
         <div class="objectActions">
             <ul>
-              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="'.__("Edit").'"'), array(
+              <li><?php echo link_to_remote(image_tag("button_edit.gif", 'alt="Edit"'), array(
                     'update'   => 'projectMilestoneAddEdit',
                     'url'      => 'project/edittask?id='.$item->getId()
                     )) ?></li>
-              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="'.__("Delete").'"'), array(
+              <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'item_'.$item->getId(),
                     'url'      => 'project/deletetask?id='.$item->getId(),
                     'confirm'  => 'Are you sure?',
@@ -61,7 +69,16 @@
       <td>&nbsp;&nbsp;&nbsp;<?php echo $item->getTaskTitle() ?><?php echo $item->getTaskDescription() ? ' (' . $item->getTaskDescription() .')' : '' ?></td>
       <td class="date"><?php echo format_date($item->getTaskStartDate()) ?></td>
       <td class="date"><?php echo format_date($item->getTaskFinishDate()) ?></td>
-      <td class="number"><?php echo ($item->getTaskTotalHours() || $item->getTaskEstimatedHours()) ? $item->getTaskTotalHours() . '/' . $item->getTaskEstimatedHours() . ' hrs (' . format_percent($item->getTaskCompletionFraction()) .')' : '' ?></td>
+<?php
+  $fraction = $item->getTaskCompletionFraction();
+  if ($fraction > 100) {
+    $f = '<span style="color:red">('.format_percent($fraction).')</span>';
+  } else {
+    $f = '('.format_percent($fraction).')';
+  }
+?>
+
+      <td class="number"><?php echo ($item->getTaskTotalHours() || $item->getTaskEstimatedHours()) ? $item->getTaskTotalHours() . '/' . $item->getTaskEstimatedHours() . ' hrs '.$f : '' ?></td>
 
       <td class="currency"><?php echo ($item->getTaskTotalHourCosts()) ? format_currency($item->getTaskTotalHourCosts(), 'EUR') : '' ?></td>
 <?php endif ?>

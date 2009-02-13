@@ -1,0 +1,91 @@
+sfSetting:
+  version:
+    name:    VERSION
+    value:   1.0.0
+    env:     all
+    description: Project version
+  temp_path:
+    name:    TEMP_PATH
+    value:   /tmp
+    env:     all
+    description: Temporary path
+  app_company:
+    name:    COMPANY
+    value:   ARANOVA
+    env:     all
+    description: Company
+  app_company_logo:
+    name:    COMPANY_LOGO
+    value:   aranova_logo.gif
+    env:     all
+    description: Company logo
+  app_company_site:
+    name:    COMPANY_SITE
+    value:   http://www.aranova.es
+    env:     all
+    description: Company url
+  app_icon:
+    name:    ICON
+    value:   aranova.ico
+    env:     all
+    description: Application icon
+  app_home_url:
+    name:    HOME_URL
+    value:   http://aranet.aranova-it.com
+    env:     all
+    description: Application site url
+  charset:
+    name:    CHARSET
+    value:   utf-8
+    env:     all
+    description: Charset
+  margin_model:
+    name:    MARGIN_MODEL
+    value:   sales
+    env:     all
+    description: Margin model, can be sales or costs
+  smtp_mail_host:
+    name:    SMTP_MAIL_HOST
+    value:   mail.aranova.es
+    env:     all
+    description: SMTP Mail host for sending email messages
+  smtp_mail_user:
+    name:    SMTP_MAIL_USER
+    value:   info@aranova.es
+    env:     all
+    description: Mail user
+  smtp_mail_password:
+    name:    SMTP_MAIL_PASSWORD
+    value:   xxxxx
+    env:     all
+    description: Mail password
+  mail_from:
+    name:    MAIL_FROM
+    value:   ARANOVA <info@aranova.es>
+    env:     all
+    description: Mail direction used for "from" field
+  mail_sender:
+    name:    MAIL_SENDER
+    value:   ARANOVA <info@aranova.es>
+    env:     all
+    description: Mail direction used for "sender" field
+  mail_reply_to:
+    name:    MAIL_REPLY_TO
+    value:   ARANOVA <info@aranova.es>
+    env:     all
+    description: Mail direction used for "reply_to" field
+  invoice_number_format:
+    name:    INVOICE_NUMBER_FORMAT
+    value:   %04s
+    env:     all
+    description: For more information see http://es.php.net/manual/es/function.sprintf.php
+  invoice_first_number:
+    name:    INVOICE_FIRST_NUMBER
+    value:   1
+    env:     all
+    description:  First number used for invoice secuence
+  demo_mode:
+    name:    DEMO_MODE
+    value:   0
+    env:     all
+    description:  Show login demo information

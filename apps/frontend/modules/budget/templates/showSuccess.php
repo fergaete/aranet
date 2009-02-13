@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('Budget "%1%"', array('%1%' => $budget))) ?>
+<?php aranet_title(__('Budget %1%', array('%1%' => $budget))) ?>
 
 <h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View budget details') ?> <span class="subText">(<?php echo $budget->__toString() . ' - ' . $budget->getBudgetTitle() ?>)</span></h3>
 
@@ -7,7 +7,7 @@
     <table style="width: 100%">
     <tr>
         <td class="leftSide">
-            <span class="bigText"><?php echo ($budget->getClient()) ? link_to($budget->getClient()->getFullName(false), '@show_client_by_id?id=' . $budget->getClient()->getId()) : '' ?></span><br \>
+            <span class="bigText"><?php echo ($budget->getClient()) ? link_to($budget->getClient()->getFullName(false), '@client_show_by_id?id=' . $budget->getClient()->getId()) : '' ?></span><br \>
             <?php ($budget->getClient()) ? include_partial('address/basic_data', array('address' => $budget->getClient()->getDefaultAddress())) : '' ?><br/>
             <?php include_partial('contact/basic_data', array('contact' => $budget->getDefaultContact())) ?>
         </td>
@@ -43,7 +43,7 @@
                     <ul>
                       <li><?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit budget details"'), '/budget/edit?id=' . $budget->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonPrintLarge.gif', 'alt="Print budget"'), '/budget/print?id=' . $budget->getId()) ?></li>
-                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy budget"'), '/budget/create?copy_id=' . $budget->getId()) ?></li>
+                      <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Copy budget"'), '/budget/create?id=' . $budget->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonCopyLarge.gif', 'alt="Create invoice"'), '/budget/createinvoice?id=' . $budget->getId()) ?></li>
                       <li><?php echo link_to(image_tag('buttonDeleteLarge.gif', 'alt="Delete budget"'), '/budget/delete?id=' . $budget->getId(), 'post=true&confirm=' . ('Are you sure?')) ?></li>
                     </ul>
@@ -76,7 +76,7 @@ $budget)) ?>
 
 <div class="budgetHeader"><div class="headerFiles"><?php echo __('Associated files (#%1%)', array('%1%' => $budget->countFiles())) ?></div>
 <div class="windowControlsDashboard">
-    <span><?php echo link_to(image_tag('button_add.gif', __('Upload new file')), "/file/create?class=Budget&object_id=" . $budget->getId().'&referer='.urlencode('budget/show?id=' . $budget->getId())) ?></span>
+    <span><?php echo '<a href="/file/create?class=Budget&object_id=' . $budget->getId().'&referer=budget/show?id=' . $budget->getId() .'">'.image_tag('button_add.gif', __('Upload new file')).'</a>' ?></span>
     <span id="budgetViewFilesRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'budgetViewFiles') . visual_effect('appear', 'budgetViewFilesRollDown') . visual_effect('fade', 'budgetViewFilesRollUp')) ?></span>
     <span id="budgetViewFilesRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'budgetViewFiles') . visual_effect('appear', 'budgetViewFilesRollUp') . visual_effect('fade', 'budgetViewFilesRollDown')) ?></span>
 </div></div>

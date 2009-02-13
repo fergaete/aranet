@@ -3,90 +3,114 @@
 /**
  * vendor actions.
  *
- * @package    ARANet
+ * @package    aranet
  * @subpackage vendor
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
  */
-class vendorActions extends anActions
+class vendorActions extends myActions
 {
 
   /**
-   * executes edit action
+   * returns vendor from params
    *
-   * @param $request
-   */
-  public function executeEdit($request)
+   * @return Vendor
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getVendor()
   {
-    $this->vendor = $this->getObject();
-    $edit = $request->hasParameter('id');
-    $this->form = new VendorForm($this->vendor);
-    
-    if ($request->isMethod('post'))
-    {
-      $ven = $request->getParameter('vendor');
-      $this->form->bind($ven);
-      if ($this->form->isValid())
-      {
-        $this->form->updateObject();
-        $vendor = $this->form->getObject();
+    if ($this->getRequestParameter('id')) {
+      $vendor = VendorPeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($vendor);
+    } else {
+      $vendor = new Vendor();
+    }
+    return $vendor;
+  }
+  
+  /**
+   * executes stats action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeStats()
+  {
+    $this->vendor = $this->getVendor();
+    return sfView::SUCCESS;
+  }
 
-        $vendor->setTags($ven['tags']['name']);
-        if ($ven['tags']['name']) {
-          $vendor->setVendorHasTags(true);
-        }
-        $vendor->setContacts($ven['contact']);    
-        $vendor->setAddresses($ven['address']);
-        $vendor->save();
-        
-        $this->setFlash('success', $this->__($edit ? 'Vendor edited.' : 'Vendor created.'));
-
-        return $this->redirect('@vendor_show_by_id?id='.$vendor->getId());
+  /**
+   * executes update action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeUpdate()
+  {
+    $vendor = $this->getVendor();
+    // Process contacts
+    $contacts = ContactPeer::processContact($this->getRequest()->getParameterHolder()->getAll());
+    if ($contacts) {
+      $i = 0;
+      foreach($contacts as $contact) {
+        $vendor->addContact($contact, ($i == 0));
+        $i++;
       }
     }
+    // Process addresses
+    $addresses = AddressPeer::processAddress($this->getRequest()->getParameterHolder()->getAll());
+    if ($addresses) {
+      if (count($addresses)) {
+        $addresses[0]->setAddressIsDefault(true);
+      }
+      foreach($addresses as $address) {
+        $vendor->addAddress($address);
+      }
+    }
+
+    $vendor->setId($this->getRequestParameter('id'));
+    $vendor->setVendorUniqueName($this->getRequestParameter('vendor_unique_name'));
+    $vendor->setVendorCompanyName($this->getRequestParameter('vendor_company_name'));
+    $vendor->setVendorCif($this->getRequestParameter('vendor_cif'));
+    $vendor->setVendorKindOfCompanyId($this->getRequestParameter('vendor_kind_of_company_id') ? $this->getRequestParameter('vendor_kind_of_company_id') : null);
+    if ($this->getRequestParameter('vendor_since'))
+    {
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('vendor_since'), $this->getUser()->getCulture());
+      $vendor->setVendorSince("$y-$m-$d");
+    }
+    $vendor->setVendorWebsite($this->getRequestParameter('vendor_website'));
+    $vendor->setVendorComments($this->getRequestParameter('vendor_comments'));
+    $vendor->removeAllTags();
+    $vendor->addTag($this->getRequestParameter('tags') ? $this->getRequestParameter('tags') : null);
+
+    $vendor->save();
+
+    return $this->redirect('vendor/show?id='.$vendor->getId());
   }
 
   /**
-   * executes autocomplete action
+   * returns order column
    *
-   * @param $request
-   */
-  public function executeAutocomplete($request)
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getSortColumn()
   {
-    sfConfig::set('sf_web_debug', false);
-    $name = $request->getParameter('query');
-    $this->setLayout(false);
-    $this->vendors = VendorPeer::getVendorsLike($name);
+    return 'vendor_company_name';
   }
 
   /**
-   * add filter criteria
-   * 
-   * @param Criteria $c
+   * adds filters criteria
+   *
+   * @param  Criteria  $c  the base criteria
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
+   **/
   protected function addFiltersCriteria ($c)
   {
-    if (isset($this->filters['name']))
+    if (isset($this->filters['vendor_name']) && $this->filters['vendor_name'] && $this->filters['vendor_name'] != sfI18N::getInstance()->__('Name') . '...')
     {
-      if (isset($this->filters['name']['text']) && $this->filters['name']['text'] && $this->filters['name']['text'] != $this->__('Name') . '...')
-      {
-        $criterion = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
-        $crit2 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, "%".$this->filters['name']['text']."%", Criteria::LIKE);
-        $criterion->addOr($crit2);   
-      }
-      if (isset($this->filters['name']['is_empty']) && $this->filters['name']['is_empty'])
-      {
-        
-        $criterion = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, null, Criteria::ISNULL);
-        
-        $crit2 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, null, Criteria::ISNULL);
-        $crit3 = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, "");
-        $crit4 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, "");
-        $crit3->addOr($crit4);
-        $criterion->addOr($crit2);
-        $criterion->addOr($crit3);
-      }
+      $criterion = $c->getNewCriterion(VendorPeer::VENDOR_COMPANY_NAME, "%".$this->filters['vendor_name']."%", Criteria::LIKE);
+      $crit2 = $c->getNewCriterion(VendorPeer::VENDOR_UNIQUE_NAME, "%".$this->filters['vendor_name']."%", Criteria::LIKE);
+      $criterion->addOr($crit2);
+      $c->add($criterion);
     }
     if (isset($criterion))
     {
@@ -95,27 +119,19 @@ class vendorActions extends anActions
   }
 
   /**
-   * Returns the column name to sort list by default
+   * executes autocomplete action
    *
-   * @return string
-   */
-  protected function getDefaultSortField()
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeAutocomplete()
   {
-    return 'vendor_company_name';
-  }
-  
-  public function getColumns()
-  {
-    $keys = array(
-        array('name' => 'id'),
-        array('name' => 'actions', 'label' => $this->__('Actions')),
-        array('name' => 'vendor_company_name', 'label' => $this->__('Company'), 'sortable' => true, 'editor' => 'textbox'),
-        array('name' => 'contact', 'label' => $this->__('Main contact')),
-        array('name' => 'phone', 'label' => $this->__('Phone')),
-        array('name' => 'address', 'label' => $this->__('Address')),
-        array('name' => 'total_amount', 'label' => $this->__('Total amount'))
-        );
-    return $keys;
+    sfConfig::set('sf_web_debug', false);
+    $vendor_name = $this->getRequestParameter('filters[vendor_name]', $this->getRequestParameter('vendor_name'));
+    if (!$vendor_name) {
+      $vendor_name = $this->getRequestParameter('company_name');
+    }
+    $this->vendors = VendorPeer::getVendorsLike($vendor_name);
+    return sfView::SUCCESS;
   }
 
 }

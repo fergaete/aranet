@@ -3,13 +3,30 @@
 /**
  * budget actions.
  *
- * @package    ARANet
+ * @package    aranet
  * @subpackage budget
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
  */
-class budgetActions extends anActions
+class budgetActions extends myActions
 {
+
+  /**
+   * returns budget from params
+   *
+   * @return Budget
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getBudget()
+  {
+    if ($this->getRequestParameter('id')) {
+      $budget = BudgetPeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($budget);
+    } else {
+      $budget = new Budget();
+    }
+    return $budget;
+  }
 
   /**
    * pre executes this action
@@ -28,61 +45,24 @@ class budgetActions extends anActions
   }
 
   /**
-   * returns budget from params
+   * executes stats action
    *
-   * @return Budget
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  protected function getBudget()
-  {
-    if ($request->getParameter('id')) {
-      $budget = BudgetPeer::retrieveByPk($this->getRequestParameter('id'));
-      $this->forward404Unless($budget);
-    } else {
-      $budget = new Budget();
-    }
-    return $budget;
-  }
-
-  /**
-   * excute minilist from related class
-   *
-   * @param sfWebRequest $request
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeMinilist($request)
-  {
-    $class_peer = $request->getParameter('related') . 'Peer';
-    if (class_exists($class_peer)) {
-      $object = call_user_func($class_peer.'::retrieveByPK', $request->getParameter('id'));
-      if ($object) {
-        $this->addresses = $object->getBudgets();
-        $this->object = $object;
-      }
-    }
-    return sfView::SUCCESS;
-  }
-
-  /**
-   * excute stats action
-   *
-   * @param sfWebRequest $request
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeStats($request)
+  public function executeStats()
   {
     $this->budget = $this->getBudget();
     return sfView::SUCCESS;
   }
 
   /**
-   * excute versions action
+   * executes versions action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeVersions($request) {
+   **/
+  public function executeVersions() {
     $budget = $this->getBudget();
+    $c = new Criteria();
     $c->add(BudgetPeer::BUDGET_PREFIX, $budget->getBudgetPrefix());
     $c->add(BudgetPeer::BUDGET_NUMBER, $budget->getBudgetNumber());
     $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_REVISION);
@@ -91,12 +71,11 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute list action
+   * executes list action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeList($request) {
+   **/
+  public function executeList() {
     $c = new Criteria();
     $c->add(BudgetPeer::BUDGET_IS_LAST, true);
     $this->processList($c);
@@ -104,13 +83,12 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute orderitems action
+   * executes orderitems action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeOrderitems($request) {
-    $new_order = $request->getParameter('order');
+   **/
+  public function executeOrderitems() {
+    $new_order = $this->getRequestParameter('order');
     for($i = 1; $i <= count($new_order); $i++) {
       $budget_item = BudgetItemPeer::retrieveByPK($new_order[$i-1]);
       $budget_item->setItemOrder($i);
@@ -120,102 +98,84 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute getTypeOfHours action
+   * executes getTypeOfHours action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeGetTypesOfHour($request) {
-    if ($request->getParameter('id') == 1) {
+   **/
+  public function executeGetTypesOfHour() {
+    if ($this->getRequestParameter('id') == 1) {
       if (!($types_of_hour = $this->getUser()->getAttribute('types_of_hour'))) {
         $types_of_hour = TypeOfHourPeer::doSelect(new Criteria());
         $this->getUser()->setAttribute('types_of_hour', $types_of_hour);
       }
       $this->types_of_hour = $types_of_hour;
-      $this->hour = $request->getParameter('hour');
+      $this->hour = $this->getRequestParameter('hour');
     }
-    $this->i = $request->getParameter('i');
-    $this->cost = $request->getParameter('cost');
+    $this->i = $this->getRequestParameter('i');
+    $this->cost = $this->getRequestParameter('cost');
     return sfView::SUCCESS;
   }
 
   /**
-   * excute show action
+   * executes create action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeShow($request)
-  {
-    $this->budget = $this->getBudget();
-    return sfView::SUCCESS;
-  }
-
-  /**
-   * excute create action
-   *
-   * @param sfWebRequest $request
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeCreate($request)
+   **/
+  public function executeCreate()
   {
     $this->getUser()->setAttribute('index', 0);
-    if ($request->getParameter('copy_id')) {
-      $c = new Criteria();
-      $c->add(BudgetPeer::ID, $request->getParameter('copy_id'));
-      $budget = BudgetPeer::doSelectOne($c);
-      $new_budget = new Budget();
-      if ($budget) {
-        // Copy items
-        $new_budget->copyFrom($budget);
-      }
-      $this->budget = $new_budget;
+    if (!$this->getFlash('budget')) {
+      $this->budget = $this->getBudget();
     } else {
-      $this->budget = new Budget();
+      $this->budget = $this->getFlash('budget');
     }
-
+    if ($this->hasRequestParameter('id')) {
+      // Copy object
+      $new_budget = new Budget();
+      $this->budget->copyInto($new_budget, true); // Include items
+      $new_budget->setBudgetRevision($new_budget->getBudgetRevision()+1);
+      $this->budget = $new_budget;
+    }
     $this->setTemplate('edit');
     $c = new Criteria();
-    if ($request->getParameter('client_id')) {
-      $c->add(ProjectPeer::PROJECT_CLIENT_ID, $request->getParameter('client_id'));
+    if ($this->getRequestParameter('client_id')) {
+      $c->add(ProjectPeer::PROJECT_CLIENT_ID, $this->getRequestParameter('client_id'));
       $this->projects = ProjectPeer::doSelect($c);
     }
-    if ($request->getParameter('project_id')) {
+    if ($this->getRequestParameter('project_id')) {
       $this->projects = ProjectPeer::doSelect($c);
     }
     return sfView::SUCCESS;
   }
 
   /**
-   * excute createinvoice action
+   * executes createinvoice action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeCreateinvoice($request)
+   **/
+  public function executeCreateinvoice()
   {
-    if ($request->getParameter('id')) {
+    if ($this->getRequestParameter('id')) {
       $budget = $this->getBudget();
       $new_invoice = new Invoice();
       // Copy items
       $new_invoice->copyFrom($budget);
     }
-    $this->getUser()->setFlash('invoice', $new_invoice);
+    $this->setFlash('invoice', $new_invoice);
     $this->forward('invoice', 'create');
   }
 
   /**
-   * excute edit action
+   * executes edit action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeEdit($request)
+   **/
+  public function executeEdit()
   {
     $this->getUser()->setAttribute('index', 0);
     $this->budget = $this->getBudget();
     $c = new Criteria();
-    if ($request->getParameter('id') || $request->getParameter('budget_client_id')) {
+    if ($this->getRequestParameter('id') || $this->getRequestParameter('budget_client_id')) {
       $c->add(ProjectPeer::PROJECT_CLIENT_ID, $this->budget->getBudgetClientId());
     }
     $this->projects = ProjectPeer::doSelect($c);
@@ -223,44 +183,54 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute edit action
+   * executes update action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeUpdate($request)
+   **/
+  public function executeUpdate()
   {
     $budget = $this->getBudget();
     // Process Client
-    if ($request->getParameter('budget_client_id', -1) == -1 || !$request->getParameter('budget_client_id', -1)) {
-      $client_name = $request->getParameter('client_name');
+    $client_id = null;
+    $client_name = $this->getRequestParameter('client_name');
+    if ($this->getRequestParameter('budget_client_id', -1) == -1) {
       if ($client_name && $client_name != $this->getContext()->getI18N()->__('Client') . '...') {
-        $client = new Client();
-        $client->setClientCompanyName($client_name);
-        $client->setClientUniqueName($client_name);
+        $client = ClientPeer::getClientByCompanyName($client_name);
         $client->save();
         $client_id = $client->getId();
-      } else {
-        $client_id = null;
       }
     } else {
-      $client_id = $request->getParameter('budget_client_id');
+      $client_id = $this->getRequestParameter('budget_client_id');
+      $client = ClientPeer::retrieveByPK($client_id);
+      if (!$client || $client->getFullName(false) != $client_name) {
+        $client = new Client();
+        $pos = strpos($client_name, '(');
+        if (!$pos === false) {
+          $client->setClientCompanyName(substr($client_name, $pos+1, strpos($client_name, ')')-1));
+          $client->setClientUniqueName(substr($client_name, 0, $pos-1));
+        } else {
+          $client->setClientCompanyName($client_name);
+          $client->setClientUniqueName($client_name);
+        }
+        $client->save();
+        $client_id = $client->getId();
+      }
     }
     // Process Project
-    if ($request->getParameter('budget_project_id', -1) == -1 || !$request->getParameter('budget_project_id', -1)) {
-      $project_name = $request->getParameter('project_name');
+    $project_id = null;
+    $project_name = $this->getRequestParameter('project_name');
+    if ($this->getRequestParameter('budget_project_id', -1) == -1) {
       if ($project_name && $project_name != $this->getContext()->getI18N()->__('Project') . '...') {
         $project = new Project();
         $project->setProjectName($project_name);
         $project->setProjectClientId($client_id);
         $project->save();
         $project_id = $project->getId();
-      } else {
-        $project_id = null;
       }
     } else {
-      $project_id = $request->getParameter('budget_project_id');
+      $project_id = $this->getRequestParameter('budget_project_id');
     }
+    // Process contacts
     $contacts = ContactPeer::processContact($this->getRequest()->getParameterHolder()->getAll());
     if ($contacts) {
       $i = 0;
@@ -276,57 +246,56 @@ class budgetActions extends anActions
         $i++;
       }
     }
-    $budget->setId($request->getParameter('id'));
-    $budget->setBudgetPrefix($request->getParameter('budget_prefix'));
-    $budget->setBudgetNumber($request->getParameter('budget_number'));
-    $budget->setBudgetRevision($request->getParameter('budget_revision'));
-    if ($request->getParameter('budget_date'))
+    $budget->setId($this->getRequestParameter('id'));
+    $budget->setBudgetPrefix($this->getRequestParameter('budget_prefix'));
+    $budget->setBudgetNumber($this->getRequestParameter('budget_number'));
+    $budget->setBudgetRevision($this->getRequestParameter('budget_revision'));
+    if ($this->getRequestParameter('budget_date'))
     {
-      list($d, $m, $y) = sfI18N::getDateForCulture($request->getParameter('budget_date'), $this->getUser()->getCulture());
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('budget_date'), $this->getUser()->getCulture());
       $budget->setBudgetDate("$y-$m-$d");
     }
-    if ($request->getParameter('budget_status_id') == 3 && !$budget->getBudgetApprovedDate()) // Accepted
+    if ($this->getRequestParameter('budget_status_id') == 3 && !$budget->getBudgetApprovedDate()) // Accepted
     {
       $budget->setBudgetApprovedDate(date("Y-m-d"));
     }
-    if ($request->getParameter('budget_valid_date'))
+    if ($this->getRequestParameter('budget_valid_date'))
     {
-      list($d, $m, $y) = sfI18N::getDateForCulture($request->getParameter('budget_valid_date'), $this->getUser()->getCulture());
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('budget_valid_date'), $this->getUser()->getCulture());
       $budget->setBudgetValidDate("$y-$m-$d");
     }
     $budget->setBudgetClientId($client_id);
     $budget->setBudgetProjectId($project_id);
-    $budget->setBudgetCategoryId($request->getParameter('budget_category_id') ? $request->getParameter('budget_category_id') : null);
-    $budget->setBudgetTitle($request->getParameter('budget_title'));
-    $budget->setBudgetComments($request->getParameter('budget_comments'));
-    $budget->setBudgetPrintComments($request->getParameter('budget_print_comments', 0));
-    $budget->setBudgetTaxRate($request->getParameter('budget_tax_rate'));
-    $budget->setBudgetFreightCharge($request->getParameter('budget_freight_charge'));
-    $budget->setBudgetPaymentConditionId($request->getParameter('budget_payment_condition_id') ? $request->getParameter('budget_payment_condition_id') : null);
-    $budget->setBudgetStatusId($request->getParameter('budget_status_id') ? $request->getParameter('budget_status_id') : null);
+    $budget->setBudgetCategoryId($this->getRequestParameter('budget_category_id') ? $this->getRequestParameter('budget_category_id') : null);
+    $budget->setBudgetTitle($this->getRequestParameter('budget_title'));
+    $budget->setBudgetComments($this->getRequestParameter('budget_comments'));
+    $budget->setBudgetPrintComments($this->getRequestParameter('budget_print_comments', 0));
+    $budget->setBudgetTaxRate($this->getRequestParameter('budget_tax_rate'));
+    $budget->setBudgetFreightCharge($this->getRequestParameter('budget_freight_charge'));
+    $budget->setBudgetPaymentConditionId($this->getRequestParameter('budget_payment_condition_id') ? $this->getRequestParameter('budget_payment_condition_id') : null);
+    $budget->setBudgetStatusId($this->getRequestParameter('budget_status_id') ? $this->getRequestParameter('budget_status_id') : null);
 
     // Process budget item information
-    if ($items = $request->getParameter('items') ) {
+    if ($items = $this->getRequestParameter('items') ) {
       $this->saveItems($items, $budget);
     }
 
     $budget->removeAllTags();
-    $budget->addTag($request->getParameter('tags') ? $request->getParameter('tags') : null);
+    $budget->addTag($this->getRequestParameter('tags') ? $this->getRequestParameter('tags') : null);
 
     $budget->save();
     return $this->redirect('budget/show?id='.$budget->getId());
   }
 
   /**
-   * excute deleteitem action
+   * executes deleteitem action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeDeleteitem($request)
+   **/
+  public function executeDeleteitem()
   {
-    if ($request->getParameter('id')) {
-      $budget_item = BudgetItemPeer::retrieveByPk($request->getParameter('id'));
+    if ($this->getRequestParameter('id')) {
+      $budget_item = BudgetItemPeer::retrieveByPk($this->getRequestParameter('id'));
       $this->forward404Unless($budget_item);
       $budget_item->delete();
     }
@@ -334,37 +303,35 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute createitem action
+   * executes createitem action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeCreateitem($equest)
+   **/
+  public function executeCreateitem()
   {
-    $i = $request->getParameter('index');
+    $i = $this->getRequestParameter('index');
     $i++;
     $this->i = $i;
+
     return sfView::INPUT;
   }
 
   /**
-   * excute edititems action
+   * executes edititems action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeEdititems($request)
+   **/
+  public function executeEdititems()
   {
     $this->budget = $this->getBudget();
     return sfView::SUCCESS;
   }
 
   /**
-   * excute listitems action
+   * executes listitems action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
+   **/
   public function executeListitems()
   {
     $this->budget = $this->getBudget();
@@ -372,12 +339,12 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute saveitems action
+   * save budget items
    *
    * @param array $items
    * @param Budget $budget
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
+   **/
   protected function saveItems(&$items, $budget) {
     if (!$budget->isNew()) {
       // Delete old items
@@ -445,19 +412,18 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute updateitems action
+   * executes updateitems action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeUpdateitems($request)
+   **/
+  public function executeUpdateitems()
   {
     $this->budget = $this->getBudget();
     // Process budget item information
-    if ($items = $request->getParameter('items') ) {
+    if ($items = $this->getRequestParameter('items') ) {
       $this->saveItems($items, $this->budget);
     }
-    $budget->save();
+    $this->budget->save();
     $this->setTemplate('listitems');
     return sfView::SUCCESS;
   }
@@ -513,7 +479,7 @@ class budgetActions extends anActions
       $criterion->addOr($c->getNewCriterion(BudgetPeer::BUDGET_PROJECT_ID, null, Criteria::ISNULL));
       $c->add($criterion);
     }
-    else if (isset($this->filters['project_name']) && $this->filters['project_name'] && $this->filters['project_name'] != sfContext::getInstance()->getI18N()->__('Project') . '...')
+    else if (isset($this->filters['project_name']) && $this->filters['project_name'] && $this->filters['project_name'] != sfI18N::getInstance()->__('Project') . '...')
     {
       $c->add(ProjectPeer::PROJECT_NAME, '%'.$this->filters['project_name'].'%', Criteria::LIKE);
       $c->addJoin(ProjectPeer::ID, BudgetPeer::BUDGET_PROJECT_ID);
@@ -524,7 +490,7 @@ class budgetActions extends anActions
       $criterion->addOr($c->getNewCriterion(BudgetPeer::BUDGET_CLIENT_ID, null, Criteria::ISNULL));
       $c->add($criterion);
     }
-    else if (isset($this->filters['client_name']) && $this->filters['client_name'] && $this->filters['client_name'] != sfContext::getInstance()->getI18N()->__('Client') . '...')
+    else if (isset($this->filters['client_name']) && $this->filters['client_name'] && $this->filters['client_name'] != sfI18N::getInstance()->__('Client') . '...')
     {
       $criterion = $c->getNewCriterion(ClientPeer::CLIENT_COMPANY_NAME, "%".$this->filters['client_name']."%", Criteria::LIKE);
       $crit2 = $c->getNewCriterion(ClientPeer::CLIENT_UNIQUE_NAME, "%".$this->filters['client_name']."%", Criteria::LIKE);
@@ -532,7 +498,7 @@ class budgetActions extends anActions
       $c->add($criterion);
       $c->addJoin(ClientPeer::ID, BudgetPeer::BUDGET_CLIENT_ID);
     }
-    if (isset($this->filters['budget_name']) && $this->filters['budget_name'] && $this->filters['budget_name'] != sfContext::getInstance()->getI18N()->__('Name') . '...')
+    if (isset($this->filters['budget_name']) && $this->filters['budget_name'] && $this->filters['budget_name'] != sfI18N::getInstance()->__('Name') . '...')
     {
       $criterion = $c->getNewCriterion(BudgetPeer::BUDGET_NUMBER, "%".$this->filters['budget_name']."%", Criteria::LIKE);
       $criterion2 = $c->getNewCriterion(BudgetPeer::BUDGET_TITLE, "%".$this->filters['budget_name']."%", Criteria::LIKE);
@@ -545,33 +511,31 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute editstatus action
+   * executes editstatus action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeEditstatus ($request)
+   **/
+  public function executeEditstatus ()
   {
     $this->budget = $this->getBudget();
     return sfView::SUCCESS;
   }
 
   /**
-   * excute updatestatus action
+   * executes updatestatus action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeUpdatestatus ($request)
+   **/
+  public function executeUpdatestatus ()
   {
     $this->budget = $this->getBudget();
     // Process budget status information
-    $this->budget->setBudgetStatusId($request->getParameter('budget_status_id') ? $request->getParameter('budget_status_id') : null);
-    if ($request->getParameter('budget_status_id') == 2) {
+    $this->budget->setBudgetStatusId($this->getRequestParameter('budget_status_id') ? $this->getRequestParameter('budget_status_id') : null);
+    if ($this->getRequestParameter('budget_status_id') == 2) {
       // Update date
       $this->budget->setBudgetDate(date('Y-m-d'));
     }
-    if ($request->getParameter('budget_status_id') == 3 && !$this->budget->getBudgetApprovedDate()) // Acepted
+    if ($this->getRequestParameter('budget_status_id') == 3 && !$this->budget->getBudgetApprovedDate()) // Acepted
     {
       $this->budget->setBudgetApprovedDate(date("Y-m-d"));
     }
@@ -581,15 +545,13 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute print action
+   * executes print action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executePrint ($request)
+   **/
+  public function executePrint ()
   {
-    $this->budget = $this->getBudget
-    $this->forward404Unless($this->budget);
+    $this->budget = $this->getBudget();
     $this->getContext()->getResponse()->setTitle($this->budget->getFullNumber());
     $this->setViewClass('sfFop');
     $this->setLayout('invoice.fo');
@@ -597,16 +559,17 @@ class budgetActions extends anActions
   }
 
   /**
-   * excute print action
+   * executes autocomplete action
    *
-   * @param sfWebRequest $request
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeAutocomplete($request)
+   **/
+  public function executeAutocomplete()
   {
     sfConfig::set('sf_web_debug', false);
-    $name = $request->getParameter('query');
-    $this->setLayout(false);
-    $this->budgets = ClientPeer::getBudgetsLike($name);
+    $budget_name = $this->getRequestParameter('filters[budget_name]');
+    if (!$budget_name) {
+      $budget_name = $this->getRequestParameter('budget_name');
+    }
+    $this->budgets = BudgetPeer::getBudgetsLike($budget_name);
   }
 }

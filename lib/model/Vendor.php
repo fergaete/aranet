@@ -6,7 +6,7 @@
  * @package    aranet
  * @subpackage lib.model
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: Vendor.php 3 2008-08-06 07:48:19Z pablo $
  */
 
 class Vendor extends BaseVendor
@@ -80,4 +80,6 @@ class Vendor extends BaseVendor
   }
 }
 
-sfPropelBehavior::add('Vendor', array('audit', 'arPropelContactableBehavior', 'arPropelAddressableBehavior', 'sfPropelActAsTaggableBehavior', 'paranoid' => array('column' => 'deleted_at')));
+sfMixer::register('BaseVendor:delete:post', array('Vendor', 'postDelete'));
+sfMixer::register('BaseVendor:delete:pre', array('Vendor', 'preDelete'));
+sfMixer::register('BaseVendor:save:post', array('Vendor', 'postSave'));

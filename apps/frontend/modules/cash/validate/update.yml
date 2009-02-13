@@ -1,0 +1,12 @@
+fields:
+  cash_item_name:
+    required:
+      msg:       The field cannot be left blank
+  cash_item_date:
+    required:
+      msg:       The field cannot be left blank
+  cash_item_amount:
+    required:
+      msg:       The field cannot be left blank
+    sfNumberValidator:
+      nan_error:    Please enter a number

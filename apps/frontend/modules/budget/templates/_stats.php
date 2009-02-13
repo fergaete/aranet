@@ -33,15 +33,15 @@ __('Open') . ': ' . format_date($budget->getCreatedAt()) . '; ' ?></td>
                                 <table style="width: 100%">
                                 <tr>
                                     <th style="text-align: right; width:40%"><?php echo __('Estimate') ?></th>
-                                    <td><?php echo format_currency($budget->getBudgetTotalCost(), 'EUR') ?></td>
+                                    <td><?php $estimated_costs = $budget->getBudgetTotalCost(); echo format_currency($estimated_costs, 'EUR') ?></td>
                                 </tr>
                                 <tr>
-                                    <th style="text-align: right; width:40%"><?php //echo __('Actual (%1%)', array('%1%' => format_hour($budget->getBudgetTotalHours()))) ?></th>
-                                    <td><?php //echo format_currency($budget->getBudgetTotalHourCosts(), 'EUR') ?></td>
+                                    <th style="text-align: right; width:40%"><?php echo __('Actual (%1%)', array('%1%' => format_hour($budget->getBudgetTotalHours()))) ?></th>
+                                    <td><?php $total_hour_costs = $budget->getBudgetTotalHoursCost(); echo format_currency($total_hour_costs, 'EUR') ?> + <?php $total_costs = $budget->getBudgetTotalExpenses(); echo format_currency($total_costs, 'EUR') ?></td>
                                 </tr>
                                 <tr>
-                                    <th style="text-align: right; width:40%"><?php echo __('Difference (%1%)', array('%1%' => format_percent($budget->getBudgetCostDifference()))) ?></th>
-                                    <td><?php //echo format_currency($budget->getBudgetTotalCost() - $budget->getBudgetTotalHourCosts(), 'EUR') ?></td>
+                                    <th style="text-align: right; width:40%"><?php $diff = $estimated_costs - $total_hour_costs - $total_costs; echo __('Difference (%1%)', array('%1%' => format_percent($estimated_costs ? $diff * 100 / $estimated_costs : 0))) ?></th>
+                                    <td><?php echo format_currency($diff, 'EUR') ?></td>
                                 </tr>
                             </table>
                         <tr>
@@ -54,7 +54,7 @@ __('Open') . ': ' . format_date($budget->getCreatedAt()) . '; ' ?></td>
                                 </tr>
                                 <tr>
                                     <th style="text-align: right; width:40%"><?php echo __('Real') ?></th>
-                                    <td><?php echo format_percent($budget->getBudgetAverageRealMargin()) ?></td>
+                                    <td><?php echo format_percent($budget->getBudgetAverageRealMargin($total_hour_costs, $total_costs)) ?></td>
                                 </tr>
                               </table>
                         </tr>

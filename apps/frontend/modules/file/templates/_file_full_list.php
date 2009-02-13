@@ -20,8 +20,8 @@
                 <div class="objectActions">
                 <ul>
                   <li><?php echo link_to(image_tag("button_view.gif", 'alt="View/Download"'), '@download_by_file_name?name='.urlencode($sf_propel_file_storage_info->getFileName())) ?></li>
-                  <li><?php echo link_to(image_tag("button_edit.gif", 'alt="'.__('Edit').'"'), 'file/edit?id='.$sf_propel_file_storage_info->getFileId()) ?></li>
-                  <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="'.__('Delete').'"'), array(
+                  <li><?php echo link_to(image_tag("button_edit.gif", 'alt="Edit"'), 'file/edit?id='.$sf_propel_file_storage_info->getFileId()) ?></li>
+                  <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'file_' . $sf_propel_file_storage_info->getFileId(),
                     'url'      => 'file/delete?file_id='.$sf_propel_file_storage_info->getFileId(),
                     'confirm'  => __('Are you sure?'),

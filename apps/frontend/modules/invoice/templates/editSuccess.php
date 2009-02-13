@@ -4,7 +4,7 @@
 } else {
     $title = __('Edit invoice %1%', array('%1%' => $invoice->__toString()));
 } ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . $title) ?>
+<?php aranet_title($title) ?>
 <div class="windowHead"><span class="windowHeadTitle"><?php echo $title ?></span>
 <div class="windowControls"></div>
 </div>
@@ -17,29 +17,34 @@
 <tbody>
 <tr>
   <td class="actionsCol"></td>
-  <td class="leftCol"><label><?php echo __('Invoice title or name') ?></label></td>
-  <td class="rightCol"><?php echo object_input_tag($invoice, 'getInvoiceTitle', array (
-  'size' => 80, 'class' => 'form-text'
-)) ?></td>
+  <td class="leftCol"><label class="required"><?php echo __('Invoice title or name') ?></label></td>
+  <td class="rightCol">
+    <?php echo form_error('invoice_title') ? form_error('invoice_title') : '' ?>
+    <?php echo input_tag('invoice_title', $sf_params->get('invoice_title') ? $sf_params->get('invoice_title') : $invoice->getInvoiceTitle(), array (
+  'size' => 80, 'class' => $sf_request->getError('invoice_title') ? 'form-text err' : 'form-text'
+)) ?>
+  </td>
 </tr>
 <tr>
   <td class="actionsCol"></td>
-  <td class="leftCol"><label><?php echo __('Invoice identifier') ?></label></td>
+  <td class="leftCol"><label class="required"><?php echo __('Invoice identifier') ?></label></td>
   <td class="rightCol">
-    <?php echo form_error('invoice_number') . form_error('invoice_date') ?>
+    <?php echo form_error('invoice_number') ? form_error('invoice_number') : '' ?>
+    <?php echo form_error('invoice_date') ? form_error('invoice_date') : '' ?>
     <label><?php echo __('Prefix') ?></label>
-    <?php echo object_input_tag($invoice, 'getInvoicePrefix', array ('size' => 20, 'class' => 'form-tiny-text')) ?>
+    <?php echo input_tag('invoice_prefix', $sf_params->get('invoice_prefix') ? $sf_params->get('invoice_prefix') : $invoice->getInvoicePrefix(), array ('size' => 20, 'class' => 'form-tiny-text')) ?>
     <label><?php echo __('No.') ?></label>
-    <?php echo object_input_tag($invoice, 'getInvoiceNumber', array ('size' => 7, 'class' =>
+    <?php echo input_tag('invoice_number', $sf_params->get('invoice_number') ? $sf_params->get('invoice_number') : $invoice->getInvoiceNumber(), array ('size' => 7, 'class' =>
      $sf_request->getError('invoice_number') ? 'form-tiny-text err' : 'form-tiny-text')) ?>
     <label><?php echo __('Date') ?></label>
-    <?php echo object_input_date_tag($invoice, 'getInvoiceDate', array ('rich' => true, 'class' => $sf_request->getError('invoice_date') ? 'form-date err' : 'form-date')) ?>
+    <?php echo input_date_tag('invoice_date', $sf_params->get('invoice_date') ? $sf_params->get('invoice_date') : $invoice->getInvoiceDate(), array ('rich' => true, 'class' => $sf_request->getError('invoice_date') ? 'form-date err' : 'form-date')) ?>
   </td>
 </tr>
 <tr>
   <td class="actionsCol"></td>
   <td class="leftCol"><label class="required"><?php echo __('Client') ?></label></td>
   <td class="rightCol">
+    <?php echo form_error('client_name') ?>
     <?php
     if ($sf_params->get('client_id')) {
         $client_id = $sf_params->get('client_id');
@@ -68,7 +73,7 @@
   <?php echo input_hidden_tag('invoice_client_id', $client_id) ?>
   <?php echo input_auto_complete_tag('client_name', $client,
                     'client/autocomplete',
-                    array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""'),
+                    array('autocomplete' => 'off', 'class' => $sf_request->getError('client_name') ? 'form-text err' : 'form-text', 'onclick' => 'this.value=""'),
                     array('use_style'    => true,
                         'after_update_element' => 'getClient')
                     ) ?><br/>
@@ -107,24 +112,32 @@
   function getProject(text, li){
       $('invoice_project_id').value = li.id;
       new Ajax.Updater('budgets', '/project/getBudgetSelect', {asynchronous:true, evalScripts:false, parameters:'class=invoice&project_id=' + li.id});
+      ".remote_function(array(
+                   'update' => 'budgets',
+                   'script' => true,
+                   'url' => 'project/getBudgetSelect',
+                   'with' => "'class=invoice&project_id=' + $('invoice_project_id').value"
+                 ))."
   }") ?>
-  <?php echo input_hidden_tag('invoice_project_id', $project_id) ?>
 <?php if (isset($projects)) : ?>
   <?php echo select_tag('invoice_project_id', objects_for_select($projects,
   'getId',
   '__toString',
   $project_id, 
   'include_custom='.__('Select project') . '...'),
-  array ('class' => 'form-combobox')) ?>
-<?php else : ?>   
-            <?php echo input_auto_complete_tag('project_name', $project,
-        'project/autocomplete',
-        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("invoice_project_id").value = ""', 'onblur' => remote_function(array(
+  array ('class' => 'form-combobox',
+    'onchange' => remote_function(array(
                    'update' => 'budgets',
                    'script' => true,
                    'url' => 'project/getBudgetSelect',
                    'with' => "'class=invoice&project_id=' + $('invoice_project_id').value"
-                 ))),
+                 )) 
+  )) ?>
+<?php else : ?>   
+    <?php echo input_hidden_tag('invoice_project_id', $project_id) ?>
+            <?php echo input_auto_complete_tag('project_name', $project,
+        'project/autocomplete',
+        array('autocomplete' => 'off', 'class' => 'form-text', 'onclick' => 'this.value=""; $("invoice_project_id").value = ""'),
         array('use_style'    => true,
             'after_update_element' => 'getProject')
     ) ?><br/>
@@ -137,8 +150,8 @@
   <td class="leftCol"><label><?php echo __('Budget') ?></label></td>
       <td class="rightCol" id="budgets">
         <?php echo form_error('invoice_budget_id') ?>
-        <?php $bud = ($invoice->getInvoiceBudgetId()) ? $invoice->getBudget()->getFullTitle() : '' ?>
-            <?php if ($invoice->getInvoiceProjectId()) : ?>
+        <?php $bud = ($invoice->getInvoiceBudgetId()) ? $invoice->getBudget()->getFullTitle() : __('Budget').'...' ?>
+            <?php if (isset($budgets) && $budgets) : ?>
 <?php echo select_tag('invoice_budget_id', objects_for_select($budgets,
   'getId',
   'getFulltitle',

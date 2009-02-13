@@ -13,11 +13,11 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardUserPermission.php 4939 2007-08-30 14:00:49Z fabien $
  */
 class PluginsfGuardUserPermission extends BasesfGuardUserPermission
 {
-  public function save(PropelPDO $con = null)
+  public function save($con = null)
   {
     parent::save($con);
 

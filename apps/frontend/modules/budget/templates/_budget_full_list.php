@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript', 'gWidgets', 'Style') ?>
-<?php echo form_tag('budget/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('budget/delete', 'name="chklist"') ?>
 <div id="budgetDisplay" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -65,9 +65,9 @@
                 <td class="actions" id="budgetMenu_<?php echo $budget->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__("View").'"'), 'budget/show?id='.$budget->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__("Edit").'"'), 'budget/edit?id='.$budget->getId()) ?></li>
-                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__("Delete").'"'), array(
+                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'budget/show?id='.$budget->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'budget/edit?id='.$budget->getId()) ?></li>
+                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                                 'update'   => 'budget'.$budget->getId(),
                                 'url'      => 'budget/delete?id='.$budget->getId(),
                                 'confirm'  => __('Are you sure?'),
@@ -75,10 +75,10 @@
                         </ul>
                     </div>
                 </td>
-                <td><?php echo link_to($budget, '@show_budget_by_id?id='.$budget->getId()) ?></td>
+                <td><?php echo link_to($budget, '@budget_show_by_id?id='.$budget->getId()) ?></td>
                 <td><?php echo $budget->getBudgetTitle() ?></td>
                 <td><?php echo ($budget->getClient()) ? link_to($budget->getClient(), 'client/show?id=' . $budget->getBudgetClientId(), 'title="' . $budget->getClient()->getClientCompanyName() . '"') : '' ?></td>
-                <td><?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject(), '@show_project_by_id?id=' . $budget->getBudgetProjectId()) : '' ?></td>
+                <td><?php echo ($budget->getBudgetProjectId()) ? link_to($budget->getProject(), '@project_show_by_id?id=' . $budget->getBudgetProjectId()) : '' ?></td>
                 <td class="date"><?php echo format_date($budget->getBudgetDate()) ?></td>
                 <td class="status" id="budStatus<?php echo $budget->getId() ?>">
                 <?php $remote = array(
@@ -109,7 +109,7 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?> :</li>
-  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="'.__('Delete selected').'"'),"document.chklist.submit()") ?></li>
+  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
 </ul>
 </div>
 

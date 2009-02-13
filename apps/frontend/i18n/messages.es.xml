@@ -404,12 +404,12 @@
 </trans-unit>
 
 <trans-unit>
-<source>Start date</source>
+<source>Start Date</source>
 <target>Fecha de inicio</target>
 </trans-unit>
 
 <trans-unit>
-<source>End date</source>
+<source>End Date</source>
 <target>Fecha de fin</target>
 </trans-unit>
 
@@ -421,6 +421,11 @@
 <trans-unit>
 <source>Client</source>
 <target>Cliente</target>
+</trans-unit>
+
+<trans-unit>
+<source>Start date</source>
+<target>Fecha de inicio</target>
 </trans-unit>
 
 <trans-unit>
@@ -1285,7 +1290,22 @@
 
 <trans-unit>
 <source>Tags</source>
-<target>Etiquetas</target>
+<target>Tags</target>
+</trans-unit>
+
+<trans-unit>
+<source>Add new contact</source>
+<target>Añadir contacto</target>
+</trans-unit>
+
+<trans-unit>
+<source>List contacts</source>
+<target>Listado de contactos</target>
+</trans-unit>
+
+<trans-unit>
+<source>View all contacts</source>
+<target>Listado de contactos</target>
 </trans-unit>
 
 <trans-unit>
@@ -1350,17 +1370,12 @@
 
 <trans-unit>
 <source>Tags for this invoice</source>
-<target>Etiquetas para esta factura</target>
+<target>Tags para esta factura</target>
 </trans-unit>
 
 <trans-unit>
 <source>List invoices</source>
 <target>Listado de facturas</target>
-</trans-unit>
-
-<trans-unit>
-<source>Name filter</source>
-<target>Filtro por nombre</target>
 </trans-unit>
 
 <trans-unit>
@@ -1435,7 +1450,7 @@
 
 <trans-unit>
 <source>Popular tags</source>
-<target>Etiquetas frecuentes</target>
+<target>Tags frecuentes</target>
 </trans-unit>
 
 <trans-unit>
@@ -1446,11 +1461,6 @@
 <trans-unit>
 <source>List vendors</source>
 <target>Listar proveedores</target>
-</trans-unit>
-
-<trans-unit>
-<source>List addresses</source>
-<target>Listar direcciones</target>
 </trans-unit>
 
 <trans-unit>
@@ -1580,7 +1590,7 @@
 
 <trans-unit>
 <source>Are you sure?</source>
-<target>¿Está seguro?</target>
+<target>Está seguro?</target>
 </trans-unit>
 
 <trans-unit>
@@ -2801,61 +2811,6 @@
 <trans-unit>
   <source>Client mark as deleted</source>
   <target>Cliente marcado como borrado</target>
-</trans-unit>
-
-<trans-unit>
-  <source>No related tags yet</source>
-  <target>No hay etiquetas relacionadas</target>
-</trans-unit>
-
-<trans-unit>
-  <source>Calendar events</source>
-  <target>Eventos</target>
-</trans-unit>
-
-<trans-unit>
-  <source>New</source>
-  <target>Nuevo</target>
-</trans-unit>
-
-<trans-unit>
-  <source>Filter</source>
-  <target>Buscar</target>
-</trans-unit>
-
-<trans-unit>
-  <source>View all addresses</source>
-  <target>Listado de direcciones</target>
-</trans-unit>
-
-<trans-unit>
-  <source>No related projects yet</source>
-  <target>No hay proyectos relacionados</target>
-</trans-unit>
-
-<trans-unit>
-  <source>No related budgets yet</source>
-  <target>No hay presupuestos relacionados</target>
-</trans-unit>
-
-<trans-unit>
-  <source>No related invoices yet</source>
-  <target>No hay facturas relacionadas</target>
-</trans-unit>
-
-<trans-unit>
-  <source>No related contacts yet</source>
-  <target>No hay contactos relacionados</target>
-</trans-unit>
-
-<trans-unit>
-  <source>No related expense items yet</source>
-  <target>No hay gastos relacionados</target>
-</trans-unit>
-
-<trans-unit>
-  <source>No related income items yet</source>
-  <target>No hay ingresos relacionados</target>
 </trans-unit>
 
 </body>
