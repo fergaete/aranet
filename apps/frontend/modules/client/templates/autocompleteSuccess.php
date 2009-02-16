@@ -4,6 +4,7 @@
         {"UniqueName":"<?php echo $client->getClientUniqueName() ?>",
         "CompanyName":"<?php echo $client->getClientCompanyName() ?>",
         "FullName":"<?php echo $client->getFullName(false) ?>",
+        "Title":"<?php echo $client->getFullName(false) ?>",
         "Id":"<?php echo $client->getId() ?>"
         },
 <?php endforeach ?>

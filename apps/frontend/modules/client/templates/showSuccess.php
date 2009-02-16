@@ -8,7 +8,7 @@
     <table>
     <tr>
         <td class="leftSide">
-            <span class="bigText"><?php echo $client->getClientCompanyName() ?></span><br \>
+            <h4><?php echo $client->getClientCompanyName() ?></h4>
             <?php echo ($client->getClientWebsite()) ? link_to($client->getClientWebsite(), $client->getClientWebsite()) : '' ?>
             <?php include_partial('address/basic_data', array('address' => $client->getDefaultAddress())) ?><br/>
             <?php include_partial('contact/basic_data', array('contact' => $client->getDefaultContact())) ?>

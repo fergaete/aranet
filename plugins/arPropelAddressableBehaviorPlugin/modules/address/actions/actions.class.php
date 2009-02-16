@@ -14,8 +14,7 @@ class addressActions extends anActions
   /**
    * executes minilist action
    *
-   * @param  object $request the request
-   * @return void
+   * @param  sfWebRequest $request a request object
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function executeMinilist($request)
@@ -35,8 +34,7 @@ class addressActions extends anActions
   /**
    * executes edit action
    *
-   * @param  object $request the request
-   * @return void
+   * @param  sfWebRequest $request a request object
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function executeEdit($request)
@@ -73,7 +71,8 @@ class addressActions extends anActions
   /**
    * executes deleteObject action
    *
-   * @param $request
+   * @param  sfWebRequest $request a request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeDeleteObject($request)
   {
@@ -89,8 +88,7 @@ class addressActions extends anActions
   /**
    * executes autocomplete action
    *
-   * @param  object $request the request
-   * @return void
+   * @param  sfWebRequest $request a request object
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function executeAutocomplete($request)
@@ -99,12 +97,14 @@ class addressActions extends anActions
     $name = $request->getParameter('query');
     $this->setLayout(false);
     $this->addresses = AddressPeer::getAddressesLike($name);
+    return sfView::SUCCESS;
   }
 
   /**
    * add filter criteria
    *
-   * @param Criteria $c
+   * @param Criteria $c A criteria object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function addFiltersCriteria ($c)
   {
@@ -118,12 +118,19 @@ class addressActions extends anActions
    * Returns the column name to sort list by default
    *
    * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function getDefaultSortField()
   {
     return 'address_line1';
   }
-  
+
+  /**
+   * Returns the table columns
+   *
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   */
   public function getColumns()
   {
     $c = sfCultureInfo::getInstance(sfContext::getInstance()->getUser()->getCulture());

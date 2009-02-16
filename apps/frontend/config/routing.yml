@@ -1,42 +1,3 @@
-client:
-  class: sfPropelRouteCollection
-  options:
-    model:               Client
-    module:              test
-    prefix_path:         test
-    column:              id
-    with_wildcard_routes: true
-
-
-sf_guard_signin:
-  url:   /login
-  param: { module: sfGuardAuth, action: signin }
-
-sf_guard_signout:
-  url:   /logout
-  param: { module: sfGuardAuth, action: signout }
-
-sf_guard_password:
-  url:   /request_password
-  param: { module: sfGuardAuth, action: password }
-
-sf_guard_profile:
-  url:  /profile
-  param: { module: sfGuardUser, action: show }
-
-sf_guard_restringed:
-  url:  /restringed
-  param: { module: sfGuardAuth, action: restringed }
-
-# Mac OSX
-show_graphic:
-  url:  /dasboard/showGraphic/:graphic_id
-  param:  { module: dashboard, action: showGraphic }
-
-copyright:
-  url:  /copyright
-  param:  { module: static, action: index, content: copyright }
-  
 # client
 client_stats_by_id:
   url:  /client/stats/:id
@@ -52,7 +13,7 @@ client_delete_by_id:
   param:  { module: client, action: delete }
 client_list_by_tag:
   url:  /client/list/:tag
-  param:  { module: client, action: listByTag }
+  param:  { module: client, action: list }
 client_list:
   url:  /client/list
   param:  { module: client, action: list }
@@ -71,17 +32,17 @@ client_delete_all:
 
 # project
 project_show_by_id:
-  url:  /project/show/id/:id
+  url:  /project/show/:id
   param:  { module: project, action: show }
 project_edit_by_id:
-  url:  /project/edit/id/:id
+  url:  /project/edit/:id
   param:  { module: project, action: edit }
 project_delete_by_id:
-  url:  /project/delete/id/:id
+  url:  /project/delete/:id
   param:  { module: project, action: delete }
-project_create_from_object:
-  url:  /project/:related/:id
-  param:  { module: project, action: create }
+project_list_by_tag:
+  url:  /project/list/:tag
+  param:  { module: project, action: list }
 project_list:
   url:  /project/list
   param:  { module: project, action: list }
@@ -97,6 +58,9 @@ project_create:
 project_delete_all:
   url:  /project/delete
   param:  { module: project, action: delete }
+project_create_from_object:
+  url:  /project/:related/:id
+  param:  { module: project, action: create }
 project_create_milestone:
   url:  /project/createMilestone/:id
   param:  { module: project, action: createMilestone }
@@ -122,7 +86,7 @@ budget_delete_by_id:
   param:  { module: budget, action: delete }
 budget_list_by_tag:
   url:  /budget/list/:tag
-  param:  { module: budget, action: listByTag }
+  param:  { module: budget, action: list }
 budget_list:
   url:  /budget/list
   param:  { module: budget, action: list }
@@ -157,7 +121,7 @@ timesheet_delete_by_id:
   param:  { module: timesheet, action: delete }
 timesheet_list_by_tag:
   url:  /timesheet/list/:tag
-  param:  { module: timesheet, action: listByTag }
+  param:  { module: timesheet, action: list }
 timesheet_list:
   url:  /timesheet/list
   param:  { module: timesheet, action: list }
@@ -195,7 +159,7 @@ invoice_delete_by_id:
   param:  { module: invoice, action: delete }
 invoice_list_by_tag:
   url:  /invoice/list/:tag
-  param:  { module: invoice, action: listByTag }
+  param:  { module: invoice, action: list }
 invoice_list:
   url:  /invoice/list
   param:  { module: invoice, action: list }
@@ -230,7 +194,7 @@ cash_delete_by_id:
   param:  { module: cash, action: delete }
 cash_list_by_tag:
   url:  /cash/list/:tag
-  param:  { module: cash, action: listByTag }
+  param:  { module: cash, action: list }
 cash_list:
   url:  /cash/list
   param:  { module: cash, action: list }
@@ -299,7 +263,7 @@ expense_delete_by_id:
   param:  { module: expense, action: delete }
 expense_list_by_tag:
   url:  /expense/list/:tag
-  param:  { module: expense, action: listByTag }
+  param:  { module: expense, action: list }
 expense_list:
   url:  /expense/list
   param:  { module: expense, action: list }
@@ -337,7 +301,7 @@ income_delete_by_id:
   param:  { module: income, action: delete }
 income_list_by_tag:
   url:  /income/list/:tag
-  param:  { module: income, action: listByTag }
+  param:  { module: income, action: list }
 income_list:
   url:  /income/list
   param:  { module: income, action: list }
@@ -372,7 +336,7 @@ vendor_delete_by_id:
   param:  { module: vendor, action: delete }
 vendor_list_by_tag:
   url:  /vendor/list/:tag
-  param:  { module: vendor, action: listByTag }
+  param:  { module: vendor, action: list }
 vendor_list:
   url:  /vendor/list
   param:  { module: vendor, action: list }

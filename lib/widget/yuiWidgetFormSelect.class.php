@@ -60,6 +60,9 @@ class yuiWidgetFormSelect extends sfWidgetForm
     }
     if (!empty($choices) && array_key_exists($value, $choices)) {
       $label = $choices[$value];
+      if (!$label) {
+        $label = sfContext::getInstance()->getI18N()->__('Select').'...';
+      }
       $val = $value;
     } else {
       $label = sfContext::getInstance()->getI18N()->__('Select').'...';

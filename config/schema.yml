@@ -54,6 +54,7 @@ propel:
     project_start_date:         date
     project_finish_date:        date
     project_status_id:          { type: integer, foreignTable: aranet_project_status, foreignReference: id, default: null }
+    project_has_tags:           { type: boolean, size: 1, default: 0 }
     created_at:                 timestamp
     created_by:                 { type: integer, foreignTable: sf_guard_user, foreignReference: id, default: null }
     updated_at:                 timestamp

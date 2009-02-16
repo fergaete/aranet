@@ -8,7 +8,7 @@
     <table>
     <tr>
         <td class="leftSide">
-            <span class="bigText"><?php echo link_to($vendor->getVendorCompanyName(), '@vendor_show_by_id?id=' . $vendor->getId()) ?></span><br \>
+            <h4><?php echo $vendor ?></h4>
             <?php echo ($vendor->getVendorWebsite()) ? link_to($vendor->getVendorWebsite(), $vendor->getVendorWebsite()) : '' ?>
             <?php include_partial('address/basic_data', array('address' => $vendor->getDefaultAddress())) ?><br/>
             <?php include_partial('contact/basic_data', array('contact' => $vendor->getDefaultContact())) ?>

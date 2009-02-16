@@ -84,6 +84,7 @@ CREATE TABLE `aranet_project`
 	`project_start_date` DATE,
 	`project_finish_date` DATE,
 	`project_status_id` INTEGER default null,
+	`project_has_tags` TINYINT(1) default 0,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,

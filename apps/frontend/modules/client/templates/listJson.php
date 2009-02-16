@@ -1,9 +1,10 @@
 <?php use_helper('NumberExtended') ?>
+<?php $results = $pager->getResults() ?>
 {"recordsReturned":<?php echo $pager->getMaxPerPage() ?>,
-    "totalRecords":<?php echo count($pager->getResults()) ?>,
+    "totalRecords":<?php echo count($results) ?>,
     "startIndex":<?php echo $pager->getFirstIndice()-1 ?>,
     "records":[
-<?php $i = 0; foreach ($pager->getResults() as $client) : $i++ ?>
+<?php $i = 0; foreach ($results as $client) : $i++ ?>
         {"id":"<?php echo $client->getId() ?>",
         "checkbox":"<input type='checkbox' name='select[]' value='<?php echo $client->getId() ?>' />",
         "actions":"<div class='objectActions'><ul><li><?php echo str_replace('"', "'", link_to(image_tag('icons/application_form.png', 'alt='.__("View")), '@client_show_by_id?id='.$client->getId())) ?></li><li><?php echo str_replace('"', "'", link_to(image_tag('icons/application_form_edit.png', 'alt='.__('Edit')), '@client_edit_by_id?id='.$client->getId())) ?></li><li><?php echo str_replace('"', "'", link_to(image_tag('icons/application_form_delete.png', 'alt='.__('Delete')), '@client_delete_by_id?id='.$client->getId())) ?></li></ul></div>",
@@ -16,11 +17,11 @@ if ($dcontact) {
   $con .= ($dcontact->getContactRol()) ? '<br/>'.$dcontact->getContactRol() : '';
 }
 ?>
-        "contact":"<?php echo str_replace('"', "'",$con) ?>",
+        "contact":"<?php echo $dcontact ? str_replace('"', "'",$con) : '' ?>",
         "phone":"<?php echo $dcontact ? smart_format_phone($dcontact->getContactPhone()) : '' ?>",
         "nb_projects":"<?php //echo $client->getClientNbProjects() ?>",
         "revenue":"<?php //echo format_currency($client->getClientTotalInvoices(), "EUR") ?>"}
-        <?php if ($i+$pager->getFirstIndice()-1 < count($pager->getResults())) : ?>,<?php endif ?>
+        <?php if ($i+$pager->getFirstIndice()-1 < $pager->getLastIndice()) : ?>,<?php endif ?>
 <?php endforeach ?>
     ]
 }

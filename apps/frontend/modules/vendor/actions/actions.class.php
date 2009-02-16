@@ -14,7 +14,8 @@ class vendorActions extends anActions
   /**
    * executes edit action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeEdit($request)
   {
@@ -49,7 +50,8 @@ class vendorActions extends anActions
   /**
    * executes autocomplete action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeAutocomplete($request)
   {
@@ -62,7 +64,7 @@ class vendorActions extends anActions
   /**
    * add filter criteria
    * 
-   * @param Criteria $c
+   * @param Criteria $c A criteria object
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function addFiltersCriteria ($c)
@@ -98,12 +100,19 @@ class vendorActions extends anActions
    * Returns the column name to sort list by default
    *
    * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function getDefaultSortField()
   {
     return 'vendor_company_name';
   }
   
+  /**
+   * Returns the table columns
+   *
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   */
   public function getColumns()
   {
     $keys = array(

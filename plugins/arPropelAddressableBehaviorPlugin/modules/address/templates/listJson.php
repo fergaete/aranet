@@ -1,8 +1,9 @@
+<?php $results = $pager->getResults() ?>
 {"recordsReturned":<?php echo $pager->getMaxPerPage() ?>,
-    "totalRecords":<?php echo $pager->getNbResults() ?>,
+    "totalRecords":<?php echo count($results) ?>,
     "startIndex":<?php echo $pager->getFirstIndice()-1 ?>,
     "records":[
-<?php $i = 0; foreach ($pager->getResults() as $address) : $i++ ?>
+<?php $i = 0; foreach ($results as $address) : $i++ ?>
         {"id":"<?php echo $address->getId() ?>",
         "checkbox":"<input type='checkbox' name='select[]' value='<?php echo $address->getId() ?>' />",
         "address_line1":"<?php echo $address->getAddressLine1() ?>",

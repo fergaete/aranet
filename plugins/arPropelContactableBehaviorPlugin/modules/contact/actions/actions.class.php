@@ -14,7 +14,8 @@ class contactActions extends anActions
   /**
    * executes minilist action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeMinilist($request)
   {
@@ -33,7 +34,8 @@ class contactActions extends anActions
   /**
    * executes history action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeHistory($request)
   {
@@ -44,7 +46,8 @@ class contactActions extends anActions
   /**
    * executes edit action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeEdit($request)
   {
@@ -82,7 +85,8 @@ class contactActions extends anActions
   /**
    * executes miniedit action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeMiniedit($request)
   {
@@ -92,7 +96,8 @@ class contactActions extends anActions
   /**
    * executes deleteObject action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeDeleteObject($request)
   {
@@ -108,20 +113,23 @@ class contactActions extends anActions
   /**
    * executes autocomplete action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
-  public function executeAutocomplete()
+  public function executeAutocomplete($request)
   {
     sfConfig::set('sf_web_debug', false);
     $name = $this->getRequestParameter('query');
     $this->setLayout(false);
     $this->contacts = ContactPeer::getContactsLike($name);
+    return sfView::SUCCESS;
   }
 
   /**
    * executes getCompanies action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeGetCompanies()
   {
@@ -139,7 +147,7 @@ class contactActions extends anActions
   /**
    * add filter criteria
    *
-   * @param Criteria $c
+   * @param Criteria $c A criteria object
    */
   protected function addFiltersCriteria ($c)
   {
@@ -154,12 +162,19 @@ class contactActions extends anActions
    * Returns the column name to sort list by default
    *
    * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function getDefaultSortField()
   {
     return 'name';
   }
-  
+
+  /**
+   * Returns the table columns
+   *
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   */
   public function getColumns()
   {
     $keys = array(
