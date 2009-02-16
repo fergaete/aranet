@@ -20,7 +20,6 @@ class arPropelAddressableRouting
 
     // preprend our routes
     $r->connect('address_minilist', new sfRoute('/address/minilist/related/:related/id/:id', array('module' => 'address', 'action' => 'minilist')));
-    $r->connect('address_show_by_id', new sfRoute('/address/show/id/:id', array('module' => 'address', 'action' => 'show')));
     $r->connect('address_edit_by_id', new sfRoute('/address/edit/id/:id', array('module' => 'address', 'action' => 'edit')));
     $r->connect('address_delete_by_id', new sfRoute('/address/delete/id/:id', array('module' => 'address', 'action' => 'delete')));
     $r->connect('address_history_by_id', new sfRoute('/address/history/id/:id', array('module' => 'address', 'action' => 'history')));

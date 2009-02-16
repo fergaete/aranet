@@ -26,7 +26,7 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?>:</li>
-  <li><?php echo yui_link_to_function(image_tag("icons/delete.png", 'alt="'.__('Delete selected').'"'),"document.chklist.submit()", array('confirm' => __('Are you sure?'))) ?></li>
+  <li><?php echo yui_link_to_function(image_tag("icons/delete.png", 'alt="'.__('Delete selected').'"'),"if (confirm('".__('Are you sure?')."')) { document.chklist.submit() }") ?></li>
 </ul>
 </div>
 </form>

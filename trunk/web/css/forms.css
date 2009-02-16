@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 input, textarea, select {border:1px solid #ccc;padding:.3em;}
-input[type="text"]:focus, input[type="password"]:focus {background: #ECF5FD;border:1px solid #6699CC;}
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, input.autocomplete:focus {background: #ECF5FD;border:1px solid #6699CC;}
 label {width:120px;padding:.3em;white-space:nowrap;}
 label:after {content:":";}
 
@@ -10,10 +10,13 @@ label:after {content:":";}
 .help{font-size:.93em;color:#555;margin-top:.1em;}
 
 .form input[type="text"], .form input[type="password"], .form textarea, .form select {
-  float:left;
   width:25em;
 }
 
+.form .separator {
+  float:left;
+  margin-right:.5em;
+}
 .form input.large {
   width:35em;
 }
@@ -25,7 +28,7 @@ label:after {content:":";}
 
 .form label.float {
   float:left;
-  padding-left:10px;
+  margin-left:10px!important;
 }
 
 .form label.float-first {
@@ -39,7 +42,7 @@ label:after {content:":";}
 
 .signin input[type="text"], .signin input[type="password"]{width:100%;}
 
-input.autocomplete { position:static!important;width:25em; } /* to center, set static and explicit width: */
+input.autocomplete { position:static!important;width:25em;float:left;} /* to center, set static and explicit width: */
 div.autocomplete { text-align:left;width:25em;} /* to center, set left-align and explicit width: */
 div.large {width:35em!important;} /* to center, set left-align and explicit width: */
 
@@ -51,10 +54,19 @@ div.large {width:35em!important;} /* to center, set left-align and explicit widt
 .form .small {width:90px!important}
 .form .smaller {width:60px!important}
 .form .tiny {width:40px!important}
+.form .full {width:98%!important}
+
+.form .newline {
+    clear: both;
+    display:block;
+    padding-top:1em;
+}
 
 /* YUI */
 .yui-cal-nav label {float:none;display:block;}
 .yui-cal-nav input, .yui-cal-nav select {float:none;display:block;}
+.yui_select {float:left;}
+ul.error_list{float:left;}
 
 /***** FIELD STYLES *****/
 /* Deprecated */

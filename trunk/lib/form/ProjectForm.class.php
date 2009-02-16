@@ -43,7 +43,7 @@ class ProjectForm extends BaseProjectForm
     ));
 
     // project_client_id
-    if ($this->object->getClient()) {
+    if ($this->object->getProjectClientId()) {
       $client_string = $this->object->getClient()->getFullName(false);
       $client_id = $this->object->getClient()->getId();
     } else {

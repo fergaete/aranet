@@ -152,7 +152,7 @@ class yuiWidgetFormDate extends sfWidgetForm
       $this->renderTag('input', array('name' => $name.'[month]', 'value' => $value['month'])) .
       $this->renderTag('input', array('name' => $name.'[day]', 'value' => $value['day'])) .
       $this->renderTag('input', array('name' => $name.'[year]', 'value' => $value['year'])) 
-    , array_merge(array('id' => $this->generateId($name)."_datefields"), $attributes));
+    , array_merge(array('id' => $this->generateId($name)."_datefields"), array_merge(array('class' => 'yui_select'), $attributes)));
   }
 
   /**

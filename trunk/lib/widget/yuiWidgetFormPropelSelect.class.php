@@ -69,7 +69,7 @@ class yuiWidgetFormPropelSelect extends yuiWidgetFormSelect
     $choices = array();
     if (false !== $this->getOption('add_empty'))
     {
-      $choices[''] = true === $this->getOption('add_empty') ? '' : $this->getOption('add_empty');
+      $choices[] = true === $this->getOption('add_empty') ? sfContext::getInstance()->getI18N()->__('Select').'...' : $this->getOption('add_empty');
     }
 
     $class = $this->getOption('model').'Peer';

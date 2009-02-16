@@ -1,4 +1,14 @@
 <?php 
+
+/**
+ * common standar actions.
+ *
+ * @package    ARANet
+ * @subpackage lib
+ * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
+ * @version    SVN: $Id$
+ */
+
 class anActions extends sfActions
 {
   
@@ -23,7 +33,8 @@ class anActions extends sfActions
   /**
    * executes index action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeIndex($request)
   {
@@ -33,7 +44,8 @@ class anActions extends sfActions
   /**
    * executes stats action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeStats($request)
   {
@@ -45,7 +57,8 @@ class anActions extends sfActions
   /**
    * executes create action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeCreate($request)
   {
@@ -53,42 +66,25 @@ class anActions extends sfActions
   }
 
   /**
-   * executes listByTag action
-   *
-   * @param $request
-   */
-  public function executeListByTag($request)
-  {
-    $this->tag = $request->getParameter('tag');
-    $c = new Criteria();
-    $c->add(TagPeer::NAME, $this->tag);
-    $c->addJoin(TagPeer::ID, TaggingPeer::TAG_ID);
-    $model = $this->getModel();
-    $table = 'aranet_' . $this->getModuleName();
-    if (in_array($this->getModuleName(), array('expense', 'income', 'cash'))) {
-      $table .= '_item';
-    }
-    $modelpeer = $model.'Peer';
-    $c->add(TaggingPeer::TAGGABLE_MODEL, $model);
-    $c->addJoin(TaggingPeer::TAGGABLE_ID, $table . '.id', Criteria::LEFT_JOIN);
-    $this->processList($c);
-    $this->setTemplate('list');
-  }
-
-  /**
   * Executes list action
   *
   * @param sfRequest $request A request object
+  * @author Pablo Sánchez <pablo.sanchez@aranova.es>
   */
   public function executeList($request)
   {
+    $tag_string = '';
     $model = $this->getModel();
+    if ($request->hasParameter('tag')) {
+      $this->tag = $request->getParameter('tag');
+      $tag_string = '&tag='.$this->tag;
+    }
     $this->processFilters();
     $this->filters = $this->getUser()->getAttributeHolder()->getAll($this->getModuleName().'/filters');
     if (!$request->isXmlHttpRequest()) {
       $table = new yuiDataTable($model);
       $table->setColumns($this->getColumns(), $include_checkbox = true);
-      $table->setDataSource('/'.$this->getModuleName().'/list?sort='.$this->getDefaultSortField().'&dir='.$this->getDefaultOrderDir().'&startIndex=0&results='.$this->getDefaultMaxPerPage().$this->addFiltersString());
+      $table->setDataSource('/'.$this->getModuleName().'/list?sort='.$this->getDefaultSortField().'&dir='.$this->getDefaultOrderDir().'&startIndex=0&results='.$this->getDefaultMaxPerPage().$this->addFiltersString().$tag_string);
       $this->table = $table;
       $filter = $model.'FormFilter';
       $this->filter_form = new $filter($this->filters);
@@ -98,17 +94,24 @@ class anActions extends sfActions
     $this->setLayout(false);
     $this->processSort();
     $c = new Criteria();
+    $this->addCustomCriteria($c);
     $this->addSortCriteria($c);
     $this->addFiltersCriteria($c);
+    if (isset($this->tag)) {
+      $c->add(TagPeer::NAME, $this->tag);
+      $c->addJoin(TagPeer::ID, TaggingPeer::TAG_ID);
+      $c->add(TaggingPeer::TAGGABLE_MODEL, $model);
+      $c->addJoin(TaggingPeer::TAGGABLE_ID, constant($model.'Peer::ID'));
+    }
     $this->pager = call_user_func($model.'Peer::getPager', $request->getParameter('startIndex'), 'doSelect', $request->getParameter('results', $this->getDefaultMaxPerPage()), $c);
-    return 'Json';  
+    return 'Json';
   }
   
   /**
    * returns max results per page
    *
    * @return integer
-   * @author Pablo Sánchez
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function getDefaultMaxPerPage()
   {
@@ -118,8 +121,9 @@ class anActions extends sfActions
   /**
    * executes show action
    *
+   * @param sfWebRequest $request A request object
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   **/
+   */
   public function executeShow($request)
   {
     $object = $this->getModuleObject();
@@ -137,6 +141,7 @@ class anActions extends sfActions
   /**
    * executes edit action
    *
+   * @param sfWebRequest $request A request object
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function executeEdit($request)
@@ -155,11 +160,11 @@ class anActions extends sfActions
   /**
    * executes delete action
    *
-   * @param $request
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function executeDelete($request)
   {
-    
     $select = $request->getParameter('select', array());
     if ($id = $request->getParameter('id')) {
       $select[] = $id;
@@ -185,7 +190,7 @@ class anActions extends sfActions
    * returns the model from the module name
    *
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   **/
+   */
   private function getModel()
   {
     switch ($this->getModuleName()) {
@@ -211,7 +216,7 @@ class anActions extends sfActions
    * returns the object name from the module
    *
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   **/
+   */
   private function getModuleObject()
   {
     switch ($this->getModuleName()) {
@@ -235,7 +240,9 @@ class anActions extends sfActions
   /**
    * process list action
    *
-   * @param $request
+   * @param Criteria $c A criteria object
+   * @param string $peerMethod
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function processList($c, $peerMethod = 'doSelect') {
     $this->processSort();
@@ -262,6 +269,8 @@ class anActions extends sfActions
  
   /**
    * process filter attributes
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function processFilters()
   {
@@ -277,7 +286,7 @@ class anActions extends sfActions
    * returns url parameters for filters
    *
    * @return string
-   * @author Pablo Sánchez
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function addFiltersString()
   {
@@ -299,8 +308,9 @@ class anActions extends sfActions
   /**
    * returns order column
    *
+   * @return string
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   **/
+   */
   protected function getDefaultSortField()
   {
     if (in_array($this->getModuleName(), array('expense', 'income', 'cash'))) {
@@ -314,8 +324,9 @@ class anActions extends sfActions
   /**
    * returns default order dir
    *
+   * @return string
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   **/
+   */
   protected function getDefaultOrderDir()
   {
     return 'asc';
@@ -325,7 +336,7 @@ class anActions extends sfActions
    * process sort
    *
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   **/
+   */
   protected function processSort ()
   {
     if ($this->getRequestParameter('sort'))
@@ -342,7 +353,20 @@ class anActions extends sfActions
   }
 
   /**
+   * add custom criteria
+   *
+   * @param Criteria $c A criteria object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   */
+  protected function addCustomCriteria($c)
+  {
+  }
+
+  /**
    * add sort criteria
+   *
+   * @param Criteria $c A criteria object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function addSortCriteria($c)
   {
@@ -369,6 +393,9 @@ class anActions extends sfActions
   
   /**
    * Simplest way to i18n
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function __()
   {
@@ -379,6 +406,8 @@ class anActions extends sfActions
 
   /**
    * Simplest way to flash vars
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   public function setFlash()
   {
@@ -387,6 +416,12 @@ class anActions extends sfActions
     return call_user_func_array(array($this->getUser(), 'setFlash'), $args);
   }
  
+   /**
+   * updates object fields
+   *
+   * @param sfWebRequest $request A request object
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   */
   public function executeRpc($request)
   {
     // Caso especial para algunos objetos
@@ -418,8 +453,6 @@ class anActions extends sfActions
   /**
    * Returns getter / setter name for requested column.
    * 
-   * @author  Tristan Rivoallan 
-   * @param   BaseObject  $node
    * @param   string      $prefix     get|set|...
    * @param   string      $column     from|to
    */
@@ -434,9 +467,6 @@ class anActions extends sfActions
   /**
    * Returns getter / setter name for requested column.
    * 
-   * @author  Tristan Rivoallan 
-   * @param   BaseObject  $node
-   * @param   string      $prefix     get|set|...
    * @param   string      $column     from|to
    */
   private function getColumnName($column)
