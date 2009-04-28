@@ -6,7 +6,7 @@
 <table>
   <tr>
     <td style="width:100%;text-align:center;">
-    <?php echo form_tag('mainGraphic'),
+    <?php echo form_tag('show_graphic'),
         select_tag('graphic', objects_for_select(
             GraphicPeer::doSelect(new Criteria()),
             'getId',
