@@ -27,7 +27,7 @@ $path = getcwd();
 exec('rm -rf cache/*'); // cache and logs
 exec('rm -rf log/*'); // cache and logs
 exec('find lib/model -name Base* -print0 | xargs -0 rm -rf'); // Generated Base*
-exec('find plugins -name Base* -print0 | xargs -0 rm -rf'); // Generated Base*
+exec('find plugins -not -name *class.php -name Base* -print0 | xargs -0 rm -rf'); // Generated Base*
 exec('find . -name generated-* -print0 | xargs -0 rm -rf'); // Generated*
 
 //2. rewrite configs
