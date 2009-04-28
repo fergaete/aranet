@@ -6,8 +6,8 @@ class Migration027 extends sfMigration {
     $this->remove2009();
     $this->executeSQL("SET FOREIGN_KEY_CHECKS = 0;");
     $this->executeSQL("UPDATE `aranet_graphic` SET `is_default` = 0 WHERE `is_default` = 1");
-    $this->executeSQL("ALTER TABLE `aranet_graphic_plot` DROP FOREIGN KEY `aranet_graphic_plot_FK_1` ;");
-    $this->executeSQL("ALTER TABLE `aranet_graphic_plot` ADD CONSTRAINT `aranet_graphic_plot_FK_1` FOREIGN KEY ( `graphic_id` ) REFERENCES `ARANOVA_aranet`.`aranet_graphic` (`id`) ON DELETE CASCADE ;");
+    $this->executeSQL("ALTER TABLE `aranet_graphic_plot` DROP FOREIGN KEY `aranet_graphic_plot_FK_1`;");
+    $this->executeSQL("ALTER TABLE `aranet_graphic_plot` ADD CONSTRAINT `aranet_graphic_plot_FK_1` FOREIGN KEY ( `graphic_id` ) REFERENCES `aranet_graphic` (`id`) ON DELETE CASCADE ;");
     $this->executeSQL("SET FOREIGN_KEY_CHECKS = 1;");
     $this->loadFixtures();
     $c = new Criteria();
@@ -48,7 +48,7 @@ class Migration027 extends sfMigration {
     $this->remove2009();
     $this->executeSQL("SET FOREIGN_KEY_CHECKS = 0;");
     $this->executeSQL("ALTER TABLE `aranet_graphic_plot` DROP FOREIGN KEY `aranet_graphic_plot_FK_1` ;");
-    $this->executeSQL(" ALTER TABLE `aranet_graphic_plot` ADD CONSTRAINT `aranet_graphic_plot_FK_1` FOREIGN KEY ( `graphic_id` ) REFERENCES `ARANOVA_aranet`.`aranet_graphic` (
+    $this->executeSQL(" ALTER TABLE `aranet_graphic_plot` ADD CONSTRAINT `aranet_graphic_plot_FK_1` FOREIGN KEY ( `graphic_id` ) REFERENCES `aranet_graphic` (
 `id`
 );");
     $this->executeSQL("UPDATE `aranet_graphic` SET `is_default` = 1 WHERE `graphic_name` = 'Balance 2008: Ingresos vs. Gastos'");
