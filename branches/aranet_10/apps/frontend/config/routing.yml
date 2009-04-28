@@ -20,7 +20,7 @@ sf_guard_restringed:
 
 # Mac OSX
 show_graphic:
-  url:  /dasboard/showGraphic/:graphic_id
+  url:  /dasboard/showGraphic
   param:  { module: dashboard, action: showGraphic }
 
 get_graphic:

@@ -795,7 +795,7 @@ propel:
     _attributes:
       phpName: GraphicPlot
     id:
-    graphic_id:         { type: integer, foreignTable: aranet_graphic, foreignReference: id, default: null }
+    graphic_id:         { type: integer, foreignTable: aranet_graphic, foreignReference: id, default: null, onDelete: cascade }
     plot_id:            { type: integer, foreignTable: aranet_plot, foreignReference: id, default: null }
 
   sf_guard_user_profile:

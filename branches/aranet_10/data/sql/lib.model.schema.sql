@@ -1276,7 +1276,8 @@ CREATE TABLE `aranet_graphic_plot`
 	INDEX `aranet_graphic_plot_FI_1` (`graphic_id`),
 	CONSTRAINT `aranet_graphic_plot_FK_1`
 		FOREIGN KEY (`graphic_id`)
-		REFERENCES `aranet_graphic` (`id`),
+		REFERENCES `aranet_graphic` (`id`)
+		ON DELETE CASCADE,
 	INDEX `aranet_graphic_plot_FI_2` (`plot_id`),
 	CONSTRAINT `aranet_graphic_plot_FK_2`
 		FOREIGN KEY (`plot_id`)
