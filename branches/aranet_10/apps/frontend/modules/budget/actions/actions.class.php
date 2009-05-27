@@ -202,7 +202,7 @@ class budgetActions extends myActions
     } else {
       $client_id = $this->getRequestParameter('budget_client_id');
       $client = ClientPeer::retrieveByPK($client_id);
-      if (!$client || $client->getFullName(false) != $client_name) {
+      if (!$client || ($client->getClientUniqueName() != $client_name && $client->getFullName(false) != $client_name)) {
         $client = new Client();
         $pos = strpos($client_name, '(');
         if (!$pos === false) {
