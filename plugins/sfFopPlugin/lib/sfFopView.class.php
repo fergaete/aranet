@@ -1,28 +1,28 @@
 <?php
 class sfFopView extends sfPHPView
 {
- 
+
   public function getEngine()
   {
     return 'sfFop';
   }
- 
+
   public function configure()
   {
     parent::configure();
   }
- 
+
   public function render($templateVars = null)
   {
     $template = $this->getDirectory().'/'.$this->getTemplate();
     $context = $this->getContext();
     $response = $context->getResponse();
- 
+
     if (sfConfig::get('sf_logging_enabled'))
     {
       $context->getLogger()->info('{sfFopView} render "'.$template.'"');
     }
- 
+
     //backup render mode
     $renderMode = $context->getController()->getRenderMode();
     // override render mode : We dont want sfPHPView to render directly to the client
@@ -48,7 +48,7 @@ class sfFopView extends sfPHPView
            $pdfcontent = file_get_contents(TEMP_PATH  . DIRECTORY_SEPARATOR . $input_file . '.pdf');
        } else {
            /// Failure! Get status and return text
-           echo '<html><head><title>'. TITLE . ' <  Error</title></head><body><h1>Error</h1><p>Return status: ' . $cmd->getStatus () . ' returned: ' . $cmd->getReturn ().'<p></body></html>';
+           echo '<html><head><title>Error</title></head><body><h1>Error</h1><p>Return status: ' . $cmd->getStatus () . ' returned: ' . $cmd->getReturn ().'<p></body></html>';
            return self::NONE;
        }
     } // end foreach
