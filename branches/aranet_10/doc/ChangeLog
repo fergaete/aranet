@@ -1,0 +1,4 @@
+2009-11-12  Pablo Sánchez  <pablo.sanchez@aranova.es>
+  * Actualizado Apache Fop 0.94 -> 0.95
+  * fop_encode. Test unitarios
+  * Bug en budget/print function: error cuando no existe una dirección asociada

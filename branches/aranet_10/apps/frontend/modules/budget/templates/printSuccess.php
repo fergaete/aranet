@@ -62,9 +62,9 @@ if (!$address) {
                 font-family="DejaVuSans"
                 line-height="20pt"
                 text-align="center">
-            <?php echo $address->getAddressLine1() ?>
+            <?php echo ($address) ? $address->getAddressLine1() : '' ?>
     </fo:block>
-    <?php if ($address->getAddressLine2()) : ?>
+    <?php if ($address && $address->getAddressLine2()) : ?>
     <fo:block font-size="11pt"
                 font-family="DejaVuSans"
                 line-height="20pt"
@@ -76,9 +76,9 @@ if (!$address) {
                 font-family="DejaVuSans"
                 line-height="20pt"
                 text-align="center">
-            <?php echo format_code($address->getAddressPostalCode()) ?> -
-            <?php $location = $address->getAddressLocation(); echo $location ?>
-            <?php echo ($address->getAddressState() != $location) ? ' (' . $address->getAddressState() . ')' : '' ?>
+            <?php echo ($address) ? format_code($address->getAddressPostalCode()) : '' ?>
+            <?php $location = ($address) ? ' - ' . $address->getAddressLocation() : '' ; echo $location ?>
+            <?php echo ($address && $address->getAddressState() != substr($location, 3)) ? ' (' . $address->getAddressState() . ')' : '' ?>
     </fo:block>
     </fo:table-cell>
     </fo:table-row>

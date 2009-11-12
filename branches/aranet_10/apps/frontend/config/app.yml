@@ -6,5 +6,5 @@ all:
     success_signout_url: @homepage
 
   fop:
-    path:  <?php echo sfConfig::get('sf_data_dir') ?>/fop-0.94/fop
+    path:  <?php echo sfConfig::get('sf_data_dir') ?>/fop-0.95/fop
     conf_file: conf/fop.xconf

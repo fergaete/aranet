@@ -46,7 +46,7 @@ function truncate_text_with_html($text, $long, $truncate_string ='...')
     $open_tag = strripos($small_text, $tag);
     $closed_tag = strripos($small_text, '</' . substr($tag, 1));
     if ($open_tag > $closed_tag || ($open_tag == 0 && $open_tag!==false && $closed_tag === false))
-      $opened_tags[count($small_text) - $open_tag] = substr($tag, 1, -1); 
+      $opened_tags[count($small_text) - $open_tag] = substr($tag, 1, -1);
   }
   if ($opened_tags) {
     ksort($opened_tags);
@@ -66,21 +66,47 @@ function truncate_text_with_html($text, $long, $truncate_string ='...')
  * @author Pablo Sánchez <pablo.sanchez@aranova.es>
  **/
 function fo_encode($text, $font = 'DejaVuSans') {
-  $text = strip_tags($text, '<strong><em><ul><li><br>,<br/>');
+  $text = str_replace("\x00", '', $text);
+  $text = str_replace("<br>", '<br/>', $text);
+  // Remove white spaces inside tags
+  $text = preg_replace('/\<\s*(\/{0,1})\s*([a-zA-Z]*)\s*\>/e', "'<\\1'.strtolower('\\2').'>'", $text);
+  $search = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript
+  '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+  '@<![\s\S]*?--[ \t\n\r]*>@'        // Strip multi-line comments including CDATA
+  );
+  $text = preg_replace($search, '', $text);
+  // Etiquetas sin cerrar
+  /*
+  $aux1 = strpos($html, "<");
+  $aux2 = strpos($html, ">");
+  if ($aux1 !== false) {
+    if ($aux2 === false) {
+      $html = htmlspecialchars($html);
+    }
+  } elseif ($aux2 !== false) {
+    if ($aux1 === false) {
+      $html = htmlspecialchars($html);
+    }
+  }
+  * */
+
+  $text = strip_tags($text, '<strong><em><ul><li><br/>');
   $search = array(
     '@<br\/>@i',
     '@\s+@i',
-    '@<strong>([a-záéíóúüñA-ZÁÉÍÓÚÜÑ0-9\(\)\s\t\.,\+\-_:;\*<>\/]*)</strong>@',
-    '@<em>([a-záéíóúüñA-ZÁÉÍÓÚÜÑ0-9\(\)\s\t\.,\+\-_:;\*<>\/]*)</em>@',
-    '@<ul>([a-záéíóúüñA-ZÁÉÍÓÚÜÑ0-9\(\)\s\t\.,\+\-_:;\*<>\/]*)<\/ul>@',
-    '@<li>([a-záéíóúüñA-ZÁÉÍÓÚÜÑ0-9\(\)\s\t\.,\+\-_:;\*]*)<\/li>@',
+    '@<strong>(.*?)</strong>@i',
+    '@<em>(.*?)</em>@i',
+    '@<ul>(.*?)<\/ul>@i',
+    '@<li>(.*?)<\/li>@i',
     );
   $replace = array('<fo:block></fo:block>', ' ', '<fo:inline font-family="'.$font.'-Bold">$1</fo:inline>',
-    '<fo:inline padding-bottom="0cm" font-family="'.$font.'-Oblique">$1</fo:inline>',
+    '<fo:inline font-family="'.$font.'-Oblique">$1</fo:inline>',
     '<fo:list-block provisional-label-separation="3pt" provisional-distance-between-starts="14pt">$1</fo:list-block>',
-    '<fo:list-item><fo:list-item-label><fo:block>-</fo:block></fo:list-item-label>
-    <fo:list-item-body start-indent="body-start()"><fo:block>$1</fo:block></fo:list-item-body></fo:list-item>',
+    '<fo:list-item><fo:list-item-label><fo:block>-</fo:block></fo:list-item-label><fo:list-item-body start-indent="body-start()"><fo:block>$1</fo:block></fo:list-item-body></fo:list-item>',
     );
+  $s = '@<ul>(.*?)<\/ul>@i';
+  preg_match_all($s, $text, $matches);
+  //print_r($matches);
   $fo = preg_replace($search, $replace, $text);
   return $fo;
 
@@ -90,20 +116,20 @@ function fo_encode($text, $font = 'DejaVuSans') {
  * highlight a given text
  *
  * @param  array  $keywords keywords to highlight
- * @param  string $message  string to highlight the keywords in 
+ * @param  string $message  string to highlight the keywords in
  * @param  string $stag     starting HTML tag for the highlighted string
- * @param  string $etag     ending HTML tag for the highlighted string 
+ * @param  string $etag     ending HTML tag for the highlighted string
  * @return string
  * @author Pablo Sánchez <pablo.sanchez@aranova.es>
  **/
 function do_highlight($keywords, $message, $stag = "<b>", $etag = "</b>"){
-  preg_match_all("/\"(.*?)\"/", $keywords, $quotes); 
+  preg_match_all("/\"(.*?)\"/", $keywords, $quotes);
   foreach($quotes[1] as $quot){
     $terms[] = $quot;
-  }         
-  $keywords = preg_replace("/\".*?\"/", "", $keywords); 
-  $keywords = preg_replace("/\"/", "", $keywords); 
-  $keywords = preg_replace("/  /", " ", $keywords); 
+  }
+  $keywords = preg_replace("/\".*?\"/", "", $keywords);
+  $keywords = preg_replace("/\"/", "", $keywords);
+  $keywords = preg_replace("/  /", " ", $keywords);
   $terms = array_merge($terms, explode(" ", $keywords));
   foreach($terms as $term){
     if(trim($term)){

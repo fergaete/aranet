@@ -135,7 +135,7 @@
                 </fo:table-cell>
                 </fo:table-row>
                 <?php endforeach ?>
-                <?php for($i=0; $i<10; $i++) : ?>
+                <?php for($i=0; $i<6; $i++) : ?>
                 <fo:table-row>
                 <fo:table-cell<?php echo $style ?>><fo:block></fo:block></fo:table-cell>
                 <fo:table-cell<?php echo $style ?>><fo:block></fo:block></fo:table-cell>
