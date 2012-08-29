@@ -1,0 +1,18 @@
+fillin:
+  enable: true
+fields:
+  budget_revision:
+    required:
+      msg:       The field cannot be left blank
+    sfNumberValidator:
+      min:       0
+      min_error: The first revision must be 0
+  budget_number:
+    required:
+      msg:       Enter a number for this budget
+  budget_date:
+    required:
+      msg:       Enter a valid date
+  budget_valid_date:
+    required:
+      msg:       Enter a valid date

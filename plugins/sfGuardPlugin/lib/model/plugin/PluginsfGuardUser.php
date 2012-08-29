@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardUser.php 5193 2007-09-19 18:26:45Z fabien $
  */
 class PluginsfGuardUser extends BasesfGuardUser
 {
@@ -57,20 +57,7 @@ class PluginsfGuardUser extends BasesfGuardUser
 
   public function checkPassword($password)
   {
-    try
-    {
-      $profile = $this->getProfile();
-    }
-    catch (Exception $e)
-    {
-      $profile = null;
-    }
-
-    if (!is_null($profile) && method_exists($profile, 'checkPassword'))
-    {
-      return $profile->checkPassword($this->getUsername(), $password, $this);
-    }
-    else if ($callable = sfConfig::get('app_sf_guard_plugin_check_password_callable'))
+    if ($callable = sfConfig::get('app_sf_guard_plugin_check_password_callable'))
     {
       return call_user_func_array($callable, array($this->getUsername(), $password, $this));
     }
@@ -276,7 +263,7 @@ class PluginsfGuardUser extends BasesfGuardUser
     $this->allPermissions = null;
   }
 
-  public function delete(PropelPDO $con = null)
+  public function delete($con = null)
   {
     // delete profile if available
     try

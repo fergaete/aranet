@@ -43,9 +43,9 @@
                 <td class="actions" id="incomeMenu_<?php echo $income_item->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__('View').'"'), 'income/show?id='.$income_item->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__('Edit').'"'), 'income/edit?id='.$income_item->getId()) ?></li>
-                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__('Delete').'"'), array(
+                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'income/show?id='.$income_item->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'income/edit?id='.$income_item->getId()) ?></li>
+                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                                 'update'   => 'income_'.$income_item->getId(),
                                 'url'      => 'income/delete?id='.$income_item->getId(),
                                 'confirm'  => _('Are you sure?'),

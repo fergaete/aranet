@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View invoice details') ?> <span class="subText">(<?php echo $invoice->__toString() . ' ' . $invoice->getClient() ?>)</span></h3>
+<h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View invoice details') ?> <span class="subText">(<?php echo $invoice . ' - ' . $invoice->getClient() ?>)</span></h3>
 
 <div id="invoiceDisplay" class="windowFrame">
     <table style="width: 100%">

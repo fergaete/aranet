@@ -1,6 +1,6 @@
-<?php if (count($income_items)) : ?>
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<div class="windowFrame" id="<?php echo $related ?>ViewIncomes">
+<div id="<?php echo $id ?>">
+<div class="windowFrame">
     <table class="dataTable">
         <thead>
             <tr>
@@ -30,9 +30,9 @@
                 <td class="actions" id="incomeMenu_<?php echo $income_item->getId() ?>">
                 <div class="objectActions">
                 <ul>
-                  <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__('View').'"'), 'income/show?id='.$income_item->getId()) ?></li>
-                  <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__('Edit').'"'), 'income/edit?id='.$income_item->getId()) ?></li>
-                  <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__('Delete').'"'), array(
+                  <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'income/show?id='.$income_item->getId()) ?></li>
+                  <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'income/edit?id='.$income_item->getId()) ?></li>
+                  <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'income'.$income_item->getId(),
                     'url'      => 'income/delete?id='.$income_item->getId(),
                     'confirm'  => __('Are you sure?'),
@@ -62,6 +62,3 @@
 </div>
 <?php endif ?>
 </div>
-<?php else : ?>
-  <p><?php echo __('No related income items yet') ?></p>
-<?php endif ?>

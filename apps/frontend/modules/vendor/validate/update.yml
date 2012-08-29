@@ -1,0 +1,18 @@
+fields:
+  vendor_unique_name:
+    required:
+      msg:       The field cannot be left blank
+    sfStringValidator:
+      min:       2
+      min_error: This name is too short (2 characters minimum)
+      max:       100
+      max_error: This name is too long. (100 characters maximum)
+
+  vendor_company_name:
+    required:
+      msg:       The field cannot be left blank
+    sfStringValidator:
+      min:       2
+      min_error: This name is too short (2 characters minimum)
+      max:       255
+      max_error: This name is too long. (255 characters maximum)

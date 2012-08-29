@@ -1,77 +1,64 @@
-<?php use_helper('Number', 'NumberExtended') ?>
-<?php aranet_title(__('Vendor "%1%"', array('%1%' => $vendor))) ?>
-<?php ysfYUI::addComponents('reset', 'fonts', 'grids', 'tabview'); ysfYUI::addEvent('tabs', 'ready', "var tabs = new YAHOO.widget.TabView('tabs');"); ?>
-
-<h3><?php echo __('View vendor details') ?>: <span class="subText"><?php echo $vendor ?></span></h3>
+<?php use_helper('Javascript', 'Number') ?>
+<?php aranet_title(__('Vendor %1%', array('%1%' => $vendor))) ?>
+<h3 id="pageSubTitle" style="padding-top: 10px;"><?php echo __('View vendor details') ?> <span class="subText">(<?php echo $vendor->__toString() ?>)</span></h3>
 
 <div id="vendorDisplay" class="windowFrame">
-    <table>
+    <table style="width: 100%">
     <tr>
         <td class="leftSide">
-            <h4><?php echo $vendor ?></h4>
-            <?php echo ($vendor->getVendorWebsite()) ? link_to($vendor->getVendorWebsite(), $vendor->getVendorWebsite()) : '' ?>
+            <span class="bigText"><?php echo link_to($vendor->getVendorCompanyName(), 'vendor/show?id=' . $vendor->getId()) ?></span><br \>
             <?php include_partial('address/basic_data', array('address' => $vendor->getDefaultAddress())) ?><br/>
-            <?php include_partial('contact/basic_data', array('contact' => $vendor->getDefaultContact())) ?>
+            <?php include_partial('contact/basic_data', array('contact' => $vendor->getContact())) ?>
         </td>
-        <td class="rightSide">
-              <div id="tabs" class="yui-navset">
-                <ul class="yui-nav">
-                  <li class="selected"><a href="#stats"><em><?php echo __('Vendor stats') ?></em></a></li>
-                  <li><?php echo yui_link_to_remote('<em>'.__('Contacts').'</em>', array(
-                    'url' => url_for('@contact_minilist?related=Vendor&id='.$vendor->getId() . '#contacts'),
-                    'update' => 'contacts-tab',
-                    'loading'  => "Element.show('indicator-tabs')",
-                    'complete' => "Element.hide('indicator-tabs')")) ?></li>
-                  <li><?php echo yui_link_to_remote('<em>'.__('Addresses').'</em>', array(
-                    'url' => url_for('@address_minilist?related=Vendor&id='.$vendor->getId() . '#addresses'),
-                    'update' => 'addresses-tab',
-                    'loading'  => "Element.show('indicator-tabs')",
-                    'complete' => "Element.hide('indicator-tabs')")) ?></li>
+        <td style="vertical-align: top; width: 60%;">
+            <div class="infoWindowMenu">
+                <ul id="menuItems">
+                    <li id="menuItemStats" class="menuItemSelected"><?php echo link_to_remote('<span>'.__('Vendor stats').'</span>', array(
+                        'update' => 'infoWindow',
+                        'url'    => 'vendor/stats?id='.$vendor->getId(),
+                        'loading'  => "Element.show('indicator-tabs')",
+                        'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemStats')",
+                        )) ?></li>
+                    <li id="menuItemContacts" class=""><?php echo link_to_remote('<span>'.__('Contacts').'</span>', array(
+                        'update' => 'infoWindow',
+                        'url'    => 'contact/minilist?class=Vendor&id='.$vendor->getId(),
+                        'loading'  => "Element.show('indicator-tabs')",
+                        'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemContacts')",
+                        )) ?></li>
+                    <li id="menuItemAddresses" class=""><?php echo link_to_remote('<span>'.__('Addresses').'</span>', array(
+                        'update' => 'infoWindow',
+                        'url'    => 'address/minilist?class=Vendor&id='.$vendor->getId(),
+                        'loading'  => "Element.show('indicator-tabs')",
+                        'complete' => "Element.hide('indicator-tabs'); setActiveTab('menuItemAddresses')",
+                        )) ?></li>
+                    <li id="menuItemMessages" class=""><?php echo __('Messages') ?></li>
                 </ul>
-                <div class="yui-content">
-                  <div id="stats">
-                    <?php include_partial('stats', array('vendor' => $vendor)) ?>
-                  </div>
-                  <div id="contacts-tab"></div>
-                  <div id="addresses-tab"></div>
+            </div>
+            <div id="indicator-tabs" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
+            <div id="infoWindow" class="infoWindow">
+<?php include_partial('stats', array('vendor' => $vendor)) ?>
                 </div>
-              </div>
-              <div id="indicator-tabs" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
+                <div id="vendorEdit" stlye="display: none;"></div>
+                <div id="venDetailEdit" style="width: 30%; text-align: right; padding: 4px;">
+                <?php echo link_to(image_tag('buttonEditLarge.gif', 'alt="Edit vendor details"'), '/vendor/edit?id=' . $vendor->getId()) ?>
+                </div>
         </td>
-    </tr>
-    <tr>
-      <td colspan="2" style="text-align:center">
-          <div id="cliDetailEdit" style="padding: 4px;">
-            <?php echo yui_button_to(__('Edit'), '@vendor_edit_by_id?id=' . $vendor->getId()) ?>
-            <?php echo yui_button_to(__('Delete'), '@vendor_delete_by_id?id=' . $vendor->getId()) ?>
-            <?php echo yui_button_to(__('Return to list'), '@vendor_list') ?>
-          </div>
-      </td>
     </tr>
     </table>
 </div>
 
-<div id="indicator-related_tabs" style="display:none"><?php echo image_tag('indicator.gif') ?></div>
+<div class="vendorHeader"><div class="headerExpenses"><?php echo __('Expenses (#%1%)', array('%1%' => count($vendor->getExpenseItemsOrderedByDate()))) ?></div>
+<div class="windowControlsDashboard">
+    <span><?php echo link_to(image_tag('button_add.gif', __('Create new expense')), "/expense/create?vendor_id=" . $vendor->getId()) ?></span>
+    <span id="vendorViewExpenseRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'vendorViewExpenses') . visual_effect('appear', 'vendorViewExpenseRollDown') . visual_effect('fade', 'vendorViewExpenseRollUp')) ?></span>
+    <span id="vendorViewExpenseRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'vendorViewExpenses') . visual_effect('appear', 'vendorViewExpenseRollUp') . visual_effect('fade', 'vendorViewExpenseRollDown')) ?></span>
+</div></div>
+<?php include_partial('expense/expense_list', array('expense_items' => $vendor->getExpenseItemsOrderedByDate(), 'id' => 'vendorViewExpenses')) ?>
 
-<?php ysfYUI::addEvent('related_tabs', 'ready', "var relatedTabs = new YAHOO.widget.TabView('related_tabs');"); ?>
-
-<div id="related_tabs" class="yui-navset">
-  <ul class="yui-nav">
-    <li class="selected"><a href="#expenses"><em><?php echo __('Expenses') ?></em></a></li>
-    <li><a href="#incomes"><em><?php echo __('Incomes') ?></em></a></li>
-  </ul>
-  <div class="yui-content">
-    <div id="expenses">
-      <div id="vendorExpenses">
-<?php include_partial('expense/expense_list', array('expense_items' => $vendor->getExpenseItems(), 'related' => 'Vendor')) ?>
-      </div>
-      <?php echo yui_button_to(__('Create new expense'), "@expense_create_from_object?related=Vendor&id=" . $vendor->getId()) ?>
-    </div>
-    <div id="incomes">
-      <div id="vendorIncomes">
-<?php include_partial('income/income_list', array('income_items' => $vendor->getIncomeItemsOrderedByDate(), 'related' => 'Vendor')) ?>
-      </div>
-      <?php echo yui_button_to(__('Create new income'), "@income_create_from_object?related=Vendor&id=" . $vendor->getId()) ?>
-    </div>
-  </div>
-</div>
+<div class="vendorHeader"><div class="headerIncomes"><?php echo __('Incomes (#%1%)', array('%1%' => count($vendor->getIncomeItemsOrderedByDate()))) ?></div>
+<div class="windowControlsDashboard">
+    <span><?php echo link_to(image_tag('button_add.gif', __('Create new income')), "/income/create?vendor_id=" . $vendor->getId()) ?></span>
+    <span id="vendorViewIncomeRollUp"><?php echo link_to_function(image_tag('button_rollUp.gif', __('Roll Up')), visual_effect('slideUp', 'vendorViewIncomes') . visual_effect('appear', 'vendorViewIncomeRollDown') . visual_effect('fade', 'vendorViewIncomeRollUp')) ?></span>
+    <span id="vendorViewIncomeRollDown" style="display:none"><?php echo link_to_function(image_tag('button_rollDown.gif', __('Roll Down')), visual_effect('slideDown', 'vendorViewIncomes') . visual_effect('appear', 'vendorViewIncomeRollUp') . visual_effect('fade', 'vendorViewIncomeRollDown')) ?></span>
+</div></div>
+<?php include_partial('income/income_list', array('income_items' => $vendor->getIncomeItemsOrderedByDate(), 'id' => 'vendorViewIncomes')) ?>

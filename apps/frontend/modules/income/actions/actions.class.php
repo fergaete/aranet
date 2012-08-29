@@ -6,9 +6,9 @@
  * @package    aranet
  * @subpackage income
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
  */
-class incomeActions extends anActions
+class incomeActions extends myActions
 {
 
  /* returns expense_item from params
@@ -18,8 +18,8 @@ class incomeActions extends anActions
    **/
   protected function getIncomeItem()
   {
-    if ($request->getParameter('id')) {
-      $income_item = IncomeItemPeer::retrieveByPk($request->getParameter('id'));
+    if ($this->getRequestParameter('id')) {
+      $income_item = IncomeItemPeer::retrieveByPk($this->getRequestParameter('id'));
       $this->forward404Unless($income_item);
     } else {
       $income_item = new IncomeItem();
@@ -34,10 +34,10 @@ class incomeActions extends anActions
    **/
   public function executeCreate()
   {
-    if (!$this->getUser()->getFlash('income_item')) {
+    if (!$this->getFlash('income_item')) {
       $this->income_item = $this->getIncomeItem();
     } else {
-      $this->income_item = $this->getUser()->getFlash('income_item');
+      $this->income_item = $this->getFlash('income_item');
     }  
     if ($this->hasRequestParameter('id')) {
       // Copy items
@@ -50,7 +50,7 @@ class incomeActions extends anActions
     if ($this->income_item->getIncomeItemProjectId()) {
       $project_id = $this->income_item->getIncomeItemProjectId();
     } else {
-      $project_id = $request->getParameter('income_item_project_id');
+      $project_id = $this->getRequestParameter('income_item_project_id');
     }
     $c = new Criteria();
     if ($project_id) {
@@ -71,7 +71,7 @@ class incomeActions extends anActions
   public function executeEdit()
   {
     $this->income_item = $this->getIncomeItem();
-    if ($request->getParameter('id')) {
+    if ($this->getRequestParameter('id')) {
       $c = new Criteria();
       $this->projects = ProjectPeer::doSelect($c);
       if ($this->income_item->getIncomeItemProjectId()) {
@@ -92,37 +92,37 @@ class incomeActions extends anActions
   public function executeUpdate()
   {
     $income_item = $this->getIncomeItem();
-    if ($request->getParameter('income_item_vendor_id', -1) == -1) {
+    if ($this->getRequestParameter('income_item_vendor_id', -1) == -1) {
       $vendor = new Vendor();
-      $vendor->setVendorCompanyName($request->getParameter('vendor_name'));
-      $vendor->setVendorUniqueName($request->getParameter('vendor_name'));
+      $vendor->setVendorCompanyName($this->getRequestParameter('vendor_name'));
+      $vendor->setVendorUniqueName($this->getRequestParameter('vendor_name'));
       $vendor->save();
       $vendor_id = $vendor->getId();
     } else {
-      $vendor_id = $request->getParameter('income_item_vendor_id');
+      $vendor_id = $this->getRequestParameter('income_item_vendor_id');
     }
     $income_item->setIncomeItemVendorId($vendor_id);
-    $income_item->setId($request->getParameter('id'));
-    $income_item->setIncomeItemName($request->getParameter('income_item_name'));
-    $income_item->setIncomeItemComments($request->getParameter('income_item_comments'));
-    if ($request->getParameter('income_date'))
+    $income_item->setId($this->getRequestParameter('id'));
+    $income_item->setIncomeItemName($this->getRequestParameter('income_item_name'));
+    $income_item->setIncomeItemComments($this->getRequestParameter('income_item_comments'));
+    if ($this->getRequestParameter('income_date'))
     {
-      list($d, $m, $y) = sfI18N::getDateForCulture($request->getParameter('income_date'), $this->getUser()->getCulture());
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('income_date'), $this->getUser()->getCulture());
       $income_item->setIncomeDate("$y-$m-$d");
     }
-    $income_item->setIncomeItemCategoryId($request->getParameter('income_item_category_id') ? $request->getParameter('income_item_category_id') : null);
-    $income_item->setIncomeItemPaymentMethodId($request->getParameter('income_item_payment_method_id') ? $request->getParameter('income_item_payment_method_id') : null);
-    $income_item->setIncomeItemPaymentCheck($request->getParameter('income_item_payment_check'));
-    $income_item->setIncomeItemReimbursementId($request->getParameter('income_item_reimbursement_id') ? $request->getParameter('income_item_reimbursement_id') : null);
-    $income_item->setIncomeItemProjectId($request->getParameter('income_item_project_id') ? $request->getParameter('income_item_project_id') : null);
-    $income_item->setIncomeItemBudgetId($request->getParameter('income_item_budget_id') ? $request->getParameter('income_item_budget_id') : null);
-    $income_item->setIncomeItemAmount($request->getParameter('income_item_amount'));
-    $income_item->setIncomeItemBase($request->getParameter('income_item_base'));
-    $income_item->setIncomeItemTaxRate($request->getParameter('income_item_tax_rate'));
-    $income_item->setIncomeItemIrpf($request->getParameter('income_item_irpf'));
-    $income_item->setIncomeItemInvoiceNumber($request->getParameter('income_item_invoice_number'));
+    $income_item->setIncomeItemCategoryId($this->getRequestParameter('income_item_category_id') ? $this->getRequestParameter('income_item_category_id') : null);
+    $income_item->setIncomeItemPaymentMethodId($this->getRequestParameter('income_item_payment_method_id') ? $this->getRequestParameter('income_item_payment_method_id') : null);
+    $income_item->setIncomeItemPaymentCheck($this->getRequestParameter('income_item_payment_check'));
+    $income_item->setIncomeItemReimbursementId($this->getRequestParameter('income_item_reimbursement_id') ? $this->getRequestParameter('income_item_reimbursement_id') : null);
+    $income_item->setIncomeItemProjectId($this->getRequestParameter('income_item_project_id') ? $this->getRequestParameter('income_item_project_id') : null);
+    $income_item->setIncomeItemBudgetId($this->getRequestParameter('income_item_budget_id') ? $this->getRequestParameter('income_item_budget_id') : null);
+    $income_item->setIncomeItemAmount($this->getRequestParameter('income_item_amount'));
+    $income_item->setIncomeItemBase($this->getRequestParameter('income_item_base'));
+    $income_item->setIncomeItemTaxRate($this->getRequestParameter('income_item_tax_rate'));
+    $income_item->setIncomeItemIrpf($this->getRequestParameter('income_item_irpf'));
+    $income_item->setIncomeItemInvoiceNumber($this->getRequestParameter('income_item_invoice_number'));
     $income_item->removeAllTags();
-    $income_item->addTag($request->getParameter('tags') ? $request->getParameter('tags') : null);
+    $income_item->addTag($this->getRequestParameter('tags') ? $this->getRequestParameter('tags') : null);
     $income_item->save();
     return $this->redirect('income/show?id='.$income_item->getId());
   }
@@ -132,7 +132,7 @@ class incomeActions extends anActions
    *
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  protected function getSortField()
+  protected function getSortColumn()
   {
     return 'income_date';
   }
@@ -182,7 +182,7 @@ class incomeActions extends anActions
       $criterion->addOr($c->getNewCriterion(IncomeItemPeer::INCOME_ITEM_PROJECT_ID, null, Criteria::ISNULL));
       $c->add($criterion);
     }
-    else if (isset($this->filters['project_name']) && $this->filters['project_name'] !== sfContext::getInstance()->getI18N()->__('Project') . '...' && $this->filters['project_name'] !== '')
+    else if (isset($this->filters['project_name']) && $this->filters['project_name'] !== sfI18N::getInstance()->__('Project') . '...' && $this->filters['project_name'] !== '')
     {
       $c->add(ProjectPeer::PROJECT_NAME, $this->filters['project_name']);
       $c->addJoin(ProjectPeer::ID, IncomeItemPeer::INCOME_ITEM_PROJECT_ID);
@@ -207,7 +207,7 @@ class incomeActions extends anActions
     {
       $c->add(IncomeItemPeer::INCOME_ITEM_CATEGORY_ID, $this->filters['income_item_category_id']);
     }
-    if (isset($this->filters['income_name']) && $this->filters['income_name'] && $this->filters['income_name'] != sfContext::getInstance()->getI18N()->__('Name') . '...')
+    if (isset($this->filters['income_name']) && $this->filters['income_name'] && $this->filters['income_name'] != sfI18N::getInstance()->__('Name') . '...')
     {
       $c->add(IncomeItemPeer::INCOME_ITEM_NAME, "%".$this->filters['income_name']."%", Criteria::LIKE);
     }

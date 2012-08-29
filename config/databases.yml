@@ -1,0 +1,45 @@
+all:
+  propel:
+    class:                sfPropelDatabase
+    param:
+      phptype:            mysql     # Database vendor
+      hostspec:           localhost
+      database:           ARANOVA_aranet10
+      username:           aranet
+      password:           cKKZ2ATbcAJa2d4K
+      encoding:           utf8      # Default charset for table creation
+      persistent:         false      # Use persistent connections
+
+  symfony:
+    class:                sfPropelDatabase
+    param:
+      phptype:            mysql     # Database vendor
+      hostspec:           localhost
+      database:           ARANOVA_aranet10
+      username:           aranet
+      password:           cKKZ2ATbcAJa2d4K
+      encoding:           utf8      # Default charset for table creation
+      persistent:         false      # Use persistent connections
+
+test:
+  propel:
+    class:                sfPropelDatabase
+    param:
+      phptype:            mysql     # Database vendor
+      hostspec:           localhost
+      database:           ARANOVA_aranet_test
+      username:           aranet
+      password:           cKKZ2ATbcAJa2d4K
+      encoding:           utf8      # Default charset for table creation
+      persistent:         false      # Use persistent connections
+
+  symfony:
+    class:                sfPropelDatabase
+    param:
+      phptype:            mysql     # Database vendor
+      hostspec:           localhost
+      database:           ARANOVA_aranet_test
+      username:           aranet
+      password:           cKKZ2ATbcAJa2d4K
+      encoding:           utf8      # Default charset for table creation
+      persistent:         false      # Use persistent connections

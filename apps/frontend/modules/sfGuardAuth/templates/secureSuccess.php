@@ -1,4 +1,3 @@
-<?php aranet_title(__('Restringed access')) ?>
 <div class="sfTContainer">
       <h1><?php echo __('Restringed access') ?></h1>
       <h5><?php echo __("You don't have enough permission to access this area") ?>.</h5>

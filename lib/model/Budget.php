@@ -6,11 +6,25 @@
  * @package    aranet
  * @subpackage lib.model
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: Budget.php 3 2008-08-06 07:48:19Z pablo $
  */
 
 class Budget extends BaseBudget
 {
+  /**
+   * array of files
+   *
+   * @var array
+   **/
+  protected $collFiles;
+
+  /**
+   * last criteria for files
+   *
+   * @var Criteria
+   **/
+  protected $lastFilesCriteria = null;
+
   /**
    * returns average margin of the budget
    *
@@ -18,7 +32,7 @@ class Budget extends BaseBudget
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function getBudgetAverageMargin() {
-    if (sfConfig::get('aranet_margin_model', 'costs') == 'costs') {
+    if (MARGIN_MODEL == 'costs') {
       return ($this->getBudgetTotalCost()) ? $this->getBudgetTotalAmount()/($this->getBudgetTotalCost())*100-100 : 0;
     } else {
       return ($this->getBudgetTotalCost()) ? ($this->getBudgetTotalAmount() - $this->getBudgetTotalCost())*100 / $this->getBudgetTotalAmount() : 0;
@@ -35,7 +49,7 @@ class Budget extends BaseBudget
    **/
   public function getBudgetAverageRealMargin($total_hour_costs, $total_costs) {
     // TODO implement getBudgetTotalHourCosts
-    if (sfConfig::get('aranet_margin_model', 'costs') == 'costs') {
+    if (MARGIN_MODEL == 'costs') {
       return $total_hour_costs ? $this->getBudgetTotalAmount()/($total_hour_costs + $total_costs)*100-100 : 0;
     } else {
       return $total_hour_costs ? ($this->getBudgetTotalAmount() - $total_hour_costs - $total_costs)*100 / $this->getBudgetTotalAmount() : $this->getBudgetAverageMargin();
@@ -54,6 +68,93 @@ class Budget extends BaseBudget
     if ($this->getBudgetStatusId() == 5) {
       $this->setBudgetStatusId(1);
     }
+  }
+
+  /**
+   * initializes files
+   *
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function initFiles()
+  {
+    if ($this->collFiles === null) {
+      $this->collFiles = array();
+    }
+  }
+
+  /**
+   * returns files associated with budget
+   *
+   * @return array
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function getFiles($criteria = null, $con = null)
+  {
+    if ($criteria === null) {
+      $criteria = new Criteria();
+    }
+    elseif ($criteria instanceof Criteria)
+    {
+      $criteria = clone $criteria;
+    }
+
+    if ($this->collFiles === null) {
+      if ($this->isNew()) {
+        $this->collFiles = array();
+      } else {
+        $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_CLASS, 'Budget');
+        $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_ID, $this->getId());
+        $criteria->addJoin(sfPropelFileStorageObjectPeer::FILE_INFO_ID, sfPropelFileStorageInfoPeer::FILE_ID);
+        sfPropelFileStorageInfoPeer::addSelectColumns($criteria);
+        $this->collFiles = sfPropelFileStorageInfoPeer::doSelectJoinAllExceptsfGuardUserProfileRelatedByDeletedBy($criteria, $con);
+      }
+    } else {
+      if (!$this->isNew()) {
+        $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_CLASS, 'Budget');
+        $criteria->add(sfPropelFileStorageObjectPeer::FILE_OBJECT_ID, $this->getId());
+        $criteria->addJoin(sfPropelFileStorageObjectPeer::FILE_INFO_ID, sfPropelFileStorageInfoPeer::FILE_ID);
+        sfPropelFileStorageInfoPeer::addSelectColumns($criteria);
+        if (!isset($this->lastFileCriteria) || !$this->lastFileCriteria->equals($criteria)) {
+          $this->collFiles = sfPropelFileStorageInfoPeer::doSelect($criteria, $con);
+        }
+      }
+    }
+    $this->lastFileCriteria = $criteria;
+    return $this->collFiles;
+  }
+
+  /**
+   * return number of files associated
+   *
+   * @return void
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function countFiles($criteria = null, $distinct = false, $con = null)
+  {
+    if ($criteria === null) {
+      $criteria = new Criteria();
+    }
+    elseif ($criteria instanceof Criteria)
+    {
+      $criteria = clone $criteria;
+    }
+    if (!$this->collFiles) {
+      $this->getFiles();
+    }
+    return count($this->collFiles);
+  }
+
+  /**
+   * adds a file associated to the budget
+   *
+   * @param File  $l  the file
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function addFile($l)
+  {
+    $this->collFiles[] = $l;
+    $l->setContact($this);
   }
 
   /**
@@ -84,7 +185,7 @@ class Budget extends BaseBudget
   /**
    * returns full title of budget (prefix+number+revision+title)
    *
-   * @return string
+   * @return void
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function getFullTitle() {
@@ -100,7 +201,7 @@ class Budget extends BaseBudget
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
   public function getFullStatus($separator = '<br/>') {
-    $content = sfContext::getInstance()->getI18N()->__('Created') . ': ' . format_date($this->getCreatedAt());
+    $content = sfI18N::getInstance()->__('Created') . ': ' . format_date($this->getCreatedAt());
     switch ($this->getBudgetStatusId()) {
       case 1:
       case 2:
@@ -110,7 +211,7 @@ class Budget extends BaseBudget
         $content .=  $separator . $this->getBudgetStatus() . ': ' . format_date($this->getBudgetApprovedDate());
       default:
     }
-    $content .= ($this->getBudgetStatusId() != 3 && $this->getBudgetValidDate()) ? $separator . sfContext::getInstance()->getI18N()->__('Valid till') . ': ' . format_date($this->getBudgetValidDate()) : '';
+    $content .= ($this->getBudgetStatusId() != 3 && $this->getBudgetValidDate()) ? $separator . sfI18N::getInstance()->__('Valid till') . ': ' . format_date($this->getBudgetValidDate()) : '';
     return $content;
   }
 
@@ -336,11 +437,11 @@ class Budget extends BaseBudget
     $c->clearSelectColumns();
     $c->add(TimesheetPeer::TIMESHEET_BUDGET_ID, $this->getId());
     $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.')');
-    $rs = TimesheetPeer::doSelectStmt($c);
-    while($row = $rs->fetch(PDO::FETCH_NUM)) {
-      return $row[0];
-    }
-    return 0;
+    $rs = TimesheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  return $rs->getFloat(1);
+		}
+		return 0;
   }
 
   /**
@@ -357,11 +458,11 @@ class Budget extends BaseBudget
     $c->add(ExpenseItemPeer::EXPENSE_ITEM_BUDGET_ID, $this->getId());
     $c->add(ExpenseItemPeer::EXPENSE_ITEM_REIMBURSEMENT_ID, 1); // Reembolsable
     $c->addSelectColumn('SUM('.ExpenseItemPeer::EXPENSE_ITEM_AMOUNT.')');
-    $rs = ExpenseItemPeer::doSelectStmt($c);
-    while($row = $rs->fetch(PDO::FETCH_NUM)) {
-      $amount += $row[0];
-    }
-    return $amount;
+    $rs = ExpenseItemPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  $amount += $rs->getFloat(1);
+		}
+		return $amount;
   }
   
   /**
@@ -376,23 +477,17 @@ class Budget extends BaseBudget
     $c->clearSelectColumns();
     $c->add(TimesheetPeer::TIMESHEET_BUDGET_ID, $this->getId());
     $c->add(TimesheetPeer::TIMESHEET_IS_BILLABLE, true);
-    //TODO
-    //$c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.'*'.TypeOfHourPeer::TYPE_OF_HOUR_COST.')');
+    $c->addSelectColumn('SUM('.TimesheetPeer::TIMESHEET_HOURS.'*'.TypeOfHourPeer::TYPE_OF_HOUR_COST.')');
     $c->addJoin(TimeSheetPeer::TIMESHEET_TYPE_ID, TypeOfHourPeer::ID);
-    $rs = TimeSheetPeer::doSelectStmt($c);
-    while($row = $rs->fetch(PDO::FETCH_NUM)) {
-      return $row[0] ? $row[0] : 0;
-    }
-    return 0;
+    $rs = TimeSheetPeer::doSelectRS($c);
+		if ($rs->next()) {
+		  return $rs->getFloat(1) ? $rs->getFloat(1) : 0;
+		}
+		return 0;
   }
 
 }
-//TODO
-/*
 sfMixer::register('BaseBudget:delete:post', array('Budget', 'postDelete'));
 sfMixer::register('BaseBudget:delete:pre', array('Budget', 'preDelete'));
 sfMixer::register('BaseBudget:save:post', array('Budget', 'postSave'));
 sfMixer::register('BaseBudget:save:pre', array('Budget', 'preSave'));
-*/
-
-sfPropelBehavior::add('Budget', array('audit', 'arPropelContactableBehavior', 'sfPropelActAsTaggableBehavior', 'paranoid' => array('column' => 'deleted_at')));

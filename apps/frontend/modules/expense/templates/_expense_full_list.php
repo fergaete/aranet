@@ -44,9 +44,9 @@
                 <td class="actions" id="expenseMenu_<?php echo $expense_item->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag("button_view.gif", 'alt="'.__('View').'"'), 'expense/show?id='.$expense_item->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("button_edit.gif", 'alt="'.__('Edit').'"'), 'expense/edit?id='.$expense_item->getId()) ?></li>
-                            <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="'.__('Delete').'"'), array(
+                            <li><?php echo link_to(image_tag("button_view.gif", 'alt="View"'), 'expense/show?id='.$expense_item->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("button_edit.gif", 'alt="Edit"'), 'expense/edit?id='.$expense_item->getId()) ?></li>
+                            <li><?php echo link_to_remote(image_tag("button_delete.gif", 'alt="Delete"'), array(
                                 'update'   => 'expense_'.$expense_item->getId(),
                                 'url'      => 'expense/delete?id='.$expense_item->getId(),
                                 'confirm'  => __('Are you sure?'),

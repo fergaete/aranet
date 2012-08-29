@@ -12,13 +12,11 @@ class sfAudit extends BasesfAudit
     {
         $ret = array();
         $changes = parent::getObjectChanges();
-        
-        if (is_string($changes) && strlen($changes) > 0) {
+
+        if (is_string($changes) && strlen($changes)) {
             $ret = unserialize($changes);
         } // End if
 
-        return $ret;
-        
     } // End function
 
 } // End class

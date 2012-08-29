@@ -6,9 +6,9 @@
  * @package    aranet
  * @subpackage expense
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
  */
-class expenseActions extends anActions
+class expenseActions extends myActions
 {
 
   /**
@@ -19,8 +19,8 @@ class expenseActions extends anActions
    **/
   protected function getExpenseItem()
   {
-    if ($request->getParameter('id')) {
-      $expense_item = ExpenseItemPeer::retrieveByPk($request->getParameter('id'));
+    if ($this->getRequestParameter('id')) {
+      $expense_item = ExpenseItemPeer::retrieveByPk($this->getRequestParameter('id'));
       $this->forward404Unless($expense_item);
     } else {
       $expense_item = new ExpenseItem();
@@ -65,10 +65,10 @@ class expenseActions extends anActions
    **/
   public function executeCreate()
   {
-    if (!$this->getUser()->getFlash('expense_item')) {
+    if (!$this->getFlash('expense_item')) {
       $this->expense_item = $this->getExpenseItem();
     } else {
-      $this->expense_item = $this->getUser()->getFlash('expense_item');
+      $this->expense_item = $this->getFlash('expense_item');
     }
     if ($this->hasRequestParameter('id')) {
       // Copy items
@@ -81,7 +81,7 @@ class expenseActions extends anActions
     if ($this->expense_item->getExpenseItemProjectId()) {
       $project_id = $this->expense_item->getExpenseItemProjectId();
     } else {
-      $project_id = $request->getParameter('project_id');
+      $project_id = $this->getRequestParameter('project_id');
     }
     $c = new Criteria();
     if ($project_id) {
@@ -91,8 +91,8 @@ class expenseActions extends anActions
       $c->addAscendingOrderByColumn(BudgetPeer::BUDGET_DATE);
       $this->budgets = BudgetPeer::doSelect($c);
     }
-    if ($request->getParameter('vendor_id')) {
-      $this->vendor = VendorPeer::retrieveByPk($request->getParameter('vendor_id'));
+    if ($this->getRequestParameter('vendor_id')) {
+      $this->vendor = VendorPeer::retrieveByPk($this->getRequestParameter('vendor_id'));
     }
     return sfView::SUCCESS;
   }
@@ -125,15 +125,15 @@ class expenseActions extends anActions
   {
     $expense_item = $this->getExpenseItem();
     $vendor_id = null;
-    $vendor_name = $request->getParameter('vendor_name');
-    if ($request->getParameter('expense_item_vendor_id', -1) == -1) {
+    $vendor_name = $this->getRequestParameter('vendor_name');
+    if ($this->getRequestParameter('expense_item_vendor_id', -1) == -1) {
       if ($vendor_name && $vendor_name != $this->getContext()->getI18N()->__('Vendor') . '...') {
         $vendor = VendorPeer::getVendorByCompanyName($vendor_name);
         $vendor->save();
         $vendor_id = $vendor->getId();
       }
     } else {
-      $vendor_id = $request->getParameter('expense_item_vendor_id');
+      $vendor_id = $this->getRequestParameter('expense_item_vendor_id');
       $vendor = VendorPeer::retrieveByPK($vendor_id);
       if (!$vendor || $vendor->getVendorUniqueName() != $vendor_name) {
         $vendor = new Vendor();
@@ -144,30 +144,30 @@ class expenseActions extends anActions
       }
     }
     $expense_item->setExpenseItemVendorId($vendor_id);
-    $expense_item->setId($request->getParameter('id'));
-    $expense_item->setExpenseItemName($request->getParameter('expense_item_name'));
-    $expense_item->setExpenseItemInvoiceNumber($request->getParameter('expense_item_invoice_number'));
-    $expense_item->setExpenseItemComments($request->getParameter('expense_item_comments'));
-    $expense_item->setExpensePurchaseBy($request->getParameter('expense_purchase_by') ? $request->getParameter('expense_purchase_by') : null);
-    if ($request->getParameter('expense_purchase_date'))
+    $expense_item->setId($this->getRequestParameter('id'));
+    $expense_item->setExpenseItemName($this->getRequestParameter('expense_item_name'));
+    $expense_item->setExpenseItemInvoiceNumber($this->getRequestParameter('expense_item_invoice_number'));
+    $expense_item->setExpenseItemComments($this->getRequestParameter('expense_item_comments'));
+    $expense_item->setExpensePurchaseBy($this->getRequestParameter('expense_purchase_by') ? $this->getRequestParameter('expense_purchase_by') : null);
+    if ($this->getRequestParameter('expense_purchase_date'))
     {
-      list($d, $m, $y) = sfI18N::getDateForCulture($request->getParameter('expense_purchase_date'), $this->getUser()->getCulture());
+      list($d, $m, $y) = sfI18N::getDateForCulture($this->getRequestParameter('expense_purchase_date'), $this->getUser()->getCulture());
       $expense_item->setExpensePurchaseDate("$y-$m-$d");
     }
-    $expense_item->setExpenseItemCategoryId($request->getParameter('expense_item_category_id') ? $request->getParameter('expense_item_category_id') : null);
-    $expense_item->setExpenseItemPaymentMethodId($request->getParameter('expense_item_payment_method_id') ? $request->getParameter('expense_item_payment_method_id') : null);
-    $expense_item->setExpenseItemPaymentCheck($request->getParameter('expense_item_payment_check'));
-    $expense_item->setExpenseItemReimbursementId($request->getParameter('expense_item_reimbursement_id') ? $request->getParameter('expense_item_reimbursement_id') : null);
-    $expense_item->setExpenseItemProjectId($request->getParameter('expense_item_project_id') ? $request->getParameter('expense_item_project_id') : null);
-    $expense_item->setExpenseItemBudgetId($request->getParameter('expense_item_budget_id') ? $request->getParameter('expense_item_budget_id') : null);
-    $expense_item->setExpenseItemBase($request->getParameter('expense_item_base'));
-    $expense_item->setExpenseItemTaxRate($request->getParameter('expense_item_tax_rate'));
-    $expense_item->setExpenseItemIrpf($request->getParameter('expense_item_irpf'));
+    $expense_item->setExpenseItemCategoryId($this->getRequestParameter('expense_item_category_id') ? $this->getRequestParameter('expense_item_category_id') : null);
+    $expense_item->setExpenseItemPaymentMethodId($this->getRequestParameter('expense_item_payment_method_id') ? $this->getRequestParameter('expense_item_payment_method_id') : null);
+    $expense_item->setExpenseItemPaymentCheck($this->getRequestParameter('expense_item_payment_check'));
+    $expense_item->setExpenseItemReimbursementId($this->getRequestParameter('expense_item_reimbursement_id') ? $this->getRequestParameter('expense_item_reimbursement_id') : null);
+    $expense_item->setExpenseItemProjectId($this->getRequestParameter('expense_item_project_id') ? $this->getRequestParameter('expense_item_project_id') : null);
+    $expense_item->setExpenseItemBudgetId($this->getRequestParameter('expense_item_budget_id') ? $this->getRequestParameter('expense_item_budget_id') : null);
+    $expense_item->setExpenseItemBase($this->getRequestParameter('expense_item_base'));
+    $expense_item->setExpenseItemTaxRate($this->getRequestParameter('expense_item_tax_rate'));
+    $expense_item->setExpenseItemIrpf($this->getRequestParameter('expense_item_irpf'));
 
     $expense_item->removeAllTags();
-    $expense_item->addTag($request->getParameter('tags') ? $request->getParameter('tags') : null);
+    $expense_item->addTag($this->getRequestParameter('tags') ? $this->getRequestParameter('tags') : null);
     $expense_item->save();
-    $referer = $request->getParameter('referer', 'expense/show?id='.$expense_item->getId());
+    $referer = $this->getRequestParameter('referer', 'expense/show?id='.$expense_item->getId());
     return $this->redirect($referer);
   }
 
@@ -176,7 +176,7 @@ class expenseActions extends anActions
    *
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  protected function getSortField()
+  protected function getSortColumn()
   {
     // TODO
     return 'expense_purchase_date';//ExpenseItemPeer::EXPENSE_PURCHASE_DATE;
@@ -227,7 +227,7 @@ class expenseActions extends anActions
       $criterion->addOr($c->getNewCriterion(ExpenseItemPeer::EXPENSE_ITEM_PROJECT_ID, null, Criteria::ISNULL));
       $c->add($criterion);
     }
-    else if (isset($this->filters['project_name']) && $this->filters['project_name'] != sfContext::getInstance()->getI18N()->__('Project') . '...' && $this->filters['project_name'] !== '')
+    else if (isset($this->filters['project_name']) && $this->filters['project_name'] != sfI18N::getInstance()->__('Project') . '...' && $this->filters['project_name'] !== '')
     {
       $c->add(ProjectPeer::PROJECT_NAME, $this->filters['project_name']);
       $c->addJoin(ProjectPeer::ID, ExpenseItemPeer::EXPENSE_ITEM_PROJECT_ID);
@@ -270,7 +270,7 @@ class expenseActions extends anActions
     {
       $c->add(ExpenseItemPeer::EXPENSE_ITEM_CATEGORY_ID, $this->filters['expense_item_category_id']);
     }
-    if (isset($this->filters['expense_name']) && $this->filters['expense_name'] && $this->filters['expense_name'] != sfContext::getInstance()->getI18N()->__('Name') . '...')
+    if (isset($this->filters['expense_name']) && $this->filters['expense_name'] && $this->filters['expense_name'] != sfI18N::getInstance()->__('Name') . '...')
     {
       $c->add(ExpenseItemPeer::EXPENSE_ITEM_NAME, "%".$this->filters['expense_name']."%", Criteria::LIKE);
     }
@@ -298,7 +298,7 @@ class expenseActions extends anActions
   public function executeUpdatevalidation ()
   {
     $expense_item = $this->getExpenseItem();
-    if ($request->getParameter('expense_item_validation_id') == 2) {
+    if ($this->getRequestParameter('expense_item_validation_id') == 2) {
       // Update date
       $expense_item->setExpenseValidateDate(date('Y-m-d'));
       $expense_item->setExpenseValidateBy($this->getUser()->getGuardUser()->getId());
@@ -319,7 +319,7 @@ class expenseActions extends anActions
   public function executePrint ()
   {
     $c = new Criteria();
-    $c->add(ReportPeer::ID, $request->getParameter('report'));
+    $c->add(ReportPeer::ID, $this->getRequestParameter('report'));
     $c->addJoin(ReportPeer::ID, ReportColumnPeer::REPORT_ID);
     $c->addAscendingOrderByColumn(ReportColumnPeer::COLUMN_ORDER);
     $reports = ReportPeer::doSelect($c);
@@ -327,11 +327,11 @@ class expenseActions extends anActions
     $this->report = $reports[0];
     $this->executeList();
     $update_filters = false;
-    if (isset($this->filters['project_name']) && $this->filters['project_name'] == sfContext::getInstance()->getI18N()->__('Project') . '...') {
+    if (isset($this->filters['project_name']) && $this->filters['project_name'] == sfI18N::getInstance()->__('Project') . '...') {
       unset($this->filters['project_name']);
       $update_filters = true;
     }
-    if (isset($this->filters['expense_item_payment_method_id']) && ($this->filters['expense_item_payment_method_id'] == '' || $this->filters['expense_item_payment_method_id'] == sfContext::getInstance()->getI18N()->__('Paid with') . '...')) {
+    if (isset($this->filters['expense_item_payment_method_id']) && ($this->filters['expense_item_payment_method_id'] == '' || $this->filters['expense_item_payment_method_id'] == sfI18N::getInstance()->__('Paid with') . '...')) {
       unset($this->filters['expense_item_payment_method_id']);
       $update_filters = true;
     }

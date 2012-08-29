@@ -1,6 +1,6 @@
-<?php if (count($expense_items)) : ?>
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<div class="windowFrame" id="<?php echo $related ?>ViewExpenses">
+<div id="<?php echo $id ?>">
+<div class="windowFrame">
     <table class="dataTable">
         <thead>
             <tr>
@@ -29,9 +29,9 @@
                 <td class="actions" id="expenseMenu_<?php echo $expense_item->getId() ?>">
                 <div class="objectActions">
                 <ul>
-                  <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__('View').'"'), 'expense/show?id='.$expense_item->getId()) ?></li>
-                  <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__('Edit').'"'), 'expense/edit?id='.$expense_item->getId()) ?></li>
-                  <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__('Delete').'"'), array(
+                  <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="View"'), 'expense/show?id='.$expense_item->getId()) ?></li>
+                  <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="Edit"'), 'expense/edit?id='.$expense_item->getId()) ?></li>
+                  <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="Delete"'), array(
                     'update'   => 'expense'.$expense_item->getId(),
                     'url'      => 'expense/delete?id='.$expense_item->getId(),
                     'confirm'  => __('Are you sure?'),
@@ -60,6 +60,3 @@
 </div>
 <?php endif ?>
 </div>
-<?php else : ?>
-  <p><?php echo __('No related expense items yet') ?></p>
-<?php endif ?>

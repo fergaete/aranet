@@ -1,0 +1,11 @@
+Frontend routing:
+download_by_file_name:
+  url:  /download/:name
+  param: { module: sfPropelFileStorage, action: download }
+
+download_image_by_file_name:
+  url:  /images/:name
+  param: { module: sfPropelFileStorage, action: download }
+
+
+Remember to uncomment the first block of 3 rules in web/.htaccess
