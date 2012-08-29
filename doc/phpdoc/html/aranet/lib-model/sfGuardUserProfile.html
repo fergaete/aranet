@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class sfGuardUserProfile</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class sfGuardUserProfile</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'sf_guard_user_profile' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: sfGuardUserProfile.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---sfGuardUserProfile.php.html">/lib/model/sfGuardUserProfile.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BasesfGuardUserProfile.html">BasesfGuardUserProfile</a>
+      |
+      --sfGuardUserProfile</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<span class="var-type"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>
+					<a href="#$contact" title="details" class="var-name">$contact</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBirthday" title="details" class="method-name">getBirthday</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getEditLink" title="details" class="method-name">getEditLink</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getEmail" title="details" class="method-name">getEmail</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFullCountry" title="details" class="method-name">getFullCountry</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFullDirection" title="details" class="method-name">getFullDirection</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFullName" title="details" class="method-name">getFullName</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getGravatarUrl" title="details" class="method-name">getGravatarUrl</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getLanguage" title="details" class="method-name">getLanguage</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPhones" title="details" class="method-name">getPhones</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTitleString" title="details" class="method-name">getTitleString</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$long</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUrl" title="details" class="method-name">getUrl</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$contact" id="$contact"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>
+			<span class="var-name">$contact</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">19</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">related contact</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BasesfGuardUserProfile.html">BasesfGuardUserProfile</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$alreadyInSave">BasesfGuardUserProfile::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$alreadyInValidation">BasesfGuardUserProfile::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$asfGuardUserRelatedByCreatedBy">BasesfGuardUserProfile::$asfGuardUserRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$asfGuardUserRelatedByDeletedBy">BasesfGuardUserProfile::$asfGuardUserRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$asfGuardUserRelatedByOwnerUserId">BasesfGuardUserProfile::$asfGuardUserRelatedByOwnerUserId</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$asfGuardUserRelatedByUpdatedBy">BasesfGuardUserProfile::$asfGuardUserRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$asfGuardUserRelatedByUserId">BasesfGuardUserProfile::$asfGuardUserRelatedByUserId</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$avatar">BasesfGuardUserProfile::$avatar</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$avatar_filetype">BasesfGuardUserProfile::$avatar_filetype</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$birthday">BasesfGuardUserProfile::$birthday</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$cif">BasesfGuardUserProfile::$cif</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$city">BasesfGuardUserProfile::$city</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$code">BasesfGuardUserProfile::$code</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$collsfPropelFileStorageInfosRelatedByCreatedBy">BasesfGuardUserProfile::$collsfPropelFileStorageInfosRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$collsfPropelFileStorageInfosRelatedByDeletedBy">BasesfGuardUserProfile::$collsfPropelFileStorageInfosRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$collsfPropelFileStorageInfosRelatedByUpdatedBy">BasesfGuardUserProfile::$collsfPropelFileStorageInfosRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$collsfPropelFileStorageObjectsRelatedByCreatedBy">BasesfGuardUserProfile::$collsfPropelFileStorageObjectsRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$collsfPropelFileStorageObjectsRelatedByDeletedBy">BasesfGuardUserProfile::$collsfPropelFileStorageObjectsRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$collsfPropelFileStorageObjectsRelatedByUpdatedBy">BasesfGuardUserProfile::$collsfPropelFileStorageObjectsRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$company">BasesfGuardUserProfile::$company</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$country">BasesfGuardUserProfile::$country</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$created_at">BasesfGuardUserProfile::$created_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$created_by">BasesfGuardUserProfile::$created_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$deleted_at">BasesfGuardUserProfile::$deleted_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$deleted_by">BasesfGuardUserProfile::$deleted_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$email">BasesfGuardUserProfile::$email</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$fax">BasesfGuardUserProfile::$fax</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$first_name">BasesfGuardUserProfile::$first_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$gender">BasesfGuardUserProfile::$gender</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$gravatar">BasesfGuardUserProfile::$gravatar</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$id">BasesfGuardUserProfile::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$lastsfPropelFileStorageInfoRelatedByCreatedByCriteria">BasesfGuardUserProfile::$lastsfPropelFileStorageInfoRelatedByCreatedByCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$lastsfPropelFileStorageInfoRelatedByDeletedByCriteria">BasesfGuardUserProfile::$lastsfPropelFileStorageInfoRelatedByDeletedByCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$lastsfPropelFileStorageInfoRelatedByUpdatedByCriteria">BasesfGuardUserProfile::$lastsfPropelFileStorageInfoRelatedByUpdatedByCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$lastsfPropelFileStorageObjectRelatedByCreatedByCriteria">BasesfGuardUserProfile::$lastsfPropelFileStorageObjectRelatedByCreatedByCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$lastsfPropelFileStorageObjectRelatedByDeletedByCriteria">BasesfGuardUserProfile::$lastsfPropelFileStorageObjectRelatedByDeletedByCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$lastsfPropelFileStorageObjectRelatedByUpdatedByCriteria">BasesfGuardUserProfile::$lastsfPropelFileStorageObjectRelatedByUpdatedByCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$last_name">BasesfGuardUserProfile::$last_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$notes">BasesfGuardUserProfile::$notes</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$openid_url">BasesfGuardUserProfile::$openid_url</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$owner_user_id">BasesfGuardUserProfile::$owner_user_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$peer">BasesfGuardUserProfile::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$phone1">BasesfGuardUserProfile::$phone1</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$phone2">BasesfGuardUserProfile::$phone2</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$preferred_language">BasesfGuardUserProfile::$preferred_language</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_birthday">BasesfGuardUserProfile::$public_birthday</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_cif">BasesfGuardUserProfile::$public_cif</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_city">BasesfGuardUserProfile::$public_city</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_code">BasesfGuardUserProfile::$public_code</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_company">BasesfGuardUserProfile::$public_company</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_country">BasesfGuardUserProfile::$public_country</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_email">BasesfGuardUserProfile::$public_email</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_fax">BasesfGuardUserProfile::$public_fax</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_first_name">BasesfGuardUserProfile::$public_first_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_gender">BasesfGuardUserProfile::$public_gender</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_last_name">BasesfGuardUserProfile::$public_last_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_phone1">BasesfGuardUserProfile::$public_phone1</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_phone2">BasesfGuardUserProfile::$public_phone2</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_state">BasesfGuardUserProfile::$public_state</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_street">BasesfGuardUserProfile::$public_street</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_timezone">BasesfGuardUserProfile::$public_timezone</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_title">BasesfGuardUserProfile::$public_title</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$public_url">BasesfGuardUserProfile::$public_url</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$state">BasesfGuardUserProfile::$state</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$street">BasesfGuardUserProfile::$street</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$timezone">BasesfGuardUserProfile::$timezone</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$title">BasesfGuardUserProfile::$title</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$updated_at">BasesfGuardUserProfile::$updated_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$updated_by">BasesfGuardUserProfile::$updated_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$url">BasesfGuardUserProfile::$url</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$user_id">BasesfGuardUserProfile::$user_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$user_newsletter">BasesfGuardUserProfile::$user_newsletter</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#var$validationFailures">BasesfGuardUserProfile::$validationFailures</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodgetBirthday" id="getBirthday"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBirthday</span> (line <span class="line-number">112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the birthday of the user</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBirthday
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$public</span><span class="var-description">: include only public data</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetBirthday">BasesfGuardUserProfile::getBirthday()</a></dt>
+						<dd>Get the [optionally formatted] [birthday] column value.</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetEditLink" id="getEditLink"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEditLink</span> (line <span class="line-number">77</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns an edit link</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getEditLink
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetEmail" id="getEmail"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEmail</span> (line <span class="line-number">88</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the email of the user</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getEmail
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$public</span><span class="var-description">: include only public data</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetEmail">BasesfGuardUserProfile::getEmail()</a></dt>
+						<dd>Get the [email] column value.</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetFullCountry" id="getFullCountry"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullCountry</span> (line <span class="line-number">123</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the full country of user</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullCountry
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFullDirection" id="getFullDirection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullDirection</span> (line <span class="line-number">159</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string for user address</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullDirection
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$public</span><span class="var-description">: include only public data</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFullName" id="getFullName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullName</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a full name of the user</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullName
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$public</span><span class="var-description">: include only public data</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetGravatarUrl" id="getGravatarUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getGravatarUrl</span> (line <span class="line-number">140</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns url gravatar of the user</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getGravatarUrl
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetLanguage" id="getLanguage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLanguage</span> (line <span class="line-number">37</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns user language</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getLanguage
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetPhones" id="getPhones"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPhones</span> (line <span class="line-number">48</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that phones</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPhones
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTitleString" id="getTitleString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTitleString</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string for title field of the user</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTitleString
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$long</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$long</span><span class="var-description">: use long string</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetUrl" id="getUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrl</span> (line <span class="line-number">100</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the url of the user</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrl
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$public</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$public</span><span class="var-description">: include only public data</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetUrl">BasesfGuardUserProfile::getUrl()</a></dt>
+						<dd>Get the [url] column value.</dd>
+					</dl>
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">27</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that represent the object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BasesfGuardUserProfile.html">BasesfGuardUserProfile</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodaddsfPropelFileStorageInfoRelatedByCreatedBy">BasesfGuardUserProfile::addsfPropelFileStorageInfoRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodaddsfPropelFileStorageInfoRelatedByDeletedBy">BasesfGuardUserProfile::addsfPropelFileStorageInfoRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodaddsfPropelFileStorageInfoRelatedByUpdatedBy">BasesfGuardUserProfile::addsfPropelFileStorageInfoRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodaddsfPropelFileStorageObjectRelatedByCreatedBy">BasesfGuardUserProfile::addsfPropelFileStorageObjectRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodaddsfPropelFileStorageObjectRelatedByDeletedBy">BasesfGuardUserProfile::addsfPropelFileStorageObjectRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodaddsfPropelFileStorageObjectRelatedByUpdatedBy">BasesfGuardUserProfile::addsfPropelFileStorageObjectRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodbuildCriteria">BasesfGuardUserProfile::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodbuildPkeyCriteria">BasesfGuardUserProfile::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcopy">BasesfGuardUserProfile::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcopyInto">BasesfGuardUserProfile::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcountsfPropelFileStorageInfosRelatedByCreatedBy">BasesfGuardUserProfile::countsfPropelFileStorageInfosRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcountsfPropelFileStorageInfosRelatedByDeletedBy">BasesfGuardUserProfile::countsfPropelFileStorageInfosRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcountsfPropelFileStorageInfosRelatedByUpdatedBy">BasesfGuardUserProfile::countsfPropelFileStorageInfosRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcountsfPropelFileStorageObjectsRelatedByCreatedBy">BasesfGuardUserProfile::countsfPropelFileStorageObjectsRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcountsfPropelFileStorageObjectsRelatedByDeletedBy">BasesfGuardUserProfile::countsfPropelFileStorageObjectsRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodcountsfPropelFileStorageObjectsRelatedByUpdatedBy">BasesfGuardUserProfile::countsfPropelFileStorageObjectsRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methoddelete">BasesfGuardUserProfile::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methoddoSave">BasesfGuardUserProfile::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methoddoValidate">BasesfGuardUserProfile::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodfromArray">BasesfGuardUserProfile::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetAvatar">BasesfGuardUserProfile::getAvatar()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetAvatarFiletype">BasesfGuardUserProfile::getAvatarFiletype()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetBirthday">BasesfGuardUserProfile::getBirthday()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetByName">BasesfGuardUserProfile::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetByPosition">BasesfGuardUserProfile::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetCif">BasesfGuardUserProfile::getCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetCity">BasesfGuardUserProfile::getCity()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetCode">BasesfGuardUserProfile::getCode()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetCompany">BasesfGuardUserProfile::getCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetCountry">BasesfGuardUserProfile::getCountry()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetCreatedAt">BasesfGuardUserProfile::getCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetCreatedBy">BasesfGuardUserProfile::getCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetDeletedAt">BasesfGuardUserProfile::getDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetDeletedBy">BasesfGuardUserProfile::getDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetEmail">BasesfGuardUserProfile::getEmail()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetFax">BasesfGuardUserProfile::getFax()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetFirstName">BasesfGuardUserProfile::getFirstName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetGender">BasesfGuardUserProfile::getGender()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetGravatar">BasesfGuardUserProfile::getGravatar()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetId">BasesfGuardUserProfile::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetLastName">BasesfGuardUserProfile::getLastName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetNotes">BasesfGuardUserProfile::getNotes()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetOpenidUrl">BasesfGuardUserProfile::getOpenidUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetOwnerUserId">BasesfGuardUserProfile::getOwnerUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPeer">BasesfGuardUserProfile::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPhone1">BasesfGuardUserProfile::getPhone1()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPhone2">BasesfGuardUserProfile::getPhone2()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPreferredLanguage">BasesfGuardUserProfile::getPreferredLanguage()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPrimaryKey">BasesfGuardUserProfile::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicBirthday">BasesfGuardUserProfile::getPublicBirthday()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicCif">BasesfGuardUserProfile::getPublicCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicCity">BasesfGuardUserProfile::getPublicCity()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicCode">BasesfGuardUserProfile::getPublicCode()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicCompany">BasesfGuardUserProfile::getPublicCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicCountry">BasesfGuardUserProfile::getPublicCountry()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicEmail">BasesfGuardUserProfile::getPublicEmail()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicFax">BasesfGuardUserProfile::getPublicFax()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicFirstName">BasesfGuardUserProfile::getPublicFirstName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicGender">BasesfGuardUserProfile::getPublicGender()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicLastName">BasesfGuardUserProfile::getPublicLastName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicPhone1">BasesfGuardUserProfile::getPublicPhone1()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicPhone2">BasesfGuardUserProfile::getPublicPhone2()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicState">BasesfGuardUserProfile::getPublicState()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicStreet">BasesfGuardUserProfile::getPublicStreet()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicTimezone">BasesfGuardUserProfile::getPublicTimezone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicTitle">BasesfGuardUserProfile::getPublicTitle()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetPublicUrl">BasesfGuardUserProfile::getPublicUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfGuardUserRelatedByCreatedBy">BasesfGuardUserProfile::getsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfGuardUserRelatedByDeletedBy">BasesfGuardUserProfile::getsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfGuardUserRelatedByOwnerUserId">BasesfGuardUserProfile::getsfGuardUserRelatedByOwnerUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfGuardUserRelatedByUpdatedBy">BasesfGuardUserProfile::getsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfGuardUserRelatedByUserId">BasesfGuardUserProfile::getsfGuardUserRelatedByUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageInfosRelatedByCreatedBy">BasesfGuardUserProfile::getsfPropelFileStorageInfosRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageInfosRelatedByDeletedBy">BasesfGuardUserProfile::getsfPropelFileStorageInfosRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageInfosRelatedByUpdatedBy">BasesfGuardUserProfile::getsfPropelFileStorageInfosRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageObjectsRelatedByCreatedBy">BasesfGuardUserProfile::getsfPropelFileStorageObjectsRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageObjectsRelatedByCreatedByJoinsfPropelFileStorageInfo">BasesfGuardUserProfile::getsfPropelFileStorageObjectsRelatedByCreatedByJoinsfPropelFileStorageInfo()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageObjectsRelatedByDeletedBy">BasesfGuardUserProfile::getsfPropelFileStorageObjectsRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageObjectsRelatedByDeletedByJoinsfPropelFileStorageInfo">BasesfGuardUserProfile::getsfPropelFileStorageObjectsRelatedByDeletedByJoinsfPropelFileStorageInfo()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageObjectsRelatedByUpdatedBy">BasesfGuardUserProfile::getsfPropelFileStorageObjectsRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetsfPropelFileStorageObjectsRelatedByUpdatedByJoinsfPropelFileStorageInfo">BasesfGuardUserProfile::getsfPropelFileStorageObjectsRelatedByUpdatedByJoinsfPropelFileStorageInfo()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetState">BasesfGuardUserProfile::getState()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetStreet">BasesfGuardUserProfile::getStreet()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetTimezone">BasesfGuardUserProfile::getTimezone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetTitle">BasesfGuardUserProfile::getTitle()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetUpdatedAt">BasesfGuardUserProfile::getUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetUpdatedBy">BasesfGuardUserProfile::getUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetUrl">BasesfGuardUserProfile::getUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetUserId">BasesfGuardUserProfile::getUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetUserNewsletter">BasesfGuardUserProfile::getUserNewsletter()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodgetValidationFailures">BasesfGuardUserProfile::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodhydrate">BasesfGuardUserProfile::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodinitsfPropelFileStorageInfosRelatedByCreatedBy">BasesfGuardUserProfile::initsfPropelFileStorageInfosRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodinitsfPropelFileStorageInfosRelatedByDeletedBy">BasesfGuardUserProfile::initsfPropelFileStorageInfosRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodinitsfPropelFileStorageInfosRelatedByUpdatedBy">BasesfGuardUserProfile::initsfPropelFileStorageInfosRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodinitsfPropelFileStorageObjectsRelatedByCreatedBy">BasesfGuardUserProfile::initsfPropelFileStorageObjectsRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodinitsfPropelFileStorageObjectsRelatedByDeletedBy">BasesfGuardUserProfile::initsfPropelFileStorageObjectsRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodinitsfPropelFileStorageObjectsRelatedByUpdatedBy">BasesfGuardUserProfile::initsfPropelFileStorageObjectsRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsave">BasesfGuardUserProfile::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetAvatar">BasesfGuardUserProfile::setAvatar()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetAvatarFiletype">BasesfGuardUserProfile::setAvatarFiletype()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetBirthday">BasesfGuardUserProfile::setBirthday()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetByName">BasesfGuardUserProfile::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetByPosition">BasesfGuardUserProfile::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetCif">BasesfGuardUserProfile::setCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetCity">BasesfGuardUserProfile::setCity()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetCode">BasesfGuardUserProfile::setCode()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetCompany">BasesfGuardUserProfile::setCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetCountry">BasesfGuardUserProfile::setCountry()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetCreatedAt">BasesfGuardUserProfile::setCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetCreatedBy">BasesfGuardUserProfile::setCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetDeletedAt">BasesfGuardUserProfile::setDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetDeletedBy">BasesfGuardUserProfile::setDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetEmail">BasesfGuardUserProfile::setEmail()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetFax">BasesfGuardUserProfile::setFax()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetFirstName">BasesfGuardUserProfile::setFirstName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetGender">BasesfGuardUserProfile::setGender()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetGravatar">BasesfGuardUserProfile::setGravatar()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetId">BasesfGuardUserProfile::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetLastName">BasesfGuardUserProfile::setLastName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetNotes">BasesfGuardUserProfile::setNotes()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetOpenidUrl">BasesfGuardUserProfile::setOpenidUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetOwnerUserId">BasesfGuardUserProfile::setOwnerUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPhone1">BasesfGuardUserProfile::setPhone1()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPhone2">BasesfGuardUserProfile::setPhone2()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPreferredLanguage">BasesfGuardUserProfile::setPreferredLanguage()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPrimaryKey">BasesfGuardUserProfile::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicBirthday">BasesfGuardUserProfile::setPublicBirthday()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicCif">BasesfGuardUserProfile::setPublicCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicCity">BasesfGuardUserProfile::setPublicCity()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicCode">BasesfGuardUserProfile::setPublicCode()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicCompany">BasesfGuardUserProfile::setPublicCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicCountry">BasesfGuardUserProfile::setPublicCountry()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicEmail">BasesfGuardUserProfile::setPublicEmail()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicFax">BasesfGuardUserProfile::setPublicFax()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicFirstName">BasesfGuardUserProfile::setPublicFirstName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicGender">BasesfGuardUserProfile::setPublicGender()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicLastName">BasesfGuardUserProfile::setPublicLastName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicPhone1">BasesfGuardUserProfile::setPublicPhone1()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicPhone2">BasesfGuardUserProfile::setPublicPhone2()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicState">BasesfGuardUserProfile::setPublicState()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicStreet">BasesfGuardUserProfile::setPublicStreet()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicTimezone">BasesfGuardUserProfile::setPublicTimezone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicTitle">BasesfGuardUserProfile::setPublicTitle()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetPublicUrl">BasesfGuardUserProfile::setPublicUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetsfGuardUserRelatedByCreatedBy">BasesfGuardUserProfile::setsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetsfGuardUserRelatedByDeletedBy">BasesfGuardUserProfile::setsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetsfGuardUserRelatedByOwnerUserId">BasesfGuardUserProfile::setsfGuardUserRelatedByOwnerUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetsfGuardUserRelatedByUpdatedBy">BasesfGuardUserProfile::setsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetsfGuardUserRelatedByUserId">BasesfGuardUserProfile::setsfGuardUserRelatedByUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetState">BasesfGuardUserProfile::setState()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetStreet">BasesfGuardUserProfile::setStreet()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetTimezone">BasesfGuardUserProfile::setTimezone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetTitle">BasesfGuardUserProfile::setTitle()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetUpdatedAt">BasesfGuardUserProfile::setUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetUpdatedBy">BasesfGuardUserProfile::setUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetUrl">BasesfGuardUserProfile::setUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetUserId">BasesfGuardUserProfile::setUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodsetUserNewsletter">BasesfGuardUserProfile::setUserNewsletter()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodtoArray">BasesfGuardUserProfile::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#methodvalidate">BasesfGuardUserProfile::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BasesfGuardUserProfile.html#method__call">BasesfGuardUserProfile::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:41 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

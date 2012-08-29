@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TaskPeer</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TaskPeer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for performing query and update operations on the 'aranet_project_task' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: TaskPeer.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---TaskPeer.php.html">/lib/model/TaskPeer.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre><a href="../../lib-model-om/BaseTaskPeer.html">BaseTaskPeer</a>
+   |
+   --TaskPeer</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result"><a href="../../aranet/lib-model/Task.html">Task</a></span>
+										<a href="#getTaskByTitle" title="details" class="method-name">getTaskByTitle</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>)
+									</div>
+								
+												</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseTaskPeer.html">BaseTaskPeer</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTaskPeer.html#var$fieldKeys">BaseTaskPeer::$fieldKeys</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTaskPeer.html#var$fieldNames">BaseTaskPeer::$fieldNames</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTaskPeer.html#var$phpNameMap">BaseTaskPeer::$phpNameMap</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetTaskByTitle" id="getTaskByTitle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getTaskByTitle</span> (line <span class="line-number">22</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the task matching given title</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../../aranet/lib-model/Task.html">Task</a></span>
+		<span class="method-name">
+			getTaskByTitle
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$title</span><span class="var-description">: the title</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseTaskPeer.html">BaseTaskPeer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodaddSelectColumns">BaseTaskPeer::addSelectColumns()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodalias">BaseTaskPeer::alias()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCount">BaseTaskPeer::doCount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAll">BaseTaskPeer::doCountJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAllExceptBudget">BaseTaskPeer::doCountJoinAllExceptBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAllExceptMilestone">BaseTaskPeer::doCountJoinAllExceptMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAllExceptProject">BaseTaskPeer::doCountJoinAllExceptProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseTaskPeer::doCountJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseTaskPeer::doCountJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseTaskPeer::doCountJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinAllExceptTaskPriority">BaseTaskPeer::doCountJoinAllExceptTaskPriority()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinBudget">BaseTaskPeer::doCountJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinMilestone">BaseTaskPeer::doCountJoinMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinProject">BaseTaskPeer::doCountJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinsfGuardUserRelatedByCreatedBy">BaseTaskPeer::doCountJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinsfGuardUserRelatedByDeletedBy">BaseTaskPeer::doCountJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinsfGuardUserRelatedByUpdatedBy">BaseTaskPeer::doCountJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoCountJoinTaskPriority">BaseTaskPeer::doCountJoinTaskPriority()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoDelete">BaseTaskPeer::doDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoDeleteAll">BaseTaskPeer::doDeleteAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoInsert">BaseTaskPeer::doInsert()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelect">BaseTaskPeer::doSelect()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAll">BaseTaskPeer::doSelectJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAllExceptBudget">BaseTaskPeer::doSelectJoinAllExceptBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAllExceptMilestone">BaseTaskPeer::doSelectJoinAllExceptMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAllExceptProject">BaseTaskPeer::doSelectJoinAllExceptProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseTaskPeer::doSelectJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseTaskPeer::doSelectJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseTaskPeer::doSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinAllExceptTaskPriority">BaseTaskPeer::doSelectJoinAllExceptTaskPriority()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinBudget">BaseTaskPeer::doSelectJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinMilestone">BaseTaskPeer::doSelectJoinMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinProject">BaseTaskPeer::doSelectJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinsfGuardUserRelatedByCreatedBy">BaseTaskPeer::doSelectJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinsfGuardUserRelatedByDeletedBy">BaseTaskPeer::doSelectJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinsfGuardUserRelatedByUpdatedBy">BaseTaskPeer::doSelectJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectJoinTaskPriority">BaseTaskPeer::doSelectJoinTaskPriority()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectOne">BaseTaskPeer::doSelectOne()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoSelectRS">BaseTaskPeer::doSelectRS()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoUpdate">BaseTaskPeer::doUpdate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methoddoValidate">BaseTaskPeer::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetBy">BaseTaskPeer::getBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetFieldNames">BaseTaskPeer::getFieldNames()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetMapBuilder">BaseTaskPeer::getMapBuilder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetOMClass">BaseTaskPeer::getOMClass()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetOneBy">BaseTaskPeer::getOneBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetPager">BaseTaskPeer::getPager()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetPhpNameMap">BaseTaskPeer::getPhpNameMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodgetTableMap">BaseTaskPeer::getTableMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodpopulateObjects">BaseTaskPeer::populateObjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodretrieveByPK">BaseTaskPeer::retrieveByPK()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodretrieveByPKs">BaseTaskPeer::retrieveByPKs()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTaskPeer.html#methodtranslateFieldName">BaseTaskPeer::translateFieldName()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseTaskPeer.html">BaseTaskPeer</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constCLASS_DEFAULT">BaseTaskPeer::CLASS_DEFAULT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constCOUNT">BaseTaskPeer::COUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constCOUNT_DISTINCT">BaseTaskPeer::COUNT_DISTINCT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constCREATED_AT">BaseTaskPeer::CREATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constCREATED_BY">BaseTaskPeer::CREATED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constDATABASE_NAME">BaseTaskPeer::DATABASE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constDELETED_AT">BaseTaskPeer::DELETED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constDELETED_BY">BaseTaskPeer::DELETED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constID">BaseTaskPeer::ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constNUM_COLUMNS">BaseTaskPeer::NUM_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constNUM_LAZY_LOAD_COLUMNS">BaseTaskPeer::NUM_LAZY_LOAD_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTABLE_NAME">BaseTaskPeer::TABLE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_BUDGET_ID">BaseTaskPeer::TASK_BUDGET_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_DESCRIPTION">BaseTaskPeer::TASK_DESCRIPTION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_ESTIMATED_HOURS">BaseTaskPeer::TASK_ESTIMATED_HOURS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_FINISH_DATE">BaseTaskPeer::TASK_FINISH_DATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_MILESTONE_ID">BaseTaskPeer::TASK_MILESTONE_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_PRIORITY_ID">BaseTaskPeer::TASK_PRIORITY_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_PROJECT_ID">BaseTaskPeer::TASK_PROJECT_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_START_DATE">BaseTaskPeer::TASK_START_DATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_TITLE">BaseTaskPeer::TASK_TITLE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_TOTAL_DURATION">BaseTaskPeer::TASK_TOTAL_DURATION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_TOTAL_HOURS">BaseTaskPeer::TASK_TOTAL_HOURS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constTASK_TOTAL_HOUR_COSTS">BaseTaskPeer::TASK_TOTAL_HOUR_COSTS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constUPDATED_AT">BaseTaskPeer::UPDATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseTaskPeer.html#constUPDATED_BY">BaseTaskPeer::UPDATED_BY</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:43 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

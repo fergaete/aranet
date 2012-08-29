@@ -1,0 +1,1368 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Contact</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Contact</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'aranet_contact' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: Contact.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---Contact.php.html">/lib/model/Contact.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BaseContact.html">BaseContact</a>
+      |
+      --Contact</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$collClients" title="details" class="var-name">$collClients</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+					<a href="#$collDefaultClient" title="details" class="var-name">$collDefaultClient</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>
+					<a href="#$collDefaultVendor" title="details" class="var-name">$collDefaultVendor</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$collObjectClients" title="details" class="var-name">$collObjectClients</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$collObjectVendors" title="details" class="var-name">$collObjectVendors</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$collVendors" title="details" class="var-name">$collVendors</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$rol" title="details" class="var-name">$rol</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addClient" title="details" class="method-name">addClient</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>&nbsp;<span class="var-name">$client</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addVendor" title="details" class="method-name">addVendor</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>&nbsp;<span class="var-name">$vendor</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAddressCountry" title="details" class="method-name">getAddressCountry</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAddressLine1" title="details" class="method-name">getAddressLine1</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAddressLocation" title="details" class="method-name">getAddressLocation</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAddressPhone" title="details" class="method-name">getAddressPhone</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAddressPostalCode" title="details" class="method-name">getAddressPostalCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAddressState" title="details" class="method-name">getAddressState</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAddressType" title="details" class="method-name">getAddressType</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+										<a href="#getClient" title="details" class="method-name">getClient</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getClients" title="details" class="method-name">getClients</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCompany" title="details" class="method-name">getCompany</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getContactFullRol" title="details" class="method-name">getContactFullRol</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getContactRol" title="details" class="method-name">getContactRol</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+										<a href="#getDefaultClient" title="details" class="method-name">getDefaultClient</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>
+										<a href="#getDefaultVendor" title="details" class="method-name">getDefaultVendor</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFullName" title="details" class="method-name">getFullName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getObjectClients" title="details" class="method-name">getObjectClients</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getObjectVendors" title="details" class="method-name">getObjectVendors</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getRol" title="details" class="method-name">getRol</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getVendor" title="details" class="method-name">getVendor</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getVendors" title="details" class="method-name">getVendors</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#postSave" title="details" class="method-name">postSave</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$v</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../aranet/lib-model/ObjectContact.html">ObjectContact</a></span>
+										<a href="#saveTo" title="details" class="method-name">saveTo</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$object_id</span> = <span class="var-default">-1</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$rol</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setClient" title="details" class="method-name">setClient</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>&nbsp;<span class="var-name">$v</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setContactRol" title="details" class="method-name">setContactRol</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$rol</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setVendor" title="details" class="method-name">setVendor</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$v</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">true</span>], <span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>&nbsp;<span class="var-name">$vendor</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$collClients" id="$collClients"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$collClients</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">20</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">array of clients</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$collDefaultClient" id="$collDefaultClient"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+			<span class="var-name">$collDefaultClient</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">27</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">default client</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$collDefaultVendor" id="$collDefaultVendor"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>
+			<span class="var-name">$collDefaultVendor</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">48</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">default Vendor</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$collObjectClients" id="$collObjectClients"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$collObjectClients</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">34</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">array of ObjectClients</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$collObjectVendors" id="$collObjectVendors"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$collObjectVendors</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">55</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">array of ObjectVendors</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$collVendors" id="$collVendors"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$collVendors</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">41</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">array of Vendors</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$rol" id="$rol"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$rol</span>
+						(line <span class="line-number">62</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">rol</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseContact.html">BaseContact</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$alreadyInSave">BaseContact::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$alreadyInValidation">BaseContact::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$asfGuardUserRelatedByCreatedBy">BaseContact::$asfGuardUserRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$asfGuardUserRelatedByDeletedBy">BaseContact::$asfGuardUserRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$asfGuardUserRelatedByUpdatedBy">BaseContact::$asfGuardUserRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$collAddresses">BaseContact::$collAddresses</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$collDefaultAddress">BaseContact::$collDefaultAddress</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$collObjectAddresses">BaseContact::$collObjectAddresses</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$collObjectContacts">BaseContact::$collObjectContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_birthday">BaseContact::$contact_birthday</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_email">BaseContact::$contact_email</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_fax">BaseContact::$contact_fax</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_first_name">BaseContact::$contact_first_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_last_name">BaseContact::$contact_last_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_mobile">BaseContact::$contact_mobile</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_org_unit">BaseContact::$contact_org_unit</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_phone">BaseContact::$contact_phone</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$contact_salutation">BaseContact::$contact_salutation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$created_at">BaseContact::$created_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$created_by">BaseContact::$created_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$deleted_at">BaseContact::$deleted_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$deleted_by">BaseContact::$deleted_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$id">BaseContact::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$lastObjectContactCriteria">BaseContact::$lastObjectContactCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$peer">BaseContact::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$updated_at">BaseContact::$updated_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$updated_by">BaseContact::$updated_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContact.html#var$validationFailures">BaseContact::$validationFailures</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodaddClient" id="addClient"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addClient</span> (line <span class="line-number">214</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">adds a client</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addClient
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>&nbsp;<span class="var-name">$client</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+				<span class="var-name">$client</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$default</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddVendor" id="addVendor"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addVendor</span> (line <span class="line-number">366</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">adds a vendor</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addVendor
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>&nbsp;<span class="var-name">$vendor</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>
+				<span class="var-name">$vendor</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$default</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAddressCountry" id="getAddressCountry"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAddressCountry</span> (line <span class="line-number">555</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns address country</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAddressCountry
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAddressLine1" id="getAddressLine1"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAddressLine1</span> (line <span class="line-number">459</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns line 1 of address</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAddressLine1
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAddressLocation" id="getAddressLocation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAddressLocation</span> (line <span class="line-number">491</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns address location</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAddressLocation
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAddressPhone" id="getAddressPhone"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAddressPhone</span> (line <span class="line-number">523</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns address phone</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAddressPhone
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAddressPostalCode" id="getAddressPostalCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAddressPostalCode</span> (line <span class="line-number">539</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns address postal code</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAddressPostalCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAddressState" id="getAddressState"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAddressState</span> (line <span class="line-number">507</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns address state</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAddressState
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAddressType" id="getAddressType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAddressType</span> (line <span class="line-number">475</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns address type</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAddressType
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetClient" id="getClient"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClient</span> (line <span class="line-number">126</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns default client</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+		<span class="method-name">
+			getClient
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetClients" id="getClients"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClients</span> (line <span class="line-number">165</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns an array of clients</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getClients
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetCompany" id="getCompany"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCompany</span> (line <span class="line-number">268</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the company (from client or vendor)</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCompany
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetContactFullRol" id="getContactFullRol"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContactFullRol</span> (line <span class="line-number">112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns contact full rol (contact_rol + rol)</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getContactFullRol
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetContactRol" id="getContactRol"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContactRol</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns contact rol</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getContactRol
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetDefaultClient" id="getDefaultClient"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultClient</span> (line <span class="line-number">187</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the default client</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+		<span class="method-name">
+			getDefaultClient
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetDefaultVendor" id="getDefaultVendor"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultVendor</span> (line <span class="line-number">339</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the default vendor</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>
+		<span class="method-name">
+			getDefaultVendor
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFullName" id="getFullName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullName</span> (line <span class="line-number">80</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns fullname of contact</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetObjectClients" id="getObjectClients"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getObjectClients</span> (line <span class="line-number">143</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns an array of ObjectContacts</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getObjectClients
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetObjectVendors" id="getObjectVendors"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getObjectVendors</span> (line <span class="line-number">295</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns an array of ObjectContacts</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getObjectVendors
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetRol" id="getRol"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRol</span> (line <span class="line-number">420</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns contact rol</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRol
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetVendor" id="getVendor"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getVendor</span> (line <span class="line-number">278</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns default vendor</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getVendor
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetVendors" id="getVendors"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getVendors</span> (line <span class="line-number">317</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns an array of vendors</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getVendors
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodpostSave" id="postSave"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">postSave</span> (line <span class="line-number">572</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">postSave function</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			postSave
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$v</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>
+				<span class="var-name">$v</span><span class="var-description">: the contact to process</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BaseContact.html#methodpostSave">BaseContact::postSave()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodsaveTo" id="saveTo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveTo</span> (line <span class="line-number">441</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">associated contact with...</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../aranet/lib-model/ObjectContact.html">ObjectContact</a></span>
+		<span class="method-name">
+			saveTo
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$object_id</span> = <span class="var-default">-1</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$rol</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$class</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$object_id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$rol</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetClient" id="setClient"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setClient</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets the client</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setClient
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>&nbsp;<span class="var-name">$v</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+				<span class="var-name">$v</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$default</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetContactRol" id="setContactRol"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setContactRol</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets contact rol</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setContactRol
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$rol</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$rol</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetVendor" id="setVendor"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setVendor</span> (line <span class="line-number">402</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets a vendor</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setVendor
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$v</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">true</span>], <span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>&nbsp;<span class="var-name">$vendor</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Vendor.html">Vendor</a></span>
+				<span class="var-name">$vendor</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$default</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$v</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">70</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that represent the object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseContact.html">BaseContact</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodaddAddress">BaseContact::addAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodaddObjectContact">BaseContact::addObjectContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodbuildCriteria">BaseContact::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodbuildPkeyCriteria">BaseContact::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodcopy">BaseContact::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodcopyInto">BaseContact::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodcountObjectContacts">BaseContact::countObjectContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methoddelete">BaseContact::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methoddoSave">BaseContact::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methoddoValidate">BaseContact::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodfromArray">BaseContact::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetAddress">BaseContact::getAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetAddresses">BaseContact::getAddresses()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetByName">BaseContact::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetByPosition">BaseContact::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactBirthday">BaseContact::getContactBirthday()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactEmail">BaseContact::getContactEmail()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactFax">BaseContact::getContactFax()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactFirstName">BaseContact::getContactFirstName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactLastName">BaseContact::getContactLastName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactMobile">BaseContact::getContactMobile()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactOrgUnit">BaseContact::getContactOrgUnit()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactPhone">BaseContact::getContactPhone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetContactSalutation">BaseContact::getContactSalutation()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetCreatedAt">BaseContact::getCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetCreatedBy">BaseContact::getCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetDefaultAddress">BaseContact::getDefaultAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetDeletedAt">BaseContact::getDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetDeletedBy">BaseContact::getDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetId">BaseContact::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetObjectAddresses">BaseContact::getObjectAddresses()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetObjectContacts">BaseContact::getObjectContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetObjectContactsJoinsfGuardUserRelatedByCreatedBy">BaseContact::getObjectContactsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetObjectContactsJoinsfGuardUserRelatedByUpdatedBy">BaseContact::getObjectContactsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetPeer">BaseContact::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetPrimaryKey">BaseContact::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetsfGuardUserRelatedByCreatedBy">BaseContact::getsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetsfGuardUserRelatedByDeletedBy">BaseContact::getsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetsfGuardUserRelatedByUpdatedBy">BaseContact::getsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetUpdatedAt">BaseContact::getUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetUpdatedBy">BaseContact::getUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodgetValidationFailures">BaseContact::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodhydrate">BaseContact::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodinitObjectContacts">BaseContact::initObjectContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodpostDelete">BaseContact::postDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodpostSave">BaseContact::postSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsave">BaseContact::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetAddress">BaseContact::setAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetByName">BaseContact::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetByPosition">BaseContact::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactBirthday">BaseContact::setContactBirthday()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactEmail">BaseContact::setContactEmail()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactFax">BaseContact::setContactFax()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactFirstName">BaseContact::setContactFirstName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactLastName">BaseContact::setContactLastName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactMobile">BaseContact::setContactMobile()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactOrgUnit">BaseContact::setContactOrgUnit()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactPhone">BaseContact::setContactPhone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetContactSalutation">BaseContact::setContactSalutation()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetCreatedAt">BaseContact::setCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetCreatedBy">BaseContact::setCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetDeletedAt">BaseContact::setDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetDeletedBy">BaseContact::setDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetId">BaseContact::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetPrimaryKey">BaseContact::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetsfGuardUserRelatedByCreatedBy">BaseContact::setsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetsfGuardUserRelatedByDeletedBy">BaseContact::setsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetsfGuardUserRelatedByUpdatedBy">BaseContact::setsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetUpdatedAt">BaseContact::setUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodsetUpdatedBy">BaseContact::setUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodtoArray">BaseContact::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#methodvalidate">BaseContact::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContact.html#method__call">BaseContact::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:27 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

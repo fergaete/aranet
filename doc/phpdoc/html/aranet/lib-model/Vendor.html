@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Vendor</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Vendor</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'aranet_vendor' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: Vendor.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---Vendor.php.html">/lib/model/Vendor.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BaseVendor.html">BaseVendor</a>
+      |
+      --Vendor</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																												
+												<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getExpenseItemsOrderedByDate" title="details" class="method-name">getExpenseItemsOrderedByDate</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFullName" title="details" class="method-name">getFullName</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$include_span</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getIncomeItemsOrderedByDate" title="details" class="method-name">getIncomeItemsOrderedByDate</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#preDelete" title="details" class="method-name">preDelete</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$v</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseVendor.html">BaseVendor</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$aKindOfCompany">BaseVendor::$aKindOfCompany</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$alreadyInSave">BaseVendor::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$alreadyInValidation">BaseVendor::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$asfGuardUserRelatedByCreatedBy">BaseVendor::$asfGuardUserRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$asfGuardUserRelatedByDeletedBy">BaseVendor::$asfGuardUserRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$asfGuardUserRelatedByUpdatedBy">BaseVendor::$asfGuardUserRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collAddresses">BaseVendor::$collAddresses</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collContacts">BaseVendor::$collContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collDefaultAddress">BaseVendor::$collDefaultAddress</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collDefaultContact">BaseVendor::$collDefaultContact</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collExpenseItems">BaseVendor::$collExpenseItems</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collIncomeItems">BaseVendor::$collIncomeItems</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collObjectAddresses">BaseVendor::$collObjectAddresses</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$collObjectContacts">BaseVendor::$collObjectContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$created_at">BaseVendor::$created_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$created_by">BaseVendor::$created_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$deleted_at">BaseVendor::$deleted_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$deleted_by">BaseVendor::$deleted_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$id">BaseVendor::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$lastExpenseItemCriteria">BaseVendor::$lastExpenseItemCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$lastIncomeItemCriteria">BaseVendor::$lastIncomeItemCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$peer">BaseVendor::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$updated_at">BaseVendor::$updated_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$updated_by">BaseVendor::$updated_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$validationFailures">BaseVendor::$validationFailures</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_cif">BaseVendor::$vendor_cif</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_comments">BaseVendor::$vendor_comments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_company_name">BaseVendor::$vendor_company_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_has_tags">BaseVendor::$vendor_has_tags</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_kind_of_company_id">BaseVendor::$vendor_kind_of_company_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_since">BaseVendor::$vendor_since</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_unique_name">BaseVendor::$vendor_unique_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseVendor.html#var$vendor_website">BaseVendor::$vendor_website</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodgetExpenseItemsOrderedByDate" id="getExpenseItemsOrderedByDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getExpenseItemsOrderedByDate</span> (line <span class="line-number">44</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns expense items ordered by date</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getExpenseItemsOrderedByDate
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFullName" id="getFullName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullName</span> (line <span class="line-number">32</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns full vendor name</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullName
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$include_span</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$include_span</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetIncomeItemsOrderedByDate" id="getIncomeItemsOrderedByDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIncomeItemsOrderedByDate</span> (line <span class="line-number">57</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns income items ordered by date</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getIncomeItemsOrderedByDate
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodpreDelete" id="preDelete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">preDelete</span> (line <span class="line-number">70</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">preDelete process</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			preDelete
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$v</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$v</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">21</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that represent the object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseVendor.html">BaseVendor</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodaddAddress">BaseVendor::addAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodaddContact">BaseVendor::addContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodaddExpenseItem">BaseVendor::addExpenseItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodaddIncomeItem">BaseVendor::addIncomeItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodbuildCriteria">BaseVendor::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodbuildPkeyCriteria">BaseVendor::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodcopy">BaseVendor::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodcopyInto">BaseVendor::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodcountExpenseItems">BaseVendor::countExpenseItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodcountIncomeItems">BaseVendor::countIncomeItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methoddelete">BaseVendor::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methoddoSave">BaseVendor::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methoddoValidate">BaseVendor::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodfromArray">BaseVendor::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetAddress">BaseVendor::getAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetAddresses">BaseVendor::getAddresses()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetByName">BaseVendor::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetByPosition">BaseVendor::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetContact">BaseVendor::getContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetContacts">BaseVendor::getContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetCreatedAt">BaseVendor::getCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetCreatedBy">BaseVendor::getCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetDefaultAddress">BaseVendor::getDefaultAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetDefaultContact">BaseVendor::getDefaultContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetDeletedAt">BaseVendor::getDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetDeletedBy">BaseVendor::getDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItems">BaseVendor::getExpenseItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinBudget">BaseVendor::getExpenseItemsJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinExpenseCategory">BaseVendor::getExpenseItemsJoinExpenseCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinPaymentMethod">BaseVendor::getExpenseItemsJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinProject">BaseVendor::getExpenseItemsJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinReimbursement">BaseVendor::getExpenseItemsJoinReimbursement()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinsfGuardUserRelatedByCreatedBy">BaseVendor::getExpenseItemsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinsfGuardUserRelatedByDeletedBy">BaseVendor::getExpenseItemsJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinsfGuardUserRelatedByExpensePurchaseBy">BaseVendor::getExpenseItemsJoinsfGuardUserRelatedByExpensePurchaseBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinsfGuardUserRelatedByExpenseValidateBy">BaseVendor::getExpenseItemsJoinsfGuardUserRelatedByExpenseValidateBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetExpenseItemsJoinsfGuardUserRelatedByUpdatedBy">BaseVendor::getExpenseItemsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetId">BaseVendor::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItems">BaseVendor::getIncomeItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinBudget">BaseVendor::getIncomeItemsJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinIncomeCategory">BaseVendor::getIncomeItemsJoinIncomeCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinPaymentMethod">BaseVendor::getIncomeItemsJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinProject">BaseVendor::getIncomeItemsJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinReimbursement">BaseVendor::getIncomeItemsJoinReimbursement()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinsfGuardUserRelatedByCreatedBy">BaseVendor::getIncomeItemsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinsfGuardUserRelatedByDeletedBy">BaseVendor::getIncomeItemsJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetIncomeItemsJoinsfGuardUserRelatedByUpdatedBy">BaseVendor::getIncomeItemsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetKindOfCompany">BaseVendor::getKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetObjectAddresses">BaseVendor::getObjectAddresses()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetObjectContacts">BaseVendor::getObjectContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetPeer">BaseVendor::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetPrimaryKey">BaseVendor::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetsfGuardUserRelatedByCreatedBy">BaseVendor::getsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetsfGuardUserRelatedByDeletedBy">BaseVendor::getsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetsfGuardUserRelatedByUpdatedBy">BaseVendor::getsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetUpdatedAt">BaseVendor::getUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetUpdatedBy">BaseVendor::getUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetValidationFailures">BaseVendor::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorCif">BaseVendor::getVendorCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorComments">BaseVendor::getVendorComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorCompanyName">BaseVendor::getVendorCompanyName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorHasTags">BaseVendor::getVendorHasTags()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorKindOfCompanyId">BaseVendor::getVendorKindOfCompanyId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorSince">BaseVendor::getVendorSince()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorUniqueName">BaseVendor::getVendorUniqueName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodgetVendorWebsite">BaseVendor::getVendorWebsite()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodhydrate">BaseVendor::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodinitExpenseItems">BaseVendor::initExpenseItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodinitIncomeItems">BaseVendor::initIncomeItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodpostDelete">BaseVendor::postDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodpostSave">BaseVendor::postSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsave">BaseVendor::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetAddress">BaseVendor::setAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetByName">BaseVendor::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetByPosition">BaseVendor::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetContact">BaseVendor::setContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetCreatedAt">BaseVendor::setCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetCreatedBy">BaseVendor::setCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetDeletedAt">BaseVendor::setDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetDeletedBy">BaseVendor::setDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetId">BaseVendor::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetKindOfCompany">BaseVendor::setKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetPrimaryKey">BaseVendor::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetsfGuardUserRelatedByCreatedBy">BaseVendor::setsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetsfGuardUserRelatedByDeletedBy">BaseVendor::setsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetsfGuardUserRelatedByUpdatedBy">BaseVendor::setsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetUpdatedAt">BaseVendor::setUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetUpdatedBy">BaseVendor::setUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorCif">BaseVendor::setVendorCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorComments">BaseVendor::setVendorComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorCompanyName">BaseVendor::setVendorCompanyName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorHasTags">BaseVendor::setVendorHasTags()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorKindOfCompanyId">BaseVendor::setVendorKindOfCompanyId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorSince">BaseVendor::setVendorSince()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorUniqueName">BaseVendor::setVendorUniqueName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodsetVendorWebsite">BaseVendor::setVendorWebsite()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodtoArray">BaseVendor::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#methodvalidate">BaseVendor::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseVendor.html#method__call">BaseVendor::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:45 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

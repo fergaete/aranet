@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class ClientPeer</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class ClientPeer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for performing query and update operations on the 'aranet_client' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: ClientPeer.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---ClientPeer.php.html">/lib/model/ClientPeer.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre><a href="../../lib-model-om/BaseClientPeer.html">BaseClientPeer</a>
+   |
+   --ClientPeer</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+										<a href="#getClientByCompanyName" title="details" class="method-name">getClientByCompanyName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getClientsLike" title="details" class="method-name">getClientsLike</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">10</span>])
+									</div>
+								
+																				</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseClientPeer.html">BaseClientPeer</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClientPeer.html#var$fieldKeys">BaseClientPeer::$fieldKeys</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClientPeer.html#var$fieldNames">BaseClientPeer::$fieldNames</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClientPeer.html#var$phpNameMap">BaseClientPeer::$phpNameMap</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetClientByCompanyName" id="getClientByCompanyName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getClientByCompanyName</span> (line <span class="line-number">42</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the client matching given name</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+		<span class="method-name">
+			getClientByCompanyName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: company name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetClientsLike" id="getClientsLike"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getClientsLike</span> (line <span class="line-number">23</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns clients like name</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getClientsLike
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">10</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$max</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseClientPeer.html">BaseClientPeer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodaddSelectColumns">BaseClientPeer::addSelectColumns()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodalias">BaseClientPeer::alias()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCount">BaseClientPeer::doCount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinAll">BaseClientPeer::doCountJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinAllExceptKindOfCompany">BaseClientPeer::doCountJoinAllExceptKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseClientPeer::doCountJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseClientPeer::doCountJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseClientPeer::doCountJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinKindOfCompany">BaseClientPeer::doCountJoinKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinsfGuardUserRelatedByCreatedBy">BaseClientPeer::doCountJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinsfGuardUserRelatedByDeletedBy">BaseClientPeer::doCountJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoCountJoinsfGuardUserRelatedByUpdatedBy">BaseClientPeer::doCountJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoDelete">BaseClientPeer::doDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoDeleteAll">BaseClientPeer::doDeleteAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoInsert">BaseClientPeer::doInsert()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelect">BaseClientPeer::doSelect()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinAll">BaseClientPeer::doSelectJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinAllExceptKindOfCompany">BaseClientPeer::doSelectJoinAllExceptKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseClientPeer::doSelectJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseClientPeer::doSelectJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseClientPeer::doSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinKindOfCompany">BaseClientPeer::doSelectJoinKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinsfGuardUserRelatedByCreatedBy">BaseClientPeer::doSelectJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinsfGuardUserRelatedByDeletedBy">BaseClientPeer::doSelectJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectJoinsfGuardUserRelatedByUpdatedBy">BaseClientPeer::doSelectJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectOne">BaseClientPeer::doSelectOne()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoSelectRS">BaseClientPeer::doSelectRS()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoUpdate">BaseClientPeer::doUpdate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methoddoValidate">BaseClientPeer::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetBy">BaseClientPeer::getBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetFieldNames">BaseClientPeer::getFieldNames()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetMapBuilder">BaseClientPeer::getMapBuilder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetOMClass">BaseClientPeer::getOMClass()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetOneBy">BaseClientPeer::getOneBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetPager">BaseClientPeer::getPager()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetPhpNameMap">BaseClientPeer::getPhpNameMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodgetTableMap">BaseClientPeer::getTableMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodpopulateObjects">BaseClientPeer::populateObjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodretrieveByPK">BaseClientPeer::retrieveByPK()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodretrieveByPKs">BaseClientPeer::retrieveByPKs()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClientPeer.html#methodtranslateFieldName">BaseClientPeer::translateFieldName()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseClientPeer.html">BaseClientPeer</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLASS_DEFAULT">BaseClientPeer::CLASS_DEFAULT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_CIF">BaseClientPeer::CLIENT_CIF</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_COMMENTS">BaseClientPeer::CLIENT_COMMENTS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_COMPANY_NAME">BaseClientPeer::CLIENT_COMPANY_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_HAS_TAGS">BaseClientPeer::CLIENT_HAS_TAGS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_KIND_OF_COMPANY_ID">BaseClientPeer::CLIENT_KIND_OF_COMPANY_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_SINCE">BaseClientPeer::CLIENT_SINCE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_UNIQUE_NAME">BaseClientPeer::CLIENT_UNIQUE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCLIENT_WEBSITE">BaseClientPeer::CLIENT_WEBSITE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCOUNT">BaseClientPeer::COUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCOUNT_DISTINCT">BaseClientPeer::COUNT_DISTINCT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCREATED_AT">BaseClientPeer::CREATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constCREATED_BY">BaseClientPeer::CREATED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constDATABASE_NAME">BaseClientPeer::DATABASE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constDELETED_AT">BaseClientPeer::DELETED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constDELETED_BY">BaseClientPeer::DELETED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constID">BaseClientPeer::ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constNUM_COLUMNS">BaseClientPeer::NUM_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constNUM_LAZY_LOAD_COLUMNS">BaseClientPeer::NUM_LAZY_LOAD_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constTABLE_NAME">BaseClientPeer::TABLE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constUPDATED_AT">BaseClientPeer::UPDATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseClientPeer.html#constUPDATED_BY">BaseClientPeer::UPDATED_BY</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:26 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

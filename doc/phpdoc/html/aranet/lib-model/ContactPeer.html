@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class ContactPeer</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class ContactPeer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for performing query and update operations on the 'aranet_contact' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: ContactPeer.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---ContactPeer.php.html">/lib/model/ContactPeer.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre><a href="../../lib-model-om/BaseContactPeer.html">BaseContactPeer</a>
+   |
+   --ContactPeer</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>
+										<a href="#getContactByName" title="details" class="method-name">getContactByName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getContactsLike" title="details" class="method-name">getContactsLike</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">10</span>])
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#processContact" title="details" class="method-name">processContact</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span>)
+									</div>
+								
+																												</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseContactPeer.html">BaseContactPeer</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContactPeer.html#var$fieldKeys">BaseContactPeer::$fieldKeys</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContactPeer.html#var$fieldNames">BaseContactPeer::$fieldNames</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseContactPeer.html#var$phpNameMap">BaseContactPeer::$phpNameMap</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetContactByName" id="getContactByName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getContactByName</span> (line <span class="line-number">49</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the contact matching given name</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>
+		<span class="method-name">
+			getContactByName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: contact name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetContactsLike" id="getContactsLike"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getContactsLike</span> (line <span class="line-number">23</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns contacts like name</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getContactsLike
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">10</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$max</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprocessContact" id="processContact"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method processContact</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">process contacts from params</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			processContact
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$params</span><span class="var-description">: array of request params</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseContactPeer.html">BaseContactPeer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodaddSelectColumns">BaseContactPeer::addSelectColumns()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodalias">BaseContactPeer::alias()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCount">BaseContactPeer::doCount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCountJoinAll">BaseContactPeer::doCountJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseContactPeer::doCountJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseContactPeer::doCountJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseContactPeer::doCountJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCountJoinsfGuardUserRelatedByCreatedBy">BaseContactPeer::doCountJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCountJoinsfGuardUserRelatedByDeletedBy">BaseContactPeer::doCountJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoCountJoinsfGuardUserRelatedByUpdatedBy">BaseContactPeer::doCountJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoDelete">BaseContactPeer::doDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoDeleteAll">BaseContactPeer::doDeleteAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoInsert">BaseContactPeer::doInsert()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelect">BaseContactPeer::doSelect()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectJoinAll">BaseContactPeer::doSelectJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseContactPeer::doSelectJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseContactPeer::doSelectJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseContactPeer::doSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectJoinsfGuardUserRelatedByCreatedBy">BaseContactPeer::doSelectJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectJoinsfGuardUserRelatedByDeletedBy">BaseContactPeer::doSelectJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectJoinsfGuardUserRelatedByUpdatedBy">BaseContactPeer::doSelectJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectOne">BaseContactPeer::doSelectOne()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoSelectRS">BaseContactPeer::doSelectRS()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoUpdate">BaseContactPeer::doUpdate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methoddoValidate">BaseContactPeer::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetBy">BaseContactPeer::getBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetFieldNames">BaseContactPeer::getFieldNames()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetMapBuilder">BaseContactPeer::getMapBuilder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetOMClass">BaseContactPeer::getOMClass()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetOneBy">BaseContactPeer::getOneBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetPager">BaseContactPeer::getPager()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetPhpNameMap">BaseContactPeer::getPhpNameMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodgetTableMap">BaseContactPeer::getTableMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodpopulateObjects">BaseContactPeer::populateObjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodretrieveByPK">BaseContactPeer::retrieveByPK()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodretrieveByPKs">BaseContactPeer::retrieveByPKs()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseContactPeer.html#methodtranslateFieldName">BaseContactPeer::translateFieldName()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseContactPeer.html">BaseContactPeer</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCLASS_DEFAULT">BaseContactPeer::CLASS_DEFAULT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_BIRTHDAY">BaseContactPeer::CONTACT_BIRTHDAY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_EMAIL">BaseContactPeer::CONTACT_EMAIL</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_FAX">BaseContactPeer::CONTACT_FAX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_FIRST_NAME">BaseContactPeer::CONTACT_FIRST_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_LAST_NAME">BaseContactPeer::CONTACT_LAST_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_MOBILE">BaseContactPeer::CONTACT_MOBILE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_ORG_UNIT">BaseContactPeer::CONTACT_ORG_UNIT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_PHONE">BaseContactPeer::CONTACT_PHONE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCONTACT_SALUTATION">BaseContactPeer::CONTACT_SALUTATION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCOUNT">BaseContactPeer::COUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCOUNT_DISTINCT">BaseContactPeer::COUNT_DISTINCT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCREATED_AT">BaseContactPeer::CREATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constCREATED_BY">BaseContactPeer::CREATED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constDATABASE_NAME">BaseContactPeer::DATABASE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constDELETED_AT">BaseContactPeer::DELETED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constDELETED_BY">BaseContactPeer::DELETED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constID">BaseContactPeer::ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constNUM_COLUMNS">BaseContactPeer::NUM_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constNUM_LAZY_LOAD_COLUMNS">BaseContactPeer::NUM_LAZY_LOAD_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constTABLE_NAME">BaseContactPeer::TABLE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constUPDATED_AT">BaseContactPeer::UPDATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseContactPeer.html#constUPDATED_BY">BaseContactPeer::UPDATED_BY</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:27 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

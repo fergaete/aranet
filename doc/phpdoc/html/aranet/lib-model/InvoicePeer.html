@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class InvoicePeer</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class InvoicePeer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for performing query and update operations on the 'aranet_invoice' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: InvoicePeer.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---InvoicePeer.php.html">/lib/model/InvoicePeer.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre><a href="../../lib-model-om/BaseInvoicePeer.html">BaseInvoicePeer</a>
+   |
+   --InvoicePeer</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#retrieveNextNumber" title="details" class="method-name">retrieveNextNumber</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$prefix</span> = <span class="var-default">null</span>])
+									</div>
+								
+												</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseInvoicePeer.html">BaseInvoicePeer</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoicePeer.html#var$fieldKeys">BaseInvoicePeer::$fieldKeys</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoicePeer.html#var$fieldNames">BaseInvoicePeer::$fieldNames</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoicePeer.html#var$phpNameMap">BaseInvoicePeer::$phpNameMap</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodretrieveNextNumber" id="retrieveNextNumber"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method retrieveNextNumber</span> (line <span class="line-number">22</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return next formated number for a invoice</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">string</span>
+		<span class="method-name">
+			retrieveNextNumber
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$prefix</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$prefix</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseInvoicePeer.html">BaseInvoicePeer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodaddSelectColumns">BaseInvoicePeer::addSelectColumns()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodalias">BaseInvoicePeer::alias()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCount">BaseInvoicePeer::doCount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAll">BaseInvoicePeer::doCountJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptBudget">BaseInvoicePeer::doCountJoinAllExceptBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptClient">BaseInvoicePeer::doCountJoinAllExceptClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptInvoiceCategory">BaseInvoicePeer::doCountJoinAllExceptInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptKindOfInvoice">BaseInvoicePeer::doCountJoinAllExceptKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptPaymentCondition">BaseInvoicePeer::doCountJoinAllExceptPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptPaymentMethod">BaseInvoicePeer::doCountJoinAllExceptPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptPaymentStatus">BaseInvoicePeer::doCountJoinAllExceptPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptProject">BaseInvoicePeer::doCountJoinAllExceptProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseInvoicePeer::doCountJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseInvoicePeer::doCountJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseInvoicePeer::doCountJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinBudget">BaseInvoicePeer::doCountJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinClient">BaseInvoicePeer::doCountJoinClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinInvoiceCategory">BaseInvoicePeer::doCountJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinKindOfInvoice">BaseInvoicePeer::doCountJoinKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinPaymentCondition">BaseInvoicePeer::doCountJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinPaymentMethod">BaseInvoicePeer::doCountJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinPaymentStatus">BaseInvoicePeer::doCountJoinPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinProject">BaseInvoicePeer::doCountJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinsfGuardUserRelatedByCreatedBy">BaseInvoicePeer::doCountJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinsfGuardUserRelatedByDeletedBy">BaseInvoicePeer::doCountJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoCountJoinsfGuardUserRelatedByUpdatedBy">BaseInvoicePeer::doCountJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoDelete">BaseInvoicePeer::doDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoDeleteAll">BaseInvoicePeer::doDeleteAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoInsert">BaseInvoicePeer::doInsert()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelect">BaseInvoicePeer::doSelect()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAll">BaseInvoicePeer::doSelectJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptBudget">BaseInvoicePeer::doSelectJoinAllExceptBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptClient">BaseInvoicePeer::doSelectJoinAllExceptClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptInvoiceCategory">BaseInvoicePeer::doSelectJoinAllExceptInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptKindOfInvoice">BaseInvoicePeer::doSelectJoinAllExceptKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptPaymentCondition">BaseInvoicePeer::doSelectJoinAllExceptPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptPaymentMethod">BaseInvoicePeer::doSelectJoinAllExceptPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptPaymentStatus">BaseInvoicePeer::doSelectJoinAllExceptPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptProject">BaseInvoicePeer::doSelectJoinAllExceptProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseInvoicePeer::doSelectJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseInvoicePeer::doSelectJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseInvoicePeer::doSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinBudget">BaseInvoicePeer::doSelectJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinClient">BaseInvoicePeer::doSelectJoinClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinInvoiceCategory">BaseInvoicePeer::doSelectJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinKindOfInvoice">BaseInvoicePeer::doSelectJoinKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinPaymentCondition">BaseInvoicePeer::doSelectJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinPaymentMethod">BaseInvoicePeer::doSelectJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinPaymentStatus">BaseInvoicePeer::doSelectJoinPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinProject">BaseInvoicePeer::doSelectJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinsfGuardUserRelatedByCreatedBy">BaseInvoicePeer::doSelectJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinsfGuardUserRelatedByDeletedBy">BaseInvoicePeer::doSelectJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectJoinsfGuardUserRelatedByUpdatedBy">BaseInvoicePeer::doSelectJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectOne">BaseInvoicePeer::doSelectOne()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoSelectRS">BaseInvoicePeer::doSelectRS()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoUpdate">BaseInvoicePeer::doUpdate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methoddoValidate">BaseInvoicePeer::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetBy">BaseInvoicePeer::getBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetFieldNames">BaseInvoicePeer::getFieldNames()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetMapBuilder">BaseInvoicePeer::getMapBuilder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetOMClass">BaseInvoicePeer::getOMClass()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetOneBy">BaseInvoicePeer::getOneBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetPager">BaseInvoicePeer::getPager()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetPhpNameMap">BaseInvoicePeer::getPhpNameMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodgetTableMap">BaseInvoicePeer::getTableMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodpopulateObjects">BaseInvoicePeer::populateObjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodretrieveByPK">BaseInvoicePeer::retrieveByPK()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodretrieveByPKs">BaseInvoicePeer::retrieveByPKs()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoicePeer.html#methodtranslateFieldName">BaseInvoicePeer::translateFieldName()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseInvoicePeer.html">BaseInvoicePeer</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constCLASS_DEFAULT">BaseInvoicePeer::CLASS_DEFAULT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constCOUNT">BaseInvoicePeer::COUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constCOUNT_DISTINCT">BaseInvoicePeer::COUNT_DISTINCT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constCREATED_AT">BaseInvoicePeer::CREATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constCREATED_BY">BaseInvoicePeer::CREATED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constDATABASE_NAME">BaseInvoicePeer::DATABASE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constDELETED_AT">BaseInvoicePeer::DELETED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constDELETED_BY">BaseInvoicePeer::DELETED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constID">BaseInvoicePeer::ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_BUDGET_ID">BaseInvoicePeer::INVOICE_BUDGET_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_CATEGORY_ID">BaseInvoicePeer::INVOICE_CATEGORY_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_CLIENT_ID">BaseInvoicePeer::INVOICE_CLIENT_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_COMMENTS">BaseInvoicePeer::INVOICE_COMMENTS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_DATE">BaseInvoicePeer::INVOICE_DATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_FREIGHT_CHARGE">BaseInvoicePeer::INVOICE_FREIGHT_CHARGE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_KIND_OF_INVOICE_ID">BaseInvoicePeer::INVOICE_KIND_OF_INVOICE_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_LATE_FEE_PERCENT">BaseInvoicePeer::INVOICE_LATE_FEE_PERCENT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_NUMBER">BaseInvoicePeer::INVOICE_NUMBER</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PAYMENT_CHECK">BaseInvoicePeer::INVOICE_PAYMENT_CHECK</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PAYMENT_CONDITION_ID">BaseInvoicePeer::INVOICE_PAYMENT_CONDITION_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PAYMENT_DATE">BaseInvoicePeer::INVOICE_PAYMENT_DATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PAYMENT_METHOD_ID">BaseInvoicePeer::INVOICE_PAYMENT_METHOD_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PAYMENT_STATUS_ID">BaseInvoicePeer::INVOICE_PAYMENT_STATUS_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PREFIX">BaseInvoicePeer::INVOICE_PREFIX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PRINT_COMMENTS">BaseInvoicePeer::INVOICE_PRINT_COMMENTS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_PROJECT_ID">BaseInvoicePeer::INVOICE_PROJECT_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_TAX_RATE">BaseInvoicePeer::INVOICE_TAX_RATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_TITLE">BaseInvoicePeer::INVOICE_TITLE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constINVOICE_TOTAL_AMOUNT">BaseInvoicePeer::INVOICE_TOTAL_AMOUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constNUM_COLUMNS">BaseInvoicePeer::NUM_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constNUM_LAZY_LOAD_COLUMNS">BaseInvoicePeer::NUM_LAZY_LOAD_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constTABLE_NAME">BaseInvoicePeer::TABLE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constUPDATED_AT">BaseInvoicePeer::UPDATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseInvoicePeer.html#constUPDATED_BY">BaseInvoicePeer::UPDATED_BY</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:34 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

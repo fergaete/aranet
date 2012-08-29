@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class BudgetItem</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class BudgetItem</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'aranet_budget_item' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: BudgetItem.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---BudgetItem.php.html">/lib/model/BudgetItem.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BaseBudgetItem.html">BaseBudgetItem</a>
+      |
+      --BudgetItem</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																												
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setItemCost" title="details" class="method-name">setItemCost</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$cost</span>, <span class="var-type">double</span>&nbsp;<span class="var-name">$margin</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setItemMargin" title="details" class="method-name">setItemMargin</a>
+											(<span class="var-type">double</span>&nbsp;<span class="var-name">$margin</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setItemRetailPrice" title="details" class="method-name">setItemRetailPrice</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$price</span>, <span class="var-type">double</span>&nbsp;<span class="var-name">$margin</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseBudgetItem.html">BaseBudgetItem</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$aBudget">BaseBudgetItem::$aBudget</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$alreadyInSave">BaseBudgetItem::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$alreadyInValidation">BaseBudgetItem::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$aTypeOfHour">BaseBudgetItem::$aTypeOfHour</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$aTypeOfInvoiceItem">BaseBudgetItem::$aTypeOfInvoiceItem</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$id">BaseBudgetItem::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_budget_id">BaseBudgetItem::$item_budget_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_budget_type_id">BaseBudgetItem::$item_budget_type_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_cost">BaseBudgetItem::$item_cost</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_description">BaseBudgetItem::$item_description</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_is_optional">BaseBudgetItem::$item_is_optional</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_margin">BaseBudgetItem::$item_margin</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_order">BaseBudgetItem::$item_order</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_quantity">BaseBudgetItem::$item_quantity</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_retail_price">BaseBudgetItem::$item_retail_price</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_task_id">BaseBudgetItem::$item_task_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_tax_rate">BaseBudgetItem::$item_tax_rate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$item_type_id">BaseBudgetItem::$item_type_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$milestone_task_id">BaseBudgetItem::$milestone_task_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$peer">BaseBudgetItem::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetItem.html#var$validationFailures">BaseBudgetItem::$validationFailures</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodsetItemCost" id="setItemCost"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setItemCost</span> (line <span class="line-number">54</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets the cost rounding amounts</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setItemCost
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$cost</span>, <span class="var-type">double</span>&nbsp;<span class="var-name">$margin</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">double</span>
+				<span class="var-name">$margin</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$cost</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemCost">BaseBudgetItem::setItemCost()</a></dt>
+						<dd>Set the value of [item_cost] column.</dd>
+					</dl>
+			
+	</div>
+<a name="methodsetItemMargin" id="setItemMargin"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setItemMargin</span> (line <span class="line-number">22</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets the margin rounding amounts</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setItemMargin
+		</span>
+					(<span class="var-type">double</span>&nbsp;<span class="var-name">$margin</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">double</span>
+				<span class="var-name">$margin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemMargin">BaseBudgetItem::setItemMargin()</a></dt>
+						<dd>Set the value of [item_margin] column.</dd>
+					</dl>
+			
+	</div>
+<a name="methodsetItemRetailPrice" id="setItemRetailPrice"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setItemRetailPrice</span> (line <span class="line-number">87</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets the retail price rounding amounts</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setItemRetailPrice
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$price</span>, <span class="var-type">double</span>&nbsp;<span class="var-name">$margin</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">double</span>
+				<span class="var-name">$margin</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$price</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemRetailPrice">BaseBudgetItem::setItemRetailPrice()</a></dt>
+						<dd>Set the value of [item_retail_price] column.</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseBudgetItem.html">BaseBudgetItem</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodbuildCriteria">BaseBudgetItem::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodbuildPkeyCriteria">BaseBudgetItem::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodcopy">BaseBudgetItem::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodcopyInto">BaseBudgetItem::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methoddelete">BaseBudgetItem::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methoddoSave">BaseBudgetItem::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methoddoValidate">BaseBudgetItem::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodfromArray">BaseBudgetItem::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetBudget">BaseBudgetItem::getBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetByName">BaseBudgetItem::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetByPosition">BaseBudgetItem::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetId">BaseBudgetItem::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemBudgetId">BaseBudgetItem::getItemBudgetId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemBudgetTypeId">BaseBudgetItem::getItemBudgetTypeId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemCost">BaseBudgetItem::getItemCost()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemDescription">BaseBudgetItem::getItemDescription()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemIsOptional">BaseBudgetItem::getItemIsOptional()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemMargin">BaseBudgetItem::getItemMargin()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemOrder">BaseBudgetItem::getItemOrder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemQuantity">BaseBudgetItem::getItemQuantity()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemRetailPrice">BaseBudgetItem::getItemRetailPrice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemTaskId">BaseBudgetItem::getItemTaskId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemTaxRate">BaseBudgetItem::getItemTaxRate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetItemTypeId">BaseBudgetItem::getItemTypeId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetMilestoneTaskId">BaseBudgetItem::getMilestoneTaskId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetPeer">BaseBudgetItem::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetPrimaryKey">BaseBudgetItem::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetTypeOfHour">BaseBudgetItem::getTypeOfHour()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetTypeOfInvoiceItem">BaseBudgetItem::getTypeOfInvoiceItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodgetValidationFailures">BaseBudgetItem::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodhydrate">BaseBudgetItem::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsave">BaseBudgetItem::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetBudget">BaseBudgetItem::setBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetByName">BaseBudgetItem::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetByPosition">BaseBudgetItem::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetId">BaseBudgetItem::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemBudgetId">BaseBudgetItem::setItemBudgetId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemBudgetTypeId">BaseBudgetItem::setItemBudgetTypeId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemCost">BaseBudgetItem::setItemCost()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemDescription">BaseBudgetItem::setItemDescription()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemIsOptional">BaseBudgetItem::setItemIsOptional()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemMargin">BaseBudgetItem::setItemMargin()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemOrder">BaseBudgetItem::setItemOrder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemQuantity">BaseBudgetItem::setItemQuantity()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemRetailPrice">BaseBudgetItem::setItemRetailPrice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemTaskId">BaseBudgetItem::setItemTaskId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemTaxRate">BaseBudgetItem::setItemTaxRate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetItemTypeId">BaseBudgetItem::setItemTypeId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetMilestoneTaskId">BaseBudgetItem::setMilestoneTaskId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetPrimaryKey">BaseBudgetItem::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetTypeOfHour">BaseBudgetItem::setTypeOfHour()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodsetTypeOfInvoiceItem">BaseBudgetItem::setTypeOfInvoiceItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodtoArray">BaseBudgetItem::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#methodvalidate">BaseBudgetItem::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetItem.html#method__call">BaseBudgetItem::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:24 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

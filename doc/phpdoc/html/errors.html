@@ -1,0 +1,1208 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>phpDocumentor Parser Errors and Warnings</title>
+			<link rel="stylesheet" href="media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+						<a href="#Post-parsing">Post-parsing</a><br>
+<a href="#Address.php">Address.php</a><br>
+<a href="#AddressMapBuilder.php">AddressMapBuilder.php</a><br>
+<a href="#AddressPeer.php">AddressPeer.php</a><br>
+<a href="#ARANetHelper.php">ARANetHelper.php</a><br>
+<a href="#BaseAddress.php">BaseAddress.php</a><br>
+<a href="#BaseAddressPeer.php">BaseAddressPeer.php</a><br>
+<a href="#BaseBudget.php">BaseBudget.php</a><br>
+<a href="#BaseBudgetItem.php">BaseBudgetItem.php</a><br>
+<a href="#BaseBudgetItemPeer.php">BaseBudgetItemPeer.php</a><br>
+<a href="#BaseBudgetPeer.php">BaseBudgetPeer.php</a><br>
+<a href="#BaseBudgetStatus.php">BaseBudgetStatus.php</a><br>
+<a href="#BaseBudgetStatusPeer.php">BaseBudgetStatusPeer.php</a><br>
+<a href="#BaseCashItem.php">BaseCashItem.php</a><br>
+<a href="#BaseCashItemPeer.php">BaseCashItemPeer.php</a><br>
+<a href="#BaseClient.php">BaseClient.php</a><br>
+<a href="#BaseClientPeer.php">BaseClientPeer.php</a><br>
+<a href="#BaseContact.php">BaseContact.php</a><br>
+<a href="#BaseContactPeer.php">BaseContactPeer.php</a><br>
+<a href="#BaseDefaultIndicator.php">BaseDefaultIndicator.php</a><br>
+<a href="#BaseDefaultIndicatorPeer.php">BaseDefaultIndicatorPeer.php</a><br>
+<a href="#BaseExpenseCategory.php">BaseExpenseCategory.php</a><br>
+<a href="#BaseExpenseCategoryPeer.php">BaseExpenseCategoryPeer.php</a><br>
+<a href="#BaseExpenseItem.php">BaseExpenseItem.php</a><br>
+<a href="#BaseExpenseItemPeer.php">BaseExpenseItemPeer.php</a><br>
+<a href="#BaseFrequentlyTask.php">BaseFrequentlyTask.php</a><br>
+<a href="#BaseFrequentlyTaskPeer.php">BaseFrequentlyTaskPeer.php</a><br>
+<a href="#BaseGPlot.php">BaseGPlot.php</a><br>
+<a href="#BaseGPlotPeer.php">BaseGPlotPeer.php</a><br>
+<a href="#BaseGraphic.php">BaseGraphic.php</a><br>
+<a href="#BaseGraphicPeer.php">BaseGraphicPeer.php</a><br>
+<a href="#BaseGraphicPlot.php">BaseGraphicPlot.php</a><br>
+<a href="#BaseGraphicPlotPeer.php">BaseGraphicPlotPeer.php</a><br>
+<a href="#BaseIncomeCategory.php">BaseIncomeCategory.php</a><br>
+<a href="#BaseIncomeCategoryPeer.php">BaseIncomeCategoryPeer.php</a><br>
+<a href="#BaseIncomeItem.php">BaseIncomeItem.php</a><br>
+<a href="#BaseIncomeItemPeer.php">BaseIncomeItemPeer.php</a><br>
+<a href="#BaseIndicator.php">BaseIndicator.php</a><br>
+<a href="#BaseIndicatorPeer.php">BaseIndicatorPeer.php</a><br>
+<a href="#BaseInvoice.php">BaseInvoice.php</a><br>
+<a href="#BaseInvoiceCategory.php">BaseInvoiceCategory.php</a><br>
+<a href="#BaseInvoiceCategoryPeer.php">BaseInvoiceCategoryPeer.php</a><br>
+<a href="#BaseInvoiceItem.php">BaseInvoiceItem.php</a><br>
+<a href="#BaseInvoiceItemPeer.php">BaseInvoiceItemPeer.php</a><br>
+<a href="#BaseInvoicePeer.php">BaseInvoicePeer.php</a><br>
+<a href="#BaseKindOfCompany.php">BaseKindOfCompany.php</a><br>
+<a href="#BaseKindOfCompanyPeer.php">BaseKindOfCompanyPeer.php</a><br>
+<a href="#BaseKindOfInvoice.php">BaseKindOfInvoice.php</a><br>
+<a href="#BaseKindOfInvoicePeer.php">BaseKindOfInvoicePeer.php</a><br>
+<a href="#BaseMilestone.php">BaseMilestone.php</a><br>
+<a href="#BaseMilestonePeer.php">BaseMilestonePeer.php</a><br>
+<a href="#BaseNotification.php">BaseNotification.php</a><br>
+<a href="#BaseNotificationPeer.php">BaseNotificationPeer.php</a><br>
+<a href="#BaseObjectAddress.php">BaseObjectAddress.php</a><br>
+<a href="#BaseObjectAddressPeer.php">BaseObjectAddressPeer.php</a><br>
+<a href="#BaseObjectContact.php">BaseObjectContact.php</a><br>
+<a href="#BaseObjectContactPeer.php">BaseObjectContactPeer.php</a><br>
+<a href="#BasePaymentCondition.php">BasePaymentCondition.php</a><br>
+<a href="#BasePaymentConditionPeer.php">BasePaymentConditionPeer.php</a><br>
+<a href="#BasePaymentMethod.php">BasePaymentMethod.php</a><br>
+<a href="#BasePaymentMethodPeer.php">BasePaymentMethodPeer.php</a><br>
+<a href="#BasePaymentStatus.php">BasePaymentStatus.php</a><br>
+<a href="#BasePaymentStatusPeer.php">BasePaymentStatusPeer.php</a><br>
+<a href="#BaseProject.php">BaseProject.php</a><br>
+<a href="#BaseProjectCategory.php">BaseProjectCategory.php</a><br>
+<a href="#BaseProjectCategoryPeer.php">BaseProjectCategoryPeer.php</a><br>
+<a href="#BaseProjectPeer.php">BaseProjectPeer.php</a><br>
+<a href="#BaseProjectStatus.php">BaseProjectStatus.php</a><br>
+<a href="#BaseProjectStatusPeer.php">BaseProjectStatusPeer.php</a><br>
+<a href="#BaseReimbursement.php">BaseReimbursement.php</a><br>
+<a href="#BaseReimbursementPeer.php">BaseReimbursementPeer.php</a><br>
+<a href="#BaseReport.php">BaseReport.php</a><br>
+<a href="#BaseReportColumn.php">BaseReportColumn.php</a><br>
+<a href="#BaseReportColumnPeer.php">BaseReportColumnPeer.php</a><br>
+<a href="#BaseReportPeer.php">BaseReportPeer.php</a><br>
+<a href="#BasesfGuardUserProfile.php">BasesfGuardUserProfile.php</a><br>
+<a href="#BasesfGuardUserProfilePeer.php">BasesfGuardUserProfilePeer.php</a><br>
+<a href="#BaseTask.php">BaseTask.php</a><br>
+<a href="#BaseTaskPeer.php">BaseTaskPeer.php</a><br>
+<a href="#BaseTaskPriority.php">BaseTaskPriority.php</a><br>
+<a href="#BaseTaskPriorityPeer.php">BaseTaskPriorityPeer.php</a><br>
+<a href="#BaseTimesheet.php">BaseTimesheet.php</a><br>
+<a href="#BaseTimesheetPeer.php">BaseTimesheetPeer.php</a><br>
+<a href="#BaseTypeOfHour.php">BaseTypeOfHour.php</a><br>
+<a href="#BaseTypeOfHourPeer.php">BaseTypeOfHourPeer.php</a><br>
+<a href="#BaseTypeOfInvoiceItem.php">BaseTypeOfInvoiceItem.php</a><br>
+<a href="#BaseTypeOfInvoiceItemPeer.php">BaseTypeOfInvoiceItemPeer.php</a><br>
+<a href="#BaseVendor.php">BaseVendor.php</a><br>
+<a href="#BaseVendorPeer.php">BaseVendorPeer.php</a><br>
+<a href="#Budget.php">Budget.php</a><br>
+<a href="#BudgetItem.php">BudgetItem.php</a><br>
+<a href="#BudgetItemMapBuilder.php">BudgetItemMapBuilder.php</a><br>
+<a href="#BudgetItemPeer.php">BudgetItemPeer.php</a><br>
+<a href="#BudgetMapBuilder.php">BudgetMapBuilder.php</a><br>
+<a href="#BudgetPeer.php">BudgetPeer.php</a><br>
+<a href="#BudgetStatus.php">BudgetStatus.php</a><br>
+<a href="#BudgetStatusMapBuilder.php">BudgetStatusMapBuilder.php</a><br>
+<a href="#BudgetStatusPeer.php">BudgetStatusPeer.php</a><br>
+<a href="#CashItem.php">CashItem.php</a><br>
+<a href="#CashItemMapBuilder.php">CashItemMapBuilder.php</a><br>
+<a href="#CashItemPeer.php">CashItemPeer.php</a><br>
+<a href="#Client.php">Client.php</a><br>
+<a href="#ClientMapBuilder.php">ClientMapBuilder.php</a><br>
+<a href="#ClientPeer.php">ClientPeer.php</a><br>
+<a href="#components.class.php">components.class.php</a><br>
+<a href="#Contact.php">Contact.php</a><br>
+<a href="#ContactMapBuilder.php">ContactMapBuilder.php</a><br>
+<a href="#ContactPeer.php">ContactPeer.php</a><br>
+<a href="#DefaultIndicator.php">DefaultIndicator.php</a><br>
+<a href="#DefaultIndicatorMapBuilder.php">DefaultIndicatorMapBuilder.php</a><br>
+<a href="#DefaultIndicatorPeer.php">DefaultIndicatorPeer.php</a><br>
+<a href="#ExpenseCategory.php">ExpenseCategory.php</a><br>
+<a href="#ExpenseCategoryMapBuilder.php">ExpenseCategoryMapBuilder.php</a><br>
+<a href="#ExpenseCategoryPeer.php">ExpenseCategoryPeer.php</a><br>
+<a href="#ExpenseItem.php">ExpenseItem.php</a><br>
+<a href="#ExpenseItemMapBuilder.php">ExpenseItemMapBuilder.php</a><br>
+<a href="#ExpenseItemPeer.php">ExpenseItemPeer.php</a><br>
+<a href="#ExtendedTextHelper.php">ExtendedTextHelper.php</a><br>
+<a href="#FrequentlyTask.php">FrequentlyTask.php</a><br>
+<a href="#FrequentlyTaskMapBuilder.php">FrequentlyTaskMapBuilder.php</a><br>
+<a href="#FrequentlyTaskPeer.php">FrequentlyTaskPeer.php</a><br>
+<a href="#GlobalHelper.php">GlobalHelper.php</a><br>
+<a href="#GPlot.php">GPlot.php</a><br>
+<a href="#GPlotMapBuilder.php">GPlotMapBuilder.php</a><br>
+<a href="#GPlotPeer.php">GPlotPeer.php</a><br>
+<a href="#Graphic.php">Graphic.php</a><br>
+<a href="#GraphicMapBuilder.php">GraphicMapBuilder.php</a><br>
+<a href="#GraphicPeer.php">GraphicPeer.php</a><br>
+<a href="#GraphicPlot.php">GraphicPlot.php</a><br>
+<a href="#GraphicPlotMapBuilder.php">GraphicPlotMapBuilder.php</a><br>
+<a href="#GraphicPlotPeer.php">GraphicPlotPeer.php</a><br>
+<a href="#IncomeCategory.php">IncomeCategory.php</a><br>
+<a href="#IncomeCategoryMapBuilder.php">IncomeCategoryMapBuilder.php</a><br>
+<a href="#IncomeCategoryPeer.php">IncomeCategoryPeer.php</a><br>
+<a href="#IncomeItem.php">IncomeItem.php</a><br>
+<a href="#IncomeItemMapBuilder.php">IncomeItemMapBuilder.php</a><br>
+<a href="#IncomeItemPeer.php">IncomeItemPeer.php</a><br>
+<a href="#Indicator.php">Indicator.php</a><br>
+<a href="#IndicatorMapBuilder.php">IndicatorMapBuilder.php</a><br>
+<a href="#IndicatorPeer.php">IndicatorPeer.php</a><br>
+<a href="#Invoice.php">Invoice.php</a><br>
+<a href="#InvoiceCategory.php">InvoiceCategory.php</a><br>
+<a href="#InvoiceCategoryMapBuilder.php">InvoiceCategoryMapBuilder.php</a><br>
+<a href="#InvoiceCategoryPeer.php">InvoiceCategoryPeer.php</a><br>
+<a href="#InvoiceItem.php">InvoiceItem.php</a><br>
+<a href="#InvoiceItemMapBuilder.php">InvoiceItemMapBuilder.php</a><br>
+<a href="#InvoiceItemPeer.php">InvoiceItemPeer.php</a><br>
+<a href="#InvoiceMapBuilder.php">InvoiceMapBuilder.php</a><br>
+<a href="#InvoicePeer.php">InvoicePeer.php</a><br>
+<a href="#KindOfCompany.php">KindOfCompany.php</a><br>
+<a href="#KindOfCompanyMapBuilder.php">KindOfCompanyMapBuilder.php</a><br>
+<a href="#KindOfCompanyPeer.php">KindOfCompanyPeer.php</a><br>
+<a href="#KindOfInvoice.php">KindOfInvoice.php</a><br>
+<a href="#KindOfInvoiceMapBuilder.php">KindOfInvoiceMapBuilder.php</a><br>
+<a href="#KindOfInvoicePeer.php">KindOfInvoicePeer.php</a><br>
+<a href="#Milestone.php">Milestone.php</a><br>
+<a href="#MilestoneMapBuilder.php">MilestoneMapBuilder.php</a><br>
+<a href="#MilestonePeer.php">MilestonePeer.php</a><br>
+<a href="#myActions.class.php">myActions.class.php</a><br>
+<a href="#myCultureFilter.class.php">myCultureFilter.class.php</a><br>
+<a href="#myTools.class.php">myTools.class.php</a><br>
+<a href="#myUser.class.php">myUser.class.php</a><br>
+<a href="#Notification.php">Notification.php</a><br>
+<a href="#NotificationMapBuilder.php">NotificationMapBuilder.php</a><br>
+<a href="#NotificationPeer.php">NotificationPeer.php</a><br>
+<a href="#ObjectAddress.php">ObjectAddress.php</a><br>
+<a href="#ObjectAddressMapBuilder.php">ObjectAddressMapBuilder.php</a><br>
+<a href="#ObjectAddressPeer.php">ObjectAddressPeer.php</a><br>
+<a href="#ObjectContact.php">ObjectContact.php</a><br>
+<a href="#ObjectContactMapBuilder.php">ObjectContactMapBuilder.php</a><br>
+<a href="#ObjectContactPeer.php">ObjectContactPeer.php</a><br>
+<a href="#PaginationHelper.php">PaginationHelper.php</a><br>
+<a href="#PaymentCondition.php">PaymentCondition.php</a><br>
+<a href="#PaymentConditionMapBuilder.php">PaymentConditionMapBuilder.php</a><br>
+<a href="#PaymentConditionPeer.php">PaymentConditionPeer.php</a><br>
+<a href="#PaymentMethod.php">PaymentMethod.php</a><br>
+<a href="#PaymentMethodMapBuilder.php">PaymentMethodMapBuilder.php</a><br>
+<a href="#PaymentMethodPeer.php">PaymentMethodPeer.php</a><br>
+<a href="#PaymentStatus.php">PaymentStatus.php</a><br>
+<a href="#PaymentStatusMapBuilder.php">PaymentStatusMapBuilder.php</a><br>
+<a href="#PaymentStatusPeer.php">PaymentStatusPeer.php</a><br>
+<a href="#Project.php">Project.php</a><br>
+<a href="#ProjectCategory.php">ProjectCategory.php</a><br>
+<a href="#ProjectCategoryMapBuilder.php">ProjectCategoryMapBuilder.php</a><br>
+<a href="#ProjectCategoryPeer.php">ProjectCategoryPeer.php</a><br>
+<a href="#ProjectMapBuilder.php">ProjectMapBuilder.php</a><br>
+<a href="#ProjectPeer.php">ProjectPeer.php</a><br>
+<a href="#ProjectStatus.php">ProjectStatus.php</a><br>
+<a href="#ProjectStatusMapBuilder.php">ProjectStatusMapBuilder.php</a><br>
+<a href="#ProjectStatusPeer.php">ProjectStatusPeer.php</a><br>
+<a href="#Reimbursement.php">Reimbursement.php</a><br>
+<a href="#ReimbursementMapBuilder.php">ReimbursementMapBuilder.php</a><br>
+<a href="#ReimbursementPeer.php">ReimbursementPeer.php</a><br>
+<a href="#Report.php">Report.php</a><br>
+<a href="#ReportColumn.php">ReportColumn.php</a><br>
+<a href="#ReportColumnMapBuilder.php">ReportColumnMapBuilder.php</a><br>
+<a href="#ReportColumnPeer.php">ReportColumnPeer.php</a><br>
+<a href="#ReportMapBuilder.php">ReportMapBuilder.php</a><br>
+<a href="#ReportPeer.php">ReportPeer.php</a><br>
+<a href="#sfGuardUserProfile.php">sfGuardUserProfile.php</a><br>
+<a href="#sfGuardUserProfileMapBuilder.php">sfGuardUserProfileMapBuilder.php</a><br>
+<a href="#sfGuardUserProfilePeer.php">sfGuardUserProfilePeer.php</a><br>
+<a href="#SfObjectAdvBuilder.php">SfObjectAdvBuilder.php</a><br>
+<a href="#SfPeerAdvBuilder.php">SfPeerAdvBuilder.php</a><br>
+<a href="#sfSettingsTools.php">sfSettingsTools.php</a><br>
+<a href="#StyleHelper.php">StyleHelper.php</a><br>
+<a href="#Task.php">Task.php</a><br>
+<a href="#TaskMapBuilder.php">TaskMapBuilder.php</a><br>
+<a href="#TaskPeer.php">TaskPeer.php</a><br>
+<a href="#TaskPriority.php">TaskPriority.php</a><br>
+<a href="#TaskPriorityMapBuilder.php">TaskPriorityMapBuilder.php</a><br>
+<a href="#TaskPriorityPeer.php">TaskPriorityPeer.php</a><br>
+<a href="#Timesheet.php">Timesheet.php</a><br>
+<a href="#TimesheetMapBuilder.php">TimesheetMapBuilder.php</a><br>
+<a href="#TimesheetPeer.php">TimesheetPeer.php</a><br>
+<a href="#TypeOfHour.php">TypeOfHour.php</a><br>
+<a href="#TypeOfHourMapBuilder.php">TypeOfHourMapBuilder.php</a><br>
+<a href="#TypeOfHourPeer.php">TypeOfHourPeer.php</a><br>
+<a href="#TypeOfInvoiceItem.php">TypeOfInvoiceItem.php</a><br>
+<a href="#TypeOfInvoiceItemMapBuilder.php">TypeOfInvoiceItemMapBuilder.php</a><br>
+<a href="#TypeOfInvoiceItemPeer.php">TypeOfInvoiceItemPeer.php</a><br>
+<a href="#Vendor.php">Vendor.php</a><br>
+<a href="#VendorMapBuilder.php">VendorMapBuilder.php</a><br>
+<a href="#VendorPeer.php">VendorPeer.php</a><br>
+<a name="Post-parsing"></a>
+<h1>Post-parsing</h1>
+<h2>Warnings:</h2><br>
+<b>Warning</b> - Class BaseInvoice parent BaseObject not found<br>
+<b>Warning</b> - Class BaseInvoiceCategory parent BaseObject not found<br>
+<b>Warning</b> - Class BaseInvoiceItem parent BaseObject not found<br>
+<b>Warning</b> - Class BaseIndicator parent BaseObject not found<br>
+<b>Warning</b> - Class BaseIncomeCategory parent BaseObject not found<br>
+<b>Warning</b> - Class BaseGraphic parent BaseObject not found<br>
+<b>Warning</b> - Class BaseGraphicPlot parent BaseObject not found<br>
+<b>Warning</b> - Class BaseKindOfCompany parent BaseObject not found<br>
+<b>Warning</b> - Class BaseKindOfInvoice parent BaseObject not found<br>
+<b>Warning</b> - Class BasePaymentCondition parent BaseObject not found<br>
+<b>Warning</b> - Class BasePaymentMethod parent BaseObject not found<br>
+<b>Warning</b> - Class BasePaymentStatus parent BaseObject not found<br>
+<b>Warning</b> - Class BaseObjectContact parent BaseObject not found<br>
+<b>Warning</b> - Class BaseObjectAddress parent BaseObject not found<br>
+<b>Warning</b> - Class BaseMilestone parent BaseObject not found<br>
+<b>Warning</b> - Class BaseNotification parent BaseObject not found<br>
+<b>Warning</b> - Class BaseGPlot parent BaseObject not found<br>
+<b>Warning</b> - Class BaseFrequentlyTask parent BaseObject not found<br>
+<b>Warning</b> - Class tagActions parent sfActions not found<br>
+<b>Warning</b> - Class widgetsComponents parent sfComponents not found<br>
+<b>Warning</b> - Class BaseAddress parent BaseObject not found<br>
+<b>Warning</b> - Class dashboardActions parent sfActions not found<br>
+<b>Warning</b> - Class addressActions parent sfActions not found<br>
+<b>Warning</b> - Class myActions parent sfActions not found<br>
+<b>Warning</b> - Class myUser parent sfGuardSecurityUser not found<br>
+<b>Warning</b> - Class BaseBudget parent BaseObject not found<br>
+<b>Warning</b> - Class BaseBudgetItem parent BaseObject not found<br>
+<b>Warning</b> - Class BaseDefaultIndicator parent BaseObject not found<br>
+<b>Warning</b> - Class BaseExpenseCategory parent BaseObject not found<br>
+<b>Warning</b> - Class BaseExpenseItem parent BaseObject not found<br>
+<b>Warning</b> - Class BaseContact parent BaseObject not found<br>
+<b>Warning</b> - Class BaseClient parent BaseObject not found<br>
+<b>Warning</b> - Class BaseBudgetStatus parent BaseObject not found<br>
+<b>Warning</b> - Class BaseCashItem parent BaseObject not found<br>
+<b>Warning</b> - Class BaseProject parent BaseObject not found<br>
+<b>Warning</b> - Class BaseIncomeItem parent BaseObject not found<br>
+<b>Warning</b> - Class BaseTypeOfInvoiceItem parent BaseObject not found<br>
+<b>Warning</b> - Class BaseTypeOfHour parent BaseObject not found<br>
+<b>Warning</b> - Class BaseProjectCategory parent BaseObject not found<br>
+<b>Warning</b> - Class myCultureFilter parent sfFilter not found<br>
+<b>Warning</b> - Class SfPeerAdvBuilder parent SfPeerBuilder not found<br>
+<b>Warning</b> - Class SfObjectAdvBuilder parent SfObjectBuilder not found<br>
+<b>Warning</b> - Class BaseTimesheet parent BaseObject not found<br>
+<b>Warning</b> - Class BaseVendor parent BaseObject not found<br>
+<b>Warning</b> - Class BaseReportColumn parent BaseObject not found<br>
+<b>Warning</b> - Class BaseReport parent BaseObject not found<br>
+<b>Warning</b> - Class BaseReimbursement parent BaseObject not found<br>
+<b>Warning</b> - Class BaseTaskPriority parent BaseObject not found<br>
+<b>Warning</b> - Class BasesfGuardUserProfile parent BaseObject not found<br>
+<b>Warning</b> - Class BaseProjectStatus parent BaseObject not found<br>
+<b>Warning</b> - Class BaseTask parent BaseObject not found<br>
+<a name="actions.class.php"></a>
+<h1>actions.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "contactActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "vendorActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "clientActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "budgetActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "addressActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "expenseActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "cashActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "dashboardActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "tagActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "fileActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "userActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "settingActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "timesheetActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "projectActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "incomeActions", use another DocBlock to document the file<br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "invoiceActions", use another DocBlock to document the file<br>
+<a name="Address.php"></a>
+<h1>Address.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Address", use another DocBlock to document the file<br>
+<a name="AddressMapBuilder.php"></a>
+<h1>AddressMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "AddressMapBuilder", use another DocBlock to document the file<br>
+<a name="AddressPeer.php"></a>
+<h1>AddressPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "AddressPeer", use another DocBlock to document the file<br>
+<a name="ARANetHelper.php"></a>
+<h1>ARANetHelper.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/lib/helper/ARANetHelper.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="BaseAddress.php"></a>
+<h1>BaseAddress.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseAddress", use another DocBlock to document the file<br>
+<a name="BaseAddressPeer.php"></a>
+<h1>BaseAddressPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseAddressPeer", use another DocBlock to document the file<br>
+<a name="BaseBudget.php"></a>
+<h1>BaseBudget.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseBudget", use another DocBlock to document the file<br>
+<a name="BaseBudgetItem.php"></a>
+<h1>BaseBudgetItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseBudgetItem", use another DocBlock to document the file<br>
+<a name="BaseBudgetItemPeer.php"></a>
+<h1>BaseBudgetItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseBudgetItemPeer", use another DocBlock to document the file<br>
+<a name="BaseBudgetPeer.php"></a>
+<h1>BaseBudgetPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseBudgetPeer", use another DocBlock to document the file<br>
+<a name="BaseBudgetStatus.php"></a>
+<h1>BaseBudgetStatus.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseBudgetStatus", use another DocBlock to document the file<br>
+<a name="BaseBudgetStatusPeer.php"></a>
+<h1>BaseBudgetStatusPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseBudgetStatusPeer", use another DocBlock to document the file<br>
+<a name="BaseCashItem.php"></a>
+<h1>BaseCashItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseCashItem", use another DocBlock to document the file<br>
+<a name="BaseCashItemPeer.php"></a>
+<h1>BaseCashItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseCashItemPeer", use another DocBlock to document the file<br>
+<a name="BaseClient.php"></a>
+<h1>BaseClient.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseClient", use another DocBlock to document the file<br>
+<a name="BaseClientPeer.php"></a>
+<h1>BaseClientPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseClientPeer", use another DocBlock to document the file<br>
+<a name="BaseContact.php"></a>
+<h1>BaseContact.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseContact", use another DocBlock to document the file<br>
+<a name="BaseContactPeer.php"></a>
+<h1>BaseContactPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseContactPeer", use another DocBlock to document the file<br>
+<a name="BaseDefaultIndicator.php"></a>
+<h1>BaseDefaultIndicator.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseDefaultIndicator", use another DocBlock to document the file<br>
+<a name="BaseDefaultIndicatorPeer.php"></a>
+<h1>BaseDefaultIndicatorPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseDefaultIndicatorPeer", use another DocBlock to document the file<br>
+<a name="BaseExpenseCategory.php"></a>
+<h1>BaseExpenseCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseExpenseCategory", use another DocBlock to document the file<br>
+<a name="BaseExpenseCategoryPeer.php"></a>
+<h1>BaseExpenseCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseExpenseCategoryPeer", use another DocBlock to document the file<br>
+<a name="BaseExpenseItem.php"></a>
+<h1>BaseExpenseItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseExpenseItem", use another DocBlock to document the file<br>
+<a name="BaseExpenseItemPeer.php"></a>
+<h1>BaseExpenseItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseExpenseItemPeer", use another DocBlock to document the file<br>
+<a name="BaseFrequentlyTask.php"></a>
+<h1>BaseFrequentlyTask.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseFrequentlyTask", use another DocBlock to document the file<br>
+<a name="BaseFrequentlyTaskPeer.php"></a>
+<h1>BaseFrequentlyTaskPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseFrequentlyTaskPeer", use another DocBlock to document the file<br>
+<a name="BaseGPlot.php"></a>
+<h1>BaseGPlot.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseGPlot", use another DocBlock to document the file<br>
+<a name="BaseGPlotPeer.php"></a>
+<h1>BaseGPlotPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseGPlotPeer", use another DocBlock to document the file<br>
+<a name="BaseGraphic.php"></a>
+<h1>BaseGraphic.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseGraphic", use another DocBlock to document the file<br>
+<a name="BaseGraphicPeer.php"></a>
+<h1>BaseGraphicPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseGraphicPeer", use another DocBlock to document the file<br>
+<a name="BaseGraphicPlot.php"></a>
+<h1>BaseGraphicPlot.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseGraphicPlot", use another DocBlock to document the file<br>
+<a name="BaseGraphicPlotPeer.php"></a>
+<h1>BaseGraphicPlotPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseGraphicPlotPeer", use another DocBlock to document the file<br>
+<a name="BaseIncomeCategory.php"></a>
+<h1>BaseIncomeCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseIncomeCategory", use another DocBlock to document the file<br>
+<a name="BaseIncomeCategoryPeer.php"></a>
+<h1>BaseIncomeCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseIncomeCategoryPeer", use another DocBlock to document the file<br>
+<a name="BaseIncomeItem.php"></a>
+<h1>BaseIncomeItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseIncomeItem", use another DocBlock to document the file<br>
+<a name="BaseIncomeItemPeer.php"></a>
+<h1>BaseIncomeItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseIncomeItemPeer", use another DocBlock to document the file<br>
+<a name="BaseIndicator.php"></a>
+<h1>BaseIndicator.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseIndicator", use another DocBlock to document the file<br>
+<a name="BaseIndicatorPeer.php"></a>
+<h1>BaseIndicatorPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseIndicatorPeer", use another DocBlock to document the file<br>
+<a name="BaseInvoice.php"></a>
+<h1>BaseInvoice.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseInvoice", use another DocBlock to document the file<br>
+<a name="BaseInvoiceCategory.php"></a>
+<h1>BaseInvoiceCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseInvoiceCategory", use another DocBlock to document the file<br>
+<a name="BaseInvoiceCategoryPeer.php"></a>
+<h1>BaseInvoiceCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseInvoiceCategoryPeer", use another DocBlock to document the file<br>
+<a name="BaseInvoiceItem.php"></a>
+<h1>BaseInvoiceItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseInvoiceItem", use another DocBlock to document the file<br>
+<a name="BaseInvoiceItemPeer.php"></a>
+<h1>BaseInvoiceItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseInvoiceItemPeer", use another DocBlock to document the file<br>
+<a name="BaseInvoicePeer.php"></a>
+<h1>BaseInvoicePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseInvoicePeer", use another DocBlock to document the file<br>
+<a name="BaseKindOfCompany.php"></a>
+<h1>BaseKindOfCompany.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseKindOfCompany", use another DocBlock to document the file<br>
+<a name="BaseKindOfCompanyPeer.php"></a>
+<h1>BaseKindOfCompanyPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseKindOfCompanyPeer", use another DocBlock to document the file<br>
+<a name="BaseKindOfInvoice.php"></a>
+<h1>BaseKindOfInvoice.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseKindOfInvoice", use another DocBlock to document the file<br>
+<a name="BaseKindOfInvoicePeer.php"></a>
+<h1>BaseKindOfInvoicePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseKindOfInvoicePeer", use another DocBlock to document the file<br>
+<a name="BaseMilestone.php"></a>
+<h1>BaseMilestone.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseMilestone", use another DocBlock to document the file<br>
+<a name="BaseMilestonePeer.php"></a>
+<h1>BaseMilestonePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseMilestonePeer", use another DocBlock to document the file<br>
+<a name="BaseNotification.php"></a>
+<h1>BaseNotification.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseNotification", use another DocBlock to document the file<br>
+<a name="BaseNotificationPeer.php"></a>
+<h1>BaseNotificationPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseNotificationPeer", use another DocBlock to document the file<br>
+<a name="BaseObjectAddress.php"></a>
+<h1>BaseObjectAddress.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseObjectAddress", use another DocBlock to document the file<br>
+<a name="BaseObjectAddressPeer.php"></a>
+<h1>BaseObjectAddressPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseObjectAddressPeer", use another DocBlock to document the file<br>
+<a name="BaseObjectContact.php"></a>
+<h1>BaseObjectContact.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseObjectContact", use another DocBlock to document the file<br>
+<a name="BaseObjectContactPeer.php"></a>
+<h1>BaseObjectContactPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseObjectContactPeer", use another DocBlock to document the file<br>
+<a name="BasePaymentCondition.php"></a>
+<h1>BasePaymentCondition.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasePaymentCondition", use another DocBlock to document the file<br>
+<a name="BasePaymentConditionPeer.php"></a>
+<h1>BasePaymentConditionPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasePaymentConditionPeer", use another DocBlock to document the file<br>
+<a name="BasePaymentMethod.php"></a>
+<h1>BasePaymentMethod.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasePaymentMethod", use another DocBlock to document the file<br>
+<a name="BasePaymentMethodPeer.php"></a>
+<h1>BasePaymentMethodPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasePaymentMethodPeer", use another DocBlock to document the file<br>
+<a name="BasePaymentStatus.php"></a>
+<h1>BasePaymentStatus.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasePaymentStatus", use another DocBlock to document the file<br>
+<a name="BasePaymentStatusPeer.php"></a>
+<h1>BasePaymentStatusPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasePaymentStatusPeer", use another DocBlock to document the file<br>
+<a name="BaseProject.php"></a>
+<h1>BaseProject.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseProject", use another DocBlock to document the file<br>
+<a name="BaseProjectCategory.php"></a>
+<h1>BaseProjectCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseProjectCategory", use another DocBlock to document the file<br>
+<a name="BaseProjectCategoryPeer.php"></a>
+<h1>BaseProjectCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseProjectCategoryPeer", use another DocBlock to document the file<br>
+<a name="BaseProjectPeer.php"></a>
+<h1>BaseProjectPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseProjectPeer", use another DocBlock to document the file<br>
+<a name="BaseProjectStatus.php"></a>
+<h1>BaseProjectStatus.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseProjectStatus", use another DocBlock to document the file<br>
+<a name="BaseProjectStatusPeer.php"></a>
+<h1>BaseProjectStatusPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseProjectStatusPeer", use another DocBlock to document the file<br>
+<a name="BaseReimbursement.php"></a>
+<h1>BaseReimbursement.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseReimbursement", use another DocBlock to document the file<br>
+<a name="BaseReimbursementPeer.php"></a>
+<h1>BaseReimbursementPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseReimbursementPeer", use another DocBlock to document the file<br>
+<a name="BaseReport.php"></a>
+<h1>BaseReport.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseReport", use another DocBlock to document the file<br>
+<a name="BaseReportColumn.php"></a>
+<h1>BaseReportColumn.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseReportColumn", use another DocBlock to document the file<br>
+<a name="BaseReportColumnPeer.php"></a>
+<h1>BaseReportColumnPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseReportColumnPeer", use another DocBlock to document the file<br>
+<a name="BaseReportPeer.php"></a>
+<h1>BaseReportPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseReportPeer", use another DocBlock to document the file<br>
+<a name="BasesfGuardUserProfile.php"></a>
+<h1>BasesfGuardUserProfile.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasesfGuardUserProfile", use another DocBlock to document the file<br>
+<a name="BasesfGuardUserProfilePeer.php"></a>
+<h1>BasesfGuardUserProfilePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BasesfGuardUserProfilePeer", use another DocBlock to document the file<br>
+<a name="BaseTask.php"></a>
+<h1>BaseTask.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTask", use another DocBlock to document the file<br>
+<a name="BaseTaskPeer.php"></a>
+<h1>BaseTaskPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTaskPeer", use another DocBlock to document the file<br>
+<a name="BaseTaskPriority.php"></a>
+<h1>BaseTaskPriority.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTaskPriority", use another DocBlock to document the file<br>
+<a name="BaseTaskPriorityPeer.php"></a>
+<h1>BaseTaskPriorityPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTaskPriorityPeer", use another DocBlock to document the file<br>
+<a name="BaseTimesheet.php"></a>
+<h1>BaseTimesheet.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTimesheet", use another DocBlock to document the file<br>
+<a name="BaseTimesheetPeer.php"></a>
+<h1>BaseTimesheetPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTimesheetPeer", use another DocBlock to document the file<br>
+<a name="BaseTypeOfHour.php"></a>
+<h1>BaseTypeOfHour.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTypeOfHour", use another DocBlock to document the file<br>
+<a name="BaseTypeOfHourPeer.php"></a>
+<h1>BaseTypeOfHourPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTypeOfHourPeer", use another DocBlock to document the file<br>
+<a name="BaseTypeOfInvoiceItem.php"></a>
+<h1>BaseTypeOfInvoiceItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTypeOfInvoiceItem", use another DocBlock to document the file<br>
+<a name="BaseTypeOfInvoiceItemPeer.php"></a>
+<h1>BaseTypeOfInvoiceItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseTypeOfInvoiceItemPeer", use another DocBlock to document the file<br>
+<a name="BaseVendor.php"></a>
+<h1>BaseVendor.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseVendor", use another DocBlock to document the file<br>
+<a name="BaseVendorPeer.php"></a>
+<h1>BaseVendorPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "BaseVendorPeer", use another DocBlock to document the file<br>
+<a name="Budget.php"></a>
+<h1>Budget.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Budget", use another DocBlock to document the file<br>
+<a name="BudgetItem.php"></a>
+<h1>BudgetItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "BudgetItem", use another DocBlock to document the file<br>
+<a name="BudgetItemMapBuilder.php"></a>
+<h1>BudgetItemMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "BudgetItemMapBuilder", use another DocBlock to document the file<br>
+<a name="BudgetItemPeer.php"></a>
+<h1>BudgetItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "BudgetItemPeer", use another DocBlock to document the file<br>
+<a name="BudgetMapBuilder.php"></a>
+<h1>BudgetMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "BudgetMapBuilder", use another DocBlock to document the file<br>
+<a name="BudgetPeer.php"></a>
+<h1>BudgetPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "BudgetPeer", use another DocBlock to document the file<br>
+<a name="BudgetStatus.php"></a>
+<h1>BudgetStatus.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "BudgetStatus", use another DocBlock to document the file<br>
+<a name="BudgetStatusMapBuilder.php"></a>
+<h1>BudgetStatusMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "BudgetStatusMapBuilder", use another DocBlock to document the file<br>
+<a name="BudgetStatusPeer.php"></a>
+<h1>BudgetStatusPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "BudgetStatusPeer", use another DocBlock to document the file<br>
+<a name="CashItem.php"></a>
+<h1>CashItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "CashItem", use another DocBlock to document the file<br>
+<a name="CashItemMapBuilder.php"></a>
+<h1>CashItemMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "CashItemMapBuilder", use another DocBlock to document the file<br>
+<a name="CashItemPeer.php"></a>
+<h1>CashItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "CashItemPeer", use another DocBlock to document the file<br>
+<a name="Client.php"></a>
+<h1>Client.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Client", use another DocBlock to document the file<br>
+<a name="ClientMapBuilder.php"></a>
+<h1>ClientMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ClientMapBuilder", use another DocBlock to document the file<br>
+<a name="ClientPeer.php"></a>
+<h1>ClientPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ClientPeer", use another DocBlock to document the file<br>
+<a name="components.class.php"></a>
+<h1>components.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "widgetsComponents", use another DocBlock to document the file<br>
+<a name="Contact.php"></a>
+<h1>Contact.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Contact", use another DocBlock to document the file<br>
+<a name="ContactMapBuilder.php"></a>
+<h1>ContactMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ContactMapBuilder", use another DocBlock to document the file<br>
+<a name="ContactPeer.php"></a>
+<h1>ContactPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ContactPeer", use another DocBlock to document the file<br>
+<a name="DefaultIndicator.php"></a>
+<h1>DefaultIndicator.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "DefaultIndicator", use another DocBlock to document the file<br>
+<a name="DefaultIndicatorMapBuilder.php"></a>
+<h1>DefaultIndicatorMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "DefaultIndicatorMapBuilder", use another DocBlock to document the file<br>
+<a name="DefaultIndicatorPeer.php"></a>
+<h1>DefaultIndicatorPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "DefaultIndicatorPeer", use another DocBlock to document the file<br>
+<a name="ExpenseCategory.php"></a>
+<h1>ExpenseCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ExpenseCategory", use another DocBlock to document the file<br>
+<a name="ExpenseCategoryMapBuilder.php"></a>
+<h1>ExpenseCategoryMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ExpenseCategoryMapBuilder", use another DocBlock to document the file<br>
+<a name="ExpenseCategoryPeer.php"></a>
+<h1>ExpenseCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ExpenseCategoryPeer", use another DocBlock to document the file<br>
+<a name="ExpenseItem.php"></a>
+<h1>ExpenseItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ExpenseItem", use another DocBlock to document the file<br>
+<a name="ExpenseItemMapBuilder.php"></a>
+<h1>ExpenseItemMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ExpenseItemMapBuilder", use another DocBlock to document the file<br>
+<a name="ExpenseItemPeer.php"></a>
+<h1>ExpenseItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "ExpenseItemPeer", use another DocBlock to document the file<br>
+<a name="ExtendedTextHelper.php"></a>
+<h1>ExtendedTextHelper.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 113</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/apps/frontend/lib/helper/ExtendedTextHelper.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="FrequentlyTask.php"></a>
+<h1>FrequentlyTask.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "FrequentlyTask", use another DocBlock to document the file<br>
+<a name="FrequentlyTaskMapBuilder.php"></a>
+<h1>FrequentlyTaskMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "FrequentlyTaskMapBuilder", use another DocBlock to document the file<br>
+<a name="FrequentlyTaskPeer.php"></a>
+<h1>FrequentlyTaskPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "FrequentlyTaskPeer", use another DocBlock to document the file<br>
+<a name="GlobalHelper.php"></a>
+<h1>GlobalHelper.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 108</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/apps/frontend/lib/helper/GlobalHelper.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="GPlot.php"></a>
+<h1>GPlot.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "GPlot", use another DocBlock to document the file<br>
+<a name="GPlotMapBuilder.php"></a>
+<h1>GPlotMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "GPlotMapBuilder", use another DocBlock to document the file<br>
+<a name="GPlotPeer.php"></a>
+<h1>GPlotPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "GPlotPeer", use another DocBlock to document the file<br>
+<a name="Graphic.php"></a>
+<h1>Graphic.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "Graphic", use another DocBlock to document the file<br>
+<a name="GraphicMapBuilder.php"></a>
+<h1>GraphicMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "GraphicMapBuilder", use another DocBlock to document the file<br>
+<a name="GraphicPeer.php"></a>
+<h1>GraphicPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "GraphicPeer", use another DocBlock to document the file<br>
+<a name="GraphicPlot.php"></a>
+<h1>GraphicPlot.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "GraphicPlot", use another DocBlock to document the file<br>
+<a name="GraphicPlotMapBuilder.php"></a>
+<h1>GraphicPlotMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "GraphicPlotMapBuilder", use another DocBlock to document the file<br>
+<a name="GraphicPlotPeer.php"></a>
+<h1>GraphicPlotPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "GraphicPlotPeer", use another DocBlock to document the file<br>
+<a name="IncomeCategory.php"></a>
+<h1>IncomeCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "IncomeCategory", use another DocBlock to document the file<br>
+<a name="IncomeCategoryMapBuilder.php"></a>
+<h1>IncomeCategoryMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "IncomeCategoryMapBuilder", use another DocBlock to document the file<br>
+<a name="IncomeCategoryPeer.php"></a>
+<h1>IncomeCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "IncomeCategoryPeer", use another DocBlock to document the file<br>
+<a name="IncomeItem.php"></a>
+<h1>IncomeItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "IncomeItem", use another DocBlock to document the file<br>
+<a name="IncomeItemMapBuilder.php"></a>
+<h1>IncomeItemMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "IncomeItemMapBuilder", use another DocBlock to document the file<br>
+<a name="IncomeItemPeer.php"></a>
+<h1>IncomeItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "IncomeItemPeer", use another DocBlock to document the file<br>
+<a name="Indicator.php"></a>
+<h1>Indicator.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "Indicator", use another DocBlock to document the file<br>
+<a name="IndicatorMapBuilder.php"></a>
+<h1>IndicatorMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "IndicatorMapBuilder", use another DocBlock to document the file<br>
+<a name="IndicatorPeer.php"></a>
+<h1>IndicatorPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "IndicatorPeer", use another DocBlock to document the file<br>
+<a name="Invoice.php"></a>
+<h1>Invoice.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Invoice", use another DocBlock to document the file<br>
+<a name="InvoiceCategory.php"></a>
+<h1>InvoiceCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "InvoiceCategory", use another DocBlock to document the file<br>
+<a name="InvoiceCategoryMapBuilder.php"></a>
+<h1>InvoiceCategoryMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "InvoiceCategoryMapBuilder", use another DocBlock to document the file<br>
+<a name="InvoiceCategoryPeer.php"></a>
+<h1>InvoiceCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "InvoiceCategoryPeer", use another DocBlock to document the file<br>
+<a name="InvoiceItem.php"></a>
+<h1>InvoiceItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "InvoiceItem", use another DocBlock to document the file<br>
+<a name="InvoiceItemMapBuilder.php"></a>
+<h1>InvoiceItemMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "InvoiceItemMapBuilder", use another DocBlock to document the file<br>
+<a name="InvoiceItemPeer.php"></a>
+<h1>InvoiceItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "InvoiceItemPeer", use another DocBlock to document the file<br>
+<a name="InvoiceMapBuilder.php"></a>
+<h1>InvoiceMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "InvoiceMapBuilder", use another DocBlock to document the file<br>
+<a name="InvoicePeer.php"></a>
+<h1>InvoicePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "InvoicePeer", use another DocBlock to document the file<br>
+<a name="KindOfCompany.php"></a>
+<h1>KindOfCompany.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "KindOfCompany", use another DocBlock to document the file<br>
+<a name="KindOfCompanyMapBuilder.php"></a>
+<h1>KindOfCompanyMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "KindOfCompanyMapBuilder", use another DocBlock to document the file<br>
+<a name="KindOfCompanyPeer.php"></a>
+<h1>KindOfCompanyPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "KindOfCompanyPeer", use another DocBlock to document the file<br>
+<a name="KindOfInvoice.php"></a>
+<h1>KindOfInvoice.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "KindOfInvoice", use another DocBlock to document the file<br>
+<a name="KindOfInvoiceMapBuilder.php"></a>
+<h1>KindOfInvoiceMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "KindOfInvoiceMapBuilder", use another DocBlock to document the file<br>
+<a name="KindOfInvoicePeer.php"></a>
+<h1>KindOfInvoicePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "KindOfInvoicePeer", use another DocBlock to document the file<br>
+<a name="Milestone.php"></a>
+<h1>Milestone.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Milestone", use another DocBlock to document the file<br>
+<a name="MilestoneMapBuilder.php"></a>
+<h1>MilestoneMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "MilestoneMapBuilder", use another DocBlock to document the file<br>
+<a name="MilestonePeer.php"></a>
+<h1>MilestonePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "MilestonePeer", use another DocBlock to document the file<br>
+<a name="myActions.class.php"></a>
+<h1>myActions.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "myActions", use another DocBlock to document the file<br>
+<a name="myCultureFilter.class.php"></a>
+<h1>myCultureFilter.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "myCultureFilter", use another DocBlock to document the file<br>
+<a name="myTools.class.php"></a>
+<h1>myTools.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 3</b> - no @package tag was used in a DocBlock for class myTools<br>
+<b>Warning on line 139</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/lib/myTools.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="myUser.class.php"></a>
+<h1>myUser.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "myUser", use another DocBlock to document the file<br>
+<a name="Notification.php"></a>
+<h1>Notification.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Notification", use another DocBlock to document the file<br>
+<a name="NotificationMapBuilder.php"></a>
+<h1>NotificationMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "NotificationMapBuilder", use another DocBlock to document the file<br>
+<a name="NotificationPeer.php"></a>
+<h1>NotificationPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "NotificationPeer", use another DocBlock to document the file<br>
+<a name="ObjectAddress.php"></a>
+<h1>ObjectAddress.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ObjectAddress", use another DocBlock to document the file<br>
+<a name="ObjectAddressMapBuilder.php"></a>
+<h1>ObjectAddressMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ObjectAddressMapBuilder", use another DocBlock to document the file<br>
+<a name="ObjectAddressPeer.php"></a>
+<h1>ObjectAddressPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ObjectAddressPeer", use another DocBlock to document the file<br>
+<a name="ObjectContact.php"></a>
+<h1>ObjectContact.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ObjectContact", use another DocBlock to document the file<br>
+<a name="ObjectContactMapBuilder.php"></a>
+<h1>ObjectContactMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ObjectContactMapBuilder", use another DocBlock to document the file<br>
+<a name="ObjectContactPeer.php"></a>
+<h1>ObjectContactPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ObjectContactPeer", use another DocBlock to document the file<br>
+<a name="PaginationHelper.php"></a>
+<h1>PaginationHelper.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 94</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/apps/frontend/lib/helper/PaginationHelper.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="PaymentCondition.php"></a>
+<h1>PaymentCondition.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "PaymentCondition", use another DocBlock to document the file<br>
+<a name="PaymentConditionMapBuilder.php"></a>
+<h1>PaymentConditionMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "PaymentConditionMapBuilder", use another DocBlock to document the file<br>
+<a name="PaymentConditionPeer.php"></a>
+<h1>PaymentConditionPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "PaymentConditionPeer", use another DocBlock to document the file<br>
+<a name="PaymentMethod.php"></a>
+<h1>PaymentMethod.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "PaymentMethod", use another DocBlock to document the file<br>
+<a name="PaymentMethodMapBuilder.php"></a>
+<h1>PaymentMethodMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "PaymentMethodMapBuilder", use another DocBlock to document the file<br>
+<a name="PaymentMethodPeer.php"></a>
+<h1>PaymentMethodPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "PaymentMethodPeer", use another DocBlock to document the file<br>
+<a name="PaymentStatus.php"></a>
+<h1>PaymentStatus.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "PaymentStatus", use another DocBlock to document the file<br>
+<a name="PaymentStatusMapBuilder.php"></a>
+<h1>PaymentStatusMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "PaymentStatusMapBuilder", use another DocBlock to document the file<br>
+<a name="PaymentStatusPeer.php"></a>
+<h1>PaymentStatusPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "PaymentStatusPeer", use another DocBlock to document the file<br>
+<a name="Project.php"></a>
+<h1>Project.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Project", use another DocBlock to document the file<br>
+<a name="ProjectCategory.php"></a>
+<h1>ProjectCategory.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ProjectCategory", use another DocBlock to document the file<br>
+<a name="ProjectCategoryMapBuilder.php"></a>
+<h1>ProjectCategoryMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ProjectCategoryMapBuilder", use another DocBlock to document the file<br>
+<a name="ProjectCategoryPeer.php"></a>
+<h1>ProjectCategoryPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ProjectCategoryPeer", use another DocBlock to document the file<br>
+<a name="ProjectMapBuilder.php"></a>
+<h1>ProjectMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ProjectMapBuilder", use another DocBlock to document the file<br>
+<a name="ProjectPeer.php"></a>
+<h1>ProjectPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ProjectPeer", use another DocBlock to document the file<br>
+<a name="ProjectStatus.php"></a>
+<h1>ProjectStatus.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ProjectStatus", use another DocBlock to document the file<br>
+<a name="ProjectStatusMapBuilder.php"></a>
+<h1>ProjectStatusMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ProjectStatusMapBuilder", use another DocBlock to document the file<br>
+<a name="ProjectStatusPeer.php"></a>
+<h1>ProjectStatusPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ProjectStatusPeer", use another DocBlock to document the file<br>
+<a name="Reimbursement.php"></a>
+<h1>Reimbursement.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Reimbursement", use another DocBlock to document the file<br>
+<a name="ReimbursementMapBuilder.php"></a>
+<h1>ReimbursementMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ReimbursementMapBuilder", use another DocBlock to document the file<br>
+<a name="ReimbursementPeer.php"></a>
+<h1>ReimbursementPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ReimbursementPeer", use another DocBlock to document the file<br>
+<a name="Report.php"></a>
+<h1>Report.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Report", use another DocBlock to document the file<br>
+<a name="ReportColumn.php"></a>
+<h1>ReportColumn.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ReportColumn", use another DocBlock to document the file<br>
+<a name="ReportColumnMapBuilder.php"></a>
+<h1>ReportColumnMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ReportColumnMapBuilder", use another DocBlock to document the file<br>
+<a name="ReportColumnPeer.php"></a>
+<h1>ReportColumnPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ReportColumnPeer", use another DocBlock to document the file<br>
+<a name="ReportMapBuilder.php"></a>
+<h1>ReportMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ReportMapBuilder", use another DocBlock to document the file<br>
+<a name="ReportPeer.php"></a>
+<h1>ReportPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "ReportPeer", use another DocBlock to document the file<br>
+<a name="sfGuardUserProfile.php"></a>
+<h1>sfGuardUserProfile.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "sfGuardUserProfile", use another DocBlock to document the file<br>
+<a name="sfGuardUserProfileMapBuilder.php"></a>
+<h1>sfGuardUserProfileMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "sfGuardUserProfileMapBuilder", use another DocBlock to document the file<br>
+<a name="sfGuardUserProfilePeer.php"></a>
+<h1>sfGuardUserProfilePeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - DocBlock would be page-level, but precedes class "sfGuardUserProfilePeer", use another DocBlock to document the file<br>
+<a name="SfObjectAdvBuilder.php"></a>
+<h1>SfObjectAdvBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 8</b> - no @package tag was used in a DocBlock for class SfObjectAdvBuilder<br>
+<b>Warning on line 441</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/lib/SfObjectAdvBuilder.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="SfPeerAdvBuilder.php"></a>
+<h1>SfPeerAdvBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 5</b> - no @package tag was used in a DocBlock for class SfPeerAdvBuilder<br>
+<b>Warning on line 133</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/lib/SfPeerAdvBuilder.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="sfSettingsTools.php"></a>
+<h1>sfSettingsTools.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 1</b> - no @package tag was used in a DocBlock for class sfSettingsTools<br>
+<b>Warning on line 24</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/lib/sfSettingsTools.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="StyleHelper.php"></a>
+<h1>StyleHelper.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 169</b> - File "/Users/pablo/Sites/ARANOVA/Google/ARANet/branches/aranet_10/apps/frontend/lib/helper/StyleHelper.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<a name="Task.php"></a>
+<h1>Task.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Task", use another DocBlock to document the file<br>
+<a name="TaskMapBuilder.php"></a>
+<h1>TaskMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "TaskMapBuilder", use another DocBlock to document the file<br>
+<a name="TaskPeer.php"></a>
+<h1>TaskPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TaskPeer", use another DocBlock to document the file<br>
+<a name="TaskPriority.php"></a>
+<h1>TaskPriority.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TaskPriority", use another DocBlock to document the file<br>
+<a name="TaskPriorityMapBuilder.php"></a>
+<h1>TaskPriorityMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "TaskPriorityMapBuilder", use another DocBlock to document the file<br>
+<a name="TaskPriorityPeer.php"></a>
+<h1>TaskPriorityPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TaskPriorityPeer", use another DocBlock to document the file<br>
+<a name="Timesheet.php"></a>
+<h1>Timesheet.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Timesheet", use another DocBlock to document the file<br>
+<a name="TimesheetMapBuilder.php"></a>
+<h1>TimesheetMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "TimesheetMapBuilder", use another DocBlock to document the file<br>
+<a name="TimesheetPeer.php"></a>
+<h1>TimesheetPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TimesheetPeer", use another DocBlock to document the file<br>
+<a name="TypeOfHour.php"></a>
+<h1>TypeOfHour.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TypeOfHour", use another DocBlock to document the file<br>
+<a name="TypeOfHourMapBuilder.php"></a>
+<h1>TypeOfHourMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "TypeOfHourMapBuilder", use another DocBlock to document the file<br>
+<a name="TypeOfHourPeer.php"></a>
+<h1>TypeOfHourPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TypeOfHourPeer", use another DocBlock to document the file<br>
+<a name="TypeOfInvoiceItem.php"></a>
+<h1>TypeOfInvoiceItem.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TypeOfInvoiceItem", use another DocBlock to document the file<br>
+<a name="TypeOfInvoiceItemMapBuilder.php"></a>
+<h1>TypeOfInvoiceItemMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "TypeOfInvoiceItemMapBuilder", use another DocBlock to document the file<br>
+<a name="TypeOfInvoiceItemPeer.php"></a>
+<h1>TypeOfInvoiceItemPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "TypeOfInvoiceItemPeer", use another DocBlock to document the file<br>
+<a name="Vendor.php"></a>
+<h1>Vendor.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "Vendor", use another DocBlock to document the file<br>
+<a name="VendorMapBuilder.php"></a>
+<h1>VendorMapBuilder.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "VendorMapBuilder", use another DocBlock to document the file<br>
+<a name="VendorPeer.php"></a>
+<h1>VendorPeer.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - DocBlock would be page-level, but precedes class "VendorPeer", use another DocBlock to document the file<br>
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:46 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</body>
+</html>

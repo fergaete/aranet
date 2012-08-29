@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Client</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Client</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'aranet_client' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: Client.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---Client.php.html">/lib/model/Client.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BaseClient.html">BaseClient</a>
+      |
+      --Client</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$_indicators" title="details" class="var-name">$_indicators</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																												
+												<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getBudgetsOrderedByDate" title="details" class="method-name">getBudgetsOrderedByDate</a>
+											([<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getClientAverageMargin" title="details" class="method-name">getClientAverageMargin</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getFullName" title="details" class="method-name">getFullName</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$include_span</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../lib-model/Indicator.html">Indicator</a></span>
+										<a href="#getIndicator" title="details" class="method-name">getIndicator</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getInvoicesJoinPaymentStatusOrderByNumber" title="details" class="method-name">getInvoicesJoinPaymentStatusOrderByNumber</a>
+											([<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getLastBudgetsOrderedByDate" title="details" class="method-name">getLastBudgetsOrderedByDate</a>
+											([<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#preDelete" title="details" class="method-name">preDelete</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>&nbsp;<span class="var-name">$v</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#setIndicator" title="details" class="method-name">setIndicator</a>
+											(<span class="var-type"><a href="../../lib-model/Indicator.html">Indicator</a></span>&nbsp;<span class="var-name">$ind</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_indicators" id="$_indicators"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$_indicators</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">20</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">collection of indicators</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseClient.html">BaseClient</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$aKindOfCompany">BaseClient::$aKindOfCompany</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$alreadyInSave">BaseClient::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$alreadyInValidation">BaseClient::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$asfGuardUserRelatedByCreatedBy">BaseClient::$asfGuardUserRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$asfGuardUserRelatedByDeletedBy">BaseClient::$asfGuardUserRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$asfGuardUserRelatedByUpdatedBy">BaseClient::$asfGuardUserRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_cif">BaseClient::$client_cif</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_comments">BaseClient::$client_comments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_company_name">BaseClient::$client_company_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_has_tags">BaseClient::$client_has_tags</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_kind_of_company_id">BaseClient::$client_kind_of_company_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_since">BaseClient::$client_since</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_unique_name">BaseClient::$client_unique_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$client_website">BaseClient::$client_website</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collAddresses">BaseClient::$collAddresses</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collBudgets">BaseClient::$collBudgets</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collContacts">BaseClient::$collContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collDefaultAddress">BaseClient::$collDefaultAddress</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collDefaultContact">BaseClient::$collDefaultContact</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collInvoices">BaseClient::$collInvoices</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collObjectAddresses">BaseClient::$collObjectAddresses</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collObjectContacts">BaseClient::$collObjectContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$collProjects">BaseClient::$collProjects</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$created_at">BaseClient::$created_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$created_by">BaseClient::$created_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$deleted_at">BaseClient::$deleted_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$deleted_by">BaseClient::$deleted_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$id">BaseClient::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$lastBudgetCriteria">BaseClient::$lastBudgetCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$lastInvoiceCriteria">BaseClient::$lastInvoiceCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$lastProjectCriteria">BaseClient::$lastProjectCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$peer">BaseClient::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$updated_at">BaseClient::$updated_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$updated_by">BaseClient::$updated_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseClient.html#var$validationFailures">BaseClient::$validationFailures</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodgetBudgetsOrderedByDate" id="getBudgetsOrderedByDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBudgetsOrderedByDate</span> (line <span class="line-number">109</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns related budgets</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getBudgetsOrderedByDate
+		</span>
+					([<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Criteria</span>
+				<span class="var-name">$criteria</span><span class="var-description">: propel criteria</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetClientAverageMargin" id="getClientAverageMargin"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClientAverageMargin</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns average margin</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getClientAverageMargin
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFullName" id="getFullName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullName</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that represent the object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getFullName
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$include_span</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$include_span</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetIndicator" id="getIndicator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIndicator</span> (line <span class="line-number">51</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns an indicator for given key if exists</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../lib-model/Indicator.html">Indicator</a></span>
+		<span class="method-name">
+			getIndicator
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetInvoicesJoinPaymentStatusOrderByNumber" id="getInvoicesJoinPaymentStatusOrderByNumber"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInvoicesJoinPaymentStatusOrderByNumber</span> (line <span class="line-number">63</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns related invoices</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getInvoicesJoinPaymentStatusOrderByNumber
+		</span>
+					([<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Criteria</span>
+				<span class="var-name">$criteria</span><span class="var-description">: propel criteria</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetLastBudgetsOrderedByDate" id="getLastBudgetsOrderedByDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLastBudgetsOrderedByDate</span> (line <span class="line-number">130</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns last related budgets</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLastBudgetsOrderedByDate
+		</span>
+					([<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Criteria</span>
+				<span class="var-name">$criteria</span><span class="var-description">: propel criteria</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodpreDelete" id="preDelete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">preDelete</span> (line <span class="line-number">150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">preDelete function</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			preDelete
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>&nbsp;<span class="var-name">$v</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Client.html">Client</a></span>
+				<span class="var-name">$v</span><span class="var-description">: the client to process</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetIndicator" id="setIndicator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setIndicator</span> (line <span class="line-number">39</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets an indicator</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			setIndicator
+		</span>
+					(<span class="var-type"><a href="../../lib-model/Indicator.html">Indicator</a></span>&nbsp;<span class="var-name">$ind</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../lib-model/Indicator.html">Indicator</a></span>
+				<span class="var-name">$ind</span><span class="var-description">: the indicator</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">28</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that represent the object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseClient.html">BaseClient</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodaddAddress">BaseClient::addAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodaddBudget">BaseClient::addBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodaddContact">BaseClient::addContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodaddInvoice">BaseClient::addInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodaddProject">BaseClient::addProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodbuildCriteria">BaseClient::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodbuildPkeyCriteria">BaseClient::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodcopy">BaseClient::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodcopyInto">BaseClient::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodcountBudgets">BaseClient::countBudgets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodcountInvoices">BaseClient::countInvoices()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodcountProjects">BaseClient::countProjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methoddelete">BaseClient::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methoddoSave">BaseClient::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methoddoValidate">BaseClient::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodfromArray">BaseClient::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetAddress">BaseClient::getAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetAddresses">BaseClient::getAddresses()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgets">BaseClient::getBudgets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgetsJoinBudgetStatus">BaseClient::getBudgetsJoinBudgetStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgetsJoinInvoiceCategory">BaseClient::getBudgetsJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgetsJoinPaymentCondition">BaseClient::getBudgetsJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgetsJoinProject">BaseClient::getBudgetsJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgetsJoinsfGuardUserRelatedByCreatedBy">BaseClient::getBudgetsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgetsJoinsfGuardUserRelatedByDeletedBy">BaseClient::getBudgetsJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetBudgetsJoinsfGuardUserRelatedByUpdatedBy">BaseClient::getBudgetsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetByName">BaseClient::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetByPosition">BaseClient::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientCif">BaseClient::getClientCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientComments">BaseClient::getClientComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientCompanyName">BaseClient::getClientCompanyName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientHasTags">BaseClient::getClientHasTags()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientKindOfCompanyId">BaseClient::getClientKindOfCompanyId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientSince">BaseClient::getClientSince()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientUniqueName">BaseClient::getClientUniqueName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetClientWebsite">BaseClient::getClientWebsite()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetContact">BaseClient::getContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetContacts">BaseClient::getContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetCreatedAt">BaseClient::getCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetCreatedBy">BaseClient::getCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetDefaultAddress">BaseClient::getDefaultAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetDefaultContact">BaseClient::getDefaultContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetDeletedAt">BaseClient::getDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetDeletedBy">BaseClient::getDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetId">BaseClient::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoices">BaseClient::getInvoices()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinBudget">BaseClient::getInvoicesJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinInvoiceCategory">BaseClient::getInvoicesJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinKindOfInvoice">BaseClient::getInvoicesJoinKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinPaymentCondition">BaseClient::getInvoicesJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinPaymentMethod">BaseClient::getInvoicesJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinPaymentStatus">BaseClient::getInvoicesJoinPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinProject">BaseClient::getInvoicesJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinsfGuardUserRelatedByCreatedBy">BaseClient::getInvoicesJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinsfGuardUserRelatedByDeletedBy">BaseClient::getInvoicesJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetInvoicesJoinsfGuardUserRelatedByUpdatedBy">BaseClient::getInvoicesJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetKindOfCompany">BaseClient::getKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetObjectAddresses">BaseClient::getObjectAddresses()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetObjectContacts">BaseClient::getObjectContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetPeer">BaseClient::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetPrimaryKey">BaseClient::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetProjects">BaseClient::getProjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetProjectsJoinProjectCategory">BaseClient::getProjectsJoinProjectCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetProjectsJoinProjectStatus">BaseClient::getProjectsJoinProjectStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetProjectsJoinsfGuardUserRelatedByCreatedBy">BaseClient::getProjectsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetProjectsJoinsfGuardUserRelatedByDeletedBy">BaseClient::getProjectsJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetProjectsJoinsfGuardUserRelatedByUpdatedBy">BaseClient::getProjectsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetsfGuardUserRelatedByCreatedBy">BaseClient::getsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetsfGuardUserRelatedByDeletedBy">BaseClient::getsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetsfGuardUserRelatedByUpdatedBy">BaseClient::getsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetUpdatedAt">BaseClient::getUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetUpdatedBy">BaseClient::getUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodgetValidationFailures">BaseClient::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodhydrate">BaseClient::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodinitBudgets">BaseClient::initBudgets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodinitInvoices">BaseClient::initInvoices()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodinitProjects">BaseClient::initProjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodpostDelete">BaseClient::postDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodpostSave">BaseClient::postSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsave">BaseClient::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetAddress">BaseClient::setAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetByName">BaseClient::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetByPosition">BaseClient::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientCif">BaseClient::setClientCif()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientComments">BaseClient::setClientComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientCompanyName">BaseClient::setClientCompanyName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientHasTags">BaseClient::setClientHasTags()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientKindOfCompanyId">BaseClient::setClientKindOfCompanyId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientSince">BaseClient::setClientSince()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientUniqueName">BaseClient::setClientUniqueName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetClientWebsite">BaseClient::setClientWebsite()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetContact">BaseClient::setContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetCreatedAt">BaseClient::setCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetCreatedBy">BaseClient::setCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetDeletedAt">BaseClient::setDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetDeletedBy">BaseClient::setDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetId">BaseClient::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetKindOfCompany">BaseClient::setKindOfCompany()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetPrimaryKey">BaseClient::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetsfGuardUserRelatedByCreatedBy">BaseClient::setsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetsfGuardUserRelatedByDeletedBy">BaseClient::setsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetsfGuardUserRelatedByUpdatedBy">BaseClient::setsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetUpdatedAt">BaseClient::setUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodsetUpdatedBy">BaseClient::setUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodtoArray">BaseClient::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#methodvalidate">BaseClient::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseClient.html#method__call">BaseClient::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:26 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Invoice</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Invoice</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'aranet_invoice' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: Invoice.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---Invoice.php.html">/lib/model/Invoice.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BaseInvoice.html">BaseInvoice</a>
+      |
+      --Invoice</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																												
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#copyFrom" title="details" class="method-name">copyFrom</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$object</span>, <span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>&nbsp;<span class="var-name">$invoice</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#postSave" title="details" class="method-name">postSave</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>&nbsp;<span class="var-name">$v</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#preSave" title="details" class="method-name">preSave</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>&nbsp;<span class="var-name">$v</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateInvoice" title="details" class="method-name">updateInvoice</a>
+											([<span class="var-type">PropelConnection</span>&nbsp;<span class="var-name">$con</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseInvoice.html">BaseInvoice</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aBudget">BaseInvoice::$aBudget</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aClient">BaseInvoice::$aClient</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aInvoiceCategory">BaseInvoice::$aInvoiceCategory</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aKindOfInvoice">BaseInvoice::$aKindOfInvoice</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$alreadyInSave">BaseInvoice::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$alreadyInValidation">BaseInvoice::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aPaymentCondition">BaseInvoice::$aPaymentCondition</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aPaymentMethod">BaseInvoice::$aPaymentMethod</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aPaymentStatus">BaseInvoice::$aPaymentStatus</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$aProject">BaseInvoice::$aProject</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$asfGuardUserRelatedByCreatedBy">BaseInvoice::$asfGuardUserRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$asfGuardUserRelatedByDeletedBy">BaseInvoice::$asfGuardUserRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$asfGuardUserRelatedByUpdatedBy">BaseInvoice::$asfGuardUserRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$collContacts">BaseInvoice::$collContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$collDefaultContact">BaseInvoice::$collDefaultContact</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$collInvoiceItems">BaseInvoice::$collInvoiceItems</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$collObjectContacts">BaseInvoice::$collObjectContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$created_at">BaseInvoice::$created_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$created_by">BaseInvoice::$created_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$deleted_at">BaseInvoice::$deleted_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$deleted_by">BaseInvoice::$deleted_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$id">BaseInvoice::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_budget_id">BaseInvoice::$invoice_budget_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_category_id">BaseInvoice::$invoice_category_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_client_id">BaseInvoice::$invoice_client_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_comments">BaseInvoice::$invoice_comments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_date">BaseInvoice::$invoice_date</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_freight_charge">BaseInvoice::$invoice_freight_charge</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_kind_of_invoice_id">BaseInvoice::$invoice_kind_of_invoice_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_late_fee_percent">BaseInvoice::$invoice_late_fee_percent</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_number">BaseInvoice::$invoice_number</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_payment_check">BaseInvoice::$invoice_payment_check</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_payment_condition_id">BaseInvoice::$invoice_payment_condition_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_payment_date">BaseInvoice::$invoice_payment_date</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_payment_method_id">BaseInvoice::$invoice_payment_method_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_payment_status_id">BaseInvoice::$invoice_payment_status_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_prefix">BaseInvoice::$invoice_prefix</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_print_comments">BaseInvoice::$invoice_print_comments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_project_id">BaseInvoice::$invoice_project_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_tax_rate">BaseInvoice::$invoice_tax_rate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_title">BaseInvoice::$invoice_title</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$invoice_total_amount">BaseInvoice::$invoice_total_amount</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$lastInvoiceItemCriteria">BaseInvoice::$lastInvoiceItemCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$peer">BaseInvoice::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$updated_at">BaseInvoice::$updated_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$updated_by">BaseInvoice::$updated_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseInvoice.html#var$validationFailures">BaseInvoice::$validationFailures</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodcopyFrom" id="copyFrom"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">copyFrom</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">copy invoice</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			copyFrom
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$object</span>, <span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>&nbsp;<span class="var-name">$invoice</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>
+				<span class="var-name">$invoice</span><span class="var-description">: invoice to copy</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$object</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodpostSave" id="postSave"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">postSave</span> (line <span class="line-number">105</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">postSave function</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			postSave
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>&nbsp;<span class="var-name">$v</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>
+				<span class="var-name">$v</span><span class="var-description">: the invoice to process</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BaseInvoice.html#methodpostSave">BaseInvoice::postSave()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodpreSave" id="preSave"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">preSave</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">preSave function</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			preSave
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>&nbsp;<span class="var-name">$v</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Invoice.html">Invoice</a></span>
+				<span class="var-name">$v</span><span class="var-description">: the invoice to process</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateInvoice" id="updateInvoice"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateInvoice</span> (line <span class="line-number">36</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">updates invoice performance fields</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateInvoice
+		</span>
+					([<span class="var-type">PropelConnection</span>&nbsp;<span class="var-name">$con</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">PropelConnection</span>
+				<span class="var-name">$con</span><span class="var-description">: Database connection</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">21</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that represent the object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseInvoice.html">BaseInvoice</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodaddContact">BaseInvoice::addContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodaddInvoiceItem">BaseInvoice::addInvoiceItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodbuildCriteria">BaseInvoice::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodbuildPkeyCriteria">BaseInvoice::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodcopy">BaseInvoice::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodcopyInto">BaseInvoice::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodcountInvoiceItems">BaseInvoice::countInvoiceItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methoddelete">BaseInvoice::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methoddoSave">BaseInvoice::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methoddoValidate">BaseInvoice::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodfromArray">BaseInvoice::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetBudget">BaseInvoice::getBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetByName">BaseInvoice::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetByPosition">BaseInvoice::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetClient">BaseInvoice::getClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetContact">BaseInvoice::getContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetContacts">BaseInvoice::getContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetCreatedAt">BaseInvoice::getCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetCreatedBy">BaseInvoice::getCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetDefaultContact">BaseInvoice::getDefaultContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetDeletedAt">BaseInvoice::getDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetDeletedBy">BaseInvoice::getDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetId">BaseInvoice::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceBudgetId">BaseInvoice::getInvoiceBudgetId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceCategory">BaseInvoice::getInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceCategoryId">BaseInvoice::getInvoiceCategoryId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceClientId">BaseInvoice::getInvoiceClientId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceComments">BaseInvoice::getInvoiceComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceDate">BaseInvoice::getInvoiceDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceFreightCharge">BaseInvoice::getInvoiceFreightCharge()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceItems">BaseInvoice::getInvoiceItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceItemsJoinTypeOfInvoiceItem">BaseInvoice::getInvoiceItemsJoinTypeOfInvoiceItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceKindOfInvoiceId">BaseInvoice::getInvoiceKindOfInvoiceId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceLateFeePercent">BaseInvoice::getInvoiceLateFeePercent()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceNumber">BaseInvoice::getInvoiceNumber()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoicePaymentCheck">BaseInvoice::getInvoicePaymentCheck()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoicePaymentConditionId">BaseInvoice::getInvoicePaymentConditionId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoicePaymentDate">BaseInvoice::getInvoicePaymentDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoicePaymentMethodId">BaseInvoice::getInvoicePaymentMethodId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoicePaymentStatusId">BaseInvoice::getInvoicePaymentStatusId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoicePrefix">BaseInvoice::getInvoicePrefix()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoicePrintComments">BaseInvoice::getInvoicePrintComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceProjectId">BaseInvoice::getInvoiceProjectId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceTaxRate">BaseInvoice::getInvoiceTaxRate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceTitle">BaseInvoice::getInvoiceTitle()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetInvoiceTotalAmount">BaseInvoice::getInvoiceTotalAmount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetKindOfInvoice">BaseInvoice::getKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetObjectContacts">BaseInvoice::getObjectContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetPaymentCondition">BaseInvoice::getPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetPaymentMethod">BaseInvoice::getPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetPaymentStatus">BaseInvoice::getPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetPeer">BaseInvoice::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetPrimaryKey">BaseInvoice::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetProject">BaseInvoice::getProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetsfGuardUserRelatedByCreatedBy">BaseInvoice::getsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetsfGuardUserRelatedByDeletedBy">BaseInvoice::getsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetsfGuardUserRelatedByUpdatedBy">BaseInvoice::getsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetUpdatedAt">BaseInvoice::getUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetUpdatedBy">BaseInvoice::getUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodgetValidationFailures">BaseInvoice::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodhydrate">BaseInvoice::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodinitInvoiceItems">BaseInvoice::initInvoiceItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodpostDelete">BaseInvoice::postDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodpostSave">BaseInvoice::postSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsave">BaseInvoice::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetBudget">BaseInvoice::setBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetByName">BaseInvoice::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetByPosition">BaseInvoice::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetClient">BaseInvoice::setClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetContact">BaseInvoice::setContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetCreatedAt">BaseInvoice::setCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetCreatedBy">BaseInvoice::setCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetDeletedAt">BaseInvoice::setDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetDeletedBy">BaseInvoice::setDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetId">BaseInvoice::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceBudgetId">BaseInvoice::setInvoiceBudgetId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceCategory">BaseInvoice::setInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceCategoryId">BaseInvoice::setInvoiceCategoryId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceClientId">BaseInvoice::setInvoiceClientId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceComments">BaseInvoice::setInvoiceComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceDate">BaseInvoice::setInvoiceDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceFreightCharge">BaseInvoice::setInvoiceFreightCharge()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceKindOfInvoiceId">BaseInvoice::setInvoiceKindOfInvoiceId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceLateFeePercent">BaseInvoice::setInvoiceLateFeePercent()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceNumber">BaseInvoice::setInvoiceNumber()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoicePaymentCheck">BaseInvoice::setInvoicePaymentCheck()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoicePaymentConditionId">BaseInvoice::setInvoicePaymentConditionId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoicePaymentDate">BaseInvoice::setInvoicePaymentDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoicePaymentMethodId">BaseInvoice::setInvoicePaymentMethodId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoicePaymentStatusId">BaseInvoice::setInvoicePaymentStatusId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoicePrefix">BaseInvoice::setInvoicePrefix()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoicePrintComments">BaseInvoice::setInvoicePrintComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceProjectId">BaseInvoice::setInvoiceProjectId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceTaxRate">BaseInvoice::setInvoiceTaxRate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceTitle">BaseInvoice::setInvoiceTitle()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetInvoiceTotalAmount">BaseInvoice::setInvoiceTotalAmount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetKindOfInvoice">BaseInvoice::setKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetPaymentCondition">BaseInvoice::setPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetPaymentMethod">BaseInvoice::setPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetPaymentStatus">BaseInvoice::setPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetPrimaryKey">BaseInvoice::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetProject">BaseInvoice::setProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetsfGuardUserRelatedByCreatedBy">BaseInvoice::setsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetsfGuardUserRelatedByDeletedBy">BaseInvoice::setsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetsfGuardUserRelatedByUpdatedBy">BaseInvoice::setsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetUpdatedAt">BaseInvoice::setUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodsetUpdatedBy">BaseInvoice::setUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodtoArray">BaseInvoice::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#methodvalidate">BaseInvoice::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseInvoice.html#method__call">BaseInvoice::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:32 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

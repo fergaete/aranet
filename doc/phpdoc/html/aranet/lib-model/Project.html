@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Project</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Project</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'aranet_project' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: Project.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---Project.php.html">/lib/model/Project.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BaseProject.html">BaseProject</a>
+      |
+      --Project</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getBudgetsOrderedByDate" title="details" class="method-name">getBudgetsOrderedByDate</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFullNumber" title="details" class="method-name">getFullNumber</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFullStatus" title="details" class="method-name">getFullStatus</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getLastBudgetsOrderedByDate" title="details" class="method-name">getLastBudgetsOrderedByDate</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getMilestones" title="details" class="method-name">getMilestones</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getMilestonesAndTasks" title="details" class="method-name">getMilestonesAndTasks</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#getProjectTotalExpenses" title="details" class="method-name">getProjectTotalExpenses</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#getProjectTotalHours" title="details" class="method-name">getProjectTotalHours</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#getProjectTotalHoursCost" title="details" class="method-name">getProjectTotalHoursCost</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#getProjectTotalRevenue" title="details" class="method-name">getProjectTotalRevenue</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#postSave" title="details" class="method-name">postSave</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Project.html">Project</a></span>&nbsp;<span class="var-name">$v</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseProject.html">BaseProject</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$aClient">BaseProject::$aClient</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$alreadyInSave">BaseProject::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$alreadyInValidation">BaseProject::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$aProjectCategory">BaseProject::$aProjectCategory</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$aProjectStatus">BaseProject::$aProjectStatus</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$asfGuardUserRelatedByCreatedBy">BaseProject::$asfGuardUserRelatedByCreatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$asfGuardUserRelatedByDeletedBy">BaseProject::$asfGuardUserRelatedByDeletedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$asfGuardUserRelatedByUpdatedBy">BaseProject::$asfGuardUserRelatedByUpdatedBy</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collBudgets">BaseProject::$collBudgets</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collContacts">BaseProject::$collContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collDefaultContact">BaseProject::$collDefaultContact</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collExpenseItems">BaseProject::$collExpenseItems</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collIncomeItems">BaseProject::$collIncomeItems</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collInvoices">BaseProject::$collInvoices</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collNotifications">BaseProject::$collNotifications</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collObjectContacts">BaseProject::$collObjectContacts</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collTasks">BaseProject::$collTasks</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$collTimesheets">BaseProject::$collTimesheets</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$created_at">BaseProject::$created_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$created_by">BaseProject::$created_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$deleted_at">BaseProject::$deleted_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$deleted_by">BaseProject::$deleted_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$id">BaseProject::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$lastBudgetCriteria">BaseProject::$lastBudgetCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$lastExpenseItemCriteria">BaseProject::$lastExpenseItemCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$lastIncomeItemCriteria">BaseProject::$lastIncomeItemCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$lastInvoiceCriteria">BaseProject::$lastInvoiceCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$lastNotificationCriteria">BaseProject::$lastNotificationCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$lastTaskCriteria">BaseProject::$lastTaskCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$lastTimesheetCriteria">BaseProject::$lastTimesheetCriteria</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$peer">BaseProject::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_category_id">BaseProject::$project_category_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_client_id">BaseProject::$project_client_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_comments">BaseProject::$project_comments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_finish_date">BaseProject::$project_finish_date</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_name">BaseProject::$project_name</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_number">BaseProject::$project_number</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_prefix">BaseProject::$project_prefix</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_start_date">BaseProject::$project_start_date</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_status_id">BaseProject::$project_status_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$project_url">BaseProject::$project_url</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$updated_at">BaseProject::$updated_at</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$updated_by">BaseProject::$updated_by</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseProject.html#var$validationFailures">BaseProject::$validationFailures</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodgetBudgetsOrderedByDate" id="getBudgetsOrderedByDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBudgetsOrderedByDate</span> (line <span class="line-number">62</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns related budgets ordered by date</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getBudgetsOrderedByDate
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$criteria</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFullNumber" id="getFullNumber"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullNumber</span> (line <span class="line-number">33</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns full number (prefix+number)</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullNumber
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFullStatus" id="getFullStatus"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFullStatus</span> (line <span class="line-number">45</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string for project status</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullStatus
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetLastBudgetsOrderedByDate" id="getLastBudgetsOrderedByDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLastBudgetsOrderedByDate</span> (line <span class="line-number">81</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns related last budgets ordered by date</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLastBudgetsOrderedByDate
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$criteria</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetMilestones" id="getMilestones"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMilestones</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns related milestones</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getMilestones
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetMilestonesAndTasks" id="getMilestonesAndTasks"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMilestonesAndTasks</span> (line <span class="line-number">140</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns related milestones and task ordered</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getMilestonesAndTasks
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetProjectTotalExpenses" id="getProjectTotalExpenses"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProjectTotalExpenses</span> (line <span class="line-number">237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns total expenses amount</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			getProjectTotalExpenses
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetProjectTotalHours" id="getProjectTotalHours"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProjectTotalHours</span> (line <span class="line-number">171</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns number of hours</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			getProjectTotalHours
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetProjectTotalHoursCost" id="getProjectTotalHoursCost"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProjectTotalHoursCost</span> (line <span class="line-number">190</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns cost of hours</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			getProjectTotalHoursCost
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetProjectTotalRevenue" id="getProjectTotalRevenue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProjectTotalRevenue</span> (line <span class="line-number">209</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns revenue generated by invoices and other incomes</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			getProjectTotalRevenue
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodpostSave" id="postSave"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">postSave</span> (line <span class="line-number">101</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">postSave process</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			postSave
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Project.html">Project</a></span>&nbsp;<span class="var-name">$v</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Project.html">Project</a></span>
+				<span class="var-name">$v</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../lib-model-om/BaseProject.html#methodpostSave">BaseProject::postSave()</a></dt>
+					</dl>
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">21</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a string that represent the object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseProject.html">BaseProject</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddBudget">BaseProject::addBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddContact">BaseProject::addContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddExpenseItem">BaseProject::addExpenseItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddIncomeItem">BaseProject::addIncomeItem()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddInvoice">BaseProject::addInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddNotification">BaseProject::addNotification()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddTask">BaseProject::addTask()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodaddTimesheet">BaseProject::addTimesheet()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodbuildCriteria">BaseProject::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodbuildPkeyCriteria">BaseProject::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcopy">BaseProject::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcopyInto">BaseProject::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcountBudgets">BaseProject::countBudgets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcountExpenseItems">BaseProject::countExpenseItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcountIncomeItems">BaseProject::countIncomeItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcountInvoices">BaseProject::countInvoices()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcountNotifications">BaseProject::countNotifications()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcountTasks">BaseProject::countTasks()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodcountTimesheets">BaseProject::countTimesheets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methoddelete">BaseProject::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methoddoSave">BaseProject::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methoddoValidate">BaseProject::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodfromArray">BaseProject::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgets">BaseProject::getBudgets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgetsJoinBudgetStatus">BaseProject::getBudgetsJoinBudgetStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgetsJoinClient">BaseProject::getBudgetsJoinClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgetsJoinInvoiceCategory">BaseProject::getBudgetsJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgetsJoinPaymentCondition">BaseProject::getBudgetsJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgetsJoinsfGuardUserRelatedByCreatedBy">BaseProject::getBudgetsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgetsJoinsfGuardUserRelatedByDeletedBy">BaseProject::getBudgetsJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetBudgetsJoinsfGuardUserRelatedByUpdatedBy">BaseProject::getBudgetsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetByName">BaseProject::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetByPosition">BaseProject::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetClient">BaseProject::getClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetContact">BaseProject::getContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetContacts">BaseProject::getContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetCreatedAt">BaseProject::getCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetCreatedBy">BaseProject::getCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetDefaultContact">BaseProject::getDefaultContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetDeletedAt">BaseProject::getDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetDeletedBy">BaseProject::getDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItems">BaseProject::getExpenseItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinBudget">BaseProject::getExpenseItemsJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinExpenseCategory">BaseProject::getExpenseItemsJoinExpenseCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinPaymentMethod">BaseProject::getExpenseItemsJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinReimbursement">BaseProject::getExpenseItemsJoinReimbursement()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinsfGuardUserRelatedByCreatedBy">BaseProject::getExpenseItemsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinsfGuardUserRelatedByDeletedBy">BaseProject::getExpenseItemsJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinsfGuardUserRelatedByExpensePurchaseBy">BaseProject::getExpenseItemsJoinsfGuardUserRelatedByExpensePurchaseBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinsfGuardUserRelatedByExpenseValidateBy">BaseProject::getExpenseItemsJoinsfGuardUserRelatedByExpenseValidateBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinsfGuardUserRelatedByUpdatedBy">BaseProject::getExpenseItemsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetExpenseItemsJoinVendor">BaseProject::getExpenseItemsJoinVendor()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetId">BaseProject::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItems">BaseProject::getIncomeItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinBudget">BaseProject::getIncomeItemsJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinIncomeCategory">BaseProject::getIncomeItemsJoinIncomeCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinPaymentMethod">BaseProject::getIncomeItemsJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinReimbursement">BaseProject::getIncomeItemsJoinReimbursement()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinsfGuardUserRelatedByCreatedBy">BaseProject::getIncomeItemsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinsfGuardUserRelatedByDeletedBy">BaseProject::getIncomeItemsJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinsfGuardUserRelatedByUpdatedBy">BaseProject::getIncomeItemsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetIncomeItemsJoinVendor">BaseProject::getIncomeItemsJoinVendor()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoices">BaseProject::getInvoices()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinBudget">BaseProject::getInvoicesJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinClient">BaseProject::getInvoicesJoinClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinInvoiceCategory">BaseProject::getInvoicesJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinKindOfInvoice">BaseProject::getInvoicesJoinKindOfInvoice()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinPaymentCondition">BaseProject::getInvoicesJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinPaymentMethod">BaseProject::getInvoicesJoinPaymentMethod()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinPaymentStatus">BaseProject::getInvoicesJoinPaymentStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinsfGuardUserRelatedByCreatedBy">BaseProject::getInvoicesJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinsfGuardUserRelatedByDeletedBy">BaseProject::getInvoicesJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetInvoicesJoinsfGuardUserRelatedByUpdatedBy">BaseProject::getInvoicesJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetNotifications">BaseProject::getNotifications()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetNotificationsJoinsfGuardUserRelatedByCreatedBy">BaseProject::getNotificationsJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetNotificationsJoinsfGuardUserRelatedByUpdatedBy">BaseProject::getNotificationsJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetObjectContacts">BaseProject::getObjectContacts()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetPeer">BaseProject::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetPrimaryKey">BaseProject::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectCategory">BaseProject::getProjectCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectCategoryId">BaseProject::getProjectCategoryId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectClientId">BaseProject::getProjectClientId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectComments">BaseProject::getProjectComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectFinishDate">BaseProject::getProjectFinishDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectName">BaseProject::getProjectName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectNumber">BaseProject::getProjectNumber()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectPrefix">BaseProject::getProjectPrefix()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectStartDate">BaseProject::getProjectStartDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectStatus">BaseProject::getProjectStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectStatusId">BaseProject::getProjectStatusId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetProjectUrl">BaseProject::getProjectUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetsfGuardUserRelatedByCreatedBy">BaseProject::getsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetsfGuardUserRelatedByDeletedBy">BaseProject::getsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetsfGuardUserRelatedByUpdatedBy">BaseProject::getsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTasks">BaseProject::getTasks()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTasksJoinBudget">BaseProject::getTasksJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTasksJoinMilestone">BaseProject::getTasksJoinMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTasksJoinsfGuardUserRelatedByCreatedBy">BaseProject::getTasksJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTasksJoinsfGuardUserRelatedByDeletedBy">BaseProject::getTasksJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTasksJoinsfGuardUserRelatedByUpdatedBy">BaseProject::getTasksJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTasksJoinTaskPriority">BaseProject::getTasksJoinTaskPriority()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTimesheets">BaseProject::getTimesheets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTimesheetsJoinBudget">BaseProject::getTimesheetsJoinBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTimesheetsJoinMilestone">BaseProject::getTimesheetsJoinMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTimesheetsJoinsfGuardUser">BaseProject::getTimesheetsJoinsfGuardUser()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTimesheetsJoinTask">BaseProject::getTimesheetsJoinTask()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetTimesheetsJoinTypeOfHour">BaseProject::getTimesheetsJoinTypeOfHour()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetUpdatedAt">BaseProject::getUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetUpdatedBy">BaseProject::getUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodgetValidationFailures">BaseProject::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodhydrate">BaseProject::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodinitBudgets">BaseProject::initBudgets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodinitExpenseItems">BaseProject::initExpenseItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodinitIncomeItems">BaseProject::initIncomeItems()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodinitInvoices">BaseProject::initInvoices()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodinitNotifications">BaseProject::initNotifications()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodinitTasks">BaseProject::initTasks()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodinitTimesheets">BaseProject::initTimesheets()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodpostDelete">BaseProject::postDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodpostSave">BaseProject::postSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsave">BaseProject::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetByName">BaseProject::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetByPosition">BaseProject::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetClient">BaseProject::setClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetContact">BaseProject::setContact()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetCreatedAt">BaseProject::setCreatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetCreatedBy">BaseProject::setCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetDeletedAt">BaseProject::setDeletedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetDeletedBy">BaseProject::setDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetId">BaseProject::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetPrimaryKey">BaseProject::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectCategory">BaseProject::setProjectCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectCategoryId">BaseProject::setProjectCategoryId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectClientId">BaseProject::setProjectClientId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectComments">BaseProject::setProjectComments()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectFinishDate">BaseProject::setProjectFinishDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectName">BaseProject::setProjectName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectNumber">BaseProject::setProjectNumber()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectPrefix">BaseProject::setProjectPrefix()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectStartDate">BaseProject::setProjectStartDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectStatus">BaseProject::setProjectStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectStatusId">BaseProject::setProjectStatusId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetProjectUrl">BaseProject::setProjectUrl()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetsfGuardUserRelatedByCreatedBy">BaseProject::setsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetsfGuardUserRelatedByDeletedBy">BaseProject::setsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetsfGuardUserRelatedByUpdatedBy">BaseProject::setsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetUpdatedAt">BaseProject::setUpdatedAt()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodsetUpdatedBy">BaseProject::setUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodtoArray">BaseProject::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#methodvalidate">BaseProject::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseProject.html#method__call">BaseProject::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:39 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>
