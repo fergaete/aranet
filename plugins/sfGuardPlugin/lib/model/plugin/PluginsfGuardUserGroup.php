@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: PluginsfGuardUserGroup.php 11426 2008-09-10 06:34:47Z fabien $
  */
 class PluginsfGuardUserGroup extends BasesfGuardUserGroup
 {

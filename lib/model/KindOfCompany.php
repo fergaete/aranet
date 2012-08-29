@@ -6,18 +6,19 @@
  * @package    aranet
  * @subpackage lib.model
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: KindOfCompany.php 3 2008-08-06 07:48:19Z pablo $
  */
 
 class KindOfCompany extends BaseKindOfCompany
 {
-
-    public function __construct()
-	  {
-			  parent::__construct();
-	  }
-
-    public function __toString() {
-        return $this->getKindOfCompanyTitle();
-    }
+  
+  /**
+   * returns a string that represent the object
+   *
+   * @return string
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function __toString() {
+    return $this->getKindOfCompanyTitle();
+  }
 }

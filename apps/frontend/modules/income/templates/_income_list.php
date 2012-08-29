@@ -1,6 +1,6 @@
-<?php if (count($income_items)) : ?>
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<div class="windowFrame" id="<?php echo $related ?>ViewIncomes">
+<div id="<?php echo $id ?>">
+<div class="windowFrame">
     <table class="dataTable">
         <thead>
             <tr>
@@ -62,6 +62,3 @@
 </div>
 <?php endif ?>
 </div>
-<?php else : ?>
-  <p><?php echo __('No related income items yet') ?></p>
-<?php endif ?>

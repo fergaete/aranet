@@ -6,7 +6,7 @@
  * @package    ARANet
  * @subpackage address
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 50 2008-12-05 23:18:18Z aranova $
  */
 class addressActions extends anActions
 {
@@ -14,10 +14,11 @@ class addressActions extends anActions
   /**
    * executes minilist action
    *
-   * @param  sfWebRequest $request a request object
+   * @param  object $request the request
+   * @return void
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  public function executeMinilist($request)
+  public function executeMinilist(sfWebRequest $request)
   {
     $class_peer = $request->getParameter('related') . 'Peer';
     if (class_exists($class_peer)) {
@@ -34,21 +35,22 @@ class addressActions extends anActions
   /**
    * executes edit action
    *
-   * @param  sfWebRequest $request a request object
+   * @param  object $request the request
+   * @return void
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  public function executeEdit($request)
+  public function executeEdit(sfWebRequest $request)
   {
     if ($edit = $request->hasParameter('id'))
     {
-      $this->address = $this->getObject();
+      $this->contact = $this->getObject();
     }
     else
     {
       $this->address = new Address();
     }
     
-    $this->form = new AddressForm($this->address);
+    $this->form = new anContactEditForm($address);
     
     if ($request->isMethod('post'))
     {
@@ -63,7 +65,7 @@ class addressActions extends anActions
         
         $this->setFlash('success', $this->__($edit ? 'Address edited.' : 'Address created.'));
 
-        return $this->redirect('@address_show_by_id?id='.$address->getId());
+        return $this->redirect('@address_show_by_id?id='.$contact->getId());
       }
     }
   }
@@ -71,10 +73,9 @@ class addressActions extends anActions
   /**
    * executes deleteObject action
    *
-   * @param  sfWebRequest $request a request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeDeleteObject($request)
+  public function executeDeleteObject(sfWebRequest $request)
   {
     $c = new Criteria();
     $class = $request->getParameter('related');
@@ -88,23 +89,22 @@ class addressActions extends anActions
   /**
    * executes autocomplete action
    *
-   * @param  sfWebRequest $request a request object
+   * @param  object $request the request
+   * @return void
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    **/
-  public function executeAutocomplete($request)
+  public function executeAutocomplete(sfWebRequest $request)
   {
     sfConfig::set('sf_web_debug', false);
     $name = $request->getParameter('query');
     $this->setLayout(false);
     $this->addresses = AddressPeer::getAddressesLike($name);
-    return sfView::SUCCESS;
   }
 
   /**
    * add filter criteria
    *
-   * @param Criteria $c A criteria object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param Criteria $c
    */
   protected function addFiltersCriteria ($c)
   {
@@ -118,30 +118,21 @@ class addressActions extends anActions
    * Returns the column name to sort list by default
    *
    * @return string
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function getDefaultSortField()
   {
     return 'address_line1';
   }
-
-  /**
-   * Returns the table columns
-   *
-   * @return array
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
+  
   public function getColumns()
   {
-    $c = sfCultureInfo::getInstance(sfContext::getInstance()->getUser()->getCulture());
-    $countries = $c->getCountries();
     $keys = array(
         array('name' => 'id'),
-        array('name' => 'address_line1', 'label' => $this->__('Street'), 'sortable' => true, 'editor' => 'textbox'),
-        array('name' => 'address_location', 'label' => $this->__('Location'), 'sortable' => true, 'editor' => 'textbox'),
-        array('name' => 'address_state', 'label' => $this->__('State'), 'sortable' => true, 'editor' => 'textbox'),
-        array('name' => 'address_postal_code', 'label' => $this->__('Code'), 'sortable' => true, 'parser' => 'postal_code', 'editor' => 'textbox'),
-        array('name' => 'address_country', 'label' => $this->__('Country'), 'sortable' => true, 'editor' => 'dropdown', 'options' => $countries)
+        array('name' => 'address_line1', 'label' => $this->__('Street'), 'sortable' => true, 'editor' => true),
+        array('name' => 'address_location', 'label' => $this->__('Location'), 'sortable' => true, 'editor' => true),
+        array('name' => 'address_state', 'label' => $this->__('State'), 'sortable' => true, 'editor' => true),
+        array('name' => 'address_postal_code', 'label' => $this->__('Code'), 'sortable' => true, 'editor' => true),
+        array('name' => 'address_country', 'label' => $this->__('Country'), 'sortable' => true, 'editor' => true)
         );
     return $keys;
   }

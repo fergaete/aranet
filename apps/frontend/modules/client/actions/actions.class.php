@@ -1,27 +1,26 @@
 <?php
 
 /**
-  * client actions.
-  *
-  * @package    ARANet
-  * @subpackage client
-  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
-  * @version    SVN: $Id$
-  */
+ * client actions.
+ *
+ * @package    aranet
+ * @subpackage client
+ * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
+ */
 class clientActions extends anActions
 {
 
   /**
    * executes edit action
    *
-   * @param sfWenRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeEdit($request)
+  public function executeEdit(sfWebRequest $request)
   {
     $this->client = $this->getObject();
     $edit = $request->hasParameter('id');
-    $this->form = new ClientForm($this->client);
+    $this->form = new ClientForm($this->client, array('url' => $this->getController()->genUrl('contact/autocomplete')));
     
     if ($request->isMethod('post'))
     {
@@ -36,7 +35,7 @@ class clientActions extends anActions
         if ($cli['tags']['name']) {
           $client->setClientHasTags(true);
         }
-        $client->setContacts($cli['contact']);
+        $client->setContacts($cli['contacts']);    
         $client->setAddresses($cli['address']);
         $client->save();
         
@@ -48,23 +47,121 @@ class clientActions extends anActions
   }
 
   /**
+   * returns client from params
+   *
+   * @return Client
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getClient()
+  {
+    if ($this->hasRequestParameter('id')) {
+      $client = ClientPeer::retrieveByPk($this->getRequestParameter('id'));
+      $this->forward404Unless($client);
+    } else {
+      $client = new Client();
+    }
+    return $client;
+  }
+
+  /**
+   * executes stats action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeStats(sfWebRequest $request)
+  {
+    $this->client = $this->getClient();
+    return sfView::SUCCESS;
+  }
+
+  /**
    * executes autocomplete action
    *
-   * @param sfWenRequest $request A request object
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function executeAutocomplete($request)
+   **/
+  public function executeAutocomplete(sfWebRequest $request)
   {
     sfConfig::set('sf_web_debug', false);
-    $name = $request->getParameter('query');
-    $this->setLayout(false);
-    $this->clients = ClientPeer::getClientsLike($name);
+    $client_name = $request->getParameter('filters[client_name]', $request->getParameter('client_name'));
+    if (!$client_name) {
+      $client_name = $request->getParameter('company_name');
+    }
+    $this->clients = ClientPeer::getClientsLike($client_name);
+    return sfView::SUCCESS;
+  }
+
+  /**
+   * executes update action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $client = $this->getClient();
+    // Process contacts
+    $contacts = ContactPeer::processContact($this->getRequest()->getParameterHolder()->getAll());
+    if ($contacts) {
+      $i = 0;
+      foreach($contacts as $contact) {
+        $client->addContact($contact, ($i==0));
+        $i++;
+      }
+    }
+    // Process addresses
+    $addresses = AddressPeer::processAddress($this->getRequest()->getParameterHolder()->getAll());
+    if ($addresses) {
+      if (count($addresses)) {
+        $addresses[0]->setAddressIsDefault(true);
+      }
+      foreach($addresses as $address) {
+        $client->addAddress($address);
+      }
+    }
+
+    $client->setClientUniqueName($request->getParameter('client_unique_name'));
+    $client->setClientCompanyName($request->getParameter('client_company_name'));
+    $client->setClientCif($request->getParameter('client_cif'));
+    $client->setClientKindOfCompanyId($request->getParameter('client_kind_of_company_id') ? $request->getParameter('client_kind_of_company_id') : null);
+    if ($request->getParameter('client_since'))
+    {
+      list($d, $m, $y) = sfI18N::getDateForCulture($request->getParameter('client_since'), $this->getUser()->getCulture());
+      $client->setClientSince("$y-$m-$d");
+    }
+    $client->setClientWebsite($request->getParameter('client_website'));
+    $client->setClientComments($request->getParameter('client_comments'));
+    $client->removeAllTags();
+    $client->addTag($request->getParameter('tags') ? $request->getParameter('tags') : null);
+
+    $client->save();
+
+    return $this->redirect('@client_show_by_id?id='.$client->getId());
+  }
+
+  /**
+   * executes editbusiness action
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  public function executeEditbusiness(sfWebRequest $request)
+  {
+    $this->business = KindOfCompanyPeer::doSelect(new Criteria());
+    return sfView::SUCCESS;
+  }
+
+  /**
+   * returns order column
+   *
+   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   **/
+  protected function getSortField()
+  {
+    return 'client_unique_name';
   }
 
   /**
    * add filter criteria
    * 
-   * @param Criteria $c A criteria object
+   * @param Criteria $c
    * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function addFiltersCriteria ($c)
@@ -95,37 +192,5 @@ class clientActions extends anActions
       $c->add($criterion);
     }
   }
-
-  /**
-   * Returns the column name to sort list by default
-   *
-   * @return string
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  protected function getDefaultSortField()
-  {
-    return 'client_company_name';
-  }
-
-  /**
-   * Returns the table columns
-   *
-   * @return array
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
-  public function getColumns()
-  {
-    $keys = array(
-        array('name' => 'id'),
-        array('name' => 'actions', 'label' => $this->__('Actions')),
-        array('name' => 'client_company_name', 'label' => $this->__('Company'), 'sortable' => true, 'editor' => 'textbox'),
-        array('name' => 'contact', 'label' => $this->__('Main contact')),
-        array('name' => 'phone', 'label' => $this->__('Phone')),
-        array('name' => 'nb_projects', 'label' => $this->__('Projects')),
-        array('name' => 'revenue', 'label' => $this->__('Revenue'))
-        );
-    return $keys;
-  }
-  
 
 }

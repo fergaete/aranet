@@ -9,7 +9,6 @@
     <table>
     <tr>
         <td class="leftSide">
-            <h4><?php echo $contact ?></h4>
             <?php include_partial('contact/basic_data', array('contact' => $contact, 'show_data' => false)) ?>
         </td>
         <td class="rightSide">

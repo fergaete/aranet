@@ -6,7 +6,7 @@
  * @package    ARANet
  * @subpackage form
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: anAddressEditForm.class.php 50 2008-12-05 23:18:18Z aranova $
  */
 class anAddressEditForm extends BaseFormPropel
 {

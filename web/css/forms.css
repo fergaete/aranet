@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-input, textarea, select {border:1px solid #ccc;padding:.3em;}
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus, input.autocomplete:focus {background: #ECF5FD;border:1px solid #6699CC;}
+input[type="text"], textarea, select {border:1px solid #ccc;padding:.3em;}
+input[type="text"]:focus {background: #ECF5FD;border:1px solid #6699CC;}
 label {width:120px;padding:.3em;white-space:nowrap;}
 label:after {content:":";}
 
@@ -9,26 +9,14 @@ label:after {content:":";}
 .error_list li{list-style:none;padding:.3em;}
 .help{font-size:.93em;color:#555;margin-top:.1em;}
 
-.form input[type="text"], .form input[type="password"], .form textarea, .form select {
-  width:25em;
-}
-
-.form .separator {
+.form input[type="text"], .form textarea, .form select {
   float:left;
-  margin-right:.5em;
+  width:28em;
 }
-.form input.large {
-  width:35em;
-}
-
-.module-filters input.tiny {
-  width:5em;
-}
-
 
 .form label.float {
   float:left;
-  margin-left:10px!important;
+  padding-left:10px;
 }
 
 .form label.float-first {
@@ -36,67 +24,26 @@ label:after {content:":";}
 }
 
 .form label.required {
-  background: url("/images/iconRequired.gif") no-repeat 2px 6px;
-  padding-left: 10px;
+	background: url("/images/iconRequired.gif") no-repeat 2px 6px;
+	padding-left: 10px;
 }
 
-.signin input[type="text"], .signin input[type="password"]{width:100%;}
 
-input.autocomplete { position:static!important;width:25em;float:left;} /* to center, set static and explicit width: */
-div.autocomplete { text-align:left;width:25em;} /* to center, set left-align and explicit width: */
-div.large {width:35em!important;} /* to center, set left-align and explicit width: */
+.form .width-auto {width:auto !important;}
+
+.form .medium {width:150px}
+.form .small {width:90px}
+.form .smaller {width:60px}
+.form .tiny {width:40px}
+
+.signin input[type="text"], .signin input[type="password"]{width:150px;}
+
+input.autocomplete { position:static!important;width:25em!important; } /* to center, set static and explicit width: */
+div.autocomplete { text-align:left;width:25em!important; } /* to center, set left-align and explicit width: */
 
 .formActions{background:#F6F4F0;width:100%;padding:2px 0;}
 .formActions td{text-align:center;}
 
-.form .width-auto {width:auto !important;}
-.form .medium {width:150px!important}
-.form .small {width:90px!important}
-.form .smaller {width:60px!important}
-.form .tiny {width:40px!important}
-.form .full {width:98%!important}
-
-.form .newline {
-    clear: both;
-    display:block;
-    padding-top:1em;
-}
-
 /* YUI */
 .yui-cal-nav label {float:none;display:block;}
 .yui-cal-nav input, .yui-cal-nav select {float:none;display:block;}
-.yui_select {float:left;}
-ul.error_list{float:left;}
-
-/***** FIELD STYLES *****/
-/* Deprecated */
-.form-text, .form-combobox, .form-textarea {
-width:350px!important;
-}
-.form-date {
-width:100px!important;
-}
-.form-medium-text, .form-medium-combobox, .form-medium-textarea {
-width:200px!important;
-}
-.form-small-text, .form-small-combobox, .form-small-textarea {
-width:150px!important;
-}
-.form-tiny-text, .form-tiny-combobox, .form-tiny-date {
-width:60px!important;
-}
-.form-smallest-text {
-width:30px!important;
-}
-.form-full-textarea{width:100%;}
-.form-auto-text{width:auto;}
-.form-number-text {
-width:80px!important;
-}
-
-.form-full-text {
-width:100%!important;
-}
-
-.form-save{background:#f00 url(/images/button_save.gif) no-repeat 0 0; width:60px;height:17px;padding:0;border:0;margin:0 0 4px 0;}
-.form-save span{display:none}

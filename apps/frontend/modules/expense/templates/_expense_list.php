@@ -1,6 +1,6 @@
-<?php if (count($expense_items)) : ?>
 <?php use_helper('Number', 'NumberExtended', 'Javascript') ?>
-<div class="windowFrame" id="<?php echo $related ?>ViewExpenses">
+<div id="<?php echo $id ?>">
+<div class="windowFrame">
     <table class="dataTable">
         <thead>
             <tr>
@@ -60,6 +60,3 @@
 </div>
 <?php endif ?>
 </div>
-<?php else : ?>
-  <p><?php echo __('No related expense items yet') ?></p>
-<?php endif ?>

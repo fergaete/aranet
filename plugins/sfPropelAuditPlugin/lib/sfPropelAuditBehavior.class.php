@@ -6,7 +6,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Sacha Telgenhof Oude Koehorst <s.telgenhof@xs4all.nl>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfPropelAuditBehavior.class.php 16 2008-11-16 17:52:47Z aranova $
  */
 class sfPropelAuditBehavior
 {

@@ -6,7 +6,7 @@
  * @package    aranet
  * @subpackage lib.model
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: Contact.php 49 2008-12-05 11:23:56Z aranova $
  */
 
 class Contact extends BaseContact

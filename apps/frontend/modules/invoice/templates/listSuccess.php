@@ -1,5 +1,5 @@
 <?php use_helper('Object') ?>
-<?php $sf_context->getResponse()->setTitle(TITLE . ' > ' . __('List invoices')) ?>
+<?php aranet_title(__('List invoices')) ?>
 <h3>
 <?php if (isset($tag)) : 
  echo __('View all invoices tagged with "%1%"', array('%1%' => $tag));

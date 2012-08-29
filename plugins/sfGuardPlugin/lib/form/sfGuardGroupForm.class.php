@@ -5,7 +5,7 @@
  *
  * @package    form
  * @subpackage sf_guard_group
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardGroupForm.class.php 12896 2008-11-10 19:02:34Z fabien $
  */
 class sfGuardGroupForm extends BasesfGuardGroupForm
 {

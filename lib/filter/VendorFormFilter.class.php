@@ -6,7 +6,7 @@
  * @package    ARANet
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id$
+ * @version    SVN: $Id: VendorFormFilter.class.php 49 2008-12-05 11:23:56Z aranova $
  */
 class VendorFormFilter extends BaseVendorFormFilter
 {

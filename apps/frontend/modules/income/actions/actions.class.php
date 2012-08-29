@@ -6,7 +6,7 @@
  * @package    aranet
  * @subpackage income
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $
  */
 class incomeActions extends anActions
 {

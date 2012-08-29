@@ -1,5 +1,5 @@
 <?php use_helper('Number', 'Javascript', 'gWidgets') ?>
-<?php echo form_tag('invoice/deleteall', 'name="chklist"') ?>
+<?php echo form_tag('invoice/delete', 'name="chklist"') ?>
 <div id="invoiceDisplay" style="width: 100%;" class="windowFrame">
     <table class="dataTable">
         <thead>
@@ -49,9 +49,9 @@
                 <td class="actions" id="invoiceMenu_<?php echo $invoice->getId() ?>">
                     <div class="objectActions">
                         <ul>
-                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__("View").'"'), 'invoice/show?id='.$invoice->getId()) ?></li>
-                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__("Edit").'"'), 'invoice/edit?id='.$invoice->getId()) ?></li>
-                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__("Delete").'"'), array(
+                            <li><?php echo link_to(image_tag("/images/button_view.gif", 'alt="'.__('View').'"'), 'invoice/show?id='.$invoice->getId()) ?></li>
+                            <li><?php echo link_to(image_tag("/images/button_edit.gif", 'alt="'.__('Edit').'"'), 'invoice/edit?id='.$invoice->getId()) ?></li>
+                            <li><?php echo link_to_remote(image_tag("/images/button_delete.gif", 'alt="'.__('Delete').'"'), array(
                                 'update'   => 'invoice_'.$invoice->getId(),
                                 'url'      => 'invoice/delete?id='.$invoice->getId(),
                                 'confirm'  => __('Are you sure?'),
@@ -101,7 +101,7 @@
 <div class="listActions">
 <ul>
   <li><?php echo __('For selected elements') ?> :</li>
-  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="'.__('Delete selected').'"'),"document.chklist.submit()") ?></li>
+  <li><?php echo link_to_function(image_tag("button_delete.gif", 'alt="Delete selected"'),"document.chklist.submit()") ?></li>
 </ul>
 </div>
 

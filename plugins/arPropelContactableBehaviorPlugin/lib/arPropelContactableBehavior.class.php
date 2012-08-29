@@ -98,7 +98,7 @@ class arPropelContactableBehavior
   {
     return self::getContactsHolder($object)->getAll('default_contact');
   }
-  
+
   public function getDefaultContact(BaseObject $object)
   {
     $contacts = $this->getContacts($object);
@@ -128,6 +128,7 @@ class arPropelContactableBehavior
    */
   public function addContact(BaseObject $object, $contact)
   {
+
     $contact_names = arPropelContactableToolkit::explodeContactString($contact['name']);
 
     if (is_array($contact_names))
@@ -336,8 +337,6 @@ class arPropelContactableBehavior
   public function setContacts(BaseObject $object, $contacts)
   {
     $this->removeAllContacts($object);
-    foreach ($contacts as $contact) {
-      $this->addContact($object, $contact);
-    }
+    $this->addContact($object, $contacts);
   }
 }

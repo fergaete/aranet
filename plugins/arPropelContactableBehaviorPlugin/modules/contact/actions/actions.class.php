@@ -6,7 +6,7 @@
  * @package    ARANet
  * @subpackage contact
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: actions.class.php 49 2008-12-05 11:23:56Z aranova $
  */
 class contactActions extends anActions
 {
@@ -14,10 +14,9 @@ class contactActions extends anActions
   /**
    * executes minilist action
    *
-   * @param sfWebRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeMinilist($request)
+  public function executeMinilist(sfWebRequest $request)
   {
     $class_peer = $request->getParameter('related') . 'Peer';
     if (class_exists($class_peer)) {
@@ -34,10 +33,9 @@ class contactActions extends anActions
   /**
    * executes history action
    *
-   * @param sfWebRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeHistory($request)
+  public function executeHistory(sfWebRequest $request)
   {
     $this->contact = $this->getObject();
     return sfView::SUCCESS;
@@ -46,10 +44,9 @@ class contactActions extends anActions
   /**
    * executes edit action
    *
-   * @param sfWebRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeEdit($request)
+  public function executeEdit(sfWebRequest $request)
   {
     if ($edit = $request->hasParameter('id'))
     {
@@ -60,7 +57,7 @@ class contactActions extends anActions
       $this->contact = new Contact();
     }
     
-    $this->form = new ContactForm($this->contact);
+    $this->form = new anContactEditForm($this->contact);
     
     if ($request->isMethod('post'))
     {
@@ -85,10 +82,9 @@ class contactActions extends anActions
   /**
    * executes miniedit action
    *
-   * @param sfWebRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeMiniedit($request)
+  public function executeMiniedit(sfWebRequest $request)
   {
     return sfView::SUCCESS;
   }
@@ -96,10 +92,9 @@ class contactActions extends anActions
   /**
    * executes deleteObject action
    *
-   * @param sfWebRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeDeleteObject($request)
+  public function executeDeleteObject(sfWebRequest $request)
   {
     $c = new Criteria();
     $class = $request->getParameter('related');
@@ -113,23 +108,20 @@ class contactActions extends anActions
   /**
    * executes autocomplete action
    *
-   * @param sfWebRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
-  public function executeAutocomplete($request)
+  public function executeAutocomplete()
   {
     sfConfig::set('sf_web_debug', false);
     $name = $this->getRequestParameter('query');
     $this->setLayout(false);
     $this->contacts = ContactPeer::getContactsLike($name);
-    return sfView::SUCCESS;
   }
 
   /**
    * executes getCompanies action
    *
-   * @param sfWebRequest $request A request object
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
+   * @param $request
    */
   public function executeGetCompanies()
   {
@@ -147,7 +139,7 @@ class contactActions extends anActions
   /**
    * add filter criteria
    *
-   * @param Criteria $c A criteria object
+   * @param Criteria $c
    */
   protected function addFiltersCriteria ($c)
   {
@@ -162,29 +154,22 @@ class contactActions extends anActions
    * Returns the column name to sort list by default
    *
    * @return string
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
    */
   protected function getDefaultSortField()
   {
     return 'name';
   }
-
-  /**
-   * Returns the table columns
-   *
-   * @return array
-   * @author Pablo Sánchez <pablo.sanchez@aranova.es>
-   */
+  
   public function getColumns()
   {
     $keys = array(
         array('name' => 'id'),
         array('name' => 'actions', 'label' => $this->__('Actions')),
-        array('name' => 'name', 'label' => $this->__('Name'), 'sortable' => true, 'editor' => 'textbox'),
-        array('name' => 'contact_email', 'label' => $this->__('E-Mail'), 'sortable' => true, 'editor' => 'textbox', 'parser' => 'email'),
+        array('name' => 'name', 'label' => $this->__('Name'), 'sortable' => true, 'editor' => true),
+        array('name' => 'contact_email', 'label' => $this->__('E-Mail'), 'sortable' => true, 'editor' => true, 'parser' => 'email'),
         array('name' => 'contact_phone', 'label' => $this->__('Phone')),
         array('name' => 'contact_fax', 'label' => $this->__('Fax')),
-        array('name' => 'contact_mobile', 'label' => $this->__('Mobile'), 'editor' => 'textbox'),
+        array('name' => 'contact_mobile', 'label' => $this->__('Mobile')),
         array('name' => 'contact_address', 'label' => $this->__('Address'))
         );
     return $keys;

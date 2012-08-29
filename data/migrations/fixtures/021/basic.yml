@@ -1,0 +1,12 @@
+KindOfInvoice:
+  normal:
+    id: 1
+    kind_of_invoice_title:             Factura
+
+  proforma:
+    id: 2
+    kind_of_invoice_title:             Factura proforma
+
+  abono:
+    id: 3
+    kind_of_invoice_title:             Abono

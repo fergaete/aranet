@@ -1,13 +1,12 @@
 <?php
 
-
-
-class DefaultIndicator extends BaseDefaultIndicator {
-
-	
-	public function __construct()
-	{
-						parent::__construct();
-	}
-
-} 
+/**
+ * Subclass for representing a row from the 'aranet_default_indicator' table.
+ *
+ * 
+ *
+ * @package lib.model
+ */ 
+class DefaultIndicator extends BaseDefaultIndicator
+{
+}

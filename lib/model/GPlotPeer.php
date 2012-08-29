@@ -1,7 +1,12 @@
 <?php
 
-
-
-class GPlotPeer extends BaseGPlotPeer {
-
-} 
+/**
+ * Subclass for performing query and update operations on the 'aranet_plot' table.
+ *
+ * 
+ *
+ * @package lib.model
+ */ 
+class GPlotPeer extends BaseGPlotPeer
+{
+}

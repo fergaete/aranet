@@ -84,7 +84,6 @@ CREATE TABLE `aranet_project`
 	`project_start_date` DATE,
 	`project_finish_date` DATE,
 	`project_status_id` INTEGER default null,
-	`project_has_tags` TINYINT(1) default 0,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,
@@ -246,7 +245,7 @@ CREATE TABLE `aranet_project_milestone`
 	KEY `milestone_project_id_idx2`(`milestone_project_id`),
 	CONSTRAINT `aranet_project_milestone_FK_1`
 		FOREIGN KEY (`milestone_project_id`)
-		REFERENCES `aranet_project` (`id`)
+		REFERENCES `aranet_budget` (`id`)
 		ON DELETE CASCADE,
 	INDEX `aranet_project_milestone_FI_2` (`milestone_budget_id`),
 	CONSTRAINT `aranet_project_milestone_FK_2`
@@ -340,7 +339,7 @@ CREATE TABLE `aranet_project_frequently_task`
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`task_title` VARCHAR(255)  NOT NULL,
 	`task_description` TEXT,
-	`task_priority_id` INTEGER,
+	`task_priority_id` INTEGER default null,
 	`created_at` DATETIME,
 	`created_by` INTEGER default null,
 	`updated_at` DATETIME,
@@ -349,16 +348,20 @@ CREATE TABLE `aranet_project_frequently_task`
 	`deleted_by` INTEGER default null,
 	PRIMARY KEY (`id`),
 	KEY `task_title_idx`(`task_title`),
-	INDEX `aranet_project_frequently_task_FI_1` (`created_by`),
+	INDEX `aranet_project_frequently_task_FI_1` (`task_priority_id`),
 	CONSTRAINT `aranet_project_frequently_task_FK_1`
+		FOREIGN KEY (`task_priority_id`)
+		REFERENCES `aranet_task_priority` (`id`),
+	INDEX `aranet_project_frequently_task_FI_2` (`created_by`),
+	CONSTRAINT `aranet_project_frequently_task_FK_2`
 		FOREIGN KEY (`created_by`)
 		REFERENCES `sf_guard_user` (`id`),
-	INDEX `aranet_project_frequently_task_FI_2` (`updated_by`),
-	CONSTRAINT `aranet_project_frequently_task_FK_2`
+	INDEX `aranet_project_frequently_task_FI_3` (`updated_by`),
+	CONSTRAINT `aranet_project_frequently_task_FK_3`
 		FOREIGN KEY (`updated_by`)
 		REFERENCES `sf_guard_user` (`id`),
-	INDEX `aranet_project_frequently_task_FI_3` (`deleted_by`),
-	CONSTRAINT `aranet_project_frequently_task_FK_3`
+	INDEX `aranet_project_frequently_task_FI_4` (`deleted_by`),
+	CONSTRAINT `aranet_project_frequently_task_FK_4`
 		FOREIGN KEY (`deleted_by`)
 		REFERENCES `sf_guard_user` (`id`)
 )Type=InnoDB;
@@ -502,7 +505,7 @@ DROP TABLE IF EXISTS `aranet_payment_method`;
 
 CREATE TABLE `aranet_payment_method`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`payment_method_title` VARCHAR(128),
 	PRIMARY KEY (`id`),
 	KEY `payment_method_title_idx`(`payment_method_title`)
@@ -517,7 +520,7 @@ DROP TABLE IF EXISTS `aranet_invoice_category`;
 
 CREATE TABLE `aranet_invoice_category`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`category_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `category_title_idx`(`category_title`)
@@ -532,7 +535,7 @@ DROP TABLE IF EXISTS `aranet_kind_of_invoice`;
 
 CREATE TABLE `aranet_kind_of_invoice`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`kind_of_invoice_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `kind_of_invoice_title_idx`(`kind_of_invoice_title`)
@@ -575,7 +578,7 @@ DROP TABLE IF EXISTS `aranet_type_of_invoice_item`;
 
 CREATE TABLE `aranet_type_of_invoice_item`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`type_of_item_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `type_of_item_title_idx`(`type_of_item_title`)
@@ -842,7 +845,7 @@ DROP TABLE IF EXISTS `aranet_expense_category`;
 
 CREATE TABLE `aranet_expense_category`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`category_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `category_title_idx`(`category_title`)
@@ -857,7 +860,7 @@ DROP TABLE IF EXISTS `aranet_reimbursement`;
 
 CREATE TABLE `aranet_reimbursement`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`reimbursement_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `reimbursement_title_idx`(`reimbursement_title`)
@@ -944,7 +947,7 @@ DROP TABLE IF EXISTS `aranet_income_category`;
 
 CREATE TABLE `aranet_income_category`
 (
-	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER  NOT NULL,
 	`category_title` VARCHAR(64),
 	PRIMARY KEY (`id`),
 	KEY `category_title_idx`(`category_title`)

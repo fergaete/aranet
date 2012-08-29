@@ -26,7 +26,7 @@
     </div>
 
     <div class='hnav'>
-      <?php include('_yui_nav.php') ?>
+      <?php include('_nav.php') ?>
     </div>
 
     <div id="yui-main">
@@ -37,7 +37,7 @@
       
     <div class="yui-b sidebar">
       <?php include_slot('filters') ?>
-      <?php include_partial('widgets/yui_calendar') ?>
+      <?php //include_partial('widgets/yui_calendar') ?>
       <?php include_component('widgets', 'tags') ?>
       <?php include_slot('sidebar') ?>
     </div>

@@ -1,0 +1,16 @@
+dev:
+  propel:
+    param:
+      classname: DebugPDO
+
+all:
+  propel:
+    class:        sfPropelDatabase
+    param:
+      dsn:        mysql:dbname=ARANOVA_aranet;host=localhost
+      username:   aranet
+      password:   cKKZ2ATbcAJa2d4K
+      encoding:   utf8
+      persistent: true
+      pooling:    true
+      classname:  PropelPDO

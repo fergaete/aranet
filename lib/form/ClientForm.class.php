@@ -6,7 +6,7 @@
  * @package    ARANet
  * @subpackage form
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: ClientForm.class.php 49 2008-12-05 11:23:56Z aranova $
  */
 class ClientForm extends BaseClientForm
 {
@@ -14,11 +14,26 @@ class ClientForm extends BaseClientForm
   {
     parent::configure();
     
-    // created_at, created_by, updated_at, updated_by, deleted_at, deleted_by
-    unset($this['created_at'], $this['created_by'], $this['updated_at'], $this['updated_by'], $this['deleted_at'], $this['deleted_by']);
+    // created_at
+    unset($this->widgetSchema['created_at'],$this->validatorSchema['created_at']);
+
+    // created_by
+    unset($this->widgetSchema['created_by'],$this->validatorSchema['created_by']);
+
+    // updated_at
+    unset($this->widgetSchema['updated_at'],$this->validatorSchema['updated_at']);
+
+    // updated_by
+    unset($this->widgetSchema['updated_by'],$this->validatorSchema['updated_by']);
+
+    // deleted_at
+    unset($this->widgetSchema['deleted_at'],$this->validatorSchema['deleted_at']);
+
+    // deleted_by
+    unset($this->widgetSchema['deleted_by'],$this->validatorSchema['deleted_by']);
 
     // client_has_tags
-    unset($this['client_has_tags']);
+    unset($this->widgetSchema['client_has_tags'],$this->validatorSchema['client_has_tags']);
     
     $this->widgetSchema->setLabels(array(
       'client_unique_name' => 'Client common name',
@@ -26,13 +41,9 @@ class ClientForm extends BaseClientForm
       'client_cif' => 'CIF',
       'client_kind_of_company_id' => 'Industry or Business type',
       'client_comments' => 'Comments',
-      'client_website' => 'Website'
       ));
     
     $this->validatorSchema['client_website'] = new sfValidatorUrl(array('required' => false), array('invalid' => 'The url address is invalid.'));
-
-    // client_kind_of_company_id    
-    $this->widgetSchema['client_kind_of_company_id'] = new yuiWidgetFormPropelSelect(array('model' => 'KindOfCompany', 'add_empty' => false, 'multiple' => false), array('class' => 'yui_select'));
 
     // address
     $address = new Address();
@@ -43,12 +54,18 @@ class ClientForm extends BaseClientForm
     } else {
       $addresses = array($address);
     }
+    $i = 0;
     foreach ($addresses as $address) {
-      $this->widgetSchema['address['.$address->getId().']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullHTMLAddress', 'resultSchema' => '["ResultSet.Result","FullAddress"]', 'action' => '/address/autocomplete', 'value' => array($address->__toString(true), $address->getId())), array('class' => 'large'));
+      $this->widgetSchema['address['.$address->getId().']'] = new sfWidgetFormPropelChoice(array('model' => 'Address', 'add_empty' => true));
+      $this->widgetSchema['address['.$address->getId().']']->setOption('renderer_class', 'sfWidgetFormPropelJQueryAutocompleter');
+      $this->widgetSchema['address['.$address->getId().']']->setOption('renderer_options', array(
+        'model' => 'Address',
+        'url'   => $this->getOption('url'),
+      ));
       $this->widgetSchema->setLabels(array('address['.$address->getId().']' => 'Address'));
     }
     $this->validatorSchema['address'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
-    
+
     // validators
     if ($this->object->isNew()) {
       $this->validatorSchema->setPostValidator(new sfValidatorPropelUnique(
@@ -60,36 +77,29 @@ class ClientForm extends BaseClientForm
     }
 
     // client_since
-    $this->widgetSchema['client_since'] = new yuiWidgetFormDate();
+    $this->widgetSchema['client_since'] = new sfWidgetFormJQueryDate();
 
     // contacts
-    $contact = new Contact();
-    $contact->setId(0);
-    if ($this->object->getContacts()) {
-      $contacts = $this->object->getContacts();
-      $contacts[] = $contact;
-    } else {
-      $contacts = array($contact);
-    }
-    foreach ($contacts as $contact) {
-      $this->widgetSchema['contact['.$contact->getId().']'] = new yuiWidgetFormAutocomplete(array('formatResult' => '%1%.FullName', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/contact/autocomplete', 'value' => array($contact->__toString(), $contact->getId())), array('class' => 'large'));
-      $this->widgetSchema->setLabels(array('contact['.$contact->getId().']' => 'Contact'));
-    }
-    $this->validatorSchema['contact'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
-    /*
-    // contacts
-    $this->widgetSchema['contacts'] = new yuiWidgetFormAutocomplete(array('delimChar' => array(','), 'formatResult' => '%1%.FullName + " (" + %1%.Rol + ")"', 'resultSchema' => '["ResultSet.Result","FullName"]', 'action' => '/contact/autocomplete', 'value' => $this->object->getContacts(array('serialized' => true))));
-    
+    $this->widgetSchema['contacts'] = new sfWidgetFormPropelChoice(array('model' => 'Contact', 'add_empty' => true));
+    $this->widgetSchema['contacts']->setOption('renderer_class', 'sfWidgetFormPropelJQueryAutocompleter');
+    $this->widgetSchema['contacts']->setOption('renderer_options', array(
+      'model' => 'Contact',
+      'url'   => $this->getOption('url'),
+    ));
     $this->validatorSchema['contacts'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
-    */
-    
-    // tags
-    $this->widgetSchema['tags'] = new yuiWidgetFormAutocomplete(array('delimChar' => array(','), 'formatResult' => '%1%.Name', 'resultSchema' => '["ResultSet.Result","Name"]', 'action' => '/tag/autocomplete', 'value' => implode(', ', $this->object->getTags())), array('class' => 'large'));
-    $this->validatorSchema['tags'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
 
+    // tags
+    $this->widgetSchema['tags'] = new sfWidgetFormPropelChoice(array('model' => 'Tag', 'add_empty' => true));
+    $this->widgetSchema['tags']->setOption('renderer_class', 'sfWidgetFormPropelJQueryAutocompleter');
+    $this->widgetSchema['tags']->setOption('renderer_options', array(
+      'model' => 'Tag',
+      'url'   => 'tag/autocomplete',
+    ));
+    $this->validatorSchema['tags'] = new sfValidatorTags('name', new sfValidatorString(array('required' => false)));
     $decorator = new anWidgetFormSchemaFormatterAranet($this->widgetSchema);
     $this->widgetSchema->addFormFormatter('aranet', $decorator);
     $this->widgetSchema->setFormFormatterName('aranet');
-    $this->widgetSchema->getFormFormatter()->setTranslationCatalogue('forms');
+    $this->widgetSchema->getFormFormatter()->setTranslationCatalogue('client_form');
+    // $this->widgetSchema->setFormFormatterName('list');
   }
 }

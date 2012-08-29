@@ -12,15 +12,15 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfPropelParanoidBehavior.class.php 16 2008-11-16 17:52:47Z aranova $
  */
 class sfPropelParanoidBehavior
 {
   static public $paranoidFlag = true;
   protected $paranoidFlags = array();
 
-	public static function doSelectStmt($class, Criteria $criteria, PropelPDO $con = null)
-	{
+  public static function doSelectStmt($class, Criteria $criteria, PropelPDO $con = null)
+  {
     $columnName = sfConfig::get('propel_behavior_paranoid_'.$class.'_column', 'deleted_at');
 
     if (self::$paranoidFlag)
@@ -33,10 +33,10 @@ class sfPropelParanoidBehavior
     }
 
     return false;
-	}
+  }
 
-  	public static function doCount($class, Criteria $criteria, $distinct = false, PropelPDO $con = null)
-  	{
+    public static function doCount($class, Criteria $criteria, $distinct = false, PropelPDO $con = null)
+    {
       $columnName = sfConfig::get('propel_behavior_paranoid_'.$class.'_column', 'deleted_at');
 
       if (self::$paranoidFlag)
@@ -47,9 +47,8 @@ class sfPropelParanoidBehavior
       {
         self::$paranoidFlag = true;
       }
-    $criteria->add(ClientPeer::ID, 3);
       return false;
-  	}
+    }
 
   public function doSelectRS($class, $criteria, $con = null)
   {

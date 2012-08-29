@@ -5,7 +5,7 @@
  *
  * @package    form
  * @subpackage sf_guard_permission
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardPermissionForm.class.php 12896 2008-11-10 19:02:34Z fabien $
  */
 class sfGuardPermissionForm extends BasesfGuardPermissionForm
 {

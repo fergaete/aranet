@@ -6,7 +6,7 @@
  * @package    aranet
  * @subpackage filter
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: ContactFormFilter.class.php 49 2008-12-05 11:23:56Z aranova $
  */
 class ContactFormFilter extends BaseContactFormFilter
 {

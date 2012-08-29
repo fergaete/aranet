@@ -1,9 +1,5 @@
-{"ResultSet":
-    {"Result": [
-<?php foreach ($tags as $tag) : ?>
-        {"Name":"<?php echo $tag->getName() ?>",
-        "Id":"<?php echo $tag->getId() ?>"
-        },
-<?php endforeach ?>
-    ]}
-}
+<ul>
+<?php foreach ($tags as $tag): ?>
+  <li id="<?php echo $tag->getId() ?>"><?php echo $tag->getName() ?></li>
+<?php endforeach; ?>
+</ul>

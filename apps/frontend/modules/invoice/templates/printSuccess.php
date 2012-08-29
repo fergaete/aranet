@@ -200,7 +200,10 @@
             </fo:table-body>
         </fo:table>
 
-            <fo:block text-align="left" font-size="10pt" font-family="DejaVuSans" line-height="20pt">Forma de pago: <fo:inline font-family="DejaVuSans-Bold"><?php echo $invoice->getPaymentMethod() ?></fo:inline></fo:block>
+            <fo:block text-align="left" font-size="10pt" font-family="DejaVuSans" line-height="20pt">Forma de pago: <fo:inline font-family="DejaVuSans-Bold"><?php echo $invoice->getPaymentMethod() ?><?php echo ". " . $invoice->getPaymentCondition() ?></fo:inline></fo:block>
 <?php if ($invoice->getInvoicePaymentMethodId() == 6) : ?>
             <fo:block text-align="left" font-size="10pt" font-family="DejaVuSans" line-height="20pt">Nº de Cuenta: <fo:inline font-family="DejaVuSans-Bold"><?php echo $invoice->getInvoicePaymentCheck() ?></fo:inline></fo:block>
+<?php endif ?>
+<?php if ($invoice->getInvoicePrintComments()): ?>
+            <fo:block text-align="left" font-size="10pt" font-family="DejaVuSans" line-height="20pt" padding-top="0.3cm"><?php echo $invoice->getInvoiceComments() ?></fo:block>
 <?php endif ?>

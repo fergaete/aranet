@@ -6,7 +6,7 @@
  * @package    aranet
  * @subpackage lib.model
  * @author     Pablo Sánchez <pablo.sanchez@aranova.es>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: AddressPeer.php 16 2008-11-16 17:52:47Z aranova $
  */
 
 class AddressPeer extends BaseAddressPeer
