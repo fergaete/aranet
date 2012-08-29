@@ -1,0 +1,3 @@
+all: 
+  title:  ARANet
+  description: Aplicación web de gestión, control y organización de ARANOVA

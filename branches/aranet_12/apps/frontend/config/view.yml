@@ -1,0 +1,21 @@
+default:
+  http_metas:
+    content-type: "text/html; charset=utf-8"
+
+  metas:
+    title:        "<?php echo sfConfig::get('aranet_app_title', 'ARANet') ?>"
+    generator:    "<?php echo sfConfig::get('aranet_app__title', 'ARANet') . ' (' . sfConfig::get('aranet_app__version') . ')' ?>"
+    robots:       no-index, no-follow
+    description:  "<?php echo sfConfig::get('aranet_app_description', 'Aplicación web de gestión, control y organización de ARANOVA') ?>"
+    keywords:     ARANOVA, aranet
+    language:     es
+
+  stylesheets:    [ base-min, reset-fonts-grids, aranet, ThemeBlue/theme.min.css ]
+
+  javascripts:    [ jscook/JSCookMenu.min.js, jscook/ThemeBlue/theme.min.js, functions ]
+
+  has_layout:     on
+  layout:         layout
+
+minilistSuccess:
+  has_layout: off

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class ObjectAddressPeer</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class ObjectAddressPeer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for performing query and update operations on the 'aranet_objectaddress' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: ObjectAddressPeer.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---ObjectAddressPeer.php.html">/lib/model/ObjectAddressPeer.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre><a href="../../lib-model-om/BaseObjectAddressPeer.html">BaseObjectAddressPeer</a>
+   |
+   --ObjectAddressPeer</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result"><a href="../../aranet/lib-model/ObjectAddress.html">ObjectAddress</a></span>
+										<a href="#retrieveOrCreateByPk" title="details" class="method-name">retrieveOrCreateByPk</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$pk</span>)
+									</div>
+								
+												</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseObjectAddressPeer.html">BaseObjectAddressPeer</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#var$fieldKeys">BaseObjectAddressPeer::$fieldKeys</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#var$fieldNames">BaseObjectAddressPeer::$fieldNames</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#var$phpNameMap">BaseObjectAddressPeer::$phpNameMap</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodretrieveOrCreateByPk" id="retrieveOrCreateByPk"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method retrieveOrCreateByPk</span> (line <span class="line-number">22</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns an ObjectAddress for a given primary key  or creates a new one</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../../aranet/lib-model/ObjectAddress.html">ObjectAddress</a></span>
+		<span class="method-name">
+			retrieveOrCreateByPk
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$pk</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$pk</span><span class="var-description">: primary key</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseObjectAddressPeer.html">BaseObjectAddressPeer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodaddSelectColumns">BaseObjectAddressPeer::addSelectColumns()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodalias">BaseObjectAddressPeer::alias()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoCount">BaseObjectAddressPeer::doCount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoCountJoinAddress">BaseObjectAddressPeer::doCountJoinAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoCountJoinAll">BaseObjectAddressPeer::doCountJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoDelete">BaseObjectAddressPeer::doDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoDeleteAll">BaseObjectAddressPeer::doDeleteAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoInsert">BaseObjectAddressPeer::doInsert()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoSelect">BaseObjectAddressPeer::doSelect()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoSelectJoinAddress">BaseObjectAddressPeer::doSelectJoinAddress()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoSelectJoinAll">BaseObjectAddressPeer::doSelectJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoSelectOne">BaseObjectAddressPeer::doSelectOne()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoSelectRS">BaseObjectAddressPeer::doSelectRS()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoUpdate">BaseObjectAddressPeer::doUpdate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methoddoValidate">BaseObjectAddressPeer::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetBy">BaseObjectAddressPeer::getBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetFieldNames">BaseObjectAddressPeer::getFieldNames()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetMapBuilder">BaseObjectAddressPeer::getMapBuilder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetOMClass">BaseObjectAddressPeer::getOMClass()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetOneBy">BaseObjectAddressPeer::getOneBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetPager">BaseObjectAddressPeer::getPager()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetPhpNameMap">BaseObjectAddressPeer::getPhpNameMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodgetTableMap">BaseObjectAddressPeer::getTableMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodpopulateObjects">BaseObjectAddressPeer::populateObjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodretrieveByPK">BaseObjectAddressPeer::retrieveByPK()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodretrieveByPKs">BaseObjectAddressPeer::retrieveByPKs()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#methodtranslateFieldName">BaseObjectAddressPeer::translateFieldName()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseObjectAddressPeer.html">BaseObjectAddressPeer</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constCLASS_DEFAULT">BaseObjectAddressPeer::CLASS_DEFAULT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constCOUNT">BaseObjectAddressPeer::COUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constCOUNT_DISTINCT">BaseObjectAddressPeer::COUNT_DISTINCT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constDATABASE_NAME">BaseObjectAddressPeer::DATABASE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constID">BaseObjectAddressPeer::ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constNUM_COLUMNS">BaseObjectAddressPeer::NUM_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constNUM_LAZY_LOAD_COLUMNS">BaseObjectAddressPeer::NUM_LAZY_LOAD_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constOBJECTADDRESS_ADDRESS_ID">BaseObjectAddressPeer::OBJECTADDRESS_ADDRESS_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constOBJECTADDRESS_IS_DEFAULT">BaseObjectAddressPeer::OBJECTADDRESS_IS_DEFAULT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constOBJECTADDRESS_NAME">BaseObjectAddressPeer::OBJECTADDRESS_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constOBJECTADDRESS_OBJECT_CLASS">BaseObjectAddressPeer::OBJECTADDRESS_OBJECT_CLASS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constOBJECTADDRESS_OBJECT_ID">BaseObjectAddressPeer::OBJECTADDRESS_OBJECT_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constOBJECTADDRESS_TYPE">BaseObjectAddressPeer::OBJECTADDRESS_TYPE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseObjectAddressPeer.html#constTABLE_NAME">BaseObjectAddressPeer::TABLE_NAME</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:37 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

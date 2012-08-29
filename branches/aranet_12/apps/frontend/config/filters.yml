@@ -1,0 +1,14 @@
+rendering: ~
+security:  ~
+
+# generally, you will want to insert your own filters here
+myCultureFilter:
+   class: myCultureFilter
+
+security_filter:
+   class: sfGuardBasicSecurityFilter
+
+cache:     ~
+common:    ~
+
+execution: ~

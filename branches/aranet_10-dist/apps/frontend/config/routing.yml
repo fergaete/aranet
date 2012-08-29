@@ -1,0 +1,418 @@
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+sf_guard_profile:
+  url:  /profile
+  param: { module: sfGuardUser, action: show }
+
+sf_guard_restringed:
+  url:  /restringed
+  param: { module: sfGuardAuth, action: restringed }
+
+# Mac OSX
+show_graphic:
+  url:  /dasboard/showGraphic
+  param:  { module: dashboard, action: showGraphic }
+
+get_graphic:
+  url:  /dasboard/getGraphic/:graphic_id
+  param:  { module: dashboard, action: getGraphic }
+
+copyright:
+  url:  /copyright
+  param:  { module: static, action: index, content: copyright }
+
+# contact
+contact_show_by_id:
+  url:  /contact/show/:id
+  param:  { module: contact, action: show }
+contact_edit_by_id:
+  url:  /contact/edit/:id
+  param:  { module: contact, action: edit }
+contact_delete_by_id:
+  url:  /contact/delete/:id
+  param:  { module: contact, action: delete }
+contact_list_by_tag:
+  url:  /contact/list/:tag
+  param:  { module: contact, action: listByTag }
+contact_list:
+  url:  /contact/list
+  param:  { module: contact, action: list }
+contact_list_remove_filters:
+  url:  /contact/list?filter=
+  param:  { module: contact, action: list }
+contact_index:
+  url:  /contact
+  param:  { module: contact, action: list }
+contact_create:
+  url:  /contact/create
+  param:  { module: contact, action: create }
+contact_delete_all:
+  url:  /contact/delete
+  param:  { module: contact, action: delete }
+
+
+# client
+client_stats_by_id:
+  url:  /client/stats/:id
+  param:  { module: client, action: stats }
+client_show_by_id:
+  url:  /client/show/:id
+  param:  { module: client, action: show }
+client_show_deleted_by_id:
+  url:  /client/show/:id/deleted
+  param:  { module: client, action: show, deleted: true }
+client_edit_by_id:
+  url:  /client/edit/:id
+  param:  { module: client, action: edit }
+client_delete_by_id:
+  url:  /client/delete/:id
+  param:  { module: client, action: delete }
+client_list_by_tag:
+  url:  /client/list/:tag
+  param:  { module: client, action: listByTag }
+client_list:
+  url:  /client/list
+  param:  { module: client, action: list }
+client_list_remove_filters:
+  url:  /client/list?filter=
+  param:  { module: client, action: list }
+client_index:
+  url:  /client
+  param:  { module: client, action: list }
+client_create:
+  url:  /client/create
+  param:  { module: client, action: create }
+client_delete_all:
+  url:  /client/delete
+  param:  { module: client, action: delete }
+
+# project
+project_create:
+  url:  /project/create
+  param:  { module: project, action: create }
+project_show_by_id:
+  url:  /project/show/:id
+  param:  { module: project, action: show }  
+project_edit_by_id:
+  url:  /project/edit/:id
+  param:  { module: project, action: edit }  
+project_index:
+  url:  /project
+  param:  { module: project, action: list }
+project_list:
+  url:  /project/list
+  param:  { module: project, action: list }
+project_list_remove_filters:
+  url:  /project/list?filter=
+  param:  { module: project, action: list }
+project_delete_all:
+  url:  /project/delete
+  param:  { module: project, action: delete }
+project_create_from_object:
+  url:  /project/create/related/:related/:id
+  param:  { module: project, action: create }
+
+# budget
+budget_create_from_object:
+  url:  /budget/create/related/:related/id/:id
+  param:  { module: budget, action: create }
+budget_stats_by_id:
+  url:  /budget/stats/:id
+  param:  { module: budget, action: stats }
+budget_show_by_id:
+  url:  /budget/show/:id
+  param:  { module: budget, action: show }
+budget_edit_by_id:
+  url:  /budget/edit/:id
+  param:  { module: budget, action: edit }
+budget_delete_by_id:
+  url:  /budget/delete/:id
+  param:  { module: budget, action: delete }
+budget_list_by_tag:
+  url:  /budget/list/:tag
+  param:  { module: budget, action: listByTag }
+budget_list:
+  url:  /budget/list
+  param:  { module: budget, action: list }
+budget_minilist:
+  url:  /budget/minilist/related/:related/id/:id
+  param:  { module: budget, action: minilist }
+budget_list_remove_filters:
+  url:  /budget/list?filter=
+  param:  { module: budget, action: list }
+budget_index:
+  url:  /budget
+  param:  { module: budget, action: list }
+budget_create:
+  url:  /budget/create
+  param:  { module: budget, action: create }
+budget_delete_all:
+  url:  /budget/delete
+  param:  { module: budget, action: delete }  
+
+#timesheet
+timesheet_stats_by_id:
+  url:  /timesheet/stats/:id
+  param:  { module: timesheet, action: stats }
+timesheet_show_by_id:
+  url:  /timesheet/show/:id
+  param:  { module: timesheet, action: show }
+timesheet_edit_by_id:
+  url:  /timesheet/edit/:id
+  param:  { module: timesheet, action: edit }
+timesheet_delete_by_id:
+  url:  /timesheet/delete/:id
+  param:  { module: timesheet, action: delete }
+timesheet_list_by_tag:
+  url:  /timesheet/list/:tag
+  param:  { module: timesheet, action: listByTag }
+timesheet_list:
+  url:  /timesheet/list
+  param:  { module: timesheet, action: list }
+timesheet_list_remove_filters:
+  url:  /timesheet/list?filter=
+  param:  { module: timesheet, action: list }
+timesheet_index:
+  url:  /timesheet
+  param:  { module: timesheet, action: list }
+timesheet_create:
+  url:  /timesheet/create
+  param:  { module: timesheet, action: create }
+timesheet_delete_all:
+  url:  /timesheet/delete
+  param:  { module: timesheet, action: delete }  
+timesheet_reports:
+  url:  /timesheet/reports
+  param:  { module: timesheet, action: reports }  
+
+# invoice
+invoice_create_from_object:
+  url:  /invoice/create/related/:related/:id
+  param:  { module: invoice, action: create }
+invoice_stats_by_id:
+  url:  /invoice/stats/:id
+  param:  { module: invoice, action: stats }
+invoice_show_by_id:
+  url:  /invoice/show/:id
+  param:  { module: invoice, action: show }
+invoice_edit_by_id:
+  url:  /invoice/edit/:id
+  param:  { module: invoice, action: edit }
+invoice_delete_by_id:
+  url:  /invoice/delete/:id
+  param:  { module: invoice, action: delete }
+invoice_list_by_tag:
+  url:  /invoice/list/:tag
+  param:  { module: invoice, action: listByTag }
+invoice_list:
+  url:  /invoice/list
+  param:  { module: invoice, action: list }
+invoice_list_remove_filters:
+  url:  /invoice/list?filter=
+  param:  { module: invoice, action: list }
+invoice_index:
+  url:  /invoice
+  param:  { module: invoice, action: list }
+invoice_create:
+  url:  /invoice/create
+  param:  { module: invoice, action: create }
+invoice_delete_all:
+  url:  /invoice/delete
+  param:  { module: invoice, action: delete }  
+invoice_reports:
+  url:  /invoice/reports
+  param:  { module: invoice, action: reports }
+
+# cash
+cash_stats_by_id:
+  url:  /cash/stats/:id
+  param:  { module: cash, action: stats }
+cash_show_by_id:
+  url:  /cash/show/:id
+  param:  { module: cash, action: show }
+cash_edit_by_id:
+  url:  /cash/edit/:id
+  param:  { module: cash, action: edit }
+cash_delete_by_id:
+  url:  /cash/delete/:id
+  param:  { module: cash, action: delete }
+cash_list_by_tag:
+  url:  /cash/list/:tag
+  param:  { module: cash, action: listByTag }
+cash_list:
+  url:  /cash/list
+  param:  { module: cash, action: list }
+cash_list_remove_filters:
+  url:  /cash/list?filter=
+  param:  { module: cash, action: list }
+cash_index:
+  url:  /cash
+  param:  { module: cash, action: list }
+cash_create:
+  url:  /cash/create
+  param:  { module: cash, action: create }
+cash_delete_all:
+  url:  /cash/delete
+  param:  { module: cash, action: delete }  
+cash_reports:
+  url:  /cash/reports
+  param:  { module: cash, action: reports }
+
+# member
+member_list:
+  url:  /member/list
+  param:  { module: member, action: list }
+member_list_remove_filters:
+  url:  /member/list?filter=
+  param:  { module: member, action: list }
+member_index:
+  url:  /member
+  param:  { module: member, action: list }
+member_create:
+  url:  /member/create
+  param:  { module: member, action: create }
+  
+# file
+file_list:
+  url:  /file/list
+  param:  { module: file, action: list }
+file_list_remove_filters:
+  url:  /file/list?filter=
+  param:  { module: file, action: list }
+file_index:
+  url:  /file
+  param:  { module: file, action: list }
+file_create:
+  url:  /file/create
+  param:  { module: file, action: create }
+
+# expense
+expense_stats_by_id:
+  url:  /expense/stats/:id
+  param:  { module: expense, action: stats }
+expense_show_by_id:
+  url:  /expense/show/:id
+  param:  { module: expense, action: show }
+expense_edit_by_id:
+  url:  /expense/edit/:id
+  param:  { module: expense, action: edit }
+expense_delete_by_id:
+  url:  /expense/delete/:id
+  param:  { module: expense, action: delete }
+expense_list_by_tag:
+  url:  /expense/list/:tag
+  param:  { module: expense, action: listByTag }
+expense_list:
+  url:  /expense/list
+  param:  { module: expense, action: list }
+expense_list_remove_filters:
+  url:  /expense/list?filter=
+  param:  { module: expense, action: list }
+expense_index:
+  url:  /expense
+  param:  { module: expense, action: list }
+expense_create:
+  url:  /expense/create
+  param:  { module: expense, action: create }
+expense_delete_all:
+  url:  /expense/delete
+  param:  { module: expense, action: delete }  
+expense_reports:
+  url:  /expense/reports
+  param:  { module: expense, action: reports }
+
+# income
+income_stats_by_id:
+  url:  /income/stats/:id
+  param:  { module: income, action: stats }
+income_show_by_id:
+  url:  /income/show/:id
+  param:  { module: income, action: show }
+income_edit_by_id:
+  url:  /income/edit/:id
+  param:  { module: income, action: edit }
+income_delete_by_id:
+  url:  /income/delete/:id
+  param:  { module: income, action: delete }
+income_list_by_tag:
+  url:  /income/list/:tag
+  param:  { module: income, action: listByTag }
+income_list:
+  url:  /income/list
+  param:  { module: income, action: list }
+income_list_remove_filters:
+  url:  /income/list?filter=
+  param:  { module: income, action: list }
+income_index:
+  url:  /income
+  param:  { module: income, action: list }
+income_create:
+  url:  /income/create
+  param:  { module: income, action: create }
+income_delete_all:
+  url:  /income/delete
+  param:  { module: income, action: delete }  
+income_reports:
+  url:  /income/reports
+  param:  { module: income, action: reports }
+income_create_from_object:
+  url:  /income/create/related/:related/:id
+  param:  { module: income, action: create }
+
+# vendor  
+vendor_stats_by_id:
+  url:  /vendor/stats/:id
+  param:  { module: vendor, action: stats }
+vendor_show_by_id:
+  url:  /vendor/show/:id
+  param:  { module: vendor, action: show }
+vendor_edit_by_id:
+  url:  /vendor/edit/:id
+  param:  { module: vendor, action: edit }
+vendor_delete_by_id:
+  url:  /vendor/delete/:id
+  param:  { module: vendor, action: delete }
+vendor_list_by_tag:
+  url:  /vendor/list/:tag
+  param:  { module: vendor, action: listByTag }
+vendor_list:
+  url:  /vendor/list
+  param:  { module: vendor, action: list }
+vendor_list_remove_filters:
+  url:  /vendor/list?filter=
+  param:  { module: vendor, action: list }
+vendor_index:
+  url:  /vendor
+  param:  { module: vendor, action: list }
+vendor_create:
+  url:  /vendor/create
+  param:  { module: vendor, action: create }
+vendor_delete_all:
+  url:  /vendor/delete
+  param:  { module: vendor, action: delete }  
+
+# default rules
+homepage:
+  url:   /
+  param: { module: dashboard, action: index }
+
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

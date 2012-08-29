@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Timesheet</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Timesheet</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for representing a row from the 'aranet_timesheet' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: Timesheet.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---Timesheet.php.html">/lib/model/Timesheet.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre>BaseObject
+   |
+   --<a href="../../lib-model-om/BaseTimesheet.html">BaseTimesheet</a>
+      |
+      --Timesheet</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																												
+												<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getProjectMilestones" title="details" class="method-name">getProjectMilestones</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getProjectTasks" title="details" class="method-name">getProjectTasks</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#postSave" title="details" class="method-name">postSave</a>
+											(<span class="var-type"><a href="../../aranet/lib-model/Timesheet.html">Timesheet</a></span>&nbsp;<span class="var-name">$v</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseTimesheet.html">BaseTimesheet</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$aBudget">BaseTimesheet::$aBudget</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$alreadyInSave">BaseTimesheet::$alreadyInSave</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$alreadyInValidation">BaseTimesheet::$alreadyInValidation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$aMilestone">BaseTimesheet::$aMilestone</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$aProject">BaseTimesheet::$aProject</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$asfGuardUser">BaseTimesheet::$asfGuardUser</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$aTask">BaseTimesheet::$aTask</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$aTypeOfHour">BaseTimesheet::$aTypeOfHour</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$id">BaseTimesheet::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$peer">BaseTimesheet::$peer</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_budget_id">BaseTimesheet::$timesheet_budget_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_date">BaseTimesheet::$timesheet_date</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_description">BaseTimesheet::$timesheet_description</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_hours">BaseTimesheet::$timesheet_hours</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_is_billable">BaseTimesheet::$timesheet_is_billable</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_milestone_id">BaseTimesheet::$timesheet_milestone_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_project_id">BaseTimesheet::$timesheet_project_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_task_id">BaseTimesheet::$timesheet_task_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_type_id">BaseTimesheet::$timesheet_type_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$timesheet_user_id">BaseTimesheet::$timesheet_user_id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseTimesheet.html#var$validationFailures">BaseTimesheet::$validationFailures</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodgetProjectMilestones" id="getProjectMilestones"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProjectMilestones</span> (line <span class="line-number">21</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns project milestones</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getProjectMilestones
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetProjectTasks" id="getProjectTasks"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProjectTasks</span> (line <span class="line-number">42</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns project tasks</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getProjectTasks
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodpostSave" id="postSave"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">postSave</span> (line <span class="line-number">64</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">postSave process</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			postSave
+		</span>
+					(<span class="var-type"><a href="../../aranet/lib-model/Timesheet.html">Timesheet</a></span>&nbsp;<span class="var-name">$v</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../aranet/lib-model/Timesheet.html">Timesheet</a></span>
+				<span class="var-name">$v</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseTimesheet.html">BaseTimesheet</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodbuildCriteria">BaseTimesheet::buildCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodbuildPkeyCriteria">BaseTimesheet::buildPkeyCriteria()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodcopy">BaseTimesheet::copy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodcopyInto">BaseTimesheet::copyInto()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methoddelete">BaseTimesheet::delete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methoddoSave">BaseTimesheet::doSave()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methoddoValidate">BaseTimesheet::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodfromArray">BaseTimesheet::fromArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetBudget">BaseTimesheet::getBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetByName">BaseTimesheet::getByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetByPosition">BaseTimesheet::getByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetId">BaseTimesheet::getId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetMilestone">BaseTimesheet::getMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetPeer">BaseTimesheet::getPeer()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetPrimaryKey">BaseTimesheet::getPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetProject">BaseTimesheet::getProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetsfGuardUser">BaseTimesheet::getsfGuardUser()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTask">BaseTimesheet::getTask()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetBudgetId">BaseTimesheet::getTimesheetBudgetId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetDate">BaseTimesheet::getTimesheetDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetDescription">BaseTimesheet::getTimesheetDescription()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetHours">BaseTimesheet::getTimesheetHours()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetIsBillable">BaseTimesheet::getTimesheetIsBillable()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetMilestoneId">BaseTimesheet::getTimesheetMilestoneId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetProjectId">BaseTimesheet::getTimesheetProjectId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetTaskId">BaseTimesheet::getTimesheetTaskId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetTypeId">BaseTimesheet::getTimesheetTypeId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTimesheetUserId">BaseTimesheet::getTimesheetUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetTypeOfHour">BaseTimesheet::getTypeOfHour()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodgetValidationFailures">BaseTimesheet::getValidationFailures()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodhydrate">BaseTimesheet::hydrate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsave">BaseTimesheet::save()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetBudget">BaseTimesheet::setBudget()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetByName">BaseTimesheet::setByName()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetByPosition">BaseTimesheet::setByPosition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetId">BaseTimesheet::setId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetMilestone">BaseTimesheet::setMilestone()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetPrimaryKey">BaseTimesheet::setPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetProject">BaseTimesheet::setProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetsfGuardUser">BaseTimesheet::setsfGuardUser()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTask">BaseTimesheet::setTask()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetBudgetId">BaseTimesheet::setTimesheetBudgetId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetDate">BaseTimesheet::setTimesheetDate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetDescription">BaseTimesheet::setTimesheetDescription()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetHours">BaseTimesheet::setTimesheetHours()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetIsBillable">BaseTimesheet::setTimesheetIsBillable()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetMilestoneId">BaseTimesheet::setTimesheetMilestoneId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetProjectId">BaseTimesheet::setTimesheetProjectId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetTaskId">BaseTimesheet::setTimesheetTaskId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetTypeId">BaseTimesheet::setTimesheetTypeId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTimesheetUserId">BaseTimesheet::setTimesheetUserId()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodsetTypeOfHour">BaseTimesheet::setTypeOfHour()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodtoArray">BaseTimesheet::toArray()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#methodvalidate">BaseTimesheet::validate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseTimesheet.html#method__call">BaseTimesheet::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:44 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

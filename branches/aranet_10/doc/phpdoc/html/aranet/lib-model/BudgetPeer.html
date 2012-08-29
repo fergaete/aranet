@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class BudgetPeer</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class BudgetPeer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subclass for performing query and update operations on the 'aranet_budget' table.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: BudgetPeer.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---model---BudgetPeer.php.html">/lib/model/BudgetPeer.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre><a href="../../lib-model-om/BaseBudgetPeer.html">BaseBudgetPeer</a>
+   |
+   --BudgetPeer</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getActiveBudgets" title="details" class="method-name">getActiveBudgets</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$peer_method</span> = <span class="var-default">'doSelect'</span>])
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getApprovedBudgets" title="details" class="method-name">getApprovedBudgets</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$peer_method</span> = <span class="var-default">'doSelect'</span>])
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getBudgetsLike" title="details" class="method-name">getBudgetsLike</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">10</span>])
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getLastCaducatedBudgets" title="details" class="method-name">getLastCaducatedBudgets</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$peer_method</span> = <span class="var-default">'doSelect'</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">5</span>])
+									</div>
+								
+																																				</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseBudgetPeer.html">BaseBudgetPeer</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetPeer.html#var$fieldKeys">BaseBudgetPeer::$fieldKeys</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetPeer.html#var$fieldNames">BaseBudgetPeer::$fieldNames</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../lib-model-om/BaseBudgetPeer.html#var$phpNameMap">BaseBudgetPeer::$phpNameMap</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetActiveBudgets" id="getActiveBudgets"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getActiveBudgets</span> (line <span class="line-number">63</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns active budgets</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getActiveBudgets
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$peer_method</span> = <span class="var-default">'doSelect'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$peer_method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetApprovedBudgets" id="getApprovedBudgets"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getApprovedBudgets</span> (line <span class="line-number">42</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns approved budgets</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getApprovedBudgets
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$peer_method</span> = <span class="var-default">'doSelect'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$peer_method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetBudgetsLike" id="getBudgetsLike"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getBudgetsLike</span> (line <span class="line-number">23</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns budgets like name</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getBudgetsLike
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">10</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$max</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetLastCaducatedBudgets" id="getLastCaducatedBudgets"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getLastCaducatedBudgets</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns last caducated budgets</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLastCaducatedBudgets
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$peer_method</span> = <span class="var-default">'doSelect'</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">5</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$peer_method</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$max</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../lib-model-om/BaseBudgetPeer.html">BaseBudgetPeer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodaddSelectColumns">BaseBudgetPeer::addSelectColumns()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodalias">BaseBudgetPeer::alias()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCount">BaseBudgetPeer::doCount()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAll">BaseBudgetPeer::doCountJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptBudgetStatus">BaseBudgetPeer::doCountJoinAllExceptBudgetStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptClient">BaseBudgetPeer::doCountJoinAllExceptClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptInvoiceCategory">BaseBudgetPeer::doCountJoinAllExceptInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptPaymentCondition">BaseBudgetPeer::doCountJoinAllExceptPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptProject">BaseBudgetPeer::doCountJoinAllExceptProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseBudgetPeer::doCountJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseBudgetPeer::doCountJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseBudgetPeer::doCountJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinBudgetStatus">BaseBudgetPeer::doCountJoinBudgetStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinClient">BaseBudgetPeer::doCountJoinClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinInvoiceCategory">BaseBudgetPeer::doCountJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinPaymentCondition">BaseBudgetPeer::doCountJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinProject">BaseBudgetPeer::doCountJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinsfGuardUserRelatedByCreatedBy">BaseBudgetPeer::doCountJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinsfGuardUserRelatedByDeletedBy">BaseBudgetPeer::doCountJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoCountJoinsfGuardUserRelatedByUpdatedBy">BaseBudgetPeer::doCountJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoDelete">BaseBudgetPeer::doDelete()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoDeleteAll">BaseBudgetPeer::doDeleteAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoInsert">BaseBudgetPeer::doInsert()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelect">BaseBudgetPeer::doSelect()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAll">BaseBudgetPeer::doSelectJoinAll()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptBudgetStatus">BaseBudgetPeer::doSelectJoinAllExceptBudgetStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptClient">BaseBudgetPeer::doSelectJoinAllExceptClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptInvoiceCategory">BaseBudgetPeer::doSelectJoinAllExceptInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptPaymentCondition">BaseBudgetPeer::doSelectJoinAllExceptPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptProject">BaseBudgetPeer::doSelectJoinAllExceptProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByCreatedBy">BaseBudgetPeer::doSelectJoinAllExceptsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByDeletedBy">BaseBudgetPeer::doSelectJoinAllExceptsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy">BaseBudgetPeer::doSelectJoinAllExceptsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinBudgetStatus">BaseBudgetPeer::doSelectJoinBudgetStatus()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinClient">BaseBudgetPeer::doSelectJoinClient()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinInvoiceCategory">BaseBudgetPeer::doSelectJoinInvoiceCategory()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinPaymentCondition">BaseBudgetPeer::doSelectJoinPaymentCondition()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinProject">BaseBudgetPeer::doSelectJoinProject()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinsfGuardUserRelatedByCreatedBy">BaseBudgetPeer::doSelectJoinsfGuardUserRelatedByCreatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinsfGuardUserRelatedByDeletedBy">BaseBudgetPeer::doSelectJoinsfGuardUserRelatedByDeletedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectJoinsfGuardUserRelatedByUpdatedBy">BaseBudgetPeer::doSelectJoinsfGuardUserRelatedByUpdatedBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectOne">BaseBudgetPeer::doSelectOne()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoSelectRS">BaseBudgetPeer::doSelectRS()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoUpdate">BaseBudgetPeer::doUpdate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methoddoValidate">BaseBudgetPeer::doValidate()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetBy">BaseBudgetPeer::getBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetFieldNames">BaseBudgetPeer::getFieldNames()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetMapBuilder">BaseBudgetPeer::getMapBuilder()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetOMClass">BaseBudgetPeer::getOMClass()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetOneBy">BaseBudgetPeer::getOneBy()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetPager">BaseBudgetPeer::getPager()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetPhpNameMap">BaseBudgetPeer::getPhpNameMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodgetTableMap">BaseBudgetPeer::getTableMap()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodpopulateObjects">BaseBudgetPeer::populateObjects()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodretrieveByPK">BaseBudgetPeer::retrieveByPK()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodretrieveByPKs">BaseBudgetPeer::retrieveByPKs()</a></span><br>
+													<span class="method-name"><a href="../../lib-model-om/BaseBudgetPeer.html#methodtranslateFieldName">BaseBudgetPeer::translateFieldName()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../lib-model-om/BaseBudgetPeer.html">BaseBudgetPeer</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_APPROVED_DATE">BaseBudgetPeer::BUDGET_APPROVED_DATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_CATEGORY_ID">BaseBudgetPeer::BUDGET_CATEGORY_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_CLIENT_ID">BaseBudgetPeer::BUDGET_CLIENT_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_COMMENTS">BaseBudgetPeer::BUDGET_COMMENTS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_DATE">BaseBudgetPeer::BUDGET_DATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_FREIGHT_CHARGE">BaseBudgetPeer::BUDGET_FREIGHT_CHARGE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_IS_LAST">BaseBudgetPeer::BUDGET_IS_LAST</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_NUMBER">BaseBudgetPeer::BUDGET_NUMBER</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_PAYMENT_CONDITION_ID">BaseBudgetPeer::BUDGET_PAYMENT_CONDITION_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_PREFIX">BaseBudgetPeer::BUDGET_PREFIX</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_PRINT_COMMENTS">BaseBudgetPeer::BUDGET_PRINT_COMMENTS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_PROJECT_ID">BaseBudgetPeer::BUDGET_PROJECT_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_REVISION">BaseBudgetPeer::BUDGET_REVISION</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_STATUS_ID">BaseBudgetPeer::BUDGET_STATUS_ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_TAX_RATE">BaseBudgetPeer::BUDGET_TAX_RATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_TITLE">BaseBudgetPeer::BUDGET_TITLE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_TOTAL_AMOUNT">BaseBudgetPeer::BUDGET_TOTAL_AMOUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_TOTAL_COST">BaseBudgetPeer::BUDGET_TOTAL_COST</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constBUDGET_VALID_DATE">BaseBudgetPeer::BUDGET_VALID_DATE</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constCLASS_DEFAULT">BaseBudgetPeer::CLASS_DEFAULT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constCOUNT">BaseBudgetPeer::COUNT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constCOUNT_DISTINCT">BaseBudgetPeer::COUNT_DISTINCT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constCREATED_AT">BaseBudgetPeer::CREATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constCREATED_BY">BaseBudgetPeer::CREATED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constDATABASE_NAME">BaseBudgetPeer::DATABASE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constDELETED_AT">BaseBudgetPeer::DELETED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constDELETED_BY">BaseBudgetPeer::DELETED_BY</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constID">BaseBudgetPeer::ID</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constNUM_COLUMNS">BaseBudgetPeer::NUM_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constNUM_LAZY_LOAD_COLUMNS">BaseBudgetPeer::NUM_LAZY_LOAD_COLUMNS</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constTABLE_NAME">BaseBudgetPeer::TABLE_NAME</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constUPDATED_AT">BaseBudgetPeer::UPDATED_AT</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../../lib-model-om/BaseBudgetPeer.html#constUPDATED_BY">BaseBudgetPeer::UPDATED_BY</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:25 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+input[type="text"], textarea, select {border:1px solid #ccc;padding:.3em;}
+input[type="text"]:focus {background: #ECF5FD;border:1px solid #6699CC;}
+label {width:120px;padding:.3em;white-space:nowrap;}
+label:after {content:":";}
+
+.error_list{margin:.1em 0 .2em;padding:0;font-size:.93em;color:red;font-weight:700;}
+.error_list li{list-style:none;padding:.3em;}
+.help{font-size:.93em;color:#555;margin-top:.1em;}
+
+.form input[type="text"], .form textarea, .form select {
+  float:left;
+  width:28em;
+}
+
+.form label.float {
+  float:left;
+  padding-left:10px;
+}
+
+.form label.float-first {
+  float:left;
+}
+
+.form label.required {
+	background: url("/images/iconRequired.gif") no-repeat 2px 6px;
+	padding-left: 10px;
+}
+
+
+.form .width-auto {width:auto !important;}
+
+.form .medium {width:150px}
+.form .small {width:90px}
+.form .smaller {width:60px}
+.form .tiny {width:40px}
+
+.signin input[type="text"], .signin input[type="password"]{width:150px;}
+
+input.autocomplete { position:static!important;width:25em!important; } /* to center, set static and explicit width: */
+div.autocomplete { text-align:left;width:25em!important; } /* to center, set left-align and explicit width: */
+
+.formActions{background:#F6F4F0;width:100%;padding:2px 0;}
+.formActions td{text-align:center;}
+
+/* YUI */
+.yui-cal-nav label {float:none;display:block;}
+.yui-cal-nav input, .yui-cal-nav select {float:none;display:block;}

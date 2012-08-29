@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class contactActions</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class contactActions</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">contact actions.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: actions.class.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_apps---frontend---modules---contact---actions---actions.class.php.html">/apps/frontend/modules/contact/actions/actions.class.php</a> (line <span class="field">11</span>)
+		</p>
+		
+				
+		<pre>sfActions
+   |
+   --<a href="../../aranet/frontend/myActions.html">myActions</a>
+      |
+      --contactActions</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addFiltersCriteria" title="details" class="method-name">addFiltersCriteria</a>
+											(<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$c</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executeAutocomplete" title="details" class="method-name">executeAutocomplete</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executeDeleteobject" title="details" class="method-name">executeDeleteobject</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executeGetCompanies" title="details" class="method-name">executeGetCompanies</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executeMinicreate" title="details" class="method-name">executeMinicreate</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executeMiniedit" title="details" class="method-name">executeMiniedit</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executeMinilist" title="details" class="method-name">executeMinilist</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executeUpdate" title="details" class="method-name">executeUpdate</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>
+										<a href="#getContact" title="details" class="method-name">getContact</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSortColumn" title="details" class="method-name">getSortColumn</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodaddFiltersCriteria" id="addFiltersCriteria"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addFiltersCriteria</span> (line <span class="line-number">226</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">adds filters criteria</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addFiltersCriteria
+		</span>
+					(<span class="var-type">Criteria</span>&nbsp;<span class="var-name">$c</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Criteria</span>
+				<span class="var-name">$c</span><span class="var-description">: the base criteria</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexecuteAutocomplete" id="executeAutocomplete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeAutocomplete</span> (line <span class="line-number">182</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">executes autocomplete action</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executeAutocomplete
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodexecuteDeleteobject" id="executeDeleteobject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeDeleteobject</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">executes deleteobject action</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executeDeleteobject
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodexecuteGetCompanies" id="executeGetCompanies"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeGetCompanies</span> (line <span class="line-number">195</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">executes getCompanies action</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executeGetCompanies
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodexecuteMinicreate" id="executeMinicreate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeMinicreate</span> (line <span class="line-number">55</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">executes minicreate action</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executeMinicreate
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodexecuteMiniedit" id="executeMiniedit"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeMiniedit</span> (line <span class="line-number">71</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">executes miniedit action</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executeMiniedit
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodexecuteMinilist" id="executeMinilist"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeMinilist</span> (line <span class="line-number">36</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">executes minilist action</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executeMinilist
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodexecuteUpdate" id="executeUpdate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeUpdate</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">executes update action</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executeUpdate
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetContact" id="getContact"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContact</span> (line <span class="line-number">20</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns contact from params</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../aranet/lib-model/Contact.html">Contact</a></span>
+		<span class="method-name">
+			getContact
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetSortColumn" id="getSortColumn"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSortColumn</span> (line <span class="line-number">213</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the column name to sort list by default</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSortColumn
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../aranet/frontend/myActions.html#methodgetSortColumn">myActions::getSortColumn()</a></dt>
+						<dd>returns order column</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../aranet/frontend/myActions.html">myActions</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodaddSortCriteria">myActions::addSortCriteria()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodexecuteCreate">myActions::executeCreate()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodexecuteDelete">myActions::executeDelete()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodexecuteEdit">myActions::executeEdit()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodexecuteIndex">myActions::executeIndex()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodexecuteList">myActions::executeList()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodexecuteListByTag">myActions::executeListByTag()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodexecuteShow">myActions::executeShow()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodgetModel">myActions::getModel()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodgetOrderType">myActions::getOrderType()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodgetSortColumn">myActions::getSortColumn()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodhandleErrorEdit">myActions::handleErrorEdit()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodhandleErrorUpdate">myActions::handleErrorUpdate()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodprocessFilters">myActions::processFilters()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodprocessList">myActions::processList()</a></span><br>
+													<span class="method-name"><a href="../../aranet/frontend/myActions.html#methodprocessSort">myActions::processSort()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:07:47 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

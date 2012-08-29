@@ -1,0 +1,54 @@
+Graphic:
+  Graphic_1:
+    graphic_name: "Cash Flow 2008: Ingresos vs. Gastos"
+    data_points: 24
+    start_date: 2008-01-01 00:00:00
+    end_date: 2008-12-31 23:59:59
+  Graphic_15:
+    graphic_name: "Balance 2008"
+    data_points: 24
+    start_date: 2008-01-01 00:00:00
+    end_date: 2008-12-31 23:59:59
+    is_default:        true
+  Graphic_2:
+    graphic_name: >
+      Primer semestre de 2008: Ingresos vs.
+      Gastos
+    data_points: 24
+    start_date: 2008-01-01 00:00:00
+    end_date: 2008-06-30 23:59:59
+  Graphic_3:
+    graphic_name: >
+      Segundo semestre de 2008: Ingresos vs.
+      Gastos
+    data_points: 24
+    start_date: 2008-07-01 00:00:00
+    end_date: 2008-12-31 23:59:59
+  Graphic_4:
+    graphic_name: >
+      Primer trimestre de 2008: Ingresos vs.
+      Gastos
+    data_points: 24
+    start_date: 2008-01-01 00:00:00
+    end_date: 2008-03-31 23:59:59
+  Graphic_5:
+    graphic_name: >
+      Segundo trimestre de 2008: Ingresos vs.
+      Gastos
+    data_points: 24
+    start_date: 2008-04-01 00:00:00
+    end_date: 2008-06-30 23:59:59
+  Graphic_6:
+    graphic_name: >
+      Tercer trimestre de 2008: Ingresos vs.
+      Gastos
+    data_points: 24
+    start_date: 2008-07-01 00:00:00
+    end_date: 2008-09-30 23:59:59
+  Graphic_7:
+    graphic_name: >
+      Cuarto trimestre de 2008: Ingresos vs.
+      Gastos
+    data_points: 24
+    start_date: 2008-10-01 00:00:00
+    end_date: 2008-12-31 23:59:59

@@ -1,0 +1,9 @@
+fields:
+  contact_first_name:
+    required:
+      msg: The field cannot be left blank
+  
+  contact_last_name:
+    required:
+      msg: The field cannot be left blank
+  

@@ -1,0 +1,482 @@
+KindOfCompany:
+  software:
+    kind_of_company_title:          Desarrollo de software
+    kind_of_company_description:    Empresas de desarrollo de software
+
+  telco:
+    kind_of_company_title:          Telecomunicaciones
+    kind_of_company_description:    Empresas de telecomunicaciones
+
+  distribuidor:
+    kind_of_company_title:          Distribuidor/Importador
+    kind_of_company_description:    Empresas de distribución/importación
+
+  integrador:
+    kind_of_company_title:          Integrador-Servicios
+    kind_of_company_description:    Empresas de integración y servicios
+
+  servicios:
+    kind_of_company_title:          Servicios
+    kind_of_company_description:    Empresas de servicios
+
+  particular:
+    kind_of_company_title:          Particular
+    kind_of_company_description:
+
+  otros:
+    kind_of_company_title:          Otros
+    kind_of_company_description:
+
+TypeOfHour:
+  gestor:
+    type_of_hour_title:         Gestor de Proyecto
+    type_of_hour_description:   Gestión técnica de proyectos
+    type_of_hour_cost:          25
+
+  requisitos:
+    type_of_hour_title:         Requisitos
+    type_of_hour_description:   Toma de requisitos, reuniones previas, etc
+    type_of_hour_cost:          23
+
+  analista:
+    type_of_hour_title:         Analista
+    type_of_hour_description:   Analista
+    type_of_hour_cost:          23
+
+  programador:
+    type_of_hour_title:         Programador
+    type_of_hour_description:   Programación
+    type_of_hour_cost:          19
+
+  disenador:
+    type_of_hour_title:         Diseñador
+    type_of_hour_description:   Diseño de interfaces, gráficos, etc.
+    type_of_hour_cost:          23
+
+  soporte:
+    type_of_hour_title:         Soporte de cliente
+    type_of_hour_description:   soporte de clientes
+    type_of_hour_cost:          25
+
+BudgetStatus:
+  abierto:
+    id: 1
+    budget_status_title:  Abierto/Sin Enviar
+  cerrado:
+    id: 2
+    budget_status_title:  Cerrado/Enviado
+  aceptado:
+    id: 3
+    budget_status_title:  Aceptado
+  rechazado:
+    id: 4
+    budget_status_title:  Rechazado
+  caducado:
+    id: 5
+    budget_status_title:  Caducado
+
+ProjectStatus:
+  not-started-es:
+    id: 1
+    project_status_title:       Sin empezar
+
+  in-progress-es:
+    id: 2
+    project_status_title:       En progreso
+
+  completed-es:
+    id: 3
+    project_status_title:       Completado
+
+  on-hold-es:
+    id: 4
+    project_status_title:       En espera
+
+PaymentCondition:
+  sin-especificar:
+    payment_condition_days:         -1
+    payment_condition_payment_day:  -1
+    payment_condition_title:        Sin especificar
+
+  inmediato:
+    payment_condition_days:         1
+    payment_condition_payment_day:  -1
+    payment_condition_title:        Inmediato
+
+  15dias-pago0:
+    payment_condition_days:         15
+    payment_condition_payment_day:  -1
+    payment_condition_title:        15 Días
+
+  30dias-pago0:
+    payment_condition_days:         30
+    payment_condition_payment_day:  -1
+    payment_condition_title:        30 Días
+
+  60dias-pago0:
+    payment_condition_days:         60
+    payment_condition_payment_day:  -1
+    payment_condition_title:        60 Días
+
+  90dias-pago0:
+    payment_condition_days:         90
+    payment_condition_payment_day:  -1
+    payment_condition_title:        90 Días
+
+  120dias-pago0:
+    payment_condition_days:         120
+    payment_condition_payment_day:  -1
+    payment_condition_title:        120 Días
+
+  0dias-pago15:
+    payment_condition_days:         0
+    payment_condition_payment_day:  15
+    payment_condition_title:        Inmediato, pago el día 15 del mes
+
+  15dias-pago15:
+    payment_condition_days:         15
+    payment_condition_payment_day:  15
+    payment_condition_title:        15 Días, pago el día 15 del mes
+
+  30dias-pago15:
+    payment_condition_days:         15
+    payment_condition_payment_day:  30
+    payment_condition_title:        30 Días, pago el día 15 del mes
+
+  60dias-pago15:
+    payment_condition_days:         60
+    payment_condition_payment_day:  15
+    payment_condition_title:        60 Días, pago el día 15 del mes
+
+  90dias-pago15:
+    payment_condition_days:         90
+    payment_condition_payment_day:  15
+    payment_condition_title:        90 Días, pago el día 15 del mes
+
+  120dias-pago15:
+    payment_condition_days:         120
+    payment_condition_payment_day:  15
+    payment_condition_title:        120 Días, pago el día 15 del mes
+
+PaymentStatus:
+  pendiente:
+    id: 1
+    payment_status_title:     Pendiente de pago
+
+  cumplido-sinpagar:
+    id: 2
+    payment_status_title:     Cumplido/Sin pagar
+
+  cumplido-pagado:
+    id: 3
+    payment_status_title:     Cumplido/Pagado
+
+  pendiente-envio:
+    id: 4
+    payment_status_title:     Pendiente de enviar
+
+PaymentMethod:
+  efectivo:
+    id: 1
+    payment_method_title:       Efectivo
+
+  cheque:
+    id: 2
+    payment_method_title:       Cheque
+
+  transferencia:
+    id: 3
+    payment_method_title:       Transferencia
+
+  tarjeta:
+    id: 4
+    payment_method_title:       Tarjeta de crédito
+
+  tarjeta:
+    id: 5
+    payment_method_title:       Cargo en cuenta
+
+InvoiceCategory:
+  horas:
+    id: 1
+    category_title:             Horas
+
+  dias:
+    id: 2
+    category_title:             Días
+
+  servicios:
+    id: 3
+    category_title:             Servicio
+
+  productos:
+    id: 4
+    category_title:             Producto
+
+  mixto:
+    id: 5
+    category_title:             Mixto
+
+TypeOfInvoiceItem:
+  horas:
+    id: 1
+    type_of_item_title:             Horas
+
+  dias:
+    id: 2
+    type_of_item_title:             Días
+
+  servicios:
+    id: 3
+    type_of_item_title:             Servicio
+
+  productos:
+    id: 4
+    type_of_item_title:             Producto
+
+ExpenseCategory:
+  compra-pequeno-material:
+    id: 1
+    category_title:             Compra pequeño material
+
+  vuelo-publico:
+    id: 2
+    category_title:             Vuelo/Transporte público
+
+  gasolina:
+    id: 3
+    category_title:             Gasolina
+
+  comidas:
+    id: 4
+    category_title:             Comidas
+
+  alquiler-coche:
+    id: 5
+    category_title:             Alquiler de coches
+
+  imasd:
+    id: 6
+    category_title:             I+D
+
+  gastos-envios-postal:
+    id: 7
+    category_title:             Gastos postales/envíos
+
+  material-informatico:
+    id: 8
+    category_title:             Equipamiento informático
+
+  equipos-para-proyecto:
+    id: 9
+    category_title:             Materiales/Equipos para proyecto
+
+  alquiler-oficina:
+    id: 10
+    category_title:             Alquiler oficina
+
+  telefonia:
+    id: 11
+    category_title:             Telefonía
+
+  suscripciones:
+    id: 12
+    category_title:             Suscripciones a medios
+
+  marketing-publicidad:
+    id: 13
+    category_title:             Marketing & Publicidad
+
+  varios:
+    id: 14
+    category_title:             Varios
+
+  impuestos:
+    id: 15
+    category_title:             Impuestos
+
+  impuestos_iva:
+    id: 16
+    category_title:             I.V.A.
+
+Reimbursement:
+  reembolsable:
+    id: 1
+    reimbursement_title:        Reembolsable
+
+  no-reembolsable:
+    id: 2
+    reimbursement_title:        No reembolsable
+
+  personal:
+    id: 3
+    reimbursement_title:        Personal
+
+TaskPriority:
+  low:
+    task_priority_title:        Baja
+
+  medium:
+    task_priority_title:        Media
+
+  high:
+    task_priority_title:        Alta
+
+  critical:
+    task_priority_title:        Crítica
+
+Report:
+  Report_1:
+    report_name: Listado de gastos
+    report_model: ExpenseItem
+  Report_2:
+    report_name: Listado gestoría
+    report_model: ExpenseItem
+ReportColumn:
+  ReportColumn_1:
+    report_id: Report_1
+    column_name: Fecha
+    column_order: 1
+    column_width: 1.8
+    column_eval_script: $this->getDate()
+  ReportColumn_2:
+    report_id: Report_1
+    column_php_name: EXPENSE_PURCHASE_BY
+    column_name: Miembro
+    column_order: 2
+    column_width: 4
+    column_eval_script: $this->getMember()
+  ReportColumn_3:
+    report_id: Report_1
+    column_php_name: EXPENSE_ITEM_PROJECT_ID
+    column_name: Proyecto
+    column_order: 3
+    column_width: 2.5
+    column_eval_script: $this->getProject()
+  ReportColumn_4:
+    report_id: Report_1
+    column_php_name: EXPENSE_ITEM_BUDGET_ID
+    column_name: Presupuesto
+    column_order: 4
+    column_width: 2.5
+    column_eval_script: $this->getBudget()
+  ReportColumn_5:
+    report_id: Report_1
+    column_php_name: EXPENSE_ITEM_VENDOR_ID
+    column_name: Proveedor
+    column_order: 5
+    column_width: 3.5
+    column_eval_script: >
+      $this->getVendor() . " (" .
+      $this->getVendor()->getVendorCif() . ")"
+  ReportColumn_6:
+    report_id: Report_1
+    column_php_name:
+    column_name: Concepto
+    column_order: 6
+    column_width: 0
+    column_eval_script: $this->__toString()
+  ReportColumn_7:
+    report_id: Report_1
+    column_php_name: EXPENSE_ITEM_PAYMENT_METHOD_ID
+    column_name: Forma de pago
+    column_order: 7
+    column_width: 2.5
+    column_eval_script: $this->getPaymentMethod()
+  ReportColumn_8:
+    report_id: Report_1
+    column_php_name:
+    column_name: Subtot.
+    column_order: 8
+    column_width: 2
+    column_eval_script: $this->getSubtotal()
+  ReportColumn_9:
+    report_id: Report_1
+    column_php_name: EXPENSE_ITEM_VALIDATION_ID
+    column_name: Val.
+    column_order: 9
+    column_width: 1
+    column_eval_script: >
+      '<fo:external-graphic src="' .
+      sfConfig::get('sf_web_dir') . '/images/'
+      . $this->getValidation() . '"/>'
+  ReportColumn_10:
+    report_id: Report_2
+    column_php_name:
+    column_name: Fecha
+    column_order: 1
+    column_width: 1.8
+    column_eval_script: $this->getDate()
+  ReportColumn_11:
+    report_id: Report_2
+    column_php_name:
+    column_name: Concepto
+    column_order: 2
+    column_width: 0
+    column_eval_script: $this->__toString()
+  ReportColumn_12:
+    report_id: Report_2
+    column_php_name: EXPENSE_ITEM_VENDOR_ID
+    column_name: Proveedor
+    column_order: 3
+    column_width: 4
+    column_eval_script: htmlspecialchars($this->getVendor())
+  ReportColumn_13:
+    report_id: Report_2
+    column_name: CIF
+    column_order: 4
+    column_width: 2.2
+    column_eval_script: $this->getVendor()->getVendorCif()
+  ReportColumn_14:
+    report_id: Report_2
+    column_name: Nº Factura
+    column_order: 5
+    column_width: 3
+    column_eval_script: $this->getExpenseItemInvoiceNumber()
+  ReportColumn_15:
+    report_id: Report_2
+    column_php_name: EXPENSE_ITEM_AMOUNT
+    column_name: B. Impon.
+    column_order: 6
+    column_width: 1.8
+    column_eval_script: $this->getExpenseItemBase()
+  ReportColumn_16:
+    report_id: Report_2
+    column_php_name: EXPENSE_ITEM_TAX_RATE
+    column_name: IVA(%)
+    column_order: 7
+    column_width: 1.4
+    column_eval_script: >
+      format_percent($this->getExpenseItemTaxRate())
+  ReportColumn_17:
+    report_id: Report_2
+    column_name: IVA
+    column_order: 8
+    column_width: 1.4
+    column_eval_script: >
+      ext_format_number($this->getExpenseItemTaxRate()
+      * $this->getExpenseItemBase(), 2, 100)
+  ReportColumn_18:
+    report_id: Report_2
+    column_php_name: EXPENSE_ITEM_IRPF
+    column_name: IRPF
+    column_order: 9
+    column_width: 1.4
+    column_eval_script: $this->getExpenseItemIrpf()
+  ReportColumn_19:
+    report_id: Report_2
+    column_name: Importe
+    column_order: 10
+    column_width: 2
+    column_eval_script: >
+      ext_format_number($this->getExpenseItemBase()
+      *
+      (100+$this->getExpenseItemTaxRate())/100
+      + $this->getExpenseItemIrpf(), 2);
+  ReportColumn_20:
+    report_id: Report_2
+    column_php_name: EXPENSE_ITEM_PAYMENT_METHOD_ID
+    column_name: Pagado
+    column_order: 11
+    column_width: 2.2
+    column_eval_script: $this->getPaymentMethod()

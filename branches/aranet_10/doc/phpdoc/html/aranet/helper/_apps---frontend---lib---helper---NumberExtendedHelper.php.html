@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page NumberExtendedHelper.php</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/apps/frontend/lib/helper/NumberExtendedHelper.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">NumberExtendedHelper.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Fabien Potencier &lt;<a href="mailto:fabien.potencier@symfony-project.com">fabien.potencier@symfony-project.com</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: $Id: NumberExtendedHelper.php 3 2008-08-06 07:48:19Z pablo $</li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionext_format_currency" id="functionext_format_currency"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">ext_format_currency</span> (line <span class="line-number">178</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ext_format_currency
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$amount</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$decimals</span> = <span class="var-default">0</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$currency</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$culture</span> = <span class="var-default">null</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$amount</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$decimals</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$currency</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$culture</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionext_format_number" id="functionext_format_number"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">ext_format_number</span> (line <span class="line-number">128</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ext_format_number
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$number</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$decimals</span> = <span class="var-default">0</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$div</span> = <span class="var-default">1</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$culture</span> = <span class="var-default">null</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$number</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$decimals</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$div</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$culture</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_code" id="functionformat_code"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">format_code</span> (line <span class="line-number">123</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a spanish CP Number.</p>
+<p class="description"><p>&lt;strong&gt;Example:&lt;/strong&gt;  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionformat_code">format_code</a><span class="src-sym">(</span><span class="src-str">'12345'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;12.345</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionformat_string">format_string()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			format_code
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">&#039;00.000&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the unformatted ssn to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: the format to use, defaults to '00.000'</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_eur" id="functionformat_eur"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">format_eur</span> (line <span class="line-number">198</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a EUR currency value with two decimal places and a euro sign.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="http://www.php.net/sprintf">sprintf</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			format_eur
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$money</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$eur</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">&#039;%0.2f&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$money</span><span class="var-description">: the unformatted amount to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$eur</span><span class="var-description">: the format to use, defaults to '$%0.2f'</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$format</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_exp" id="functionformat_exp"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">format_exp</span> (line <span class="line-number">298</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a credit card expiration string. Expects 4-digit string (MMYY).</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionformat_string">format_string()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			format_exp
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">&#039;00-00&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the unformatted expiration string to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: the format to use, defaults to '00-00'</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_filesize" id="functionformat_filesize"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">format_filesize</span> (line <span class="line-number">144</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			format_filesize
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$unit</span> = <span class="var-default">&#039;KB&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$value</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$unit</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_hour" id="functionformat_hour"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">format_hour</span> (line <span class="line-number">211</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a hours time value with two decimal places and a hours suffix.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="http://www.php.net/sprintf">sprintf</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			format_hour
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$hours</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$symbol</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">&#039;%0.2f&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$hours</span><span class="var-description">: the unformatted amount to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$symbol</span><span class="var-description">: the format to use, defaults to '$%0.2f'</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$format</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_indicator" id="functionformat_indicator"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">format_indicator</span> (line <span class="line-number">349</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a indicator object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			format_indicator
+		</span>
+					(<span class="var-type">object</span>&nbsp;<span class="var-name">$indicator</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">object</span>
+				<span class="var-name">$indicator</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_percent" id="functionformat_percent"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">format_percent</span> (line <span class="line-number">224</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a EUR currency value with two decimal places and a dollar sign.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="http://www.php.net/sprintf">sprintf</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			format_percent
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$percent</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$symbol</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">&#039;%0.2f&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$percent</span><span class="var-description">: the unformatted amount to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$symbol</span><span class="var-description">: the format to use, defaults to '$%0.2f'</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$format</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_string" id="functionformat_string"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">format_string</span> (line <span class="line-number">37</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a number by injecting nonnumeric characters in a specified format  into the string in the positions they appear in the format.</p>
+<p class="description"><p>&lt;strong&gt;Example:&lt;/strong&gt;  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionformat_string">format_string</a><span class="src-sym">(</span><span class="src-str">'1234567890'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'(000)&nbsp;000-0000'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;(123)&nbsp;456-7890</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionformat_string">format_string</a><span class="src-sym">(</span><span class="src-str">'1234567890'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'000.000.0000'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;123.456.7890</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> formatted string</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			format_string
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the string to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: the format to apply</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionformat_usd" id="functionformat_usd"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">format_usd</span> (line <span class="line-number">324</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a USD currency value with two decimal places and a dollar sign.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="http://www.php.net/sprintf">sprintf</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			format_usd
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$money</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$dollar</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">&#039;%0.2f&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$money</span><span class="var-description">: the unformatted amount to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$dollar</span><span class="var-description">: the format to use, defaults to '$%0.2f'</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$format</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionis_alphanumeric" id="functionis_alphanumeric"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">is_alphanumeric</span> (line <span class="line-number">337</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines if a string has only alpha/numeric characters.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="http://www.php.net/preg_match">preg_match</a></li>
+				<li><span class="field">see:</span> <a href="http://www.php.net/is_numeric">is_numeric</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			is_alphanumeric
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the string to check as alpha/numeric</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionmask_credit_card" id="functionmask_credit_card"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">mask_credit_card</span> (line <span class="line-number">311</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats (masks) a credit card.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionmask_string">mask_string()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			mask_credit_card
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">&#039;**** **** **** 0000&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the unformatted credit card number to format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: the format to use, defaults to '**** **** **** 0000'</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionmask_string" id="functionmask_string"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">mask_string</span> (line <span class="line-number">263</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Transforms a number by masking characters in a specified mask format,  and ignoring characters that should be injected into the string without  matching a character from the original string (defaults to space).</p>
+<p class="description"><p>&lt;strong&gt;Example:&lt;/strong&gt;  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionmask_string">mask_string</a><span class="src-sym">(</span><span class="src-str">'1234567812345678'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'************0000'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;************5678</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionmask_string">mask_string</a><span class="src-sym">(</span><span class="src-str">'1234567812345678'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'****&nbsp;****&nbsp;****&nbsp;0000'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;****&nbsp;****&nbsp;****&nbsp;5678</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionmask_string">mask_string</a><span class="src-sym">(</span><span class="src-str">'1234567812345678'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'****&nbsp;-&nbsp;****&nbsp;-&nbsp;****&nbsp;-&nbsp;0000'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'&nbsp;-'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;****&nbsp;-&nbsp;****&nbsp;-&nbsp;****&nbsp;-&nbsp;5678</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the masked string</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			mask_string
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$ignore</span> = <span class="var-default">&#039; &#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the string to transform</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: the mask format</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$ignore</span><span class="var-description">: a string (defaults to a single space) containing characters to ignore in the format</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionround_amount" id="functionround_amount"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">round_amount</span> (line <span class="line-number">365</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Rounds an amount</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Pablo Sánchez &lt;<a href="mailto:pablo.sanchez@aranova.es">pablo.sanchez@aranova.es</a>&gt;</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">double</span>
+		<span class="method-name">
+			round_amount
+		</span>
+					(<span class="var-type">double</span>&nbsp;<span class="var-name">$amount</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$decimals</span> = <span class="var-default">2</span>], [<span class="var-type">double</span>&nbsp;<span class="var-name">$div</span> = <span class="var-default">1</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">double</span>
+				<span class="var-name">$amount</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$decimals</span>			</li>
+					<li>
+				<span class="var-type">double</span>
+				<span class="var-name">$div</span><span class="var-description">: a division number</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionsmart_format_filesize" id="functionsmart_format_filesize"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">smart_format_filesize</span> (line <span class="line-number">162</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			smart_format_filesize
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionsmart_format_phone" id="functionsmart_format_phone"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">smart_format_phone</span> (line <span class="line-number">90</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a variable length phone number, using a standard format.</p>
+<p class="description"><p>&lt;strong&gt;Example:&lt;/strong&gt;  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionsmart_format_phone">smart_format_phone</a><span class="src-sym">(</span><span class="src-str">'1234567'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;123-4567</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionsmart_format_phone">smart_format_phone</a><span class="src-sym">(</span><span class="src-str">'123456789'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;123&nbsp;456&nbsp;789</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionsmart_format_phone">smart_format_phone</a><span class="src-sym">(</span><span class="src-str">'1234567890'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;(123)&nbsp;456-7890</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionsmart_format_phone">smart_format_phone</a><span class="src-sym">(</span><span class="src-str">'91234567890'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;9&nbsp;(123)&nbsp;456-7890</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionsmart_format_phone">smart_format_phone</a><span class="src-sym">(</span><span class="src-str">'+34123456789'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;12&nbsp;+34&nbsp;123&nbsp;456&nbsp;789</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;echo&nbsp;<a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionsmart_format_phone">smart_format_phone</a><span class="src-sym">(</span><span class="src-str">'123456'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;=&gt;&nbsp;123456</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../aranet/helper/_apps---frontend---lib---helper---NumberExtendedHelper.php.html#functionformat_string">format_string()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			smart_format_phone
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the unformatted phone number to format</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionto_currency" id="functionto_currency"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">to_currency</span> (line <span class="line-number">233</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			to_currency
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$number</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$round</span> = <span class="var-default">2</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$number</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$round</span>			</li>
+				</ul>
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Dec 2008 16:08:37 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>
